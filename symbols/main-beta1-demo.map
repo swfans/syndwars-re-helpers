@@ -33,7 +33,11 @@
  0001:00063DC8       collide_sub_63DC8
  0001:00068458       shockwave_person
  0001:00070450       nullsub_5
+ 0001:00070C00       check_unlock_target
+ 0001:00073310       fli_frame_sub_73310
+ 0001:000733F0       fli_sub_733F0
  0001:00073A64       play_smacker_video
+ 0001:00073F80       anim_open
  0001:00074B78       DEBUGMSG
  0001:00074B7C       nullsub_6
  0001:00074C58       highlight_thing
@@ -106,6 +110,7 @@
  0001:0008D624       W?path_init8$n(pn$Path$$lllll)v
  0001:0008D990       point_new_from_top
  0001:0008E8BC       make_triangle
+ 0001:0009E65C       W?show_main_screen$n()v
  0001:000A1F14       objectiv_sub_A1F14
  0001:000A3CA4       objectiv_sub_A3CA4
  0001:000A5590       objectiv_sub_A5590
@@ -117,6 +122,7 @@
  0001:000A7CBC       scanner_sub_A7CBC
  0001:000A8770       scanner_sub_A8770
  0001:000ABB58       scanner_sub_ABB58
+ 0001:000B2C48       W?draw_purple_screen$n()v
  0001:000BA0CC       tri_path_init8
  0001:000BAD28       nullsub_8
  0001:000BBFC8       usenav_sub_BBFC8
@@ -137,6 +143,7 @@
  0001:000CFD70       LbMemoryAlloc_
  0001:000CFDF8       LbMemoryAllocLow_
  0001:000CFF88       LbMemoryFree_
+ 0001:000D0138       LbMemorySetup_
  0001:000D2B84       FileOpenInclCD
  0001:000D3930       LbScreenIsModeAvailable_
  0001:000D3970       LbScreenSetGraphicsWindow_
@@ -150,7 +157,29 @@
  0001:000D3C6B       sprintf_
  0001:000D3CA0       get_cmdline
  0001:000D72C7       atoi_
- 0001:000D7F6C       start
+ 0001:000D7664       LbNetworkServiceStart_
+ 0001:000D773C       LbNetworkExchange_
+ 0001:000D7C84       LbNetworkSessionNumberPlayers_
+ 0001:000D7CC0       LbNetworkSend_
+ 0001:000D7CE4       LbNetworkReceive_
+ 0001:000D7D08       LbNetworkMessageSend_
+ 0001:000D7D2C       LbNetworkMessageReceive_
+ 0001:000D7D50       LbNetworkSendNoWait_
+ 0001:000D7D74       LbNetworkReceiveNoWait_
+ 0001:000D7D98       LbNetworkInit_
+ 0001:000D7DD4       LbNetworkDial_
+ 0001:000D7E18       LbNetworkAnswer_
+ 0001:000D7E54       LbNetworkHangUp_
+ 0001:000D7E90       LbNetworkReadConfig_
+ 0001:000D7EC4       LbNetworkSetBaud_
+ 0001:000D7F04       LbNetworkSetSessionCreateFunction_
+ 0001:000D7F10       LbNetworkSetSessionJoinFunction_
+ 0001:000D7F1C       LbNetworkSetSessionExchangeFunction_
+ 0001:000D7F28       LbNetworkSetSessionInitFunction_
+ 0001:000D7F34       LbNetworkSetSessionDialFunction_
+ 0001:000D7F40       LbNetworkSetSessionAnswerFunction_
+ 0001:000D7F4C       LbNetworkSetSessionHangUpFunction_
+ 0001:000D7F6C       _cstart_
  0001:000D7F6E       aWatcomCC32RunT
  0001:000D81FB       __exit_
  0001:000D81FD       __do_exit_with_msg__
@@ -158,11 +187,19 @@
  0001:000D82D0       LbSpriteDraw_
  0001:000D9B70       LbDrawBox_
  0001:000D9CD0       LbDrawLine_
+ 0001:000DA500       LbFileExists_
+ 0001:000DA524       LbFilePosition_
+ 0001:000DA550       LbFileOpen_
  0001:000DA62C       LbFileClose_
  0001:000DA654       LbFileSeek_
  0001:000DA6C8       LbFileRead_
  0001:000DA700       LbFileWrite_
  0001:000DA738       LbFileLength_
+ 0001:000DA78C       LbFileFindFirst_
+ 0001:000DA7D0       LbFileFindNext_
+ 0001:000DA818       LbFileRename_
+ 0001:000DA848       LbFileDelete_
+ 0001:000DA870       W?convert_find_info$n(pn$TbFileFind$$)v
  0001:000DAA10       LbMousePlace_
  0001:000DAB68       LbMouseRemove_
  0001:000DAC44       LbMouseSetPointerHotspot_
@@ -256,7 +293,17 @@
  0001:000DE5C8       LbDataLoadAll_
  0001:000DE684       LbDataFree_
  0001:000DE6B8       LbDataFreeAll_
+ 0001:000DE6F0       LoadSounds_
  0001:000DE9A0       W?format_sounds$n()v
+ 0001:000DEA00       W?load_sound_bank$n(luc)uc
+ 0001:000DEC20       AllocateSoundBankMemory_
+ 0001:000DEE90       W?DeInitSoundBank$n()v
+ 0001:000DEEC0       LoadMusic_
+ 0001:000DF0E0       W?format_music$n()v
+ 0001:000DF140       W?load_music_bank$n(luc)uc
+ 0001:000DF340       AllocateMusicBankMemory_
+ 0001:000DF500       W?DeInitMusicBank$n()v
+ 0001:000DF530       FreeAudio_
  0001:000DF580       LbScreenSetupAnyMode_
  0001:000DF77C       LbScreenClearGraphicsWindow_
  0001:000DF7C8       LbScreenClear_
@@ -285,25 +332,36 @@
  0001:000E0649       __MkTmpFile_
  0001:000E06AE       __doclose_
  0001:000E0740       SetMusicMasterVolume_
- 0001:000E07D2       j___clock_
+ 0001:000E07D2       clock_
  0001:000E1310       LbVesaGetGran_
  0001:000E1418       LbVesaSetMode_
  0001:000E1474       LbVesaSetPage_
  0001:000E14F4       LbVesaGetInfo_
  0001:000E15B8       LbVesaIsModeAvailable_
- 0001:000E163A       __null_int23_exit_
+ 0001:000E163A       __null_exit_rtn_
  0001:000E163B       exit_
  0001:000E1653       _exit_
  0001:000E17C0       DangerMusicFadeSwitch
  0001:000E1900       SetSampleTempo
  0001:000E1950       SetSampleTempoNormal
+ 0001:000E19B0       SetSampleRepeat
+ 0001:000E1B00       SetSamplePitch_
+ 0001:000E1BB0       LbDrawTriangle_
  0001:000E1C40       LbTextSetWindow_
+ 0001:000E1C7C       LbTextSetJustifyWindow_
+ 0001:000E1CCC       LbTextSetClipWindow_
+ 0001:000E1DF4       LbTextStringWidth_
+ 0001:000E1ECC       LbTextWordWidth_
+ 0001:000E1F50       LbTextStringHeight_
  0001:000E1FC4       LbTextDraw_
+ 0001:000E2AF0       StopAllSamples_
+ 0001:000E2C20       StartMusic_
  0001:000E2E7F       printf_
  0001:000E2F56       time_
  0001:000E2F8B       rand_
  0001:000E2FAF       srand_
  0001:000E2FBF       memmove_
+ 0001:000E300C       LbDrawHVLine_
  0001:000E31ED       cget_string_
  0001:000E3216       uncget_string_
  0001:000E321A       vsscanf_
@@ -342,56 +400,256 @@
  0001:000E549A       fread_
  0001:000E6154       segread_
  0001:000E617C       int386x_
+ 0001:000E7210       CallIPX_
+ 0001:000E7288       CallRealModeInterrupt_
+ 0001:000E72DC       setup_bullfrog_header_
+ 0001:000E7334       ipx_create_session_
+ 0001:000E75D8       ipx_join_session_
+ 0001:000E7B60       ipx_session_list_
+ 0001:000E7D70       ipx_update_
+ 0001:000E7EA0       ipx_log_on_new_players_
+ 0001:000E7F78       ipx_add_new_player_
+ 0001:000E8080       ipx_send_packet_
+ 0001:000E815C       ipx_sub_E815C
+ 0001:000E81D8       ipx_sub_E81D8
+ 0001:000E82F8       ipx_get_packet_
+ 0001:000E839C       ipx_exchange_packets_
+ 0001:000E859C       ipx_get_players_packets_
+ 0001:000E8828       ipx_send_packet_to_all_
+ 0001:000E8BC8       ipx_send_last_packet_
+ 0001:000E8CEC       ipx_send_packet_to_player_
+ 0001:000E8E4C       ipx_send_and_get_packet_
+ 0001:000E8FAC       ipx_get_host_packet_
+ 0001:000E9164       ipx_get_player_number_
+ 0001:000E9180       ipx_get_host_player_number_
+ 0001:000E9194       ipx_get_player_name_
+ 0001:000E91F8       ipx_add_player_to_session_
+ 0001:000E9220       ipx_store_players_details_
+ 0001:000E9260       ipx_shutdown_listeners_
+ 0001:000E9270       ipx_openup_listeners_
+ 0001:000E9280       ipx_stop_network_
+ 0001:000E93EC       clear_ipx_info_
+ 0001:000E9430       ipx_send_packet_to_player_wait_
+ 0001:000E94FC       ipx_receive_packet_from_player_wait_
+ 0001:000E95B8       W?backup_old_player_datagram$n(llpnucl)v
+ 0001:000E96BC       W?send_old_player_datagram$n(l)v
+ 0001:000E9718       W?increment_players_datagram_packet_count$n(l)v
+ 0001:000E9784       ipx_network_send_
+ 0001:000E9E4C       ipx_network_receive_
+ 0001:000EA030       ipx_send_packet_to_player_nowait_
+ 0001:000EA174       ipx_receive_packet_from_player_nowait_
+ 0001:000EA244       is_header_valid_
+ 0001:000EA28C       W?run_create_function$n()l
+ 0001:000EA2A0       W?run_exchange_function$n()l
+ 0001:000EA2B0       W?run_join_function$n()l
+ 0001:000EA322       LbCommInit_
+ 0001:000EA572       LbCommSetBaud_
+ 0001:000EA730       W?backup_serial_int_vectors$:SerialHandler$n(pn$TbSerialDev$$)v
+ 0001:000EA7C8       W?setup_serial_int_vectors$:SerialHandler$n(pn$TbSerialDev$$)v
+ 0001:000EA957       W?init_com_port$:SerialHandler$n(pn$TbSerialDev$$)v
+ 0001:000EAB2F       LbCommExchange_
+ 0001:000EAC64       W?write_last_packet$n(pn$TbSerialDev$$)v
+ 0001:000EACE0       read_byte_
+ 0001:000EAD32       write_char_
+ 0001:000EADE0       W?write_char_no_buff$n(pn$TbSerialDev$$uc)v
+ 0001:000EAE21       W?lock_code_start$n()v
+ 0001:000EAE36       W?com_handler0$f()v
+ 0001:000EAE6C       W?com_handler1$f()v
+ 0001:000EAEA2       W?com_handler2$f()v
+ 0001:000EAED8       W?com_handler3$f()v
+ 0001:000EAF0E       W?handle_com$n(pn$TbSerialDev$$)v
+ 0001:000EAFD6       W?lock_code_end$n()v
+ 0001:000EAFEB       W?SetBps$n(pn$TbSerialDev$$l)l
+ 0001:000EB09C       W?SetDtr$n(pn$TbSerialDev$$uc)v
+ 0001:000EB0FC       W?SetRts$n(pn$TbSerialDev$$uc)v
+ 0001:000EB15C       W?read_a_line$n(pn$__iobuf$$pna)v
+ 0001:000EB19F       LbModemReadConfig_
+ 0001:000EB306       LbModemInit_
+ 0001:000EB374       LbModemDial_
+ 0001:000EB44B       LbModemAnswer_
+ 0001:000EB4EC       LbModemHangUp_
+ 0001:000EB5D1       LbModemRingType_
+ 0001:000EB61A       W?get_modem_response$n(pn$TbSerialDev$$)l
+ 0001:000EB779       W?send_string$n(pn$TbSerialDev$$pna)v
+ 0001:000EB7C9       W?AllocDosMem$n(ulpnus)pnv
+ 0001:000EB82F       W?run_exchange_func$n()l
+ 0001:000EB9BD       write_char_sub1
  0001:000EBA81       __CMain
  0001:000EBAD0       __InitRtns
  0001:000EBB1B       __FiniRtns
- 0001:000EBB6A       nullsub_25
+ 0001:000EBB6A       __null_FPE_rtn
  0001:000EBB6B       __Init_Argv_
  0001:000EBC2C       _SplitParms_
+ 0001:000EBD3C       LbDrawBoxClip_
  0001:000EBF00       access_
  0001:000EBF3B       tell_
  0001:000EBF4C       lseek_
  0001:000EBF8F       read_
  0001:000EC08A       write_
  0001:000EC25F       filelength_
- 0001:000EC29C       unknown_libname_1
- 0001:000EC2B9       unknown_libname_2
- 0001:000EC2D5       unknown_libname_3
+ 0001:000EC29C       _dos_findfirst_
+ 0001:000EC2B9       _dos_findnext_
+ 0001:000EC2D5       _dos_findclose_
+ 0001:000EC2D8       _dos_find_sub1
+ 0001:000EC2FB       _dos_find_sub2
  0001:000EC31E       rename_
  0001:000EC34C       remove_
  0001:000EC354       UnpackM1_
+ 0001:000EC4F1       read_long
+ 0001:000EC4FA       input_value
+ 0001:000EC53D       input_bits
+ 0001:000EC5C0       make_huftable
+ 0001:000EC660       LbDirectoryChange_
+ 0001:000EC688       LbDirectoryCreate_
  0001:000EC6B0       LbDirectoryCurrent_
+ 0001:000EC740       LbDirectoryExists_
+ 0001:000EC788       LbDirectoryRemove_
  0001:000EC7AF       getenv_
  0001:000EC810       SoundProgressLog_
  0001:000EC830       InitSound_
+ 0001:000ECED0       DetermineSoundType_
  0001:000ED0A0       InitMusic_
+ 0001:000ED8E0       W?fm_instrument_file_exists$n(pnuc)i
  0001:000ED900       InitAllBullfrogSoundTimers_
  0001:000EDA20       InitStreamedSound_
+ 0001:000EDB00       FreeStreamedSound_
+ 0001:000EDB40       PlayStreamedSample_
+ 0001:000EDEB0       MonitorStreamedSoundTrack_
+ 0001:000EDFE0       SetStreamedSampleVolume_
+ 0001:000EE030       StopStreamedSample_
+ 0001:000EE0C0       SwitchOffStreamedSound_
+ 0001:000EE160       W?SwitchOnStreamedSound$n()v
+ 0001:000EE170       GetStreamedSoundPosition_
+ 0001:000EE1F0       SetStreamedSoundPosition_
+ 0001:000EE240       SwapStreamedSoundTrack_
+ 0001:000EE2B0       W?play_adpcm_streamed_sample$n(pnall)v
+ 0001:000EE330       W?monitor_adpcm_sound_track$n()v
+ 0001:000EE3E0       W?allocate_buffers$n()l
+ 0001:000EE440       W?free_buffers$n()v
+ 0001:000EE4C0       W?monitor_mixed_sound_track$n()v
+ 0001:000EE650       W?mix_to_buffer$n(pnspnsulll)l
+ 0001:000EE770       W?findfirstfile$n(pnapna)pna
  0001:000EE9F0       CDSpeedTest_
- 0001:000EECE0       _AIL_startup
- 0001:000EF040       _plib_malloc_
- 0001:000EF050       _plib_free_
+ 0001:000EEB10       AILDEBUG_START
+ 0001:000EEBC0       _ail_timer_callback
+ 0001:000EEC30       TIME_WRITE
+ 0001:000EECE0       _AIL_startup_reg
+ 0001:000EEE80       _AIL_shutdown
+ 0001:000EEF20       _AIL_set_preference
+ 0001:000EF040       _AIL_lock
+ 0001:000EF050       _AIL_unlock
+ 0001:000EF060       _AIL_get_real_vect
+ 0001:000EF170       _AIL_set_real_vect
+ 0001:000EF200       _AIL_set_USE16_ISR
+ 0001:000EF2A0       _AIL_restore_USE16_ISR
+ 0001:000EF320       _AIL_disable_interrupts
+ 0001:000EF330       _AIL_restore_interrupts
  0001:000EF340       _AIL_call_driver
- 0001:000EF500       _AIL_API_read_INI
+ 0001:000EF470       _AIL_delay
+ 0001:000EF4F0       _AIL_background
+ 0001:000EF500       _AIL_read_INI
  0001:000EF8D0       _AIL_register_timer
+ 0001:000EF9E0       _AIL_set_timer_user
  0001:000EFB00       _AIL_set_timer_period
  0001:000EFB90       _AIL_set_timer_frequency
+ 0001:000EFC20       _AIL_set_timer_divisor
+ 0001:000EFCB0       _AIL_interrupt_divisor
  0001:000EFDC0       _AIL_start_timer
+ 0001:000EFE40       _AIL_start_all_timers
  0001:000EFEB0       _AIL_stop_timer
+ 0001:000EFF30       _AIL_stop_all_timers
  0001:000EFFA0       _AIL_release_timer_handle
+ 0001:000F0020       _AIL_release_all_timers
+ 0001:000F0090       _AIL_get_IO_environment
+ 0001:000F01A0       _AIL_install_driver
+ 0001:000F02C0       _AIL_uninstall_driver
+ 0001:000F0340       _AIL_install_DIG_INI
+ 0001:000F0450       _AIL_install_DIG_driver_file
+ 0001:000F0570       _AIL_uninstall_DIG_driver
  0001:000F05F0       _AIL_allocate_sample_handle
+ 0001:000F0700       _AIL_allocate_file_sample
+ 0001:000F0820       _AIL_release_sample_handle
  0001:000F08A0       _AIL_init_sample
  0001:000F0920       _AIL_set_sample_file
+ 0001:000F0A40       _AIL_set_sample_address
+ 0001:000F0AE0       _AIL_set_sample_type
  0001:000F0B80       _AIL_start_sample
+ 0001:000F0C00       _AIL_stop_sample
+ 0001:000F0C80       _AIL_resume_sample
  0001:000F0D00       _AIL_end_sample
+ 0001:000F0D80       _AIL_set_sample_playback_rate
+ 0001:000F0E10       _AIL_set_sample_volume
+ 0001:000F0EA0       _AIL_set_sample_pan
+ 0001:000F0F30       _AIL_set_sample_loop_count
  0001:000F0FC0       _AIL_sample_status
+ 0001:000F10D0       _AIL_sample_playback_rate
+ 0001:000F11E0       _AIL_sample_volume
+ 0001:000F12F0       _AIL_sample_pan
+ 0001:000F1400       _AIL_sample_loop_count
+ 0001:000F1510       _AIL_set_digital_master_volume
+ 0001:000F15A0       _AIL_digital_master_volume
+ 0001:000F16B0       _AIL_install_DIG_driver_image
+ 0001:000F17D0       _AIL_minimum_sample_buffer_size
+ 0001:000F18F0       _AIL_sample_buffer_ready
+ 0001:000F1A00       _AIL_load_sample_buffer
+ 0001:000F1AA0       _AIL_set_sample_position
+ 0001:000F1B30       _AIL_sample_position
+ 0001:000F1C40       _AIL_register_SOB_callback
+ 0001:000F1D60       _AIL_register_EOB_callback
  0001:000F1E80       _AIL_register_EOS_callback
+ 0001:000F1FA0       _AIL_register_EOF_callback
  0001:000F20C0       _AIL_set_sample_user_data
  0001:000F2160       _AIL_sample_user_data
+ 0001:000F2280       _AIL_active_sample_count
+ 0001:000F2390       _AIL_install_MDI_INI
+ 0001:000F24A0       _AIL_install_MDI_driver_file
+ 0001:000F25C0       _AIL_uninstall_MDI_driver
+ 0001:000F2640       _AIL_allocate_sequence_handle
+ 0001:000F2750       _AIL_release_sequence_handle
+ 0001:000F27D0       _AIL_init_sequence
+ 0001:000F28F0       _AIL_start_sequence
  0001:000F2970       _AIL_stop_sequence
+ 0001:000F29F0       _AIL_resume_sequence
  0001:000F2A70       _AIL_end_sequence
+ 0001:000F2AF0       _AIL_set_sequence_tempo
+ 0001:000F2B90       _AIL_set_sequence_volume
+ 0001:000F2C30       _AIL_set_sequence_loop_count
  0001:000F2CC0       _AIL_sequence_status
+ 0001:000F2DD0       _AIL_sequence_tempo
+ 0001:000F2EE0       _AIL_sequence_volume
+ 0001:000F2FF0       _AIL_sequence_loop_count
  0001:000F3100       _AIL_set_XMIDI_master_volume
+ 0001:000F3190       _AIL_XMIDI_master_volume
+ 0001:000F32A0       _AIL_install_MDI_driver_image
+ 0001:000F33C0       _AIL_MDI_driver_type
+ 0001:000F34D0       _AIL_set_GTL_filename_prefix
+ 0001:000F3550       _AIL_timbre_status
+ 0001:000F3670       _AIL_install_timbre
+ 0001:000F3790       _AIL_protect_timbre
+ 0001:000F3830       _AIL_unprotect_timbre
+ 0001:000F38D0       _AIL_active_sequence_count
+ 0001:000F39E0       _AIL_controller_value
+ 0001:000F3B00       _AIL_channel_notes
+ 0001:000F3C20       _AIL_sequence_position
+ 0001:000F3D40       _AIL_branch_index
+ 0001:000F3DD0       _AIL_register_prefix_callback
+ 0001:000F3EF0       _AIL_register_trigger_callback
+ 0001:000F4010       _AIL_register_sequence_callback
+ 0001:000F4130       _AIL_register_beat_callback
+ 0001:000F4250       _AIL_register_event_callback
+ 0001:000F4370       _AIL_register_timbre_callback
+ 0001:000F4490       _AIL_set_sequence_user_data
+ 0001:000F4530       _AIL_sequence_user_data
+ 0001:000F4650       _AIL_register_ICA_array
+ 0001:000F46E0       _AIL_lock_channel
+ 0001:000F47F0       _AIL_release_channel
+ 0001:000F4880       _AIL_map_sequence_channel
+ 0001:000F4920       _AIL_true_sequence_channel
+ 0001:000F4A40       _AIL_send_channel_voice_message
+ 0001:000F4AF0       _AIL_send_sysex_message
+ 0001:000F4B80       _AIL_create_wave_synthesizer
+ 0001:000F4CB0       _AIL_destroy_wave_synthesizer
+ 0001:000F4D30       AILDEBUG_END
  0001:000F4D60       GetCDTrackLength_
  0001:000F4D70       GetCDTrackStartSector_
  0001:000F4D80       is_daudio_track_
@@ -422,6 +680,9 @@
  0001:000F5FF0       StopMusic_
  0001:000F60F0       SMACKSOUNDUSEMSS
  0001:000F61B0       MSSLOWSOUNDVOLPAN
+ 0001:000F6390       MSSLOWSOUNDCLOSE
+ 0001:000F6450       MSSLOWSOUNDOPEN
+ 0001:000F6610       doinit_
  0001:000F6890       SMACKWAIT
  0001:000F69B0       SMACKSOUNDCHECK
  0001:000F69C0       SMACKVOLUMEPAN
@@ -453,11 +714,22 @@
  0001:000F9450       blockread_
  0001:000F9700       backgroundload_
  0001:000F9810       smkmalloc_
+ 0001:000F9840       LbLogSetup_
+ 0001:000F992C       LbLog_
+ 0001:000F9BD4       LbLogClose_
+ 0001:000F9C54       LbLogSetPrefix_
+ 0001:000F9CE8       LbLogDelete_
+ 0001:000F9D34       LbLogSuspend_
+ 0001:000F9D68       LbLogRestart_
  0001:000F9D9C       mem_putc__0
  0001:000F9DAF       vsprintf_
  0001:000F9DC4       _dos_getvect_
  0001:000F9DF6       _dos_setvect_
  0001:000F9E23       gets_
+ 0001:000F9ED0       FreeMusic_
+ 0001:000F9F80       FreeSound_
+ 0001:000F9FF0       LbExeReferenceNumber_
+ 0001:000FA000       LbMemoryCopy_
  0001:000FA034       LbMemorySet_
  0001:000FA057       __set_EDOM_
  0001:000FA05C       __set_errno_
@@ -512,6 +784,7 @@
  0001:000FBEDC       __CreateNewNHeap_
  0001:000FBF8C       __ExpandDGROUP_
  0001:000FC0D8       __AdjustAmount_
+ 0001:000FC155       __nmemneed_
  0001:000FC158       __IOMode_
  0001:000FC1AD       __SetIOMode_
  0001:000FC1C2       isatty_
@@ -527,6 +800,8 @@
  0001:000FC302       a123456789abc_0
  0001:000FC326       ultoa_
  0001:000FC370       ltoa_
+ 0001:000FC38B       __get_errno_ptr_
+ 0001:000FC391       __get_doserrno_ptr_
  0001:000FC397       getcwd_
  0001:000FC41F       strlen_
  0001:000FC438       strcpy_
@@ -536,6 +811,7 @@
  0001:000FC4B9       fgetc_
  0001:000FC542       __filbuf_
  0001:000FC571       __fill_buffer_
+ 0001:000FC61E       unkn_store_ss
  0001:000FC626       __CHK
  0001:000FC636       __GRO
  0001:000FC639       __STK
@@ -546,10 +822,14 @@
  0001:000FC69C       __int386x_
  0001:000FC6F9       _DoINTR_
  0001:000FC746       _DoINTR_sub1
+ 0001:000FCA7A       _stol_
+ 0001:000FCBDD       strtoul_
+ 0001:000FCBE7       strtol_
+ 0001:000FCBEF       radix_value_
  0001:000FCC4D       stricmp_
  0001:000FCC94       strnicmp_
- 0001:000FCCE8       unknown_libname_1_0
- 0001:000FCCFC       unknown_libname_2_0
+ 0001:000FCCE8       __wcpp_2_undefed_cdtor__
+ 0001:000FCCFC       __wcpp_2_undef_member_debug__
  0001:000FE280       __wcpp_2_module_dtor__
  0001:000FE2DC       W?fs_state_table$n(pn$ro_dtreg$$)pn$__7a4u3RO_STATE$$
  0001:000FE2E0       W?fs_point_object$n(pn$rw_dtreg$$ui)pnv
@@ -559,6 +839,8 @@
  0001:000FE307       memcpy_
  0001:000FE32C       outp_
  0001:000FE336       inp_
+ 0001:000FE33E       cli_
+ 0001:000FE340       sti_
  0001:000FE344       W?fun_state_table$n(pn$ro_dtreg$$)pn$__7a4u3RO_STATE$$
  0001:000FE348       W?fun_point_object$n(pn$rw_dtreg$$ui)pnv
  0001:000FE355       W?fun_init_traverse$n(pn$__1j2o3bSTAB_TRAVERSE$$pn$rw_dtreg$$)v
@@ -573,15 +855,88 @@
  0001:000FE458       stat_
  0001:000FE5E3       at2mode_
  0001:000FE653       rmdir_
- 0001:000FE6F0       unknown_libname_4
- 0001:000FE700       unknown_libname_5
+ 0001:000FE690       _DLL_read
+ 0001:000FE6F0       _MEM_use_malloc
+ 0001:000FE700       _AIL_mem_use_free
+ 0001:000FE710       _AIL_mem_alloc_lock
+ 0001:000FE740       _AIL_mem_free_lock
  0001:000FE770       _MEM_alloc_DOS
  0001:000FE7C0       _MEM_free_DOS
+ 0001:000FE7D0       _VMM_lock_range
+ 0001:000FE840       _VMM_unlock_range
+ 0001:000FE8B0       _VMM_lock
+ 0001:000FE8D0       _VMM_unlock
+ 0001:000FE8F0       _DLL_size
+ 0001:000FEA30       _DLL_load
+ 0001:000FEFA0       _FILE_error
+ 0001:000FEFB0       _FILE_size
+ 0001:000FF000       _FILE_read
+ 0001:000FF0D0       _FILE_write
+ 0001:000FF160       _FILE_append
+ 0001:000FF1F0       AllocDOSmem_
+ 0001:000FF230       FreeDOSmem_
+ 0001:000FF270       CreateSelector_
+ 0001:000FF2B0       GetDOSseg_
+ 0001:000FF300       AWEGetTotalRAM_
+ 0001:000FF350       AWEDefMemMap_
+ 0001:000FF400       AWEGetSFInfo_
+ 0001:000FF4D0       AWEStreamSample_
+ 0001:000FF580       AWELoadPreset_
+ 0001:000FF630       AWEFreeMem_
+ 0001:000FF690       LoadAwe32Soundfont_
+ 0001:000FF930       FreeAwe32Soundfont_
  0001:000FF9B3       flushall_
  0001:000FF9B8       __flushall_
  0001:000FF9E7       setbuf_
- 0001:00100198       _plib_malloc__0
- 0001:001001A5       _plib_free__0
+ 0001:000FFA10       open_adpcm_file_
+ 0001:000FFD30       close_adpcm_file_
+ 0001:000FFD60       get_adpcm_block_
+ 0001:000FFD90       W?get_adpcm_mono_block$n(pnvpnv)l
+ 0001:000FFF30       W?get_adpcm_stereo_block$n(pnvpnv)l
+ 0001:00100198       _AIL_API_lock
+ 0001:001001A5       _AIL_API_unlock
+ 0001:001001B2       _API_timer
+ 0001:001002D8       _set_PIT_divisor
+ 0001:00100308       _set_PIT_period
+ 0001:0010033B       _program_timers
+ 0001:001003A0       _AILA_startup
+ 0001:0010048E       _AILA_shutdown
+ 0001:001004C9       _AIL_API_get_real_vect
+ 0001:001004F5       _AIL_API_set_real_vect
+ 0001:0010051C       _thunk_proc
+ 0001:00100571       _AIL_API_set_USE16_ISR
+ 0001:00100787       _AIL_API_restore_USE16_ISR
+ 0001:001007CC       _AIL_API_disable_interrupts
+ 0001:001007D0       _AIL_API_restore_interrupts
+ 0001:001007E5       _AIL_switch_stack
+ 0001:0010081B       _AIL_restore_stack
+ 0001:00100837       _AIL_API_call_driver
+ 0001:00100911       _AIL_API_delay
+ 0001:0010094E       _AIL_API_background
+ 0001:0010095A       _AIL_API_register_timer
+ 0001:001009A1       _AIL_API_set_timer_user
+ 0001:001009C9       _AIL_API_release_timer_handle
+ 0001:001009F0       _AIL_API_release_all_timers
+ 0001:00100A14       _AIL_API_start_timer
+ 0001:00100A44       _AIL_API_start_all_timers
+ 0001:00100A68       _AIL_API_stop_timer
+ 0001:00100A98       _AIL_API_stop_all_timers
+ 0001:00100ABC       _AIL_API_set_timer_period
+ 0001:00100AEC       _AIL_API_set_timer_frequency
+ 0001:00100B1C       _AIL_API_set_timer_divisor
+ 0001:00100B5E       _AIL_API_interrupt_divisor
+ 0001:00100B6A       _AILA_VMM_lock
+ 0001:00100B90       AIL_start_
+ 0001:00100C20       AIL_DRIVER_SERVER
+ 0001:00100C70       _ASC_val
+ 0001:00100D30       _AIL_API_read_INI
+ 0001:00101070       _AIL_API_set_preference
+ 0001:00101090       _AIL_API_install_driver
+ 0001:00101330       _AIL_API_uninstall_driver
+ 0001:001013E0       _AIL_API_get_IO_environment
+ 0001:00101460       _AIL_API_startup
+ 0001:00101580       _AIL_API_shutdown
+ 0001:001015D0       AIL_end_
  0001:00101657       _localtime_
  0001:001016A8       localtime_
  0001:001016B5       convDec_
@@ -589,6 +944,140 @@
  0001:001017D5       _ctime_
  0001:001017EE       ctime_
  0001:001017F3       asctime_
+ 0001:00101800       AILSS_start_
+ 0001:001018C0       _SS_start_DIG_driver_playback
+ 0001:00101910       _SS_stop_DIG_driver_playback
+ 0001:00101940       _SS_build_amplitude_tables
+ 0001:00101C60       SS_SERVE
+ 0001:00101E80       _SS_configure_buffers
+ 0001:001022C0       _SS_attempt_DIG_detection
+ 0001:001023C0       _SS_destroy_DIG_driver
+ 0001:00102460       _SS_construct_DIG_driver
+ 0001:00102A60       _AIL_API_install_DIG_driver_file
+ 0001:00102B10       _AIL_API_install_DIG_driver_image
+ 0001:00102B50       _AIL_API_install_DIG_INI
+ 0001:00102BD0       _AIL_API_uninstall_DIG_driver
+ 0001:00102BE0       _AIL_API_active_sample_count
+ 0001:00102C10       _AIL_API_allocate_sample_handle
+ 0001:00102C80       _AIL_API_release_sample_handle
+ 0001:00102C90       _AIL_API_init_sample
+ 0001:00102D60       _AIL_API_sample_status
+ 0001:00102D70       _AIL_API_set_sample_address
+ 0001:00102DA0       _AIL_API_set_sample_type
+ 0001:00102DD0       _AIL_API_sample_playback_rate
+ 0001:00102DE0       _AIL_API_set_sample_playback_rate
+ 0001:00102DF0       _AIL_API_sample_volume
+ 0001:00102E00       _AIL_API_set_sample_volume
+ 0001:00102E20       _AIL_API_sample_pan
+ 0001:00102E30       _AIL_API_set_sample_pan
+ 0001:00102E50       _AIL_API_sample_position
+ 0001:00102E70       _AIL_API_set_sample_position
+ 0001:00102E90       _AIL_API_sample_loop_count
+ 0001:00102EB0       _AIL_API_set_sample_loop_count
+ 0001:00102EC0       _AIL_API_start_sample
+ 0001:00102F10       _AIL_API_stop_sample
+ 0001:00102F30       _AIL_API_resume_sample
+ 0001:00102F60       _AIL_API_end_sample
+ 0001:00102FB0       _AIL_API_register_SOB_callback
+ 0001:00102FD0       _AIL_API_register_EOB_callback
+ 0001:00102FF0       _AIL_API_register_EOS_callback
+ 0001:00103010       _AIL_API_set_sample_user_data
+ 0001:00103030       _AIL_API_sample_user_data
+ 0001:00103050       _AIL_API_set_digital_master_volume
+ 0001:00103090       _AIL_API_digital_master_volume
+ 0001:001030B0       _AIL_API_minimum_sample_buffer_size
+ 0001:00103150       _AIL_API_load_sample_buffer
+ 0001:001031B0       _AIL_API_sample_buffer_ready
+ 0001:00103210       AILSS_end_
+ 0001:001032D0       AILSFILE_start_
+ 0001:00103300       _AIL_VOC_block_len
+ 0001:00103310       _AIL_VOC_terminate
+ 0001:00103370       _AIL_process_VOC_block
+ 0001:001035F0       AIL_VOC_EOS
+ 0001:00103600       _AIL_process_WAV_image
+ 0001:001036E0       AIL_WAV_EOS
+ 0001:00103720       _AIL_API_allocate_file_sample
+ 0001:00103850       _AIL_API_set_sample_file
+ 0001:00103930       _AIL_API_register_EOF_callback
+ 0001:00103950       AILSFILE_end_
+ 0001:00103980       AILXMIDI_start_
+ 0001:00103AA0       _XMI_message_size
+ 0001:00103B00       _XMI_flush_buffer
+ 0001:00103B50       _XMI_MIDI_message
+ 0001:00103BF0       _XMI_sysex_message
+ 0001:00103C40       _XMI_read_VLN
+ 0001:00103C70       _XMI_swap
+ 0001:00103CB0       _XMI_find_sequence
+ 0001:00103D80       _XMI_read_log
+ 0001:00103F40       _XMI_write_log
+ 0001:00104130       _XMI_send_channel_voice_message
+ 0001:00104590       _XMI_flush_note_queue
+ 0001:00104620       _XMI_flush_channel_notes
+ 0001:00104690       _XMI_refresh_channel
+ 0001:001048D0       _XMI_init_sequence_state
+ 0001:00104990       _XMI_rewind_sequence
+ 0001:001049B0       _XMI_update_volume
+ 0001:001049F0       XMI_SERVE
+ 0001:001050C0       _XMI_attempt_MDI_detection
+ 0001:00105190       _XMI_destroy_MDI_driver
+ 0001:001051F0       _XMI_construct_MDI_driver
+ 0001:00105840       _AIL_API_install_MDI_driver_file
+ 0001:001058F0       _AIL_API_install_MDI_driver_image
+ 0001:00105930       _AIL_API_install_MDI_INI
+ 0001:001059B0       _AIL_API_uninstall_MDI_driver
+ 0001:001059C0       _AIL_API_MDI_driver_type
+ 0001:00105A70       _AIL_API_set_GTL_filename_prefix
+ 0001:00105AF0       _AIL_API_allocate_sequence_handle
+ 0001:00105B70       _AIL_API_release_sequence_handle
+ 0001:00105B90       _AIL_API_init_sequence
+ 0001:00105EC0       _AIL_API_start_sequence
+ 0001:00105EF0       _AIL_API_stop_sequence
+ 0001:00105FB0       _AIL_API_resume_sequence
+ 0001:00106020       _AIL_API_end_sequence
+ 0001:00106060       _AIL_API_set_sequence_loop_count
+ 0001:00106070       _AIL_API_set_sequence_tempo
+ 0001:001060E0       _AIL_API_set_sequence_volume
+ 0001:00106170       _AIL_API_sequence_status
+ 0001:00106180       _AIL_API_sequence_loop_count
+ 0001:001061A0       _AIL_API_sequence_tempo
+ 0001:001061B0       _AIL_API_sequence_volume
+ 0001:001061C0       _AIL_API_set_XMIDI_master_volume
+ 0001:00106210       _AIL_API_XMIDI_master_volume
+ 0001:00106220       _AIL_API_timbre_status
+ 0001:00106260       _AIL_API_install_timbre
+ 0001:00106330       _AIL_API_protect_timbre
+ 0001:00106370       _AIL_API_unprotect_timbre
+ 0001:001063B0       _AIL_API_active_sequence_count
+ 0001:001063E0       _AIL_API_controller_value
+ 0001:00106410       _AIL_API_channel_notes
+ 0001:00106450       _AIL_API_sequence_position
+ 0001:001064C0       _AIL_API_branch_index
+ 0001:00106550       _AIL_API_register_prefix_callback
+ 0001:00106570       _AIL_API_register_trigger_callback
+ 0001:00106590       _AIL_API_register_sequence_callback
+ 0001:001065B0       _AIL_API_register_beat_callback
+ 0001:001065D0       _AIL_API_register_event_callback
+ 0001:001065F0       _AIL_API_register_timbre_callback
+ 0001:00106610       _AIL_API_set_sequence_user_data
+ 0001:00106630       _AIL_API_sequence_user_data
+ 0001:00106650       _AIL_API_register_ICA_array
+ 0001:00106660       _AIL_API_lock_channel
+ 0001:001067F0       _AIL_API_release_channel
+ 0001:00106910       _AIL_API_map_sequence_channel
+ 0001:00106950       _AIL_API_true_sequence_channel
+ 0001:00106970       _AIL_API_send_channel_voice_message
+ 0001:00106A20       _AIL_API_send_sysex_message
+ 0001:00106A70       AILXMIDI_end_
+ 0001:00106D80       AILXDIG_start_
+ 0001:00106DB0       XDIG_TRAP_sub1
+ 0001:00106F80       WVL_search_
+ 0001:00106FB0       XDIG_set_volume_
+ 0001:00107030       XDIG_set_pitch_
+ 0001:00107140       XDIG_TIMB_TRAP
+ 0001:00107170       XDIG_MIDI_TRAP
+ 0001:00107590       _AIL_API_create_wave_synthesizer
+ 0001:00107710       _AIL_API_destroy_wave_synthesizer
+ 0001:00107780       AILXDIG_end_
  0001:001077B0       W?EAL_init_realmode_mem$n()us
  0001:00107820       W?EAL_alloc_dos_mem$n(us)us
  0001:00107860       W?EAL_free_dos_mem$n(us)us
@@ -630,7 +1119,7 @@
  0001:001082BD       parse_offset_
  0001:001083E6       parse_rule_
  0001:001085B8       __FDFS
- 0001:00108604       unknown_libname_6
+ 0001:00108604       _heapenable_
  0001:00108614       sbrk_
  0001:001086DC       __brk_
  0001:001087A7       __exit_with_msg_
@@ -667,6 +1156,206 @@
  0001:00109358       _dos_write_
  0001:0010935F       setvbuf_
  0001:001093C6       fgets_
+ 0001:00109A30       _DC_0
+ 0001:00109A41       _DC_1
+ 0001:00109A4D       _DC_16
+ 0001:00109A6C       _DC_17
+ 0001:00109A80       _DC_18
+ 0001:00109A9F       _DC_19
+ 0001:00109AB3       _DC_24
+ 0001:00109AD0       _DC_25
+ 0001:00109AE2       _DC_26
+ 0001:00109AFF       _DC_27
+ 0001:00109B11       _DC_32
+ 0001:00109B25       _DC_33
+ 0001:00109B34       _DC_36
+ 0001:00109B4A       _DC_37
+ 0001:00109B5B       _DC_48
+ 0001:00109B7C       _DC_49
+ 0001:00109B92       _DC_50
+ 0001:00109BB3       _DC_51
+ 0001:00109BC9       _DC_52
+ 0001:00109BEE       _DC_53
+ 0001:00109C08       _DC_54
+ 0001:00109C2D       _DC_55
+ 0001:00109C47       _DC_56
+ 0001:00109C6A       _DC_57
+ 0001:00109C82       _DC_58
+ 0001:00109CA5       _DC_59
+ 0001:00109CBD       _DC_60
+ 0001:00109CE4       _DC_61
+ 0001:00109D00       _DC_62
+ 0001:00109D27       _DC_63
+ 0001:00109D43       _DC_64
+ 0001:00109D70       _DC_65
+ 0001:00109D98       _DC_80
+ 0001:00109DF1       _DC_81
+ 0001:00109E3F       _DC_82
+ 0001:00109E98       _DC_83
+ 0001:00109EE6       _DC_88
+ 0001:00109F3D       _DC_89
+ 0001:00109F89       _DC_90
+ 0001:00109FE0       _DC_91
+ 0001:0010A02C       _DC_96
+ 0001:0010A05C       _DC_97
+ 0001:0010A087       _DC_100
+ 0001:0010A0B9       _DC_101
+ 0001:0010A0E6       _DC_112
+ 0001:0010A141       _DC_113
+ 0001:0010A191       _DC_114
+ 0001:0010A1EC       _DC_115
+ 0001:0010A23C       _DC_116
+ 0001:0010A29B       _DC_117
+ 0001:0010A2EF       _DC_118
+ 0001:0010A34E       _DC_119
+ 0001:0010A3A2       _DC_120
+ 0001:0010A3FF       _DC_121
+ 0001:0010A451       _DC_122
+ 0001:0010A4AE       _DC_123
+ 0001:0010A500       _DC_124
+ 0001:0010A561       _DC_125
+ 0001:0010A5B7       _DC_126
+ 0001:0010A618       _DC_127
+ 0001:0010A66E       _M_0
+ 0001:0010A692       _M_1
+ 0001:0010A6B9       _M_3
+ 0001:0010A6F1       _M_7
+ 0001:0010A729       _M_8
+ 0001:0010A750       _M_9
+ 0001:0010A77A       _M_11
+ 0001:0010A7B4       _M_15
+ 0001:0010A7EE       _M_16
+ 0001:0010A80D       _M_17
+ 0001:0010A82F       _M_19
+ 0001:0010A85C       _M_23
+ 0001:0010A889       _M_24
+ 0001:0010A8AB       _M_25
+ 0001:0010A8D0       _M_27
+ 0001:0010A8FF       _M_31
+ 0001:0010A92E       _M_32
+ 0001:0010A95D       _M_33
+ 0001:0010A98F       _M_35
+ 0001:0010A9D5       _M_39
+ 0001:0010AA1B       _M_40
+ 0001:0010AA50       _M_41
+ 0001:0010AA88       _M_43
+ 0001:0010AAD0       _M_47
+ 0001:0010AB18       _M_48
+ 0001:0010AB42       _M_49
+ 0001:0010AB6F       _M_51
+ 0001:0010ABAA       _M_55
+ 0001:0010ABE5       _M_56
+ 0001:0010AC15       _M_57
+ 0001:0010AC48       _M_59
+ 0001:0010AC85       _M_63
+ 0001:0010ACC2       _M_64
+ 0001:0010ACDE       _M_65
+ 0001:0010AD04       _M_66
+ 0001:0010AD2E       _M_67
+ 0001:0010AD59       _M_70
+ 0001:0010AD83       _M_71
+ 0001:0010ADAE       _M_72
+ 0001:0010ADDB       _M_73
+ 0001:0010AE17       _M_74
+ 0001:0010AE5D       _M_75
+ 0001:0010AEA7       _M_78
+ 0001:0010AEED       _M_79
+ 0001:0010AF37       _M_88
+ 0001:0010AF5F       _M_89
+ 0001:0010AF96       _M_90
+ 0001:0010AFD1       _M_91
+ 0001:0010B010       _M_94
+ 0001:0010B04B       _M_95
+ 0001:0010B08A       _M_96
+ 0001:0010B0B1       _M_97
+ 0001:0010B0E2       _M_98
+ 0001:0010B11A       _M_99
+ 0001:0010B153       _M_102
+ 0001:0010B18B       _M_103
+ 0001:0010B1C4       _M_104
+ 0001:0010B1FF       _M_105
+ 0001:0010B249       _M_106
+ 0001:0010B29D       _M_107
+ 0001:0010B2F5       _M_110
+ 0001:0010B349       _M_111
+ 0001:0010B3A1       _M_120
+ 0001:0010B3D7       _M_121
+ 0001:0010B41C       _M_122
+ 0001:0010B465       _M_123
+ 0001:0010B4B2       _M_126
+ 0001:0010B4FB       _M_127
+ 0001:0010B548       _M_128
+ 0001:0010B56C       _M_129
+ 0001:0010B593       _M_131
+ 0001:0010B5CF       _M_135
+ 0001:0010B60B       _M_136
+ 0001:0010B632       _M_137
+ 0001:0010B65C       _M_139
+ 0001:0010B69A       _M_143
+ 0001:0010B6D8       _M_144
+ 0001:0010B6F7       _M_145
+ 0001:0010B719       _M_147
+ 0001:0010B74A       _M_151
+ 0001:0010B77B       _M_152
+ 0001:0010B79D       _M_153
+ 0001:0010B7C2       _M_155
+ 0001:0010B7F5       _M_159
+ 0001:0010B828       _M_160
+ 0001:0010B857       _M_161
+ 0001:0010B889       _M_163
+ 0001:0010B8D3       _M_167
+ 0001:0010B91D       _M_168
+ 0001:0010B952       _M_169
+ 0001:0010B98A       _M_171
+ 0001:0010B9D6       _M_175
+ 0001:0010BA22       _M_176
+ 0001:0010BA4C       _M_177
+ 0001:0010BA79       _M_179
+ 0001:0010BAB8       _M_183
+ 0001:0010BAF7       _M_184
+ 0001:0010BB27       _M_185
+ 0001:0010BB5A       _M_187
+ 0001:0010BB9B       _M_191
+ 0001:0010BBDC       _M_192
+ 0001:0010BBF8       _M_193
+ 0001:0010BC1E       _M_194
+ 0001:0010BC48       _M_195
+ 0001:0010BC77       _M_198
+ 0001:0010BCA1       _M_199
+ 0001:0010BCD0       _M_200
+ 0001:0010BCFD       _M_201
+ 0001:0010BD39       _M_202
+ 0001:0010BD7F       _M_203
+ 0001:0010BDC8       _M_206
+ 0001:0010BE0E       _M_207
+ 0001:0010BE57       _M_216
+ 0001:0010BE7F       _M_217
+ 0001:0010BEB6       _M_218
+ 0001:0010BEF1       _M_219
+ 0001:0010BF2F       _M_222
+ 0001:0010BF6A       _M_223
+ 0001:0010BFA8       _M_224
+ 0001:0010BFCF       _M_225
+ 0001:0010C000       _M_226
+ 0001:0010C038       _M_227
+ 0001:0010C075       _M_230
+ 0001:0010C0AD       _M_231
+ 0001:0010C0EA       _M_232
+ 0001:0010C125       _M_233
+ 0001:0010C16F       _M_234
+ 0001:0010C1C3       _M_235
+ 0001:0010C21A       _M_238
+ 0001:0010C26E       _M_239
+ 0001:0010C2C5       _M_248
+ 0001:0010C2FB       _M_249
+ 0001:0010C340       _M_250
+ 0001:0010C389       _M_251
+ 0001:0010C3D5       _M_254
+ 0001:0010C41E       _M_255
+ 0001:0010C46A       _AILSSA_merge
+ 0001:0010C693       _AILSSA_DMA_copy
+ 0001:0010C726       _AILSSA_flush_buffer
+ 0001:0010C752       _AILSSA_VMM_lock
  0001:0010C781       __EnterWVIDEO_
  0001:0010C7A8       __wcpp_2_stab_entry__
  0001:0010C7D6       __wcpp_2_stab_trav_init__
@@ -707,7 +1396,7 @@
  0001:0010D38C       _chain_intr_
  0001:0010D3A5       __setbits_
  0001:0010D3E4       __wcpp_2_bit_test__
- 0001:0010D404       j_W?terminate$n()v
+ 0001:0010D404       __wcpp_2_call_terminate__
  0001:0010D40C       W?catBaseSig$n(pn$rt_type_sig$$)pn$1$
  0001:0010D415       __wcpp_2_ts_equiv__
  0001:0010D46E       _setjmp_
@@ -716,7 +1405,7 @@
  0001:0010D663       __wcpp_2_free_exc__
  0001:0010D690       __wcpp_2_pop_exc__
  0001:0010D69F       __wcpp_2_push_exc__
- 0001:0010D6AC       nullsub_24
+ 0001:0010D6AC       default_handler_
  0001:0010D6B0       W?arr_state_table$n(pn$ro_dtreg$$)pn$__7a4u3RO_STATE$$
  0001:0010D6B4       W?arr_point_object$n(pn$rw_dtreg$$ui)pnv
  0001:0010D6CD       W?arr_init_traverse$n(pn$__1j2o3bSTAB_TRAVERSE$$pn$rw_dtreg$$)v
@@ -724,11 +1413,21 @@
  0001:0010D6DD       __wcpp_2_arr_register__
  0001:0010D70D       abort_
  0001:0010D713       __terminate_
- 0001:0010D725       j___GrabFP87_
+ 0001:0010D725       __grab_fpe_
  0001:0010D72C       W?terminate$n()v
  0001:0010D778       W?unexpected$n()v
  0001:0010D7D0       __wcpp_2_ts_size__
  0001:0010D811       __GrabFP87_
+ 0001:0010D842       __Init_FPE_handler_
+ 0001:0010D89F       __Fini_FPE_handler_
+ 0001:0010D8FC       __Enable_FPE_
+ 0001:0010D911       __FPEHandler_
+ 0001:0010D91E       __FPE2Handler_
+ 0001:0010DA24       __FPEHandler_sub1
+ 0001:0010DAB1       __FPEHandler_sub2
+ 0001:0010DB03       __FPEHandler_sub3
+ 0001:0010DB29       __FPEHandler_sub2_sub
+ 0001:0010DB4E       __FPEHandler_subx_sub
  0001:0010DB5C       __Phar_hook_init_
  0001:0010DC1F       __Phar_hook_fini_
  0001:0010DC4C       __DOS4G_hook_init_
@@ -743,14 +1442,286 @@
  0001:0010DD4D       __init_8087_
  0001:0010DD7E       _fpreset_
  0001:0010DD88       __chk8087_
- 0001:0010DDD2       nullsub_26
+ 0001:0010DDD2       _do_nothing_
  0001:0010DDD4       __init_80x87
  0001:0010DE00       trig_
  0001:00114DA3       setup_vecs_
  0001:00114E0F       poly_line_
+ 0001:001153E0       draw_gpoly_
  0001:00127CA0       LbSpriteDrawUsingScalingData_
  0001:00129518       LbSpriteSetScalingData_
+ 0001:0012982C       LbDrawTriangleFilled_
+ 0001:0012A000       _SmackInternal001
+ 0001:0012A0A0       _SmackInternal002
+ 0001:0012A390       _SmackInternal003
+ 0001:0012A400       _SmackInternal004
+ 0001:0012A490       _SmackGetSizeTables
  0001:0012A4A0       _SmackDoTables
+ 0001:0012A7E0       _SmackInternal005
+ 0001:0012A810       _SmackInternal006
+ 0001:0012A840       _SmackInternal007
+ 0001:0012ABA0       _SmackInternal008
+ 0001:0012B3B0       _SmackInternal009
+ 0001:0012B560       _SmackInternalSwitch1_case000
+ 0001:0012B56C       _SmackInternalSwitch1_case001
+ 0001:0012B578       _SmackInternalSwitch1_case002
+ 0001:0012B584       _SmackInternalSwitch1_case003
+ 0001:0012B590       _SmackInternalSwitch1_case004
+ 0001:0012B5A0       _SmackInternalSwitch1_case005
+ 0001:0012B5B0       _SmackInternalSwitch1_case006
+ 0001:0012B5C0       _SmackInternalSwitch1_case007
+ 0001:0012B5D0       _SmackInternalSwitch1_case008
+ 0001:0012B5DC       _SmackInternalSwitch1_case009
+ 0001:0012B5E8       _SmackInternalSwitch1_case010
+ 0001:0012B5F4       _SmackInternalSwitch1_case011
+ 0001:0012B600       _SmackInternalSwitch1_case012
+ 0001:0012B610       _SmackInternalSwitch1_case013
+ 0001:0012B620       _SmackInternalSwitch1_case014
+ 0001:0012B630       _SmackInternalSwitch1_case015
+ 0001:0012B640       _SmackInternalSwitch1_case016
+ 0001:0012B64C       _SmackInternalSwitch1_case017
+ 0001:0012B658       _SmackInternalSwitch1_case018
+ 0001:0012B668       _SmackInternalSwitch1_case019
+ 0001:0012B674       _SmackInternalSwitch1_case020
+ 0001:0012B684       _SmackInternalSwitch1_case021
+ 0001:0012B694       _SmackInternalSwitch1_case022
+ 0001:0012B6A4       _SmackInternalSwitch1_case023
+ 0001:0012B6B4       _SmackInternalSwitch1_case024
+ 0001:0012B6C0       _SmackInternalSwitch1_case025
+ 0001:0012B6CC       _SmackInternalSwitch1_case026
+ 0001:0012B6D8       _SmackInternalSwitch1_case027
+ 0001:0012B6E4       _SmackInternalSwitch1_case028
+ 0001:0012B6F4       _SmackInternalSwitch1_case029
+ 0001:0012B704       _SmackInternalSwitch1_case030
+ 0001:0012B714       _SmackInternalSwitch1_case031
+ 0001:0012B724       _SmackInternalSwitch1_case032
+ 0001:0012B730       _SmackInternalSwitch1_case033
+ 0001:0012B740       _SmackInternalSwitch1_case034
+ 0001:0012B74C       _SmackInternalSwitch1_case035
+ 0001:0012B758       _SmackInternalSwitch1_case036
+ 0001:0012B768       _SmackInternalSwitch1_case037
+ 0001:0012B778       _SmackInternalSwitch1_case038
+ 0001:0012B788       _SmackInternalSwitch1_case039
+ 0001:0012B798       _SmackInternalSwitch1_case040
+ 0001:0012B7A4       _SmackInternalSwitch1_case041
+ 0001:0012B7B0       _SmackInternalSwitch1_case042
+ 0001:0012B7BC       _SmackInternalSwitch1_case043
+ 0001:0012B7C8       _SmackInternalSwitch1_case044
+ 0001:0012B7D8       _SmackInternalSwitch1_case045
+ 0001:0012B7E8       _SmackInternalSwitch1_case046
+ 0001:0012B7F8       _SmackInternalSwitch1_case047
+ 0001:0012B808       _SmackInternalSwitch1_case048
+ 0001:0012B814       _SmackInternalSwitch1_case049
+ 0001:0012B820       _SmackInternalSwitch1_case050
+ 0001:0012B82C       _SmackInternalSwitch1_case051
+ 0001:0012B838       _SmackInternalSwitch1_case052
+ 0001:0012B848       _SmackInternalSwitch1_case053
+ 0001:0012B858       _SmackInternalSwitch1_case054
+ 0001:0012B868       _SmackInternalSwitch1_case055
+ 0001:0012B878       _SmackInternalSwitch1_case056
+ 0001:0012B884       _SmackInternalSwitch1_case057
+ 0001:0012B890       _SmackInternalSwitch1_case058
+ 0001:0012B89C       _SmackInternalSwitch1_case059
+ 0001:0012B8A8       _SmackInternalSwitch1_case060
+ 0001:0012B8B8       _SmackInternalSwitch1_case061
+ 0001:0012B8C8       _SmackInternalSwitch1_case062
+ 0001:0012B8D8       _SmackInternalSwitch1_case063
+ 0001:0012B8E8       _SmackInternalSwitch1_case064
+ 0001:0012B8F8       _SmackInternalSwitch1_case065
+ 0001:0012B908       _SmackInternalSwitch1_case066
+ 0001:0012B918       _SmackInternalSwitch1_case067
+ 0001:0012B928       _SmackInternalSwitch1_case068
+ 0001:0012B934       _SmackInternalSwitch1_case069
+ 0001:0012B940       _SmackInternalSwitch1_case070
+ 0001:0012B950       _SmackInternalSwitch1_case071
+ 0001:0012B95C       _SmackInternalSwitch1_case072
+ 0001:0012B968       _SmackInternalSwitch1_case073
+ 0001:0012B974       _SmackInternalSwitch1_case074
+ 0001:0012B980       _SmackInternalSwitch1_case075
+ 0001:0012B98C       _SmackInternalSwitch1_case076
+ 0001:0012B99C       _SmackInternalSwitch1_case077
+ 0001:0012B9AC       _SmackInternalSwitch1_case078
+ 0001:0012B9BC       _SmackInternalSwitch1_case079
+ 0001:0012B9CC       _SmackInternalSwitch1_case080
+ 0001:0012B9DC       _SmackInternalSwitch1_case081
+ 0001:0012B9EC       _SmackInternalSwitch1_case082
+ 0001:0012B9FC       _SmackInternalSwitch1_case083
+ 0001:0012BA0C       _SmackInternalSwitch1_case084
+ 0001:0012BA18       _SmackInternalSwitch1_case085
+ 0001:0012BA20       _SmackInternalSwitch1_case086
+ 0001:0012BA2C       _SmackInternalSwitch1_case087
+ 0001:0012BA38       _SmackInternalSwitch1_case088
+ 0001:0012BA44       _SmackInternalSwitch1_case089
+ 0001:0012BA50       _SmackInternalSwitch1_case090
+ 0001:0012BA58       _SmackInternalSwitch1_case091
+ 0001:0012BA64       _SmackInternalSwitch1_case092
+ 0001:0012BA74       _SmackInternalSwitch1_case093
+ 0001:0012BA84       _SmackInternalSwitch1_case094
+ 0001:0012BA94       _SmackInternalSwitch1_case095
+ 0001:0012BAA4       _SmackInternalSwitch1_case096
+ 0001:0012BAB4       _SmackInternalSwitch1_case097
+ 0001:0012BAC4       _SmackInternalSwitch1_case098
+ 0001:0012BAD4       _SmackInternalSwitch1_case099
+ 0001:0012BAE4       _SmackInternalSwitch1_case100
+ 0001:0012BAF4       _SmackInternalSwitch1_case101
+ 0001:0012BB00       _SmackInternalSwitch1_case102
+ 0001:0012BB0C       _SmackInternalSwitch1_case103
+ 0001:0012BB1C       _SmackInternalSwitch1_case104
+ 0001:0012BB2C       _SmackInternalSwitch1_case105
+ 0001:0012BB38       _SmackInternalSwitch1_case106
+ 0001:0012BB44       _SmackInternalSwitch1_case107
+ 0001:0012BB54       _SmackInternalSwitch1_case108
+ 0001:0012BB64       _SmackInternalSwitch1_case109
+ 0001:0012BB74       _SmackInternalSwitch1_case110
+ 0001:0012BB84       _SmackInternalSwitch1_case111
+ 0001:0012BB94       _SmackInternalSwitch1_case112
+ 0001:0012BBA4       _SmackInternalSwitch1_case113
+ 0001:0012BBB4       _SmackInternalSwitch1_case114
+ 0001:0012BBC4       _SmackInternalSwitch1_case115
+ 0001:0012BBD4       _SmackInternalSwitch1_case116
+ 0001:0012BBE0       _SmackInternalSwitch1_case117
+ 0001:0012BBEC       _SmackInternalSwitch1_case118
+ 0001:0012BBFC       _SmackInternalSwitch1_case119
+ 0001:0012BC08       _SmackInternalSwitch1_case120
+ 0001:0012BC14       _SmackInternalSwitch1_case121
+ 0001:0012BC20       _SmackInternalSwitch1_case122
+ 0001:0012BC2C       _SmackInternalSwitch1_case123
+ 0001:0012BC38       _SmackInternalSwitch1_case124
+ 0001:0012BC48       _SmackInternalSwitch1_case125
+ 0001:0012BC58       _SmackInternalSwitch1_case126
+ 0001:0012BC68       _SmackInternalSwitch1_case127
+ 0001:0012BC78       _SmackInternalSwitch1_case128
+ 0001:0012BC84       _SmackInternalSwitch1_case129
+ 0001:0012BC90       _SmackInternalSwitch1_case130
+ 0001:0012BC9C       _SmackInternalSwitch1_case131
+ 0001:0012BCA8       _SmackInternalSwitch1_case132
+ 0001:0012BCB4       _SmackInternalSwitch1_case133
+ 0001:0012BCC0       _SmackInternalSwitch1_case134
+ 0001:0012BCD0       _SmackInternalSwitch1_case135
+ 0001:0012BCDC       _SmackInternalSwitch1_case136
+ 0001:0012BCE4       _SmackInternalSwitch1_case137
+ 0001:0012BCF0       _SmackInternalSwitch1_case138
+ 0001:0012BCF8       _SmackInternalSwitch1_case139
+ 0001:0012BD00       _SmackInternalSwitch1_case140
+ 0001:0012BD0C       _SmackInternalSwitch1_case141
+ 0001:0012BD18       _SmackInternalSwitch1_case142
+ 0001:0012BD24       _SmackInternalSwitch1_case143
+ 0001:0012BD30       _SmackInternalSwitch1_case144
+ 0001:0012BD3C       _SmackInternalSwitch1_case145
+ 0001:0012BD4C       _SmackInternalSwitch1_case146
+ 0001:0012BD58       _SmackInternalSwitch1_case147
+ 0001:0012BD64       _SmackInternalSwitch1_case148
+ 0001:0012BD74       _SmackInternalSwitch1_case149
+ 0001:0012BD80       _SmackInternalSwitch1_case150
+ 0001:0012BD8C       _SmackInternalSwitch1_case151
+ 0001:0012BD9C       _SmackInternalSwitch1_case152
+ 0001:0012BDA8       _SmackInternalSwitch1_case153
+ 0001:0012BDB4       _SmackInternalSwitch1_case154
+ 0001:0012BDC0       _SmackInternalSwitch1_case155
+ 0001:0012BDCC       _SmackInternalSwitch1_case156
+ 0001:0012BDD8       _SmackInternalSwitch1_case157
+ 0001:0012BDE8       _SmackInternalSwitch1_case158
+ 0001:0012BDF4       _SmackInternalSwitch1_case159
+ 0001:0012BE00       _SmackInternalSwitch1_case160
+ 0001:0012BE0C       _SmackInternalSwitch1_case161
+ 0001:0012BE18       _SmackInternalSwitch1_case162
+ 0001:0012BE24       _SmackInternalSwitch1_case163
+ 0001:0012BE30       _SmackInternalSwitch1_case164
+ 0001:0012BE3C       _SmackInternalSwitch1_case165
+ 0001:0012BE44       _SmackInternalSwitch1_case166
+ 0001:0012BE50       _SmackInternalSwitch1_case167
+ 0001:0012BE5C       _SmackInternalSwitch1_case168
+ 0001:0012BE64       _SmackInternalSwitch1_case169
+ 0001:0012BE70       _SmackInternalSwitch1_case170
+ 0001:0012BE78       _SmackInternalSwitch1_case171
+ 0001:0012BE80       _SmackInternalSwitch1_case172
+ 0001:0012BE8C       _SmackInternalSwitch1_case173
+ 0001:0012BE98       _SmackInternalSwitch1_case174
+ 0001:0012BEA4       _SmackInternalSwitch1_case175
+ 0001:0012BEB0       _SmackInternalSwitch1_case176
+ 0001:0012BEBC       _SmackInternalSwitch1_case177
+ 0001:0012BEC8       _SmackInternalSwitch1_case178
+ 0001:0012BED4       _SmackInternalSwitch1_case179
+ 0001:0012BEE0       _SmackInternalSwitch1_case180
+ 0001:0012BEEC       _SmackInternalSwitch1_case181
+ 0001:0012BEF8       _SmackInternalSwitch1_case182
+ 0001:0012BF08       _SmackInternalSwitch1_case183
+ 0001:0012BF14       _SmackInternalSwitch1_case184
+ 0001:0012BF1C       _SmackInternalSwitch1_case185
+ 0001:0012BF28       _SmackInternalSwitch1_case186
+ 0001:0012BF30       _SmackInternalSwitch1_case187
+ 0001:0012BF38       _SmackInternalSwitch1_case188
+ 0001:0012BF44       _SmackInternalSwitch1_case189
+ 0001:0012BF50       _SmackInternalSwitch1_case190
+ 0001:0012BF5C       _SmackInternalSwitch1_case191
+ 0001:0012BF68       _SmackInternalSwitch1_case192
+ 0001:0012BF78       _SmackInternalSwitch1_case193
+ 0001:0012BF88       _SmackInternalSwitch1_case194
+ 0001:0012BF98       _SmackInternalSwitch1_case195
+ 0001:0012BFA8       _SmackInternalSwitch1_case196
+ 0001:0012BFB8       _SmackInternalSwitch1_case197
+ 0001:0012BFC8       _SmackInternalSwitch1_case198
+ 0001:0012BFD8       _SmackInternalSwitch1_case199
+ 0001:0012BFE8       _SmackInternalSwitch1_case200
+ 0001:0012BFF4       _SmackInternalSwitch1_case201
+ 0001:0012C000       _SmackInternalSwitch1_case202
+ 0001:0012C00C       _SmackInternalSwitch1_case203
+ 0001:0012C018       _SmackInternalSwitch1_case204
+ 0001:0012C024       _SmackInternalSwitch1_case205
+ 0001:0012C030       _SmackInternalSwitch1_case206
+ 0001:0012C03C       _SmackInternalSwitch1_case207
+ 0001:0012C048       _SmackInternalSwitch1_case208
+ 0001:0012C058       _SmackInternalSwitch1_case209
+ 0001:0012C068       _SmackInternalSwitch1_case210
+ 0001:0012C078       _SmackInternalSwitch1_case211
+ 0001:0012C088       _SmackInternalSwitch1_case212
+ 0001:0012C098       _SmackInternalSwitch1_case213
+ 0001:0012C0A8       _SmackInternalSwitch1_case214
+ 0001:0012C0B8       _SmackInternalSwitch1_case215
+ 0001:0012C0C8       _SmackInternalSwitch1_case216
+ 0001:0012C0D4       _SmackInternalSwitch1_case217
+ 0001:0012C0E0       _SmackInternalSwitch1_case218
+ 0001:0012C0EC       _SmackInternalSwitch1_case219
+ 0001:0012C0F8       _SmackInternalSwitch1_case220
+ 0001:0012C104       _SmackInternalSwitch1_case221
+ 0001:0012C110       _SmackInternalSwitch1_case222
+ 0001:0012C120       _SmackInternalSwitch1_case223
+ 0001:0012C12C       _SmackInternalSwitch1_case224
+ 0001:0012C13C       _SmackInternalSwitch1_case225
+ 0001:0012C14C       _SmackInternalSwitch1_case226
+ 0001:0012C15C       _SmackInternalSwitch1_case227
+ 0001:0012C16C       _SmackInternalSwitch1_case228
+ 0001:0012C17C       _SmackInternalSwitch1_case229
+ 0001:0012C18C       _SmackInternalSwitch1_case230
+ 0001:0012C19C       _SmackInternalSwitch1_case231
+ 0001:0012C1AC       _SmackInternalSwitch1_case232
+ 0001:0012C1B8       _SmackInternalSwitch1_case233
+ 0001:0012C1C4       _SmackInternalSwitch1_case234
+ 0001:0012C1D0       _SmackInternalSwitch1_case235
+ 0001:0012C1DC       _SmackInternalSwitch1_case236
+ 0001:0012C1E8       _SmackInternalSwitch1_case237
+ 0001:0012C1F8       _SmackInternalSwitch1_case238
+ 0001:0012C204       _SmackInternalSwitch1_case239
+ 0001:0012C210       _SmackInternalSwitch1_case240
+ 0001:0012C220       _SmackInternalSwitch1_case241
+ 0001:0012C230       _SmackInternalSwitch1_case242
+ 0001:0012C240       _SmackInternalSwitch1_case243
+ 0001:0012C250       _SmackInternalSwitch1_case244
+ 0001:0012C260       _SmackInternalSwitch1_case245
+ 0001:0012C270       _SmackInternalSwitch1_case246
+ 0001:0012C280       _SmackInternalSwitch1_case247
+ 0001:0012C290       _SmackInternalSwitch1_case248
+ 0001:0012C29C       _SmackInternalSwitch1_case249
+ 0001:0012C2A8       _SmackInternalSwitch1_case250
+ 0001:0012C2B4       _SmackInternalSwitch1_case251
+ 0001:0012C2C0       _SmackInternalSwitch1_case252
+ 0001:0012C2CC       _SmackInternalSwitch1_case253
+ 0001:0012C2D8       _SmackInternalSwitch1_case254
+ 0001:0012C2E4       _SmackInternalSwitch1_case255
+ 0001:0012C2F0       _SmackInternal010
+ 0001:0012C630       _SmackInternal011
+ 0001:0012CF20       _SmackInternal012
+ 0001:0012CF90       _SmackInternal013
  0001:0012D120       _Unsmack
  0001:0012D4F0       _SmackDoPCM
  0001:0012DD20       _SmackGetSizeDeltas
@@ -843,35 +1814,87 @@
  0003:00148878       W?InitialCDVolume$nc
  0003:00148879       _CDAble
  0003:00148884       W?modify_data_load_filename_function$npn(pn$TbLoadFiles$$)pna
+ 0003:0014888C       ___int23_exit
+ 0003:0014889C       ___nheapbeg
+ 0003:001488A0       ___MiniHeapRover
+ 0003:001488A4       ___LargestSizeB4MiniHeapRover
  0003:001488A8       aGripGll
  0003:001488B4       aGrip
  0003:001488BC       aCGrip
- 0003:00148B78       aOk
- 0003:00148BA4       aConnect
- 0003:00148BD0       aRing
- 0003:00148BFC       aBusy
- 0003:00148C28       aError_0
- 0003:00148C54       aNoCarrier
- 0003:00148C80       aNoDialtone
- 0003:00148CD8       aAtz
- 0003:00148D28       aAtd
- 0003:00148D78       aAth
- 0003:00148DC8       aAta
+ 0003:00148B30       W?com_dev$n[]$ComHandlerInfo$$
+ 0003:00148B34       com_dev0__Field1
+ 0003:00148B36       com_dev0__Field2
+ 0003:00148B38       com_dev0__Field3
+ 0003:00148B3A       com_dev0__Field4
+ 0003:00148B42       com_dev1__Field0
+ 0003:00148B54       com_dev2__Field0
+ 0003:00148B66       com_dev3__Field0
+ 0003:00148B78       modem_response0__Text
+ 0003:00148BA0       modem_response0__Id
+ 0003:00148BA4       modem_response1__Text
+ 0003:00148BD0       modem_response2__Text
+ 0003:00148BFC       modem_response3__Text
+ 0003:00148C28       modem_response4__Text
+ 0003:00148C54       modem_response5__Text
+ 0003:00148C80       modem_response6__Text
+ 0003:00148CD8       W?modem_str_init$n[]a
+ 0003:00148D28       W?modem_str_dial$n[]a
+ 0003:00148D78       W?modem_str_hangup$n[]a
+ 0003:00148DC8       W?modem_str_answer$n[]a
+ 0003:00148E18       __dynend
+ 0003:00148E1C       __curbrk
+ 0003:00148E20       __LpCmdLine
+ 0003:00148E24       __LpPgmName
  0003:00148E28       __psp
+ 0003:00148E2C       __STACKLOW
+ 0003:00148E30       __STACKTOP
  0003:00148E34       __ASTACKSIZ
  0003:00148E38       __ASTACKPTR
+ 0003:00148E3C       __cbyte
+ 0003:00148E40       __cbyte2
+ 0003:00148E44       __child
+ 0003:00148E48       __no87
+ 0003:00148E4A       __Extender
+ 0003:00148E4B       __ExtenderSubtype
+ 0003:00148E4C       __X32VM
+ 0003:00148E4D       __Envptr
+ 0003:00148E51       __Envseg
+ 0003:00148E53       __osmajor
+ 0003:00148E54       __osminor
+ 0003:00148E55       __FPE_handler
+ 0003:00148E5C       UnpackM1_static_buf1
+ 0003:00148EDC       UnpackM1_static_buf2
+ 0003:00148F5C       UnpackM1_static_buf3
+ 0003:00148FDC       UnpackM1_unkvar1
+ 0003:00148FE0       UnpackM1_unkvar2
+ 0003:00148FE6       UnpackM1_unkvar4
+ 0003:00148FE8       UnpackM1_unkvar5
+ 0003:00148FEA       UnpackM1_unkvar6
+ 0003:00148FEC       UnpackM1_unkvar7
+ 0003:00148FED       UnpackM1_unkvar8
  0003:00148FF0       _MaxNumberOfSamples
  0003:00148FF4       _SoundAble
+ 0003:00148FF5       W?SixteenBit$nuc
  0003:00148FF6       _SoundActive
  0003:00148FF7       _AutoScanForSoundHardware
  0003:00148FF8       _StereoSound
+ 0003:00148FF9       _CurrentSoundBank
  0003:00148FFC       _CurrentSoundMasterVolume
  0003:00149004       _CurrentMusicMasterVolume
  0003:00149008       _MusicAble
  0003:00149009       _MusicActive
  0003:0014900A       _CurrentDangerMusicFadeDirection
  0003:0014900B       _DangerMusicVolumeChange
+ 0003:0014900C       W?sample_file$nl
+ 0003:00149010       W?sample_volume$nl
+ 0003:00149014       W?active$nuc
+ 0003:00149018       _locked
  0003:0014901C       W?cd_errors$n[]pna
+ 0003:0014905C       _fss
+ 0003:00149060       _SmackMSSDigDriver
+ 0003:00149064       _LiteInit
+ 0003:00149068       _count
+ 0003:0014906C       _sndinit
  0003:00149070       _sounds
  0003:00149074       _trackbuf
  0003:00149078       _simspeed
@@ -880,18 +1903,57 @@
  0003:00149084       _LowSoundOffAddr
  0003:00149088       _LowSoundOnAddr
  0003:0014908C       _LowSoundVolPanAddr
+ 0003:00149090       W?exe_key$n[]xuc
  0003:0014909C       ___iob
  0003:001492B0       W?sample_queue_handle_stopped$nuc
+ 0003:001492B4       ___NFiles
+ 0003:001492B8       ___init_mode
+ 0003:00149308       __iomode
+ 0003:0014930C       _xlat
+ 0003:00149320       ___umaskval
+ 0003:00149324       ___EFG_printf
  0003:00149328       ___EFG_scanf
  0003:0014932E       aStackOverflow
+ 0003:001493EC       _disk_err
+ 0003:001493F0       _MEM_alloc
+ 0003:001493F4       _MEM_free
  0003:001493F8       aBullfrog
- 0003:0014A08C       aSample_0
+ 0003:00149404       W?adpcm_handle$nl
+ 0003:00149408       W?adaption_table$n[]l
+ 0003:00149448       ail_dword_149448
+ 0003:001494C8       ail_dword_1494C8
+ 0003:00149584       ail_dword_149584
+ 0003:001495C8       ail_dword_1495C8
+ 0003:001495CC       ail_word_1495CC
+ 0003:001495D2       pit_dword_1495D2
+ 0003:001495D6       pit_dword_1495D6
+ 0003:001495DA       ail_dword_1495DA
+ 0003:001495DE       ail_dword_1495DE
+ 0003:001495E2       ail_word_1495E2
+ 0003:00149FF0       ail_word_149FF0
+ 0003:00149FF4       ail_dword_149FF4
+ 0003:00149FF8       ail_entry
+ 0003:0014A000       SS_SERVE_pan_graph
+ 0003:0014A080       SS_SERVE_unk2
+ 0003:0014A08C       _GTL_prefix
+ 0003:0014A10C       XMI_SERVE_unkn3
  0003:0014A114       aTimb_0
  0003:0014A124       _SmackTimerReadAddr
  0003:0014A128       _SmackTimerSetupAddr
+ 0003:0014A8E0       ___heap_enabled
+ 0003:0014A8F0       ___old_int23
+ 0003:0014A8F6       ___old_int_ctrl_break
+ 0003:0014A930       _SignalTable
+ 0003:0014A96C       ___longjmp_handler
  0003:0014A970       W?fs_vftable$n$__6rq0qbDTREG_VFTBL$$
+ 0003:0014A97C       ___abort
+ 0003:0014B980       ___PMSeg
+ 0003:0014B982       ___PMAddr
+ 0003:0014B986       ___RMAddr
  0003:0014BBA8       __8087
  0003:0014BBA9       __real87
+ 0003:0014BBAD       ___IRQ_num
+ 0003:0014BBAF       ___MST_pic
  0003:0014BBC0       aAgentHealthDMa
  0003:0014BBE1       a1AgentHealthDM
  0003:0014BC06       aReinitDirectCo
@@ -3564,6 +4626,15 @@
  0003:001D9AEC       lbDisplay__FadeStep
  0003:001D9AED       lbDisplay__DrawColour
  0003:001D9AF4       _lbSpriteReMapPtr
+ 0003:001D9AF8       __wint_thread_data
+ 0003:001D9B58       W?NetworkServicePtr$n$TbNetworkService$$
+ 0003:001D9B64       _NetworkServiceFunction__SessionCreate
+ 0003:001D9B68       _NetworkServiceFunction__SessionJoin
+ 0003:001D9B6C       _NetworkServiceFunction__SessionExchange
+ 0003:001D9B70       _NetworkServiceFunction__SessionInit
+ 0003:001D9B74       _NetworkServiceFunction__SessionDial
+ 0003:001D9B78       _NetworkServiceFunction__SessionAnswer
+ 0003:001D9B7C       _NetworkServiceFunction__SessionHangUp
  0003:001D9B88       _lbExtendedKeyPress
  0003:001D9B8C       _lbKeyOn
  0003:001D9C8C       _lbInkey
@@ -3625,6 +4696,9 @@
  0003:001DC8B8       W?error_log_initialised$nul
  0003:001DC980       W?oinkey$:.0$:?KInt$f()vnuc
  0003:001DC984       W?OldInt$npf()v
+ 0003:001DC9DC       W?full_sound_data_path$n[]a
+ 0003:001DCABC       W?music_bank_size_info$n$MusicBankSizes$$
+ 0003:001DCADC       W?full_music_data_path$n[]a
  0003:001DCB6C       W?cur_flag$:.0$:?LbScreenSetDoubleBuffering$n(ul)ulnul
  0003:001DCB70       W?cur_flag$:.0$:?LbScreenSetWScreenInVideo$n(ul)ulnul
  0003:001DCB74       _lbScreenDirectAccessActive
@@ -3634,6 +4708,25 @@
  0003:001DCB80       _lbVesaVRes
  0003:001DCB84       _lbVesaData
  0003:001DCB88       _lbVesaPage
+ 0003:001DCBB8       lbFontPtr
+ 0003:001DCFE0       W?start_time$:.0$:?ipx_update$n()vnul
+ 0003:001DCFE4       W?end_time$:.0$:?ipx_update$n()vnul
+ 0003:001DCFE8       _IPXHandler
+ 0003:001DCFEC       _IPXPlayerHeader
+ 0003:001DD0FC       _loggon_header
+ 0003:001DD129       W?player_loggon$nuc
+ 0003:001DD12C       W?last_pkt_size$nl
+ 0003:001DD130       W?last_pkt$n[]uc
+ 0003:001DD530       W?ipx_send_packet_count$n[][8]ul
+ 0003:001DD630       W?ipx_got_player_send_packet_count$n[]ul
+ 0003:001DD650       W?datagram_backup$n[]$IPXDatagramBackup$$
+ 0003:001DE781       W?start_time$:.0$:?run_exchange_func$n()lnul
+ 0003:001DE785       W?end_time$:.0$:?run_exchange_func$n()lnul
+ 0003:001DE795       W?ModemResponseString$n[]a
+ 0003:001DE7E5       W?g_count$nul
+ 0003:001DE7E9       com_last_packet0_Field1
+ 0003:001DE7EA       com_last_packet0_Field2
+ 0003:001DE813       com_last_packet0_Field3
  0003:001DEB50       _DebugAudio
  0003:001DEB54       _SoundProgressMessage
  0003:001DEC54       _sample_id
@@ -3642,24 +4735,59 @@
  0003:001DEF79       _DisableLoadSounds
  0003:001DEF7A       _NumberOfSamples
  0003:001DEF7C       _Sfx
+ 0003:001DEF80       _EndSfxs
+ 0003:001DEF84       _SfxData
  0003:001DEF88       _SoundType
  0003:001DEF8C       _SoundDriver
+ 0003:001DEF90       _AILStartupAlreadyInitiated
+ 0003:001DEF94       _SampleRate
  0003:001DEF98       W?ive_got_an_sb16$nuc
  0003:001DEFA0       _UseMultiMediaExtensions
+ 0003:001DEFA4       _SoundInstallChoice_Field0
+ 0003:001DF024       _SoundInstallChoice_Field1
+ 0003:001DF0A4       _SoundInstallChoice_Field2
  0003:001DF0C0       _UseCurrentAwe32Soundfont
  0003:001DF0C1       _MusicInstalled
+ 0003:001DF0C4       _MusicType
  0003:001DF0CC       _SongCurrentlyPlaying
  0003:001DF0CE       _NumberOfSongs
+ 0003:001DF0D0       _Music
+ 0003:001DF0D4       _EndMusic
+ 0003:001DF0D8       _MusicData
  0003:001DF0DC       _MusicDriver
  0003:001DF0E0       _SongHandle
  0003:001DF0E4       _DangerMusicFadeHandle
+ 0003:001DF0E8       _Awe32SoundfontLoaded
  0003:001DF0E9       _DisableLoadMusic
  0003:001DF0EB       _DisableDangerMusic
  0003:001DF0EC       _DangerMusicVolume
  0003:001DF0ED       _DangerMusicFadeActive
  0003:001DF0EE       _DangerMusicAble
  0003:001DF174       InitAudio_s1
+ 0003:001DF2B8       _StreamedSoundAble
  0003:001DF2B9       _CDSpeed
+ 0003:001DF2BC       W?sample_handle$npn$_SAMPLE$$
+ 0003:001DF3C4       W?sample_sign$nul
+ 0003:001DF3C8       W?sample_rate$nus
+ 0003:001DF3CC       W?loop_count$nl
+ 0003:001DF3D0       W?ssbuffer$n[]pnuc
+ 0003:001DF3D4       W?ssbuffer2$n[]pnuc
+ 0003:001DF3DC       W?adpcm_source_buffer$npnuc
+ 0003:001DF3E0       W?adpcm_file_open$nl
+ 0003:001DF3E4       W?adpcm_source_size$nl
+ 0003:001DF3E8       W?adpcm_dest_size$nl
+ 0003:001DF3EC       W?stream_flags$nl
+ 0003:001DF3F0       W?block_count$nl
+ 0003:001DF3F4       W?position_offset$nl
+ 0003:001DF3F8       W?pan_position$nl
+ 0003:001DF3FC       W?pan_rate$nl
+ 0003:001DF400       W?pan_target$nl
+ 0003:001DF404       W?mixer_buffer$npns
+ 0003:001DF408       W?mixed_file_open$nuc
+ 0003:001DF410       _AIL_debugfile
+ 0003:001DF414       _AIL_debug
+ 0003:001DF418       _AIL_sys_debug
+ 0003:001DF424       _AIL_indent
  0003:001DF55C       W?current_da_track$nus
  0003:001DF574       W?track_start_sector$n[]ul
  0003:001DF700       W?track_lengths$n[]ul
@@ -3690,19 +4818,61 @@
  0003:001DF9F4       _LowSoundCheckAddr
  0003:001DF9F8       _LowSoundPlayedAddr
  0003:001DF9FC       _LowSoundCloseAddr
+ 0003:001DFA00       ___ClosedStreams
  0003:001DFA04       ___OpenStreams
+ 0003:001DFA08       _clock_start
+ 0003:001DFA0C       DrawTriangleFilled_static_buf1
  0003:001E090C       W?sample_fade_handle$nl
  0003:001E0910       W?switch_off_sample_fade_timer$nyuc
  0003:001E0912       W?samples_currently_fading$nyuc
  0003:001E0914       W?current_sample_queue_count$nyul
  0003:001E0918       W?sample_queue_handle_initiated$nuc
  0003:001E091C       W?sample_queue_handle$npn$_SAMPLE$$
+ 0003:001E0920       ___nheap_clean
+ 0003:001E0924       _errno
+ 0003:001E0928       __doserrno
  0003:001E092C       ____Argc
  0003:001E0930       ____Argv
+ 0003:001E0940       W?sbkHandle$nl
+ 0003:001E0944       W?awe32_buffer$npfuc
+ 0003:001E094C       W?preset$npfuc
+ 0003:001E0954       W?data$npf$__38rogeSF_DATA$$
+ 0003:001E0974       W?no_samples$nl
+ 0003:001E0978       W?samples_per_block$nl
+ 0003:001E097C       W?samples_processed$nl
+ 0003:001E0980       W?coeffs$n[]$ADPCMCoef$$
+ 0003:001E0A00       _AIL_driver
+ 0003:001E0A40       _AIL_error
+ 0003:001E0B40       _AIL_last_IO_attempt
+ 0003:001E0B58       _AIL_flags
+ 0003:001E0B5C       _AIL_preference
+ 0003:001E0C00       SS_SERVE_VDI
+ 0003:001E0C0C       SS_SERVE_S
+ 0003:001E0C10       SS_SERVE_n
+ 0003:001E0C14       SS_SERVE_dig
+ 0003:001E0C18       SS_SERVE_current
+ 0003:001E0C1C       SS_SERVE_unk1
+ 0003:001E0C20       SS_SERVE_cnt
+ 0003:001E0C30       XMI_SERVE_ptr
+ 0003:001E0C34       XMI_SERVE_event
+ 0003:001E0C38       XMI_SERVE_channel
+ 0003:001E0C3C       XMI_SERVE_i
+ 0003:001E0C40       XMI_SERVE_j
+ 0003:001E0C44       XMI_SERVE_unkn1
+ 0003:001E0C48       XMI_SERVE_q
+ 0003:001E0C4C       XMI_SERVE_t
+ 0003:001E0C50       XMI_SERVE_status
+ 0003:001E0C54       XMI_SERVE_sequence_done
+ 0003:001E0C58       XMI_SERVE_len
+ 0003:001E0C5C       XMI_SERVE_type
+ 0003:001E0C60       XMI_SERVE_unkn2
  0003:001E0E7C       W?EAL_pr$n$REGS$$
  0003:001E0E98       W?EAL_rmr$n$realmode_registers$$
  0003:001E0ECA       W?EAL_realmode_segment$nus
  0003:001E0ECC       W?EAL_realmode_selector$nus
+ 0003:001E0ED0       _timeradjust
+ 0003:001E0ED4       _lasttimerread
  0003:001E0ED8       _SmackTimerDoneAddr
+ 0003:001E0F08       _my_stack
 
 Program entry point at 0001:000C7F6C
