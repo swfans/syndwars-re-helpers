@@ -323,6 +323,7 @@
         <REGISTER_VALUE_RANGE REGISTER="es" VALUE="0x2" START_ADDRESS="0x2D762" LENGTH="0xB" />
         <REGISTER_VALUE_RANGE REGISTER="es" VALUE="0x2" START_ADDRESS="0x2F1F2" LENGTH="0x56" />
         <REGISTER_VALUE_RANGE REGISTER="es" VALUE="0x2" START_ADDRESS="0x2F254" LENGTH="0xF" />
+        <REGISTER_VALUE_RANGE REGISTER="es" VALUE="0x9999" START_ADDRESS="0x2F3D7" LENGTH="0x44" />
         <REGISTER_VALUE_RANGE REGISTER="es" VALUE="0x2" START_ADDRESS="0x2F6FB" LENGTH="0xBC" />
         <REGISTER_VALUE_RANGE REGISTER="es" VALUE="0x2" START_ADDRESS="0x36462" LENGTH="0x17F" />
         <REGISTER_VALUE_RANGE REGISTER="es" VALUE="0x2" START_ADDRESS="0x36E70" LENGTH="0xB" />
@@ -368,6 +369,7 @@
         <REGISTER_VALUE_RANGE REGISTER="es" VALUE="0x2" START_ADDRESS="0x42CFD" LENGTH="0x66" />
         <REGISTER_VALUE_RANGE REGISTER="es" VALUE="0x60" START_ADDRESS="0x47511" LENGTH="0x9949" />
         <REGISTER_VALUE_RANGE REGISTER="ss" VALUE="0x2" START_ADDRESS="0x2F09E" LENGTH="0x95" />
+        <REGISTER_VALUE_RANGE REGISTER="ss" VALUE="0x9999" START_ADDRESS="0x2F3E3" LENGTH="0x32" />
         <REGISTER_VALUE_RANGE REGISTER="ss" VALUE="0x2" START_ADDRESS="0x2F6BA" LENGTH="0x22" />
         <REGISTER_VALUE_RANGE REGISTER="ss" VALUE="0x2" START_ADDRESS="0x42D86" LENGTH="0x63" />
         <REGISTER_VALUE_RANGE REGISTER="ss" VALUE="0x2" START_ADDRESS="0x42E1B" LENGTH="0x44E9" />
@@ -388,7 +390,9 @@
         <REGISTER_VALUE_RANGE REGISTER="ds" VALUE="0x0" START_ADDRESS="0x2F30C" LENGTH="0x3" />
         <REGISTER_VALUE_RANGE REGISTER="ds" VALUE="0x2" START_ADDRESS="0x2F30F" LENGTH="0x52" />
         <REGISTER_VALUE_RANGE REGISTER="ds" VALUE="0x2" START_ADDRESS="0x2F361" LENGTH="0x3" />
-        <REGISTER_VALUE_RANGE REGISTER="ds" VALUE="0x2" START_ADDRESS="0x2F364" LENGTH="0x454" />
+        <REGISTER_VALUE_RANGE REGISTER="ds" VALUE="0x2" START_ADDRESS="0x2F364" LENGTH="0x70" />
+        <REGISTER_VALUE_RANGE REGISTER="ds" VALUE="0x9999" START_ADDRESS="0x2F3D4" LENGTH="0x48" />
+        <REGISTER_VALUE_RANGE REGISTER="ds" VALUE="0x2" START_ADDRESS="0x2F41C" LENGTH="0x39C" />
         <REGISTER_VALUE_RANGE REGISTER="ds" VALUE="0x2" START_ADDRESS="0x2F7B8" LENGTH="0x1E" />
         <REGISTER_VALUE_RANGE REGISTER="ds" VALUE="0x40" START_ADDRESS="0x2F7D6" LENGTH="0x3" />
         <REGISTER_VALUE_RANGE REGISTER="ds" VALUE="0x2" START_ADDRESS="0x2F7D9" LENGTH="0x6E09" />
@@ -467,7 +471,8 @@
         <CODE_BLOCK START="0x1177C" END="0x11816" />
         <CODE_BLOCK START="0x11818" END="0x11920" />
         <CODE_BLOCK START="0x11930" END="0x11981" />
-        <CODE_BLOCK START="0x11984" END="0x11CA0" />
+        <CODE_BLOCK START="0x11984" END="0x119A0" />
+        <CODE_BLOCK START="0x119B4" END="0x11CA0" />
         <CODE_BLOCK START="0x11CA4" END="0x11D8C" />
         <CODE_BLOCK START="0x11D90" END="0x11DC7" />
         <CODE_BLOCK START="0x11DD0" END="0x11E88" />
@@ -794,8 +799,7 @@
         <CODE_BLOCK START="0x2EE10" END="0x2EE5E" />
         <CODE_BLOCK START="0x2EE60" END="0x2EF22" />
         <CODE_BLOCK START="0x2EF30" END="0x2EFB8" />
-        <CODE_BLOCK START="0x2EFC0" END="0x2F3CC" />
-        <CODE_BLOCK START="0x2F41D" END="0x2FC56" />
+        <CODE_BLOCK START="0x2EFC0" END="0x2FC56" />
         <CODE_BLOCK START="0x2FC60" END="0x2FD62" />
         <CODE_BLOCK START="0x2FD70" END="0x2FD97" />
         <CODE_BLOCK START="0x2FDA0" END="0x300B2" />
@@ -941,8 +945,7 @@
         <CODE_BLOCK START="0x3EEB6" END="0x3F1B0" />
         <CODE_BLOCK START="0x3F1B2" END="0x3F50C" />
         <CODE_BLOCK START="0x3F50F" END="0x3FC7C" />
-        <CODE_BLOCK START="0x3FC7E" END="0x3FD5B" />
-        <CODE_BLOCK START="0x4005C" END="0x40226" />
+        <CODE_BLOCK START="0x3FC7E" END="0x40226" />
         <CODE_BLOCK START="0x40228" END="0x40273" />
         <CODE_BLOCK START="0x40280" END="0x40292" />
         <CODE_BLOCK START="0x402A0" END="0x4093B" />
@@ -1543,31 +1546,6 @@
         <DEFINED_DATA ADDRESS="0x2EE06" DATATYPE="byte[10]" SIZE="0xA" />
         <DEFINED_DATA ADDRESS="0x2EF23" DATATYPE="byte[13]" SIZE="0xD" />
         <DEFINED_DATA ADDRESS="0x2EFB9" DATATYPE="byte[7]" SIZE="0x7" />
-        <DEFINED_DATA ADDRESS="0x2F3CD" DATATYPE="word" SIZE="0x2" />
-        <DEFINED_DATA ADDRESS="0x2F3CF" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_2F3CF</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x2F3D1" DATATYPE="byte[4]" SIZE="0x4" />
-        <DEFINED_DATA ADDRESS="0x2F3D5" DATATYPE="word[3]" SIZE="0x6" />
-        <DEFINED_DATA ADDRESS="0x2F3DB" DATATYPE="byte[3]" SIZE="0x3" />
-        <DEFINED_DATA ADDRESS="0x2F3DE" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_2F3DE</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x2F3E0" DATATYPE="word" SIZE="0x2" />
-        <DEFINED_DATA ADDRESS="0x2F3E2" DATATYPE="word" SIZE="0x2" />
-        <DEFINED_DATA ADDRESS="0x2F3E4" DATATYPE="word[11]" SIZE="0x16">
-            <TYPEINFO_CMT>word_2F3E4</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x2F3FA" DATATYPE="word[5]" SIZE="0xA">
-            <TYPEINFO_CMT>word_2F3FA</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x2F404" DATATYPE="word[3]" SIZE="0x6">
-            <TYPEINFO_CMT>word_2F404</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0x2F40A" DATATYPE="byte" SIZE="0x1" />
-        <DEFINED_DATA ADDRESS="0x2F40B" DATATYPE="word[9]" SIZE="0x12">
-            <TYPEINFO_CMT>word_2F40B</TYPEINFO_CMT>
-        </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x2FC57" DATATYPE="byte[9]" SIZE="0x9" />
         <DEFINED_DATA ADDRESS="0x2FD63" DATATYPE="byte[13]" SIZE="0xD" />
         <DEFINED_DATA ADDRESS="0x2FD98" DATATYPE="byte[8]" SIZE="0x8" />
@@ -1983,9 +1961,6 @@
             <TYPEINFO_CMT>a123456789abc_0</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x3F50D" DATATYPE="byte[2]" SIZE="0x2" />
-        <DEFINED_DATA ADDRESS="0x3FD5C" DATATYPE="dword[192]" SIZE="0x300">
-            <TYPEINFO_CMT>dword_3FD5C</TYPEINFO_CMT>
-        </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x40274" DATATYPE="byte[12]" SIZE="0xC" />
         <DEFINED_DATA ADDRESS="0x40293" DATATYPE="byte[13]" SIZE="0xD" />
         <DEFINED_DATA ADDRESS="0x4093C" DATATYPE="byte[4]" SIZE="0x4" />
@@ -5591,7 +5566,7 @@
             <TYPEINFO_CMT>dword_7210A</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x7210E" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_7210E</TYPEINFO_CMT>
+            <TYPEINFO_CMT>pit_dword_7210E</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x72112" DATATYPE="dword" SIZE="0x4">
             <TYPEINFO_CMT>dword_72112</TYPEINFO_CMT>
@@ -7488,7 +7463,7 @@
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x2030EF" DATATYPE="byte" SIZE="0x1" />
         <DEFINED_DATA ADDRESS="0x2030F0" DATATYPE="byte[3840]" SIZE="0xF00">
-            <TYPEINFO_CMT>byte_2030F0</TYPEINFO_CMT>
+            <TYPEINFO_CMT>DrawTriangleFilled_static_buf1</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x203FF0" DATATYPE="byte[36]" SIZE="0x24">
             <TYPEINFO_CMT>_The_time_0</TYPEINFO_CMT>
@@ -11808,6 +11783,272 @@ Return: CF set on error
 CF clear if successful, CX:DX = linear base address of segment </COMMENT>
         <COMMENT ADDRESS="0x3FA51" TYPE="end-of-line">DOS - 2+ - ALLOCATE MEMORY
 BX = number of 16-byte paragraphs desired </COMMENT>
+        <COMMENT ADDRESS="0x3FD5C" TYPE="end-of-line">- internal hardware - DIVIDE ERROR
+Automatically called at end of DIV or IDIV operation that results in error
+or overflow.   Normally set by DOS to display an error message and abort
+the program. </COMMENT>
+        <COMMENT ADDRESS="0x3FD5F" TYPE="end-of-line">- internal hardware - SINGLE-STEP
+generated at end of each machine instruction if TF bit in FLAGS is set </COMMENT>
+        <COMMENT ADDRESS="0x3FD62" TYPE="end-of-line">- external hardware - NMI (NON-MASKABLE INTERRUPT)
+Generated by NMI signal in hardware. </COMMENT>
+        <COMMENT ADDRESS="0x3FD65" TYPE="end-of-line">Trap to Debugger </COMMENT>
+        <COMMENT ADDRESS="0x3FD68" TYPE="end-of-line">- internal hardware - OVERFLOW
+Generated by INTO instruction if OF flag is set.
+Not intended to be called by programmer. </COMMENT>
+        <COMMENT ADDRESS="0x3FD6B" TYPE="end-of-line"> - PRINT-SCREEN KEY
+automatically called by keyboard scanner when print-screen key is pressed </COMMENT>
+        <COMMENT ADDRESS="0x3FD6E" TYPE="end-of-line"> - internal hardware - UNDEFINED OPCODE (80286+) </COMMENT>
+        <COMMENT ADDRESS="0x3FD71" TYPE="end-of-line"> - internal hardware - NO MATH UNIT AVAILABLE (80286+)
+automatically called if a coprocessor instruction is encountered when no
+coprocessor is installed </COMMENT>
+        <COMMENT ADDRESS="0x3FD74" TYPE="end-of-line"> - IRQ0 - TIMER INTERRUPT
+Generated 18.2 times per second, this interrupt is used to keep the
+time-of-day clock updated. </COMMENT>
+        <COMMENT ADDRESS="0x3FD77" TYPE="end-of-line"> - IRQ1 - KEYBOARD INTERRUPT
+Generated when data is received from the keyboard. </COMMENT>
+        <COMMENT ADDRESS="0x3FD7A" TYPE="end-of-line"> - IRQ2 - EGA VERTICAL RETRACE </COMMENT>
+        <COMMENT ADDRESS="0x3FD7D" TYPE="end-of-line"> - IRQ3 - COM2 INTERRUPT </COMMENT>
+        <COMMENT ADDRESS="0x3FD80" TYPE="end-of-line"> - IRQ4 - COM1 INTERRUPT </COMMENT>
+        <COMMENT ADDRESS="0x3FD83" TYPE="end-of-line"> - IRQ5 - FIXED DISK (PC), LPT2 (AT/PS) </COMMENT>
+        <COMMENT ADDRESS="0x3FD86" TYPE="end-of-line"> - IRQ6 - DISKETTE INTERRUPT </COMMENT>
+        <COMMENT ADDRESS="0x3FD89" TYPE="end-of-line"> - IRQ7 - PRINTER INTERRUPT </COMMENT>
+        <COMMENT ADDRESS="0x3FD8C" TYPE="end-of-line">- VIDEO -  </COMMENT>
+        <COMMENT ADDRESS="0x3FD8F" TYPE="end-of-line">EQUIPMENT DETERMINATION
+Return: AX = equipment flag bits </COMMENT>
+        <COMMENT ADDRESS="0x3FD92" TYPE="end-of-line">MEMORY SIZE - 
+Return: AX = number of contiguous 1K blocks of memory </COMMENT>
+        <COMMENT ADDRESS="0x3FD95" TYPE="end-of-line">DISK -  </COMMENT>
+        <COMMENT ADDRESS="0x3FD9E" TYPE="end-of-line">KEYBOARD -  </COMMENT>
+        <COMMENT ADDRESS="0x3FDA4" TYPE="end-of-line">TRANSFER TO ROM BASIC
+causes transfer to ROM-based BASIC (IBM-PC)
+often reboots a compatible; often has no effect at all </COMMENT>
+        <COMMENT ADDRESS="0x3FDA7" TYPE="end-of-line">DISK BOOT
+causes reboot of disk system </COMMENT>
+        <COMMENT ADDRESS="0x3FDAD" TYPE="end-of-line">CTRL-BREAK KEY </COMMENT>
+        <COMMENT ADDRESS="0x3FDB0" TYPE="end-of-line">CLOCK TICK </COMMENT>
+        <COMMENT ADDRESS="0x3FDB3" TYPE="end-of-line">(NOT a vector!) 6845 VIDEO INIT TABLES </COMMENT>
+        <COMMENT ADDRESS="0x3FDB6" TYPE="end-of-line">(NOT a vector!) DISKETTE PARAMS (BASE TABLE)
+default parameters at F000h:EFC7h in PC and most compatibles </COMMENT>
+        <COMMENT ADDRESS="0x3FDB9" TYPE="end-of-line">(NOT a vector!) GRAPHICS SET 2
+pointer to bitmaps for high 128 chars (eight bytes per character) </COMMENT>
+        <COMMENT ADDRESS="0x3FDC2" TYPE="end-of-line">DOS - TERMINATE ADDRESS
+FAR (DWORD) address to jump to when program &quot;returns to DOS&quot;. </COMMENT>
+        <COMMENT ADDRESS="0x3FDC5" TYPE="end-of-line">DOS - CONTROL &quot;C&quot; EXIT ADDRESS
+Return: return via RETF 2 with CF set
+DOS will abort program with errorlevel 0
+else
+interrupted DOS call continues </COMMENT>
+        <COMMENT ADDRESS="0x3FDC8" TYPE="end-of-line">DOS - FATAL ERROR HANDLER ADDRESS
+Automatically called upon detection of unrecoverable I/O error. </COMMENT>
+        <COMMENT ADDRESS="0x3FDCB" TYPE="end-of-line">DOS - ABSOLUTE DISK READ (except DOS 4.0/COMPAQ DOS 3.31 &gt;32M partitn)
+AL = drive number (0=A, 1=B, etc), DS:BX = Disk Transfer Address (buffer)
+CX = number of sectors to read, DX = first relative sector to read
+Return: CF set on error </COMMENT>
+        <COMMENT ADDRESS="0x3FDCE" TYPE="end-of-line">DOS - ABSOLUTE DISK WRITE (except DOS 4.0/COMPAQ DOS 3.31 &gt;32M partn)
+AL = drive number (0=A, 1=B, etc), DS:BX = Disk Transfer Address (buffer)
+CX = number of sectors to write, DX = first relative sector to write
+Return: CF set on error </COMMENT>
+        <COMMENT ADDRESS="0x3FDD1" TYPE="end-of-line">DOS - TERMINATE BUT STAY RESIDENT
+CS = current program segment
+DX = last program byte + 1 </COMMENT>
+        <COMMENT ADDRESS="0x3FDD4" TYPE="end-of-line">DOS 2+ internal - KEYBOARD BUSY LOOP </COMMENT>
+        <COMMENT ADDRESS="0x3FDD7" TYPE="end-of-line">DOS 2+ internal - FAST PUTCHAR
+AL = character to display </COMMENT>
+        <COMMENT ADDRESS="0x3FDDD" TYPE="end-of-line">Internal routine for MSDOS (IRET) </COMMENT>
+        <COMMENT ADDRESS="0x3FDE0" TYPE="end-of-line">Internal routine for MSDOS (IRET) </COMMENT>
+        <COMMENT ADDRESS="0x3FDE3" TYPE="end-of-line">Internal routine for MSDOS (IRET) </COMMENT>
+        <COMMENT ADDRESS="0x3FDE6" TYPE="end-of-line">DOS 2+ internal - EXECUTE COMMAND
+DS:SI -&gt; counted CR-terminated command string </COMMENT>
+        <COMMENT ADDRESS="0x3FDEC" TYPE="end-of-line">(NOT A VECTOR!) FAR JMP instruction for CP/M-style calls </COMMENT>
+        <COMMENT ADDRESS="0x3FDEF" TYPE="end-of-line">DPMI Services   ax=func xxxxh
+ </COMMENT>
+        <COMMENT ADDRESS="0x3FDF2" TYPE="end-of-line">reportedly used by &quot;Tiny&quot; Viruses </COMMENT>
+        <COMMENT ADDRESS="0x3FDF5" TYPE="end-of-line">- MS MOUSE -  </COMMENT>
+        <COMMENT ADDRESS="0x3FDF8" TYPE="end-of-line">(emulator call) </COMMENT>
+        <COMMENT ADDRESS="0x3FDFB" TYPE="end-of-line">(emulator call) </COMMENT>
+        <COMMENT ADDRESS="0x3FDFE" TYPE="end-of-line">Borland/Microsoft languages - Floating Point emulation </COMMENT>
+        <COMMENT ADDRESS="0x3FE01" TYPE="end-of-line">Borland/Microsoft languages - Floating Point emulation </COMMENT>
+        <COMMENT ADDRESS="0x3FE04" TYPE="end-of-line">(emulator call) </COMMENT>
+        <COMMENT ADDRESS="0x3FE07" TYPE="end-of-line">(emulator call) </COMMENT>
+        <COMMENT ADDRESS="0x3FE0A" TYPE="end-of-line">(emulator call) </COMMENT>
+        <COMMENT ADDRESS="0x3FE0D" TYPE="end-of-line">(emulator call) </COMMENT>
+        <COMMENT ADDRESS="0x3FE10" TYPE="end-of-line">Borland/Microsoft languages - Floating Point emulation </COMMENT>
+        <COMMENT ADDRESS="0x3FE13" TYPE="end-of-line">(emulator call) </COMMENT>
+        <COMMENT ADDRESS="0x3FE16" TYPE="end-of-line">Borland languages - Floating Point emulation &quot;shortcut&quot; call </COMMENT>
+        <COMMENT ADDRESS="0x3FE19" TYPE="end-of-line">Overlay manager interrupt
+(Microsoft LINK.EXE, Borland TLINK VROOMM) </COMMENT>
+        <COMMENT ADDRESS="0x3FE1C" TYPE="end-of-line">Hard disk - Relocated Floppy Handler (original INT 13h) </COMMENT>
+        <COMMENT ADDRESS="0x3FE1F" TYPE="end-of-line">(NOT a vector!) FIXED DISK PARAMS (XT,AT,XT2,XT286,PS except ESDI) </COMMENT>
+        <COMMENT ADDRESS="0x3FE22" TYPE="end-of-line"> - EGA/VGA/PS - Relocated (by EGA) Video Handler (original INT 10h) </COMMENT>
+        <COMMENT ADDRESS="0x3FE25" TYPE="end-of-line">EGA/VGA/PS - User font table </COMMENT>
+        <COMMENT ADDRESS="0x3FE28" TYPE="end-of-line">EGA/VGA/CONV/PS - EGA/PCjr fonts, characters 00h to 7Fh </COMMENT>
+        <COMMENT ADDRESS="0x3FE2B" TYPE="end-of-line">Z100 - Master 8259 - Serial B </COMMENT>
+        <COMMENT ADDRESS="0x3FE2E" TYPE="end-of-line">Secondary Fixed Disk Params (AT,XT286,PS except ESDI) </COMMENT>
+        <COMMENT ADDRESS="0x3FE34" TYPE="end-of-line">PCjr - Cordless Keyboard Translation </COMMENT>
+        <COMMENT ADDRESS="0x3FE37" TYPE="end-of-line">Texas Instruments PC - VIDEO I/O??? </COMMENT>
+        <COMMENT ADDRESS="0x3FE3A" TYPE="end-of-line">AT/CONV/PS - User Alarm </COMMENT>
+        <COMMENT ADDRESS="0x3FE40" TYPE="end-of-line">Z100 - Slave 8259 - S100 vectored line 4 </COMMENT>
+        <COMMENT ADDRESS="0x3FE43" TYPE="end-of-line">Z100 - Slave 8259 - S100 vectored line 5 </COMMENT>
+        <COMMENT ADDRESS="0x3FE46" TYPE="end-of-line">TI Professional PC - DISK I/O </COMMENT>
+        <COMMENT ADDRESS="0x3FE49" TYPE="end-of-line">Common Access Method SCSI interface
+ES:BX -&gt; CAM Control Block (CCB) </COMMENT>
+        <COMMENT ADDRESS="0x3FE4C" TYPE="end-of-line">through 57 - IRQ0-IRQ7 relocated by DESQview </COMMENT>
+        <COMMENT ADDRESS="0x3FE64" TYPE="end-of-line">IRQ8 relocated by DESQview 2.26+ </COMMENT>
+        <COMMENT ADDRESS="0x3FE67" TYPE="end-of-line">GSS Computer Graphics Interface (GSS*CGI)
+DS:DX -&gt; block of 5 array pointers
+Return:   CF set on error, AX = error code
+CF clear if successful, AX = return code </COMMENT>
+        <COMMENT ADDRESS="0x3FE6A" TYPE="end-of-line">Cluster adapter BIOS entry address </COMMENT>
+        <COMMENT ADDRESS="0x3FE6D" TYPE="end-of-line">Microsoft Network Transport Layer Interface </COMMENT>
+        <COMMENT ADDRESS="0x3FE70" TYPE="end-of-line">NETBIOS INTERFACE
+ES:BX -&gt; Network Control Block
+Return: AL = status </COMMENT>
+        <COMMENT ADDRESS="0x3FE73" TYPE="end-of-line">IRQ13 relocated by DESQview 2.26+ </COMMENT>
+        <COMMENT ADDRESS="0x3FE76" TYPE="end-of-line">IRQ14 relocated by DESQview 2.26+ </COMMENT>
+        <COMMENT ADDRESS="0x3FE79" TYPE="end-of-line">IRQ15 relocated by DESQview 2.26+ </COMMENT>
+        <COMMENT ADDRESS="0x3FE7F" TYPE="end-of-line">reserved for user interrupt </COMMENT>
+        <COMMENT ADDRESS="0x3FE82" TYPE="end-of-line">reserved for user interrupt </COMMENT>
+        <COMMENT ADDRESS="0x3FE85" TYPE="end-of-line">reserved for user interrupt </COMMENT>
+        <COMMENT ADDRESS="0x3FE88" TYPE="end-of-line">reserved for user interrupt </COMMENT>
+        <COMMENT ADDRESS="0x3FE8B" TYPE="end-of-line">reserved for user interrupt </COMMENT>
+        <COMMENT ADDRESS="0x3FE8E" TYPE="end-of-line">reserved for user interrupt </COMMENT>
+        <COMMENT ADDRESS="0x3FE91" TYPE="end-of-line"> - LIM EMS  </COMMENT>
+        <COMMENT ADDRESS="0x3FE94" TYPE="end-of-line"> - APPC/PC  </COMMENT>
+        <COMMENT ADDRESS="0x3FE9A" TYPE="end-of-line">DECnet DOS LOCAL AREA TRANSPORT -  </COMMENT>
+        <COMMENT ADDRESS="0x3FE9D" TYPE="end-of-line">Novell NASI/NACS, Ungermann-Bass Net One SERIAL I/O -  </COMMENT>
+        <COMMENT ADDRESS="0x3FEA0" TYPE="end-of-line">DOS 3.2 Realtime Clock update </COMMENT>
+        <COMMENT ADDRESS="0x3FEA3" TYPE="end-of-line">VGA - internal </COMMENT>
+        <COMMENT ADDRESS="0x3FEA6" TYPE="end-of-line">DECnet DOS - DECnet NETWORK PROCESS API </COMMENT>
+        <COMMENT ADDRESS="0x3FEAC" TYPE="end-of-line">IRQ8 - AT/XT286/PS50+ - REAL-TIME CLOCK </COMMENT>
+        <COMMENT ADDRESS="0x3FEAF" TYPE="end-of-line">IRQ9 - AT/XT286/PS50+ - LAN ADAPTER 1 </COMMENT>
+        <COMMENT ADDRESS="0x3FEB2" TYPE="end-of-line">IRQ10 - AT/XT286/PS50+ - RESERVED </COMMENT>
+        <COMMENT ADDRESS="0x3FEB5" TYPE="end-of-line">IRQ11 - AT/XT286/PS50+ - RESERVED </COMMENT>
+        <COMMENT ADDRESS="0x3FEB8" TYPE="end-of-line">IRQ12 - PS50+ - MOUSE INTERRUPT </COMMENT>
+        <COMMENT ADDRESS="0x3FEBB" TYPE="end-of-line">IRQ13 - AT/XT286/PS50+ - 80287 ERROR </COMMENT>
+        <COMMENT ADDRESS="0x3FEBE" TYPE="end-of-line">IRQ14 - AT/XT286/PS50+ - FIXED DISK </COMMENT>
+        <COMMENT ADDRESS="0x3FEC1" TYPE="end-of-line">IRQ15 - AT/XT286/PS50+ - RESERVED </COMMENT>
+        <COMMENT ADDRESS="0x3FEC4" TYPE="end-of-line">TARGA.DEV -  </COMMENT>
+        <COMMENT ADDRESS="0x3FECA" TYPE="end-of-line">Novell NetWare to v2.0a - LOW-LEVEL API </COMMENT>
+        <COMMENT ADDRESS="0x3FECD" TYPE="end-of-line">Eicon Access API (3270/5250 gateways) </COMMENT>
+        <COMMENT ADDRESS="0x3FED0" TYPE="end-of-line">IBM REXX88PC command language </COMMENT>
+        <COMMENT ADDRESS="0x3FED3" TYPE="end-of-line">not used </COMMENT>
+        <COMMENT ADDRESS="0x3FED6" TYPE="end-of-line">not used </COMMENT>
+        <COMMENT ADDRESS="0x3FED9" TYPE="end-of-line">HDILOAD.EXE - 8514/A VIDEO CONTROLLER INTERFACE
+AX = 0105h get entry points </COMMENT>
+        <COMMENT ADDRESS="0x3FEDC" TYPE="end-of-line">LINUX -  </COMMENT>
+        <COMMENT ADDRESS="0x3FEEE" TYPE="end-of-line">Relocated (by NETBIOS) INT 18 </COMMENT>
+        <COMMENT ADDRESS="0x3FEF1" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FEF4" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FEF7" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FEFA" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FEFD" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF00" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF03" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF06" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF09" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF0C" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF0F" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF12" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF15" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF18" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF1B" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF1E" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF21" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF24" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF27" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF2A" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF2D" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF30" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF33" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF36" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF39" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF3C" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF3F" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF42" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF45" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF48" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF4B" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF4E" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF51" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF54" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF57" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF5A" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF5D" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF60" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF63" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF66" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF69" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF6C" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF6F" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF72" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF75" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF78" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF7B" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF7E" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF81" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF84" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF87" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF8A" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF8D" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF90" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF93" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF96" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF99" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF9C" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FF9F" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFA2" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFA5" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFA8" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFAB" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFAE" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFB1" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFB4" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFB7" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFBA" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFBD" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFC0" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFC3" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFC6" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFC9" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFCC" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFCF" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFD2" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFD5" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFD8" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFDB" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFDE" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFE1" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFE4" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFE7" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFEA" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFED" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFF0" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFF3" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFF6" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFF9" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFFC" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x3FFFF" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x40002" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x40005" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x40008" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x4000B" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x4000E" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x40011" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x40014" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x40017" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x4001A" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x4001D" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x40020" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x40023" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x40026" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x40029" TYPE="end-of-line">compiled BASIC - ORIGINAL INT 09 VECTOR </COMMENT>
+        <COMMENT ADDRESS="0x4002C" TYPE="end-of-line">used by BASIC while in interpreter </COMMENT>
+        <COMMENT ADDRESS="0x4002F" TYPE="end-of-line">reserved for user interrupt </COMMENT>
+        <COMMENT ADDRESS="0x40044" TYPE="end-of-line">10 ms INTERVAL TIMER (TANDY???) </COMMENT>
+        <COMMENT ADDRESS="0x4004A" TYPE="end-of-line">USART READY (RS-232C) (TANDY???) </COMMENT>
+        <COMMENT ADDRESS="0x4004D" TYPE="end-of-line">USART Rx READY (keyboard) (TANDY???) </COMMENT>
+        <COMMENT ADDRESS="0x40056" TYPE="end-of-line">AT/XT286/PS50+ - destroyed by return from protected mode </COMMENT>
+        <COMMENT ADDRESS="0x40059" TYPE="end-of-line">AT/XT286/PS50+ - destroyed by return from protected mode </COMMENT>
         <COMMENT ADDRESS="0x400BA" TYPE="end-of-line">DPMI Services   ax=func xxxxh
 LOCK LINEAR REGION
 BX:CX = starting linear address
@@ -13854,6 +14095,7 @@ CF clear if successful </COMMENT>
         <SYMBOL ADDRESS="0x4724E" NAME="__FPE2Handler_" />
         <SYMBOL ADDRESS="0x47354" NAME="__FPEHandler_sub1" />
         <SYMBOL ADDRESS="0x473E1" NAME="__FPEHandler_sub2" />
+        <SYMBOL ADDRESS="0x47433" NAME="__FPEHandler_sub3" />
         <SYMBOL ADDRESS="0x47459" NAME="__FPEHandler_sub2_sub" />
         <SYMBOL ADDRESS="0x4747E" NAME="__FPEHandler_subx_sub" />
         <SYMBOL ADDRESS="0x4748C" NAME="__Phar_hook_init_" />
@@ -14739,6 +14981,7 @@ CF clear if successful </COMMENT>
         <SYMBOL ADDRESS="0x71F78" NAME="_disk_err" />
         <SYMBOL ADDRESS="0x71F7C" NAME="_MEM_alloc" />
         <SYMBOL ADDRESS="0x71F80" NAME="_MEM_free" />
+        <SYMBOL ADDRESS="0x7210E" NAME="pit_dword_7210E" />
         <SYMBOL ADDRESS="0x72B34" NAME="_pan_graph" />
         <SYMBOL ADDRESS="0x72BB4" NAME="_entry_0" />
         <SYMBOL ADDRESS="0x72BB8" NAME="_locked_1" />
@@ -15192,6 +15435,7 @@ CF clear if successful </COMMENT>
         <SYMBOL ADDRESS="0x2030E0" NAME="___ClosedStreams" />
         <SYMBOL ADDRESS="0x2030E4" NAME="___OpenStreams" />
         <SYMBOL ADDRESS="0x2030E8" NAME="___MiniHeapFreeRover" />
+        <SYMBOL ADDRESS="0x2030F0" NAME="DrawTriangleFilled_static_buf1" />
         <SYMBOL ADDRESS="0x203FF0" NAME="_The_time_0" />
         <SYMBOL ADDRESS="0x204014" NAME="_FullDIG_INIPath" />
         <SYMBOL ADDRESS="0x2040A4" NAME="_FullMDI_INIPath" />
@@ -18284,6 +18528,13 @@ CF clear if successful </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
+        <FUNCTION ENTRY_POINT="0x27A2B" NAME="strstr_" LIBRARY_FUNCTION="y">
+            <ADDRESS_RANGE START="0x27A2B" END="0x27AE8" />
+            <TYPEINFO_CMT>strstr_</TYPEINFO_CMT>
+            <STACK_FRAME LOCAL_VAR_SIZE="0x18" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
+            </STACK_FRAME>
+        </FUNCTION>
         <FUNCTION ENTRY_POINT="0x27AE9" NAME="toupper_" LIBRARY_FUNCTION="y">
             <ADDRESS_RANGE START="0x27AE9" END="0x27AF6" />
             <TYPEINFO_CMT>toupper_</TYPEINFO_CMT>
@@ -18293,7 +18544,7 @@ CF clear if successful </COMMENT>
             <TYPEINFO_CMT>__null_int23_exit_</TYPEINFO_CMT>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x27AF8" NAME="exit_" LIBRARY_FUNCTION="y">
-            <ADDRESS_RANGE START="0x27AF8" END="0x27B0D" />
+            <ADDRESS_RANGE START="0x27AF8" END="0x27B0F" />
             <TYPEINFO_CMT>exit_</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
@@ -19575,6 +19826,15 @@ CF clear if successful </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
+        <FUNCTION ENTRY_POINT="0x2F3C8" NAME="_thunk_proc">
+            <ADDRESS_RANGE START="0x2F3C8" END="0x2F41C" />
+            <TYPEINFO_CMT>_thunk_proc</TYPEINFO_CMT>
+            <STACK_FRAME LOCAL_VAR_SIZE="0x1E" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
+                <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x6" DATATYPE="word" SIZE="0x2" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" DATATYPE="word" SIZE="0x2" />
+            </STACK_FRAME>
+        </FUNCTION>
         <FUNCTION ENTRY_POINT="0x2F41D" NAME="_AIL_API_set_USE16_ISR" LIBRARY_FUNCTION="y">
             <ADDRESS_RANGE START="0x2F41D" END="0x2F632" />
             <TYPEINFO_CMT>_AIL_API_set_USE16_ISR</TYPEINFO_CMT>
@@ -20588,6 +20848,11 @@ CF clear if successful </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
+        <FUNCTION ENTRY_POINT="0x345E8" NAME="_AIL_unkn_retm1" LIBRARY_FUNCTION="y">
+            <ADDRESS_RANGE START="0x345E8" END="0x345ED" />
+            <TYPEINFO_CMT>_AIL_unkn_retm1</TYPEINFO_CMT>
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
+        </FUNCTION>
         <FUNCTION ENTRY_POINT="0x34600" NAME="_AIL_API_sequence_tempo" LIBRARY_FUNCTION="y">
             <ADDRESS_RANGE START="0x34600" END="0x3460C" />
             <TYPEINFO_CMT>_AIL_API_sequence_tempo</TYPEINFO_CMT>
@@ -21275,7 +21540,7 @@ CF clear if successful </COMMENT>
             <ADDRESS_RANGE START="0x37E6D" END="0x37E71" />
             <TYPEINFO_CMT>__set_EDOM_</TYPEINFO_CMT>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x37E72" NAME="__set_errno_">
+        <FUNCTION ENTRY_POINT="0x37E72" NAME="__set_errno_" LIBRARY_FUNCTION="y">
             <ADDRESS_RANGE START="0x37E72" END="0x37E7D" />
             <TYPEINFO_CMT>__set_errno_</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
@@ -21607,7 +21872,7 @@ CF clear if successful </COMMENT>
             <ADDRESS_RANGE START="0x39573" END="0x39576" />
             <TYPEINFO_CMT>_dosretax_</TYPEINFO_CMT>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x39577" NAME="__set_errno_dos_">
+        <FUNCTION ENTRY_POINT="0x39577" NAME="__set_errno_dos_" LIBRARY_FUNCTION="y">
             <ADDRESS_RANGE START="0x39577" END="0x395E7" />
             <TYPEINFO_CMT>__set_errno_dos_</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
@@ -23201,12 +23466,8 @@ CF clear if successful </COMMENT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3FCDB" NAME="_DoINTR_" LIBRARY_FUNCTION="y">
-            <ADDRESS_RANGE START="0x3FCDB" END="0x3FD27" />
+            <ADDRESS_RANGE START="0x3FCDB" END="0x4005B" />
             <TYPEINFO_CMT>_DoINTR_</TYPEINFO_CMT>
-        </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3FD28" NAME="_DoINTR_sub1" LIBRARY_FUNCTION="y">
-            <ADDRESS_RANGE START="0x3FD28" END="0x3FD5B" />
-            <TYPEINFO_CMT>_DoINTR_sub1</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x4005C" NAME="__CommonInit_" LIBRARY_FUNCTION="y">
@@ -23570,9 +23831,10 @@ CF clear if successful </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x20" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x42D69" NAME="__int23_handler_">
+        <FUNCTION ENTRY_POINT="0x42D69" NAME="__int23_handler_" LIBRARY_FUNCTION="y">
             <ADDRESS_RANGE START="0x42D69" END="0x42DFD" />
             <TYPEINFO_CMT>__int23_handler_</TYPEINFO_CMT>
+            <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x42DFE" NAME="__int_ctrl_break_handler_">
             <ADDRESS_RANGE START="0x42DFE" END="0x42E75" />
@@ -24180,7 +24442,7 @@ CF clear if successful </COMMENT>
             <ADDRESS_RANGE START="0x469B9" END="0x469BE" />
             <TYPEINFO_CMT>abort_</TYPEINFO_CMT>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x469BF" NAME="__terminate_">
+        <FUNCTION ENTRY_POINT="0x469BF" NAME="__terminate_" LIBRARY_FUNCTION="y">
             <ADDRESS_RANGE START="0x469BF" END="0x469D0" />
             <TYPEINFO_CMT>__terminate_</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
@@ -24280,9 +24542,9 @@ CF clear if successful </COMMENT>
             <TYPEINFO_CMT>__FPEHandler_sub2</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x47433" LIBRARY_FUNCTION="y">
+        <FUNCTION ENTRY_POINT="0x47433" NAME="__FPEHandler_sub3" LIBRARY_FUNCTION="y">
             <ADDRESS_RANGE START="0x47433" END="0x47458" />
-            <TYPEINFO_CMT>sub_47433</TYPEINFO_CMT>
+            <TYPEINFO_CMT>__FPEHandler_sub3</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x47459" NAME="__FPEHandler_sub2_sub" LIBRARY_FUNCTION="y">
@@ -24354,7 +24616,7 @@ CF clear if successful </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x8" DATATYPE="word" SIZE="0x2" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x47702" NAME="_do_nothing_">
+        <FUNCTION ENTRY_POINT="0x47702" NAME="_do_nothing_" LIBRARY_FUNCTION="y">
             <ADDRESS_RANGE START="0x47702" END="0x47702" />
             <TYPEINFO_CMT>_do_nothing_</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x0" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
@@ -26109,6 +26371,7 @@ CF clear if successful </COMMENT>
         <MEMORY_REFERENCE ADDRESS="0x3E960" OPERAND_INDEX="0" TO_ADDRESS="0x6299F" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x3EBA3" OPERAND_INDEX="1" TO_ADDRESS="0x3EB8C" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x3EBBA" OPERAND_INDEX="1" TO_ADDRESS="0x629B0" PRIMARY="y" />
+        <MEMORY_REFERENCE ADDRESS="0x3EDBC" OPERAND_INDEX="1" TO_ADDRESS="0x20426C" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x3EDC2" OPERAND_INDEX="1" TO_ADDRESS="0x204270" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x3EEEF" OPERAND_INDEX="1" TO_ADDRESS="0x7329A" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x3EF49" OPERAND_INDEX="1" TO_ADDRESS="0x72DEC" PRIMARY="y" />
@@ -26375,9 +26638,6 @@ CF clear if successful </COMMENT>
         <MEMORY_REFERENCE ADDRESS="0x4242B" OPERAND_INDEX="1" TO_ADDRESS="0x204960" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x42490" OPERAND_INDEX="1" TO_ADDRESS="0x6331E" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x42499" OPERAND_INDEX="1" TO_ADDRESS="0x6331A" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x424A5" OPERAND_INDEX="1" TO_ADDRESS="0x19000" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x424F5" OPERAND_INDEX="1" TO_ADDRESS="0x19000" PRIMARY="y" />
-        <MEMORY_REFERENCE ADDRESS="0x42503" OPERAND_INDEX="1" TO_ADDRESS="0x19000" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x4252F" OPERAND_INDEX="0" TO_ADDRESS="0x63322" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x42534" OPERAND_INDEX="0" TO_ADDRESS="0x20428C" PRIMARY="y" />
         <MEMORY_REFERENCE ADDRESS="0x42541" OPERAND_INDEX="1" TO_ADDRESS="0x20428C" PRIMARY="y" />

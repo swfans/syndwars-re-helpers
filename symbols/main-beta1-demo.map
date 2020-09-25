@@ -15,14 +15,19 @@
  0001:00038DA4       game_setup_sub8
  0001:00039100       load_level
  0001:0003B334       read_conf_file
+ 0001:0003B61C       LbGhostTableGenerate_
+ 0001:0003B7B0       PacketRecord_sub_3B7B0
  0001:0003B878       nullsub_2
  0001:0003B8AC       play_game
- 0001:0003BB2C       nullsub_3
+ 0001:0003BB2C       phony_mfree
  0001:0003BB44       W?setup_host$n()l
  0001:0003C2D8       free_host
+ 0001:0003C348       phony_malloc
+ 0001:0003CC10       W?get_highest_file_no$n(pnauc)ul
  0001:000417C8       load_packet
  0001:00043210       load_mission_map_lvl
  0001:00043A10       W?game_process$n()l
+ 0001:00046448       setup_color_lookups
  0001:00046A48       W?game_setup$n()l
  0001:00046CC4       W?game_reset$n()l
  0001:00046E20       veh_add
@@ -124,6 +129,8 @@
  0001:000ABB58       scanner_sub_ABB58
  0001:000B2C48       W?draw_purple_screen$n()v
  0001:000BA0CC       tri_path_init8
+ 0001:000BA5C4       set_xz_for_quad210
+ 0001:000BA8C4       set_xz_for_quad123
  0001:000BAD28       nullsub_8
  0001:000BBFC8       usenav_sub_BBFC8
  0001:000BCF88       nullsub_9
@@ -142,9 +149,18 @@
  0001:000C6AE4       nullsub_21
  0001:000CFD70       LbMemoryAlloc_
  0001:000CFDF8       LbMemoryAllocLow_
+ 0001:000CFE7C       LbMemoryCheck_
  0001:000CFF88       LbMemoryFree_
+ 0001:000CFFF0       LbMemoryGrow_
+ 0001:000D00BC       LbMemoryReset_
  0001:000D0138       LbMemorySetup_
+ 0001:000D04B8       W?split_arena$n(pn$mem_arena$$ul)uc
+ 0001:000D0534       W?delete_arena$n(pn$mem_arena$$)v
+ 0001:000D057C       W?compare$n(pn$mem_block$$pn$1$)i
+ 0001:000D0580       W?dos_alloc$n(ul)ul
+ 0001:000D05D0       W?dos_free$n(us)v
  0001:000D2B84       FileOpenInclCD
+ 0001:000D3900       LbScreenSetup_
  0001:000D3930       LbScreenIsModeAvailable_
  0001:000D3970       LbScreenSetGraphicsWindow_
  0001:000D3AA0       LbSpriteReset_
@@ -155,10 +171,32 @@
  0001:000D3C40       memset_
  0001:000D3C58       mem_putc_
  0001:000D3C6B       sprintf_
- 0001:000D3CA0       get_cmdline
+ 0001:000D3CA0       joy_grip_init
+ 0001:000D3E18       joy_grip_shutdown
+ 0001:000D6960       joy_grip_do_init1
+ 0001:000D6AC0       joy_grip_do_init2
+ 0001:000D6B00       joy_grip_do_shutdown
+ 0001:000D7108       CloseSpaceBall_
+ 0001:000D7120       GrGetPackedValues
+ 0001:000D714C       GrGetValue
+ 0001:000D7168       GrGetValue_1
  0001:000D72C7       atoi_
+ 0001:000D7340       LbNetworkUpdate_
+ 0001:000D7360       LbNetworkSessionList_
+ 0001:000D7638       LbNetworkServiceList_
  0001:000D7664       LbNetworkServiceStart_
  0001:000D773C       LbNetworkExchange_
+ 0001:000D7788       LbNetworkSessionStop_
+ 0001:000D77D4       LbNetworkReset_
+ 0001:000D782C       LbNetworkSessionActive_
+ 0001:000D7854       LbNetworkShutDownListeners_
+ 0001:000D7874       LbNetworkOpenUpListeners_
+ 0001:000D7894       LbNetworkSessionCreate_
+ 0001:000D7978       LbNetworkSessionJoin_
+ 0001:000D7B1C       LbNetworkHostPlayerNumber_
+ 0001:000D7B98       LbNetworkPlayerNumber_
+ 0001:000D7BD4       LbNetworkPlayerName_
+ 0001:000D7C6C       LbNetworkSetupIPXAddress_
  0001:000D7C84       LbNetworkSessionNumberPlayers_
  0001:000D7CC0       LbNetworkSend_
  0001:000D7CE4       LbNetworkReceive_
@@ -185,8 +223,13 @@
  0001:000D81FD       __do_exit_with_msg__
  0001:000D8238       ___GETDSStart_
  0001:000D82D0       LbSpriteDraw_
+ 0001:000D8EC0       LbSpriteDraw_UNKNOWN1
  0001:000D9B70       LbDrawBox_
+ 0001:000D9C54       LbDrawBoxCoords_
  0001:000D9CD0       LbDrawLine_
+ 0001:000DA118       W?draw_b_line$n(lllluc)v
+ 0001:000DA438       LbDrawPixel_
+ 0001:000DA46D       LbDrawPixelClip_
  0001:000DA500       LbFileExists_
  0001:000DA524       LbFilePosition_
  0001:000DA550       LbFileOpen_
@@ -197,6 +240,7 @@
  0001:000DA738       LbFileLength_
  0001:000DA78C       LbFileFindFirst_
  0001:000DA7D0       LbFileFindNext_
+ 0001:000DA804       LbFileFindEnd_
  0001:000DA818       LbFileRename_
  0001:000DA848       LbFileDelete_
  0001:000DA870       W?convert_find_info$n(pn$TbFileFind$$)v
@@ -276,6 +320,8 @@
  0001:000DD9E0       GetLastSampleInfoStructure_
  0001:000DD9F0       GetSongHandle_
  0001:000DDA00       GetCDSpeed_
+ 0001:000DDA20       RadSetMemAllocCb
+ 0001:000DDA28       RadSetMemFreeCb
  0001:000DDA30       play_smk_
  0001:000DDA68       W?play_smk_direct$n(pnall)l
  0001:000DDC38       W?play_smk_via_buffer$n(pnall)l
@@ -283,12 +329,17 @@
  0001:000DDDB8       RADFREE
  0001:000DDDC8       W?copy_to_screen$n(pnucululul)v
  0001:000DE070       LbErrorLogSetup_
+ 0001:000DE124       LbErrorLogReset_
  0001:000DE15C       LbErrorLog_
+ 0001:000DE1E0       LbKeyboardOpen_
+ 0001:000DE1EC       LbKeyboardClose_
  0001:000DE1F8       LbKeyboard_
  0001:000DE228       LbIKeyboardOpen_
  0001:000DE270       LbIKeyboardClose_
  0001:000DE298       LbDosKeyboard_
  0001:000DE304       W?KInt$f()v
+ 0001:000DE470       LbDataLoadSetModifyFilenameFunction_
+ 0001:000DE488       W?_defaultModifyDataLoadFilename$n(pn$TbLoadFiles$$)pna
  0001:000DE498       LbDataLoad_
  0001:000DE5C8       LbDataLoadAll_
  0001:000DE684       LbDataFree_
@@ -319,6 +370,7 @@
  0001:000DFCD8       LbScreenSwapBox_
  0001:000DFE64       LbScreenDrawHVLineDirect_
  0001:000E0250       LbScreenWaitVbi_
+ 0001:000E0268       atol_
  0001:000E02D5       __open_flags_
  0001:000E03A6       __doopen_
  0001:000E046A       _fsopen_
@@ -332,7 +384,9 @@
  0001:000E0649       __MkTmpFile_
  0001:000E06AE       __doclose_
  0001:000E0740       SetMusicMasterVolume_
+ 0001:000E0790       SetSoundMasterVolume_
  0001:000E07D2       clock_
+ 0001:000E07E0       LbSpriteDrawOneColour_
  0001:000E1310       LbVesaGetGran_
  0001:000E1418       LbVesaSetMode_
  0001:000E1474       LbVesaSetPage_
@@ -341,10 +395,12 @@
  0001:000E163A       __null_exit_rtn_
  0001:000E163B       exit_
  0001:000E1653       _exit_
+ 0001:000E1670       DangerMusicUnkn01
  0001:000E17C0       DangerMusicFadeSwitch
  0001:000E1900       SetSampleTempo
  0001:000E1950       SetSampleTempoNormal
  0001:000E19B0       SetSampleRepeat
+ 0001:000E1A20       IsSamplePlaying_
  0001:000E1B00       SetSamplePitch_
  0001:000E1BB0       LbDrawTriangle_
  0001:000E1C40       LbTextSetWindow_
@@ -354,9 +410,13 @@
  0001:000E1ECC       LbTextWordWidth_
  0001:000E1F50       LbTextStringHeight_
  0001:000E1FC4       LbTextDraw_
+ 0001:000E2818       W?put_down_sprites$n(pnapnalll)v
  0001:000E2AF0       StopAllSamples_
  0001:000E2C20       StartMusic_
  0001:000E2E7F       printf_
+ 0001:000E2EB0       LbDate_
+ 0001:000E2EF0       LbTime_
+ 0001:000E2F30       LbTimerClock_
  0001:000E2F56       time_
  0001:000E2F8B       rand_
  0001:000E2FAF       srand_
@@ -366,6 +426,8 @@
  0001:000E3216       uncget_string_
  0001:000E321A       vsscanf_
  0001:000E3241       sscanf_
+ 0001:000E3270       SetSampleVolume_
+ 0001:000E3300       SetSamplePan_
  0001:000E3388       int386_
  0001:000E33A5       _nfree_
  0001:000E3427       _nmalloc_
@@ -381,6 +443,8 @@
  0001:000E3CF3       open_
  0001:000E3D17       sopen_
  0001:000E3F00       __set_binary_
+ 0001:000E3F70       StopSample_
+ 0001:000E3FE0       PlaySample_
  0001:000E4240       __STOSB
  0001:000E4277       __STOSD
  0001:000E42E3       __prtf_
@@ -393,11 +457,34 @@
  0001:000E49B9       float_format_
  0001:000E49C0       formstring_
  0001:000E4EA9       zupstr_
+ 0001:000E4ED0       W?GrLink$n(pnvul)us
+ 0001:000E51C4       W?GrUnlink$n()us
  0001:000E5226       _searchenv_
  0001:000E531A       __update_buffer_
  0001:000E535C       fseek_
  0001:000E5458       ftell_
  0001:000E549A       fread_
+ 0001:000E5675       GETVECT_
+ 0001:000E5694       IsSpwVector_
+ 0001:000E56D7       FindSpwVector_
+ 0001:000E5706       CallDriver_
+ 0001:000E581C       SpwDebugPrint
+ 0001:000E58F5       SpwUnkn_1
+ 0001:000E59CD       SpwUnkn_2
+ 0001:000E59E9       SpwUnkn_3
+ 0001:000E5A0C       SpwUnkn_4
+ 0001:000E5A9F       SpwSimpleGet_sub1
+ 0001:000E5BAA       SpwOpenDriver_
+ 0001:000E5C49       SpwCloseDriver_
+ 0001:000E5C82       SpwOpenDevice_
+ 0001:000E5CB3       SpwCloseDevice_
+ 0001:000E5CF1       SpwEnableDevice_
+ 0001:000E5D25       SpwDisableDevice_
+ 0001:000E5D59       SpwGetForce_
+ 0001:000E5D8A       SpwGetButton_
+ 0001:000E5DBB       SpwSimpleGet_
+ 0001:000E5F4D       SpwSimpleOpen_
+ 0001:000E6109       SpwSimpleClose_
  0001:000E6154       segread_
  0001:000E617C       int386x_
  0001:000E7210       CallIPX_
@@ -416,6 +503,8 @@
  0001:000E839C       ipx_exchange_packets_
  0001:000E859C       ipx_get_players_packets_
  0001:000E8828       ipx_send_packet_to_all_
+ 0001:000E89C0       W?ipx_send_datagram_to_all$n(pnucluc)l
+ 0001:000E8B78       ipx_backup_last_packet_
  0001:000E8BC8       ipx_send_last_packet_
  0001:000E8CEC       ipx_send_packet_to_player_
  0001:000E8E4C       ipx_send_and_get_packet_
@@ -442,14 +531,17 @@
  0001:000EA28C       W?run_create_function$n()l
  0001:000EA2A0       W?run_exchange_function$n()l
  0001:000EA2B0       W?run_join_function$n()l
+ 0001:000EA2C0       _init_sub_EA2C0
  0001:000EA322       LbCommInit_
  0001:000EA572       LbCommSetBaud_
- 0001:000EA730       W?backup_serial_int_vectors$:SerialHandler$n(pn$TbSerialDev$$)v
- 0001:000EA7C8       W?setup_serial_int_vectors$:SerialHandler$n(pn$TbSerialDev$$)v
- 0001:000EA957       W?init_com_port$:SerialHandler$n(pn$TbSerialDev$$)v
+ 0001:000EA5D4       LbCommDeInit_
+ 0001:000EA730       W?backup_serial_int_vectors$n(pn$TbSerialDev$$)v
+ 0001:000EA7C8       W?setup_serial_int_vectors$n(pn$TbSerialDev$$)v
+ 0001:000EA957       W?init_com_port$n(pn$TbSerialDev$$)v
  0001:000EAB2F       LbCommExchange_
- 0001:000EAC64       W?write_last_packet$n(pn$TbSerialDev$$)v
- 0001:000EACE0       read_byte_
+ 0001:000EABDB       LbCommStopExchange_
+ 0001:000EAC64       W?backup_packet$n(pn$TbSerialDev$$pnvl)v
+ 0001:000EACE0       modem_sub_EACE0
  0001:000EAD32       write_char_
  0001:000EADE0       W?write_char_no_buff$n(pn$TbSerialDev$$uc)v
  0001:000EAE21       W?lock_code_start$n()v
@@ -473,7 +565,13 @@
  0001:000EB779       W?send_string$n(pn$TbSerialDev$$pna)v
  0001:000EB7C9       W?AllocDosMem$n(ulpnus)pnv
  0001:000EB82F       W?run_exchange_func$n()l
- 0001:000EB9BD       write_char_sub1
+ 0001:000EB886       comm_sub_EB886
+ 0001:000EB8D5       comm_sub_EB8D5
+ 0001:000EB957       comm_sub_EB957
+ 0001:000EB9BD       write_char_sub_2
+ 0001:000EB9EE       write_char_sub_1
+ 0001:000EBA1F       modem_sub_EBA1F
+ 0001:000EBA50       comm_sub_EBA50
  0001:000EBA81       __CMain
  0001:000EBAD0       __InitRtns
  0001:000EBB1B       __FiniRtns
@@ -481,6 +579,7 @@
  0001:000EBB6B       __Init_Argv_
  0001:000EBC2C       _SplitParms_
  0001:000EBD3C       LbDrawBoxClip_
+ 0001:000EBE58       LbDrawBoxNoClip_
  0001:000EBF00       access_
  0001:000EBF3B       tell_
  0001:000EBF4C       lseek_
@@ -533,7 +632,7 @@
  0001:000EEB10       AILDEBUG_START
  0001:000EEBC0       _ail_timer_callback
  0001:000EEC30       TIME_WRITE
- 0001:000EECE0       _AIL_startup_reg
+ 0001:000EECE0       _AIL_startup
  0001:000EEE80       _AIL_shutdown
  0001:000EEF20       _AIL_set_preference
  0001:000EF040       _AIL_lock
@@ -678,11 +777,22 @@
  0001:000F5D30       SetCDAudioVolume_
  0001:000F5E80       GetCDAudioVolume_
  0001:000F5FF0       StopMusic_
+ 0001:000F60A0       SMACKSOUNDMSSLITEDONE
+ 0001:000F60C0       SMACKSOUNDMSSLITEINIT
  0001:000F60F0       SMACKSOUNDUSEMSS
  0001:000F61B0       MSSLOWSOUNDVOLPAN
+ 0001:000F6220       MSSSMACKTIMERDONE
+ 0001:000F6260       MSSSMACKTIMERSETUP
+ 0001:000F6310       MSSSMACKTIMERREAD
+ 0001:000F6380       _mss_int
  0001:000F6390       MSSLOWSOUNDCLOSE
+ 0001:000F6410       MSSLOWSOUNDPURGE
  0001:000F6450       MSSLOWSOUNDOPEN
  0001:000F6610       doinit_
+ 0001:000F66A0       MSSLOWSOUNDPLAYED
+ 0001:000F66E0       MSSLOWSOUNDCHECK
+ 0001:000F67D0       bothdone_
+ 0001:000F6810       SMACKWRAPCOPY
  0001:000F6890       SMACKWAIT
  0001:000F69B0       SMACKSOUNDCHECK
  0001:000F69C0       SMACKVOLUMEPAN
@@ -927,7 +1037,7 @@
  0001:00100B5E       _AIL_API_interrupt_divisor
  0001:00100B6A       _AILA_VMM_lock
  0001:00100B90       AIL_start_
- 0001:00100C20       AIL_DRIVER_SERVER
+ 0001:00100C20       _AIL_driver_server
  0001:00100C70       _ASC_val
  0001:00100D30       _AIL_API_read_INI
  0001:00101070       _AIL_API_set_preference
@@ -1770,11 +1880,12 @@
  0003:00144F54       W?tag_current$nuc
  0003:0014529C       aJul301996
  0003:001452A8       a182055
- 0003:00145AD0       lbScreenModeInfo__Width
- 0003:00145AD2       lbScreenModeInfo__Height
- 0003:00145AD6       lbScreenModeInfo__Available
- 0003:00145ADA       lbScreenModeInfo__VideoMode
- 0003:00145ADE       aMode_invalid
+ 0003:00145AD0       lbScreenModeInfo0__Width
+ 0003:00145AD2       lbScreenModeInfo0__Height
+ 0003:00145AD4       lbScreenModeInfo0__BPP
+ 0003:00145AD6       lbScreenModeInfo0__Available
+ 0003:00145ADA       lbScreenModeInfo0__VideoMode
+ 0003:00145ADE       lbScreenModeInfo0__Name
  0003:00145AFC       lbScreenModeInfo1__Available
  0003:00145B04       aMode3202008
  0003:00145B2A       aMode32020016
@@ -1804,23 +1915,28 @@
  0003:00145EBA       aMode1600120016
  0003:00145EE0       aMode1600120024
  0003:00145F06       aModeInvalid
+ 0003:00145F20       W?Network_Service_List$n[]$TbNetworkService$$
  0003:00148778       _lbInkeyToAscii
  0003:0014877A       a1234567890Qwer
  0003:00148796       aAsdfghjkl
  0003:001487A3       aZxcvbnm__0
- 0003:001487FA       a_Qwertyuiop
- 0003:00148816       aAsdfghjkl@
- 0003:00148823       aZxcvbnm?
  0003:00148878       W?InitialCDVolume$nc
  0003:00148879       _CDAble
+ 0003:0014887C       _smack_malloc
+ 0003:00148880       _smack_free
  0003:00148884       W?modify_data_load_filename_function$npn(pn$TbLoadFiles$$)pna
+ 0003:00148888       ___atexit
  0003:0014888C       ___int23_exit
+ 0003:00148890       ___FPE_handler_exit
+ 0003:00148894       _lbSpacesPerTab
  0003:0014889C       ___nheapbeg
  0003:001488A0       ___MiniHeapRover
  0003:001488A4       ___LargestSizeB4MiniHeapRover
- 0003:001488A8       aGripGll
- 0003:001488B4       aGrip
- 0003:001488BC       aCGrip
+ 0003:001488A8       GrLibName
+ 0003:001488B4       GrLibEnv
+ 0003:001488BC       GrLibDir
+ 0003:00148AE8       _SpwVector
+ 0003:00148AEA       _SpwClosed
  0003:00148B30       W?com_dev$n[]$ComHandlerInfo$$
  0003:00148B34       com_dev0__Field1
  0003:00148B36       com_dev0__Field2
@@ -1893,7 +2009,7 @@
  0003:0014905C       _fss
  0003:00149060       _SmackMSSDigDriver
  0003:00149064       _LiteInit
- 0003:00149068       _count
+ 0003:00149068       mss_i_count
  0003:0014906C       _sndinit
  0003:00149070       _sounds
  0003:00149074       _trackbuf
@@ -3457,6 +3573,8 @@
  0003:0015402B       aMaxDTD
  0003:0015403C       aMakeTriangle_1
  0003:0015406A       aTriangle_topDT
+ 0003:00154088       aS_19
+ 0003:0015408C       aS_20
  0003:00154090       aCraterAtDDDept
  0003:001540AC       aBen_c
  0003:001540B2       aQueueOutOfRang
@@ -4545,7 +4663,7 @@
  0003:00159F33       aNeduit
  0003:00159FBA       W?__wcpp_2_data_stab_init_mod_$jl02XI$rt_init$$
  0003:00159FE0       _tables_start
- 0003:0015DFE0       _ghost
+ 0003:0015DFE0       _ghost_table
  0003:00178635       cmdln_param_w
  0003:00196026       cmdln_param_d
  0003:0019CBF8       W?pointer_sprites$n[]pn$TbSprite$$
@@ -4586,6 +4704,15 @@
  0003:001BAD4C       W?fringe_x2$nl
  0003:001BAD50       W?fringe_y2$nl
  0003:001BAD54       W?fringe_map$npn[256]uc
+ 0003:001D747C       memory_blocks0_Field0
+ 0003:001D7480       memory_blocks0_Field1
+ 0003:001D7484       memory_blocks0_Field2
+ 0003:001D7488       memory_blocks1
+ 0003:001D807C       W?memory_arenas$n[]$mem_arena$$
+ 0003:001D8080       memory_arenas0__Field1
+ 0003:001D8084       memory_arenas0__Field2
+ 0003:001D8088       memory_arenas0__Field3
+ 0003:001D927C       W?notMapDraw$nuc
  0003:001D9A78       W?setup$:.0$:?LbScreenIsModeAvailable$n($TbScreenMode$$)lnul
  0003:001D9A7C       lbDisplay__PhysicalScreen
  0003:001D9A80       lbDisplay__WScreen
@@ -4627,6 +4754,7 @@
  0003:001D9AED       lbDisplay__DrawColour
  0003:001D9AF4       _lbSpriteReMapPtr
  0003:001D9AF8       __wint_thread_data
+ 0003:001D9B51       grip_initialized
  0003:001D9B58       W?NetworkServicePtr$n$TbNetworkService$$
  0003:001D9B64       _NetworkServiceFunction__SessionCreate
  0003:001D9B68       _NetworkServiceFunction__SessionJoin
@@ -4635,6 +4763,7 @@
  0003:001D9B74       _NetworkServiceFunction__SessionDial
  0003:001D9B78       _NetworkServiceFunction__SessionAnswer
  0003:001D9B7C       _NetworkServiceFunction__SessionHangUp
+ 0003:001D9B80       UsedSessionInit
  0003:001D9B88       _lbExtendedKeyPress
  0003:001D9B8C       _lbKeyOn
  0003:001D9C8C       _lbInkey
@@ -4694,6 +4823,7 @@
  0003:001DC564       W?palette$n[]uc
  0003:001DC8B4       _smack_draw_callback
  0003:001DC8B8       W?error_log_initialised$nul
+ 0003:001DC8BC       W?error_log$n$TbLog$$
  0003:001DC980       W?oinkey$:.0$:?KInt$f()vnuc
  0003:001DC984       W?OldInt$npf()v
  0003:001DC9DC       W?full_sound_data_path$n[]a
@@ -4709,10 +4839,35 @@
  0003:001DCB84       _lbVesaData
  0003:001DCB88       _lbVesaPage
  0003:001DCBB8       lbFontPtr
+ 0003:001DCBD0       GRIP_Thunk_0
+ 0003:001DCBD2       GRIP_Thunk_2
+ 0003:001DCBD4       GRIP_Thunk_4
+ 0003:001DCBD6       GRIP_Thunk_6
+ 0003:001DCBD8       GRIP_Thunk__GRIP__CALL
+ 0003:001DCBDC       GRIP_Thunk_c
+ 0003:001DCBDE       GRIP_Thunk_e
+ 0003:001DCBE0       GRIP_Thunked
+ 0003:001DCBE4       GRIP_CS
+ 0003:001DCBE6       GRIP_DS
+ 0003:001DCBE8       GRIP_ES
+ 0003:001DCBF8       _realModePacket
+ 0003:001DCBFA       _SpwError
  0003:001DCFE0       W?start_time$:.0$:?ipx_update$n()vnul
  0003:001DCFE4       W?end_time$:.0$:?ipx_update$n()vnul
  0003:001DCFE8       _IPXHandler
  0003:001DCFEC       _IPXPlayerHeader
+ 0003:001DCFED       _IPXPlayerHeader__Field1
+ 0003:001DCFEE       _IPXPlayerHeader__Field2
+ 0003:001DCFF0       _IPXPlayerHeader__Field3
+ 0003:001DCFF8       _IPXPlayerHeader__Field4
+ 0003:001DD012       _IPXPlayerHeader__Field5
+ 0003:001DD016       _IPXPlayerHeader__Field6
+ 0003:001DD017       _IPXPlayerHeader__Field7
+ 0003:001DD018       _IPXPlayerHeader__Field8
+ 0003:001DD019       _IPXPlayerHeader__Field9
+ 0003:001DD033       _IPXPlayerHeader__Field10
+ 0003:001DD0F9       _IPXPlayerHeader__Field11
+ 0003:001DD0FA       _IPXPlayerHeader__Field12
  0003:001DD0FC       _loggon_header
  0003:001DD129       W?player_loggon$nuc
  0003:001DD12C       W?last_pkt_size$nl
@@ -4720,6 +4875,8 @@
  0003:001DD530       W?ipx_send_packet_count$n[][8]ul
  0003:001DD630       W?ipx_got_player_send_packet_count$n[]ul
  0003:001DD650       W?datagram_backup$n[]$IPXDatagramBackup$$
+ 0003:001DD654       datagram_backup_Field1
+ 0003:001DD658       datagram_backup_Field2
  0003:001DE781       W?start_time$:.0$:?run_exchange_func$n()lnul
  0003:001DE785       W?end_time$:.0$:?run_exchange_func$n()lnul
  0003:001DE795       W?ModemResponseString$n[]a
@@ -4742,13 +4899,17 @@
  0003:001DEF90       _AILStartupAlreadyInitiated
  0003:001DEF94       _SampleRate
  0003:001DEF98       W?ive_got_an_sb16$nuc
+ 0003:001DEF9A       _Selected95WaveDevice
+ 0003:001DEF9C       W?SB16_io$ni
  0003:001DEFA0       _UseMultiMediaExtensions
  0003:001DEFA4       _SoundInstallChoice_Field0
  0003:001DF024       _SoundInstallChoice_Field1
  0003:001DF0A4       _SoundInstallChoice_Field2
+ 0003:001DF0BC       W?music_allocated$nl
  0003:001DF0C0       _UseCurrentAwe32Soundfont
  0003:001DF0C1       _MusicInstalled
  0003:001DF0C4       _MusicType
+ 0003:001DF0CA       _CurrentTempo
  0003:001DF0CC       _SongCurrentlyPlaying
  0003:001DF0CE       _NumberOfSongs
  0003:001DF0D0       _Music
@@ -4759,19 +4920,28 @@
  0003:001DF0E4       _DangerMusicFadeHandle
  0003:001DF0E8       _Awe32SoundfontLoaded
  0003:001DF0E9       _DisableLoadMusic
+ 0003:001DF0EA       W?ive_got_an_awe32$nuc
  0003:001DF0EB       _DisableDangerMusic
  0003:001DF0EC       _DangerMusicVolume
  0003:001DF0ED       _DangerMusicFadeActive
  0003:001DF0EE       _DangerMusicAble
+ 0003:001DF0F0       _Selected95MidiDevice
+ 0003:001DF0F4       _MusicInstallChoice
  0003:001DF174       InitAudio_s1
+ 0003:001DF20C       sound_timer__Field0
+ 0003:001DF210       sound_timer__Field1
+ 0003:001DF228       W?out$:.0$:?findfirstfile$n(pnapna)pnan[]a
  0003:001DF2B8       _StreamedSoundAble
  0003:001DF2B9       _CDSpeed
  0003:001DF2BC       W?sample_handle$npn$_SAMPLE$$
- 0003:001DF3C4       W?sample_sign$nul
+ 0003:001DF2C0       W?sample_directory$n[]a
+ 0003:001DF3C0       W?sample_sign$nul
+ 0003:001DF3C4       W?sample_format$nul
  0003:001DF3C8       W?sample_rate$nus
  0003:001DF3CC       W?loop_count$nl
  0003:001DF3D0       W?ssbuffer$n[]pnuc
  0003:001DF3D4       W?ssbuffer2$n[]pnuc
+ 0003:001DF3D8       W?temp_buffer$npnuc
  0003:001DF3DC       W?adpcm_source_buffer$npnuc
  0003:001DF3E0       W?adpcm_file_open$nl
  0003:001DF3E4       W?adpcm_source_size$nl
@@ -4814,6 +4984,10 @@
  0003:001DF9C0       W?control_real$nul
  0003:001DF9C4       W?control_selector$nul
  0003:001DF9C8       W?control_prot$npnuc
+ 0003:001DF9D0       _msstimer
+ 0003:001DF9D4       _lasttimer
+ 0003:001DF9DC       _MSSTimerPeriod
+ 0003:001DF9E0       _MSSSpeed
  0003:001DF9F0       _LowSoundPurgeAddr
  0003:001DF9F4       _LowSoundCheckAddr
  0003:001DF9F8       _LowSoundPlayedAddr
@@ -4846,26 +5020,31 @@
  0003:001E0B40       _AIL_last_IO_attempt
  0003:001E0B58       _AIL_flags
  0003:001E0B5C       _AIL_preference
- 0003:001E0C00       SS_SERVE_VDI
- 0003:001E0C0C       SS_SERVE_S
- 0003:001E0C10       SS_SERVE_n
- 0003:001E0C14       SS_SERVE_dig
- 0003:001E0C18       SS_SERVE_current
- 0003:001E0C1C       SS_SERVE_unk1
- 0003:001E0C20       SS_SERVE_cnt
- 0003:001E0C30       XMI_SERVE_ptr
- 0003:001E0C34       XMI_SERVE_event
- 0003:001E0C38       XMI_SERVE_channel
- 0003:001E0C3C       XMI_SERVE_i
- 0003:001E0C40       XMI_SERVE_j
- 0003:001E0C44       XMI_SERVE_unkn1
- 0003:001E0C48       XMI_SERVE_q
- 0003:001E0C4C       XMI_SERVE_t
- 0003:001E0C50       XMI_SERVE_status
- 0003:001E0C54       XMI_SERVE_sequence_done
- 0003:001E0C58       XMI_SERVE_len
- 0003:001E0C5C       XMI_SERVE_type
- 0003:001E0C60       XMI_SERVE_unkn2
+ 0003:001E0BC0       _The_time
+ 0003:001E0BE4       _result
+ 0003:001E0C00       _SS_VDI
+ 0003:001E0C04       _SS_VDI__Field1
+ 0003:001E0C06       _SS_VDI__Field2
+ 0003:001E0C0C       _SS_S
+ 0003:001E0C10       _SS_n
+ 0003:001E0C14       _SS_dig
+ 0003:001E0C18       _SS_current
+ 0003:001E0C1C       _SS_current_Field1
+ 0003:001E0C20       _SS_cnt
+ 0003:001E0C30       _XMI_ptr
+ 0003:001E0C34       _XMI_event
+ 0003:001E0C38       _XMI_channel
+ 0003:001E0C3C       _XMI_i
+ 0003:001E0C40       _XMI_j
+ 0003:001E0C44       XMI_unkn1
+ 0003:001E0C48       _XMI_q
+ 0003:001E0C4C       _XMI_t
+ 0003:001E0C50       _XMI_status
+ 0003:001E0C54       _XMI_sequence_done
+ 0003:001E0C58       _XMI_len
+ 0003:001E0C5C       _XMI_type
+ 0003:001E0C60       XMI_unkn2
+ 0003:001E0C64       XMI_unkn3
  0003:001E0E7C       W?EAL_pr$n$REGS$$
  0003:001E0E98       W?EAL_rmr$n$realmode_registers$$
  0003:001E0ECA       W?EAL_realmode_segment$nus

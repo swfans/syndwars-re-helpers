@@ -1228,6 +1228,7 @@
  0001:0004724E       __FPE2Handler_
  0001:00047354       __FPEHandler_sub1
  0001:000473E1       __FPEHandler_sub2
+ 0001:00047433       __FPEHandler_sub3
  0001:00047459       __FPEHandler_sub2_sub
  0001:0004747E       __FPEHandler_subx_sub
  0001:0004748C       __Phar_hook_init_
@@ -2104,6 +2105,7 @@
  0002:00071F78       _disk_err
  0002:00071F7C       _MEM_alloc
  0002:00071F80       _MEM_free
+ 0002:0007210E       pit_dword_7210E
  0002:00072B34       _pan_graph
  0002:00072BB4       _entry_0
  0002:00072BB8       _locked_1
@@ -2557,6 +2559,7 @@
  0002:002030E0       ___ClosedStreams
  0002:002030E4       ___OpenStreams
  0002:002030E8       ___MiniHeapFreeRover
+ 0002:002030F0       DrawTriangleFilled_static_buf1
  0002:00203FF0       _The_time_0
  0002:00204014       _FullDIG_INIPath
  0002:002040A4       _FullMDI_INIPath
