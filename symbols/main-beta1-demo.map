@@ -10,19 +10,32 @@
 
  0001:00010003       ___begtext
  0001:0001163C       main_
+ 0001:00011F34       draw_sorted_sprite
  0001:000127BC       nullsub_1
+ 0001:00016AD8       draw_frame
  0001:00016FC8       draw_thing_o
+ 0001:00026F94       W?display_drawlist$n()v
+ 0001:00027A34       W?display_drawlist2$n()v
+ 0001:00030590       draw_screen
  0001:00038DA4       game_setup_sub8
  0001:00039100       load_level
+ 0001:0003B1BC       load_file_wad
  0001:0003B334       read_conf_file
  0001:0003B61C       LbGhostTableGenerate_
+ 0001:0003B754       LbGhostTableLoad_
  0001:0003B7B0       PacketRecord_sub_3B7B0
+ 0001:0003B82C       PacketRecord_sub_3B82C
  0001:0003B878       nullsub_2
+ 0001:0003B87C       PacketRecord_sub_3B87C
+ 0001:0003B888       show_black_screen
  0001:0003B8AC       play_game
  0001:0003BB2C       phony_mfree
  0001:0003BB44       W?setup_host$n()l
- 0001:0003C2D8       free_host
- 0001:0003C348       phony_malloc
+ 0001:0003BDB8       play_game_0
+ 0001:0003C2D8       W?host_reset$n()v
+ 0001:0003C348       smack_malloc
+ 0001:0003C380       smack_malloc_free_all
+ 0001:0003C390       LbIffSave_
  0001:0003CC10       W?get_highest_file_no$n(pnauc)ul
  0001:000417C8       load_packet
  0001:00043210       load_mission_map_lvl
@@ -31,6 +44,8 @@
  0001:000468FC       next_p_q
  0001:00046A48       W?game_setup$n()l
  0001:00046CC4       W?game_reset$n()l
+ 0001:00046D00       load_texturemaps
+ 0001:00046E0C       free_texturemaps
  0001:00046E20       veh_add
  0001:000477D4       setup_screen_mode
  0001:0004FF70       nullsub_4
@@ -51,7 +66,7 @@
  0001:00074FE4       check_on_mapwho
  0001:00075220       nullsub_7
  0001:00075248       W?ERRORMSG$n(pna)v
- 0001:000754C4       ERRORMBOX
+ 0001:000754C4       W?ERRORMBOX$n(pna)v
  0001:000756C8       debug_sub_756C8
  0001:000759A4       debug_sub_759A4
  0001:0007DA64       vehicles_sub_7DA64
@@ -62,13 +77,18 @@
  0001:00082BE8       vehicles_sub_82BE8
  0001:0008334C       vehicle_explode
  0001:00084DDC       W?Synd_nav_rulesA2B$n(ll)l
+ 0001:00084DE8       W?Unkn1_nav_rulesA2B$n(ll)l
+ 0001:00084DF4       W?Unkn2_nav_rulesA2B$n(ll)l
+ 0001:00084E00       W?SHDIV14$n(ll)l
  0001:00084E18       triangulation_initialize
  0001:00084E98       W?triangulation_allocate$n(ll)v
  0001:00084F60       triangulation_select
+ 0001:00085034       tri_sub_85034
  0001:00085064       W?tri_dispose$n(l)v
  0001:00085098       W?tri_new$n()l
  0001:00085104       W?point_dispose$n(l)v
  0001:0008513C       W?point_new$n()l
+ 0001:0008519C       triangulation_border_sub_8519C
  0001:00085228       W?triangulation_initxy$n(llll)v
  0001:00085390       W?triangulation_init$n()v
  0001:000853C8       W?triangulation_clear$n()v
@@ -145,14 +165,18 @@
  0001:000A3CA4       objectiv_sub_A3CA4
  0001:000A5590       objectiv_sub_A5590
  0001:000A5998       veh_heap_add
+ 0001:000A5F5C       VNAV_find_dropoff_point
  0001:000A609C       VNAV_do
  0001:000A6614       VNAV_goto
  0001:000A6AD4       VNAV_sub_A6AD4
+ 0001:000A6C58       VNAV_sub_A6C58
  0001:000A6E90       VNAV_init_veh
+ 0001:000A7354       VNAV_sub_A7354
  0001:000A7CBC       scanner_sub_A7CBC
  0001:000A8770       scanner_sub_A8770
  0001:000ABB58       scanner_sub_ABB58
  0001:000B2C48       W?draw_purple_screen$n()v
+ 0001:000B6CD0       swap_wscreen
  0001:000BA0CC       W?navi_onscreen_debug$n(l)v
  0001:000BA5C4       set_xz_for_quad210
  0001:000BA8C4       set_xz_for_quad123
@@ -172,6 +196,7 @@
  0001:000C4314       nullsub_19
  0001:000C6A54       nullsub_20
  0001:000C6AE4       nullsub_21
+ 0001:000CE268       FIRE_process_flame
  0001:000CFD70       LbMemoryAlloc_
  0001:000CFDF8       LbMemoryAllocLow_
  0001:000CFE7C       LbMemoryCheck_
@@ -179,11 +204,13 @@
  0001:000CFFF0       LbMemoryGrow_
  0001:000D00BC       LbMemoryReset_
  0001:000D0138       LbMemorySetup_
+ 0001:000D0434       LbMemoryShrink_
  0001:000D04B8       W?split_arena$n(pn$mem_arena$$ul)uc
  0001:000D0534       W?delete_arena$n(pn$mem_arena$$)v
  0001:000D057C       W?compare$n(pn$mem_block$$pn$1$)i
  0001:000D0580       W?dos_alloc$n(ul)ul
  0001:000D05D0       W?dos_free$n(us)v
+ 0001:000D0610       BAT_draw_char
  0001:000D2B84       FileOpenInclCD
  0001:000D3900       LbScreenSetup_
  0001:000D3930       LbScreenIsModeAvailable_
@@ -200,14 +227,18 @@
  0001:000D3E18       joy_grip_shutdown
  0001:000D3EAC       joy_grip_init2
  0001:000D4C04       joy_grip_read
+ 0001:000D6658       joy_sub_D6658
  0001:000D6960       joy_grip_do_init1
  0001:000D6AC0       joy_grip_do_init2
  0001:000D6B00       joy_grip_do_shutdown
  0001:000D6B20       joy_grip_read2
+ 0001:000D6CA8       joy_sub_D6CA8
+ 0001:000D6DA8       joy_sub_D6DA8
  0001:000D7108       CloseSpaceBall_
  0001:000D7120       GrGetPackedValues
  0001:000D714C       GrGetValue
  0001:000D7168       GrGetValue_1
+ 0001:000D7188       joy_sub_D7188
  0001:000D72C7       atoi_
  0001:000D7340       LbNetworkUpdate_
  0001:000D7360       LbNetworkSessionList_
@@ -245,6 +276,7 @@
  0001:000D7F34       LbNetworkSetSessionDialFunction_
  0001:000D7F40       LbNetworkSetSessionAnswerFunction_
  0001:000D7F4C       LbNetworkSetSessionHangUpFunction_
+ 0001:000D7F58       switch_endianness_short
  0001:000D7F6C       _cstart_
  0001:000D7F6E       aWatcomCC32RunT
  0001:000D81FB       __exit_
@@ -252,7 +284,7 @@
  0001:000D8238       ___GETDSStart_
  0001:000D8244       LbSqrL_
  0001:000D82D0       LbSpriteDraw_
- 0001:000D8EC0       LbSpriteDraw_UNKNOWN1
+ 0001:000D8EC0       LbSpriteDrawRemap_
  0001:000D9B70       LbDrawBox_
  0001:000D9C54       LbDrawBoxCoords_
  0001:000D9CD0       LbDrawLine_
@@ -447,6 +479,7 @@
  0001:000E2EF0       LbTime_
  0001:000E2F30       LbTimerClock_
  0001:000E2F56       time_
+ 0001:000E2F85       initrandnext_
  0001:000E2F8B       rand_
  0001:000E2FAF       srand_
  0001:000E2FBF       memmove_
@@ -516,6 +549,24 @@
  0001:000E6109       SpwSimpleClose_
  0001:000E6154       segread_
  0001:000E617C       int386x_
+ 0001:000E6198       joy_sub_E6198
+ 0001:000E62BB       joy_sub_E62BB
+ 0001:000E6400       joy_sub_E6400
+ 0001:000E64D4       joy_sub_E64D4
+ 0001:000E65A8       joy_sub_E65A8
+ 0001:000E6668       joy_sub_E6668
+ 0001:000E675C       joy_sub_E675C
+ 0001:000E6DE8       joy_sub_E6DE8
+ 0001:000E6E28       joy_sub_E6E28
+ 0001:000E6F80       joy_sub_E6F80
+ 0001:000E6FD4       joy_sub_E6FD4
+ 0001:000E7070       joy_sub_E7070
+ 0001:000E70B0       joy_sub_E70B0
+ 0001:000E7118       joy_sub_E7118
+ 0001:000E7140       joy_sub_E7140
+ 0001:000E71A8       joy_sub_E71A8
+ 0001:000E71BC       joy_sub_E71BC
+ 0001:000E71D0       joy_sub_E71D0
  0001:000E7210       CallIPX_
  0001:000E7288       CallRealModeInterrupt_
  0001:000E72DC       setup_bullfrog_header_
@@ -560,7 +611,7 @@
  0001:000EA28C       W?run_create_function$n()l
  0001:000EA2A0       W?run_exchange_function$n()l
  0001:000EA2B0       W?run_join_function$n()l
- 0001:000EA2C0       _init_sub_EA2C0
+ 0001:000EA2C0       com_init_
  0001:000EA322       LbCommInit_
  0001:000EA572       LbCommSetBaud_
  0001:000EA5D4       LbCommDeInit_
@@ -594,9 +645,9 @@
  0001:000EB779       W?send_string$n(pn$TbSerialDev$$pna)v
  0001:000EB7C9       W?AllocDosMem$n(ulpnus)pnv
  0001:000EB82F       W?run_exchange_func$n()l
- 0001:000EB886       comm_sub_EB886
+ 0001:000EB886       tx_bytes_target_func
  0001:000EB8D5       comm_sub_EB8D5
- 0001:000EB957       comm_sub_EB957
+ 0001:000EB957       rx_bytes_target_func
  0001:000EB9BD       write_char_sub_2
  0001:000EB9EE       write_char_sub_1
  0001:000EBA1F       modem_sub_EBA1F
@@ -969,6 +1020,26 @@
  0001:000FCC94       strnicmp_
  0001:000FCCE8       __wcpp_2_undefed_cdtor__
  0001:000FCCFC       __wcpp_2_undef_member_debug__
+ 0001:000FCD10       clear_CommUnkStructE895
+ 0001:000FCDE3       comm_sub_FCDE3
+ 0001:000FCE00       comm_sub_FCE00
+ 0001:000FD189       comm_sub_FD189
+ 0001:000FD29F       comm_sub_FD29F
+ 0001:000FD2C6       comm_sub_FD2C6
+ 0001:000FD2ED       comm_sub_FD2ED
+ 0001:000FD314       comm_sub_FD314
+ 0001:000FD6E2       comm_sub_FD6E2
+ 0001:000FD84E       comm_sub_FD84E
+ 0001:000FD8B9       comm_sub_FD8B9
+ 0001:000FDA95       comm_sub_FDA95
+ 0001:000FDC1E       comm_sub_FDC1E
+ 0001:000FDEF6       ser_set_tx_target_cb
+ 0001:000FDF16       ser_set_rx_target_cb
+ 0001:000FDF36       comm_sub_FDF36
+ 0001:000FDF56       comm_sub_FDF56
+ 0001:000FDF76       comm_sub_FDF76
+ 0001:000FE00F       comm_sub_FE00F
+ 0001:000FE253       comm_sub_FE253
  0001:000FE280       __wcpp_2_module_dtor__
  0001:000FE2DC       W?fs_state_table$n(pn$ro_dtreg$$)pn$__7a4u3RO_STATE$$
  0001:000FE2E0       W?fs_point_object$n(pn$rw_dtreg$$ui)pnv
@@ -1586,7 +1657,11 @@
  0001:0010DE00       trig_
  0001:00114DA3       setup_vecs_
  0001:00114E0F       poly_line_
+ 0001:0011522C       prop_text
  0001:001153E0       draw_gpoly_
+ 0001:00120110       LbSpriteDraw_1
+ 0001:00126110       DrawAlphaSpriteUsingScalingData_
+ 0001:00127988       SetAlphaScalingData_
  0001:00127CA0       LbSpriteDrawUsingScalingData_
  0001:00129518       LbSpriteSetScalingData_
  0001:0012982C       LbDrawTriangleFilled_
@@ -1880,25 +1955,14 @@
  0003:00140124       polyscans
  0003:00142E24       _vec_colour
  0003:00142E25       _vec_mode
- 0003:00143030       aDataMspr0_dat
- 0003:0014305C       aDataMspr0Tab
- 0003:00143088       aDataNsta0Ani
- 0003:001430B4       aDataNfra0Ani
- 0003:001430E0       aDataMele0_ani
+ 0003:00143030       W?unk01_load_files$n__$TbLoadFiles$$
  0003:00143138       conf_file_cmnds
  0003:00143164       aCTmp
  0003:00143178       aTemp
  0003:00143218       aSwara
+ 0003:00143238       fname
  0003:001432F8       use_cd_paths
- 0003:00143374       unk02_load_files
- 0003:001433A0       aQdataPalPal
- 0003:001433CC       aDataPointersDa
- 0003:001433F8       aDataPointersTa
- 0003:00143424       aDataFont00Dat
- 0003:00143450       aDataFont00_tab
- 0003:0014347C       aDataPop11Dat
- 0003:001434A8       aDataPop11Tab
- 0003:001434D4       aWScreen
+ 0003:00143374       W?unk02_load_files$n__$TbLoadFiles$$
  0003:0014352C       aSyn2PrototypeE
  0003:001436A4       game_obj_dname
  0003:00143710       game_obj_text
@@ -1945,10 +2009,8 @@
  0003:00145EE0       aMode1600120024
  0003:00145F06       aModeInvalid
  0003:00145F20       W?Network_Service_List$n[]$TbNetworkService$$
+ 0003:00145F78       _lbSinTable
  0003:00148778       _lbInkeyToAscii
- 0003:0014877A       a1234567890Qwer
- 0003:00148796       aAsdfghjkl
- 0003:001487A3       aZxcvbnm__0
  0003:00148878       W?InitialCDVolume$nc
  0003:00148879       _CDAble
  0003:0014887C       _smack_malloc
@@ -1958,6 +2020,7 @@
  0003:0014888C       ___int23_exit
  0003:00148890       ___FPE_handler_exit
  0003:00148894       _lbSpacesPerTab
+ 0003:00148898       _rnd_next
  0003:0014889C       ___nheapbeg
  0003:001488A0       ___MiniHeapRover
  0003:001488A4       ___LargestSizeB4MiniHeapRover
@@ -1967,21 +2030,7 @@
  0003:00148AE8       _SpwVector
  0003:00148AEA       _SpwClosed
  0003:00148B30       W?com_dev$n[]$ComHandlerInfo$$
- 0003:00148B34       com_dev0__Field1
- 0003:00148B36       com_dev0__Field2
- 0003:00148B38       com_dev0__Field3
- 0003:00148B3A       com_dev0__Field4
- 0003:00148B42       com_dev1__Field0
- 0003:00148B54       com_dev2__Field0
- 0003:00148B66       com_dev3__Field0
- 0003:00148B78       modem_response0__Text
- 0003:00148BA0       modem_response0__Id
- 0003:00148BA4       modem_response1__Text
- 0003:00148BD0       modem_response2__Text
- 0003:00148BFC       modem_response3__Text
- 0003:00148C28       modem_response4__Text
- 0003:00148C54       modem_response5__Text
- 0003:00148C80       modem_response6__Text
+ 0003:00148B78       W?modem_response$n__$ModemResponse$$
  0003:00148CD8       W?modem_str_init$n[]a
  0003:00148D28       W?modem_str_dial$n[]a
  0003:00148D78       W?modem_str_hangup$n[]a
@@ -2085,6 +2134,8 @@
  0003:0014A114       aTimb_0
  0003:0014A124       _SmackTimerReadAddr
  0003:0014A128       _SmackTimerSetupAddr
+ 0003:0014A894       aEst
+ 0003:0014A8B3       aEdt
  0003:0014A8E0       ___heap_enabled
  0003:0014A8F0       ___old_int23
  0003:0014A8F6       ___old_int_ctrl_break
@@ -4689,20 +4740,81 @@
  0003:00159DAC       aReturnFromUnex
  0003:00159DD0       _IsTable
  0003:00159EF8       _lst_mask
- 0003:00159F33       aNeduit
  0003:00159FBA       W?__wcpp_2_data_stab_init_mod_$jl02XI$rt_init$$
  0003:00159FE0       _tables_start
+ 0003:0015AFE0       cmap
  0003:0015DFE0       _ghost_table
+ 0003:0016EAD4       smack_malloc_used_tot
+ 0003:0016EE34       out
+ 0003:0016F0F8       smack_malloc_mem
  0003:00178635       cmdln_param_w
+ 0003:0017865A       ingame__LastTmap
+ 0003:0018E7C0       prim4_textures
+ 0003:0018E7C4       prim_face_textures
+ 0003:0018E7C8       prim_object_points
+ 0003:0018E7CC       prim_object_faces
+ 0003:0018E7D0       prim_object_faces4
+ 0003:0018E7D4       prim_objects
+ 0003:0018EA1C       traffic_nodes
+ 0003:00193F0C       buf
+ 0003:00193F94       W?pop1_sprites$n__pn$TbSprite$$
+ 0003:00193F98       W?pop1_sprites_end$n__pn$TbSprite$$
+ 0003:00193F9C       W?pop1_data$n__ul
+ 0003:00193FE4       W?mspr0_data$n__ul
+ 0003:00193FE8       W?mspr0_data_end$n__ul
+ 0003:00193FEC       W?mspr0_sprites$n__pn$TbSprite$$
+ 0003:00193FF0       W?mspr0_sprites_end$n__pn$TbSprite$$
+ 0003:00193FF4       nfra0_ani
+ 0003:00193FF8       nfra0_ani_end
+ 0003:00194004       mele0_ani
+ 0003:00194008       mele0_ani_end
+ 0003:0019400C       nsta0_ani
+ 0003:00194010       nsta0_ani_end
  0003:00196026       cmdln_param_d
+ 0003:001968C8       anim_tmaps
+ 0003:001968CC       commands
+ 0003:001968D0       used_objectives
+ 0003:001968D4       used_lvl_objectives
+ 0003:001968D8       level_miscs
+ 0003:001968DC       objectives
+ 0003:001968E0       col_vects
+ 0003:001968E4       walk_headers
+ 0003:001968E8       col_vects_list
+ 0003:001968EC       walk_items
+ 0003:001968F0       user_heap
+ 0003:001968F4       my_big_map
+ 0003:001968F8       screen_point_pool
+ 0003:001968FC       draw_list
+ 0003:00196900       sort_sprites
+ 0003:00196904       sort_lines
+ 0003:00196908       col_columns
+ 0003:00197D78       floor_tiles
+ 0003:00197D7C       light_commands
+ 0003:00197D80       normals
+ 0003:00197D84       quick_lights
+ 0003:00197D88       full_lights
+ 0003:00197D8C       textures
+ 0003:00197D90       face_textures
+ 0003:00197D94       things
+ 0003:00197D9C       object_points
+ 0003:00197DA0       object_faces
+ 0003:00197DA4       object_faces4
+ 0003:00197DA8       objects
+ 0003:00197DAC       special_object_faces
+ 0003:00197DB0       special_object_faces4
  0003:0019CBF8       W?pointer_sprites$n[]pn$TbSprite$$
+ 0003:0019CBFC       W?pointer_sprites_end$n[]pn$TbSprite$$
  0003:0019CC00       W?font0_sprites$n[]pn$TbSprite$$
  0003:0019CC04       W?font0_sprites_end$n[]pn$TbSprite$$
  0003:0019CC30       W?palette$npnuc
+ 0003:0019D64C       W?pointer_data$n[]ul
  0003:0019D650       W?font0_data$n[]ul
+ 0003:0019D66C       gameturn
+ 0003:0019E542       in_network_game
  0003:0019E544       cmdln_param_tf
  0003:0019E545       cmdln_param_bcg
  0003:001A1608       vec_tmap
+ 0003:001A1E60       W?find_cache1$nl
  0003:001A1E64       W?ix_Triangles$nl
  0003:001A1E68       W?count_Triangles$nl
  0003:001A1E6C       W?free_Triangles$nl
@@ -4743,15 +4855,13 @@
  0003:001BAD4C       W?fringe_x2$nl
  0003:001BAD50       W?fringe_y2$nl
  0003:001BAD54       W?fringe_map$npn[256]uc
+ 0003:001BF36C       bez_edit
+ 0003:001BF3EC       spare_map_buffer
  0003:001D747C       memory_blocks0_Field0
  0003:001D7480       memory_blocks0_Field1
  0003:001D7484       memory_blocks0_Field2
  0003:001D7488       memory_blocks1
  0003:001D807C       W?memory_arenas$n[]$mem_arena$$
- 0003:001D8080       memory_arenas0__Field1
- 0003:001D8084       memory_arenas0__Field2
- 0003:001D8088       memory_arenas0__Field3
- 0003:001D927C       W?notMapDraw$nuc
  0003:001D9A78       W?setup$:.0$:?LbScreenIsModeAvailable$n($TbScreenMode$$)lnul
  0003:001D9A7C       lbDisplay__PhysicalScreen
  0003:001D9A80       lbDisplay__WScreen
@@ -4793,15 +4903,18 @@
  0003:001D9AED       lbDisplay__DrawColour
  0003:001D9AF4       _lbSpriteReMapPtr
  0003:001D9AF8       __wint_thread_data
+ 0003:001D9B34       grip_byte_1D9B34
+ 0003:001D9B36       grip_dword_1D9B36
+ 0003:001D9B3C       grip_dword_1D9B3C
+ 0003:001D9B40       grip_dword_1D9B40
+ 0003:001D9B44       grip_dword_1D9B44
+ 0003:001D9B48       grip_dword_1D9B48
+ 0003:001D9B4C       grip_dword_1D9B4C
+ 0003:001D9B50       grip_byte_1D9B50
  0003:001D9B51       grip_initialized
+ 0003:001D9B52       grip_byte_1D9B52
+ 0003:001D9B53       grip_byte_1D9B53
  0003:001D9B58       W?NetworkServicePtr$n$TbNetworkService$$
- 0003:001D9B64       _NetworkServiceFunction__SessionCreate
- 0003:001D9B68       _NetworkServiceFunction__SessionJoin
- 0003:001D9B6C       _NetworkServiceFunction__SessionExchange
- 0003:001D9B70       _NetworkServiceFunction__SessionInit
- 0003:001D9B74       _NetworkServiceFunction__SessionDial
- 0003:001D9B78       _NetworkServiceFunction__SessionAnswer
- 0003:001D9B7C       _NetworkServiceFunction__SessionHangUp
  0003:001D9B80       UsedSessionInit
  0003:001D9B88       _lbExtendedKeyPress
  0003:001D9B8C       _lbKeyOn
@@ -4920,9 +5033,8 @@
  0003:001DE785       W?end_time$:.0$:?run_exchange_func$n()lnul
  0003:001DE795       W?ModemResponseString$n[]a
  0003:001DE7E5       W?g_count$nul
- 0003:001DE7E9       com_last_packet0_Field1
- 0003:001DE7EA       com_last_packet0_Field2
- 0003:001DE813       com_last_packet0_Field3
+ 0003:001DE7E9       W?com_last_packet$n[]$BackupSerialPacket$$
+ 0003:001DE895       comm_stru_1DE895
  0003:001DEB50       _DebugAudio
  0003:001DEB54       _SoundProgressMessage
  0003:001DEC54       _sample_id
@@ -5092,5 +5204,7 @@
  0003:001E0ED4       _lasttimerread
  0003:001E0ED8       _SmackTimerDoneAddr
  0003:001E0F08       _my_stack
+ 0004:001F0000       tabwidth
+ 0004:001F0B54       scale_up
 
 Program entry point at 0001:000C7F6C
