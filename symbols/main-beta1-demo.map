@@ -37,7 +37,12 @@
  0001:0003C380       smack_malloc_free_all
  0001:0003C390       LbIffSave_
  0001:0003CC10       W?get_highest_file_no$n(pnauc)ul
+ 0001:00040354       peep_select_weapon
  0001:000417C8       load_packet
+ 0001:000425D4       packet_action_1
+ 0001:0004285C       packet_action_2
+ 0001:00042AD4       packet_action_3
+ 0001:00042D4C       packet_action_4
  0001:00043210       load_mission_map_lvl
  0001:00043A10       W?game_process$n()l
  0001:00046448       setup_color_lookups
@@ -48,8 +53,48 @@
  0001:00046E0C       free_texturemaps
  0001:00046E20       veh_add
  0001:000477D4       setup_screen_mode
+ 0001:00047E70       read_textwalk
+ 0001:0004BD40       node_add
+ 0001:0004BE48       snode_add
+ 0001:0004C220       node_delete
+ 0001:0004C4EC       snode_delete
+ 0001:0004CFC4       set_int_target
+ 0001:0004D1A4       drop_weapons
+ 0001:0004D774       set_person_dead
+ 0001:0004DCD8       recoil_thing
+ 0001:0004F60C       check_for_other
  0001:0004FF70       nullsub_4
- 0001:00052128       set_peep_comcur
+ 0001:0004FFE8       quick_lights_loop
+ 0001:0005011C       create_door
+ 0001:0005040C       move_person
+ 0001:00051334       wander_fly
+ 0001:00051434       d_process_wander
+ 0001:00051A34       process_wander
+ 0001:00051CCC       search_people
+ 0001:00051D94       find_bezier_nav_point
+ 0001:00052128       init_new_command
+ 0001:00053774       dp_goto_point_rel
+ 0001:000539E0       dp_goto_i
+ 0001:00053F48       peep_goto_point
+ 0001:00054868       process_vanish
+ 0001:00054910       reinit_players
+ 0001:000549A8       person_pick_up_2
+ 0001:00054D14       person_pick_up_1
+ 0001:00055218       peep_get_item
+ 0001:00056020       init_plant_mine
+ 0001:00056054       do_init_plant_mine
+ 0001:00056110       plant_mine
+ 0001:0005620C       drop_tempweapon
+ 0001:00056518       init_drop_tempweapon
+ 0001:000565D0       drop_item
+ 0001:00056800       save_victim
+ 0001:0005686C       nav_goto_person
+ 0001:00056CC4       peep_persuade
+ 0001:000575A4       kill_person
+ 0001:00057C38       limit_mood
+ 0001:00058468       fire_weapon
+ 0001:0005DF5C       drive_vehicle
+ 0001:0005E5B8       shoot_at_point
  0001:000627B0       collide_sub_627B0
  0001:00063DC8       collide_sub_63DC8
  0001:00068458       shockwave_person
@@ -73,9 +118,14 @@
  0001:0007F0F4       pod_exit
  0001:0007FA84       vehicles_sub_7FA84
  0001:00081DC0       vehicles_sub_81DC0
+ 0001:00081F38       veh_takeoff
+ 0001:00081F90       veh_land
  0001:00082140       vehicles_sub_82140
+ 0001:000827B8       train_exit_1
+ 0001:00082838       train_exit_2
  0001:00082BE8       vehicles_sub_82BE8
  0001:0008334C       vehicle_explode
+ 0001:00084C9C       explode_mgun
  0001:00084DDC       W?Synd_nav_rulesA2B$n(ll)l
  0001:00084DE8       W?Unkn1_nav_rulesA2B$n(ll)l
  0001:00084DF4       W?Unkn2_nav_rulesA2B$n(ll)l
@@ -98,6 +148,7 @@
  0001:000856C8       W?point_loop$n(ll)l
  0001:00085750       W?triangle_contains8$n(lll)l
  0001:0008588C       W?point_quad_status$n(llll)l
+ 0001:00085B70       W?clear_find_cache$n()v
  0001:00085B7C       W?triangle_brute_find8$n(ll)l
  0001:00085BD4       W?triangle_find8$n(ll)l
  0001:00085F88       W?point_find$n(llpnlpnl)l
@@ -111,6 +162,7 @@
  0001:00086DD8       W?insert_point$n(ll)v
  0001:00087048       W?reduce_point$n(pnlpnl)l
  0001:00087108       W?make_3or4point$n(pnlpnl)l
+ 0001:00087294       W?edge_collapse$n(llll)v
  0001:00087344       W?delete_4point$n(ll)l
  0001:00087818       W?delete_3point$n(ll)l
  0001:00087B40       W?delete_point$n(ll)v
@@ -126,6 +178,8 @@
  0001:00088B64       W?brute_fill_rectangle$n(lllluc)v
  0001:00088C44       W?fill_rectangle$n(lllluc)v
  0001:00088DD8       W?tri_set_rectangle$n(lllluc)v
+ 0001:00088E78       triangle_get_points_xy_dist_div_3
+ 0001:00088EE4       triangle_get_relation_to_coords
  0001:00088FB4       W?edge_points8$n(llpnlpnlpnlpnl)v
  0001:00089170       W?tags_init$n()v
  0001:000891A0       W?triangle_route_do_1_fwd$n(llpnlpnl)l
@@ -134,12 +188,16 @@
  0001:00089E98       triangle_route_do_2_fwd
  0001:0008A608       triangle_route_do_2_bak
  0001:0008AD60       W?ma_triangle_route_2$n(llpnlpnl)l
+ 0001:0008AE9C       triangle_point_dist_below_128
+ 0001:0008AF08       triangles_update_flags
  0001:0008AF88       triangle_route_do_3_bak
  0001:0008B6D8       triangle_route_do_3_fwd
  0001:0008BE28       triangle_route_do_4_fwd
  0001:0008C58C       W?ma_triangle_route_3$n(llpnlpnl)l
  0001:0008C6DC       W?ma_triangle_route_4$n(llpnl)l
+ 0001:0008C7B8       bfsQ_clear
  0001:0008C7CC       bfsQ_queue
+ 0001:0008C814       bfsQ_get
  0001:0008C844       W?pfs_visit$n(l)v
  0001:0008CA34       W?dfs_search$n(llpnl)l
  0001:0008CA84       W?pfs_search$n(llpnl)l
@@ -148,18 +206,21 @@
  0001:0008CD8C       W?fringe_init$n(pn[256]ucllll)v
  0001:0008CDD0       W?fringe_scan$n(pnlpnlpnlpnl)l
  0001:0008CE78       W?fringe_get_rectangle$n(pnlpnlpnlpnlpnuc)l
+ 0001:0008CF94       triangulate_set_rectangle
  0001:0008CFAC       W?triangulate_area$n(pn[256]ucllll)v
  0001:0008D0C4       W?triangulate_map$n(pn[256]uc)v
  0001:0008D0E0       W?fov_region$n(llpn$__8cl6tFOV$$)l
  0001:0008D17C       W?route_to_path$n(llllpnllpn$Path$$pnl)l
- 0001:0008D50C       path_init8_1
- 0001:0008D624       W?path_init8$n(pn$Path$$lllll)v
- 0001:0008D76C       path_init8_4
+ 0001:0008D50C       path_init8_thing
+ 0001:0008D624       W?path_init8_veh$n(pn$Path$$lllll)v
+ 0001:0008D76C       path_init8_tank
  0001:0008D878       path_init8_3
  0001:0008D990       point_new_from_top
+ 0001:0008D9B8       tri_update_active_limits
  0001:0008D9D0       tri_path_init8
  0001:0008E190       triangulation_select_0
  0001:0008E8BC       make_triangle_solid
+ 0001:0008F4C8       create_crater
  0001:0009E65C       W?show_main_screen$n()v
  0001:000A1F14       objectiv_sub_A1F14
  0001:000A3CA4       objectiv_sub_A3CA4
@@ -176,11 +237,20 @@
  0001:000A8770       scanner_sub_A8770
  0001:000ABB58       scanner_sub_ABB58
  0001:000B2C48       W?draw_purple_screen$n()v
+ 0001:000B6584       ship_sub_B6584
+ 0001:000B6ABC       ship_sub_B6ABC
  0001:000B6CD0       swap_wscreen
+ 0001:000B6D00       init_mech
+ 0001:000B9E1C       veh_leave
  0001:000BA0CC       W?navi_onscreen_debug$n(l)v
+ 0001:000BA374       thing_nav1
  0001:000BA5C4       set_xz_for_quad210
  0001:000BA8C4       set_xz_for_quad123
  0001:000BAD28       nullsub_8
+ 0001:000BAD2C       thing_navigate_2
+ 0001:000BB7DC       thing_navigate
+ 0001:000BBC70       veh_fly
+ 0001:000BBDC8       tank_drive
  0001:000BBFC8       usenav_sub_BBFC8
  0001:000BCF88       nullsub_9
  0001:000BE84C       nullsub_10
@@ -193,9 +263,17 @@
  0001:000C1B88       nullsub_17
  0001:000C1C34       nullsub_18
  0001:000C1EDC       V_PROCESS
+ 0001:000C3998       init_fonts
  0001:000C4314       nullsub_19
  0001:000C6A54       nullsub_20
  0001:000C6AE4       nullsub_21
+ 0001:000C6B24       mail_queue_up
+ 0001:000C903C       init_speech_wad
+ 0001:000C996C       play_dist_sample2
+ 0001:000C9AF4       play_dist_S_sample
+ 0001:000C9C90       play_disk_sample
+ 0001:000C9CF0       play_dist_sample
+ 0001:000C9EE8       FIRE_new
  0001:000CE268       FIRE_process_flame
  0001:000CFD70       LbMemoryAlloc_
  0001:000CFDF8       LbMemoryAllocLow_
@@ -211,7 +289,45 @@
  0001:000D0580       W?dos_alloc$n(ul)ul
  0001:000D05D0       W?dos_free$n(us)v
  0001:000D0610       BAT_draw_char
+ 0001:000D06D8       BAT_sub_D06D8
+ 0001:000D0718       BAT_sub_D0718
+ 0001:000D0778       BAT_sub_D0778
+ 0001:000D07BC       BAT_sub_D07BC
+ 0001:000D07EC       BAT_sub_D07EC
+ 0001:000D088C       BAT_sub_D088C
+ 0001:000D0BE0       BAT_sub_D0BE0
+ 0001:000D0E38       BAT_sub_D0E38
+ 0001:000D0F2C       BAT_sub_D0F2C
+ 0001:000D0FA8       BAT_sub_D0FA8
+ 0001:000D0FEC       BAT_sub_D0FEC
+ 0001:000D101C       BAT_sub_D101C
+ 0001:000D104C       BAT_sub_D104C
+ 0001:000D107C       BAT_sub_D107C
+ 0001:000D1100       BAT_sub_D1100
+ 0001:000D1238       BAT_sub_D1238
+ 0001:000D1478       BAT_sub_D1478
+ 0001:000D18AC       BAT_sub_D18AC
+ 0001:000D1908       BAT_sub_D1908
+ 0001:000D1934       BAT_sub_D1934
+ 0001:000D1A40       BAT_sub_D1A40
+ 0001:000D1B6C       BAT_sub_D1B6C
+ 0001:000D2A70       file_prepare_cd_path
  0001:000D2B84       FileOpenInclCD
+ 0001:000D2C20       W?heapmgr_init$n(pnucll)pn$HeapMgrHeader$$
+ 0001:000D2C84       W?heapmgr_add_item$n(pn$HeapMgrHeader$$l)pn$HeapMgrHandle$$
+ 0001:000D2D8C       W?heapmgr_make_newest$n(pn$HeapMgrHeader$$pn$HeapMgrHandle$$)v
+ 0001:000D2DC8       W?heapmgr_free_oldest$n(pn$HeapMgrHeader$$)l
+ 0001:000D2DFC       W?heapmgr_free_handle$n(pn$HeapMgrHeader$$pn$HeapMgrHandle$$)l
+ 0001:000D2ED8       W?heapmgr_defrag$n(pn$HeapMgrHeader$$)v
+ 0001:000D2F50       W?heapmgr_complete_defrag$n(pn$HeapMgrHeader$$)v
+ 0001:000D2FA0       W?find_free_handle$n(pn$HeapMgrHeader$$)pn$HeapMgrHandle$$
+ 0001:000D2FD0       W?init_sound_heap$n(pnuclpnal)l
+ 0001:000D33A0       W?close_sound_heap$n()v
+ 0001:000D33CC       W?process_sound_heap$n()v
+ 0001:000D3478       W?stop_sample_using_heap$n(ulsuc)v
+ 0001:000D3504       W?play_sample_using_heap$n(ulsulululcuc)pn$SampleInfo$$
+ 0001:000D368C       W?find_handle_for_new_sample$n(llluc)pn$HeapMgrHandle$$
+ 0001:000D370C       W?parse_sound_file$n(lpnucpnlll)l
  0001:000D3900       LbScreenSetup_
  0001:000D3930       LbScreenIsModeAvailable_
  0001:000D3970       LbScreenSetGraphicsWindow_
@@ -227,6 +343,8 @@
  0001:000D3E18       joy_grip_shutdown
  0001:000D3EAC       joy_grip_init2
  0001:000D4C04       joy_grip_read
+ 0001:000D5C00       joy_sub_D5C00
+ 0001:000D607C       joy_sub_D607C
  0001:000D6658       joy_sub_D6658
  0001:000D6960       joy_grip_do_init1
  0001:000D6AC0       joy_grip_do_init2
@@ -239,6 +357,8 @@
  0001:000D714C       GrGetValue
  0001:000D7168       GrGetValue_1
  0001:000D7188       joy_sub_D7188
+ 0001:000D7210       joy_sub_D7210
+ 0001:000D7234       joy_sub_D7234
  0001:000D72C7       atoi_
  0001:000D7340       LbNetworkUpdate_
  0001:000D7360       LbNetworkSessionList_
@@ -551,19 +671,19 @@
  0001:000E617C       int386x_
  0001:000E6198       joy_sub_E6198
  0001:000E62BB       joy_sub_E62BB
- 0001:000E6400       joy_sub_E6400
- 0001:000E64D4       joy_sub_E64D4
- 0001:000E65A8       joy_sub_E65A8
- 0001:000E6668       joy_sub_E6668
- 0001:000E675C       joy_sub_E675C
- 0001:000E6DE8       joy_sub_E6DE8
+ 0001:000E6400       vfx1_SenseStatus_
+ 0001:000E64D4       vfx1_SenseGetConfiguration_
+ 0001:000E65A8       vfx1_SenseSetConfiguration_
+ 0001:000E6668       vfx1_SenseReport_
+ 0001:000E675C       vfx1_init_
+ 0001:000E6DE8       vfx1_CleanUp__0
  0001:000E6E28       joy_sub_E6E28
  0001:000E6F80       joy_sub_E6F80
  0001:000E6FD4       joy_sub_E6FD4
- 0001:000E7070       joy_sub_E7070
- 0001:000E70B0       joy_sub_E70B0
- 0001:000E7118       joy_sub_E7118
- 0001:000E7140       joy_sub_E7140
+ 0001:000E7070       vfx1_CleanUp_
+ 0001:000E70B0       VFX1MouseInt_
+ 0001:000E7118       freeDOS_
+ 0001:000E7140       allocDOS_
  0001:000E71A8       joy_sub_E71A8
  0001:000E71BC       joy_sub_E71BC
  0001:000E71D0       joy_sub_E71D0
@@ -621,7 +741,7 @@
  0001:000EAB2F       LbCommExchange_
  0001:000EABDB       LbCommStopExchange_
  0001:000EAC64       W?backup_packet$n(pn$TbSerialDev$$pnvl)v
- 0001:000EACE0       modem_sub_EACE0
+ 0001:000EACE0       read_byte_
  0001:000EAD32       write_char_
  0001:000EADE0       W?write_char_no_buff$n(pn$TbSerialDev$$uc)v
  0001:000EAE21       W?lock_code_start$n()v
@@ -1020,26 +1140,26 @@
  0001:000FCC94       strnicmp_
  0001:000FCCE8       __wcpp_2_undefed_cdtor__
  0001:000FCCFC       __wcpp_2_undef_member_debug__
- 0001:000FCD10       clear_CommUnkStructE895
+ 0001:000FCD10       ser_clear
  0001:000FCDE3       comm_sub_FCDE3
  0001:000FCE00       comm_sub_FCE00
  0001:000FD189       comm_sub_FD189
- 0001:000FD29F       comm_sub_FD29F
- 0001:000FD2C6       comm_sub_FD2C6
- 0001:000FD2ED       comm_sub_FD2ED
+ 0001:000FD29F       ser_transmit_ab
+ 0001:000FD2C6       ser_transmit_ac
+ 0001:000FD2ED       ser_transmit_ad
  0001:000FD314       comm_sub_FD314
  0001:000FD6E2       comm_sub_FD6E2
  0001:000FD84E       comm_sub_FD84E
- 0001:000FD8B9       comm_sub_FD8B9
+ 0001:000FD8B9       ser_sync
  0001:000FDA95       comm_sub_FDA95
- 0001:000FDC1E       comm_sub_FDC1E
+ 0001:000FDC1E       ser_print_dump_data
  0001:000FDEF6       ser_set_tx_target_cb
  0001:000FDF16       ser_set_rx_target_cb
- 0001:000FDF36       comm_sub_FDF36
- 0001:000FDF56       comm_sub_FDF56
- 0001:000FDF76       comm_sub_FDF76
- 0001:000FE00F       comm_sub_FE00F
- 0001:000FE253       comm_sub_FE253
+ 0001:000FDF36       ser_set_field_19F
+ 0001:000FDF56       ser_enable_field_1A3
+ 0001:000FDF76       ser_process_tx_bytes
+ 0001:000FE00F       ser_process_rx_bytes
+ 0001:000FE253       ser_dec_field_2AF
  0001:000FE280       __wcpp_2_module_dtor__
  0001:000FE2DC       W?fs_state_table$n(pn$ro_dtreg$$)pn$__7a4u3RO_STATE$$
  0001:000FE2E0       W?fs_point_object$n(pn$rw_dtreg$$ui)pnv
@@ -1959,6 +2079,8 @@
  0003:00143138       conf_file_cmnds
  0003:00143164       aCTmp
  0003:00143178       aTemp
+ 0003:001431BE       next_traffic
+ 0003:001431D0       next_quick_light
  0003:00143218       aSwara
  0003:00143238       fname
  0003:001432F8       use_cd_paths
@@ -1973,6 +2095,17 @@
  0003:00144F54       W?tag_current$nuc
  0003:0014529C       aJul301996
  0003:001452A8       a182055
+ 0003:00145520       BAT_cheat_grants__pass
+ 0003:00145524       BAT_cheat_grants__desc
+ 0003:00145528       BAT_font_numbers
+ 0003:0014555C       BAT_font_aphabet
+ 0003:001455E0       BAT_font_exclam
+ 0003:001455E5       BAT_font_dot
+ 0003:001455EA       BAT_font_colon
+ 0003:001455EF       BAT_font_questn
+ 0003:001455F4       BAT_levels__name
+ 0003:001455F8       BAT_levels__data
+ 0003:00145ACC       W?sound_file$nl
  0003:00145AD0       lbScreenModeInfo0__Width
  0003:00145AD2       lbScreenModeInfo0__Height
  0003:00145AD4       lbScreenModeInfo0__BPP
@@ -4744,6 +4877,7 @@
  0003:00159FE0       _tables_start
  0003:0015AFE0       cmap
  0003:0015DFE0       _ghost_table
+ 0003:0016EAD0       handle
  0003:0016EAD4       smack_malloc_used_tot
  0003:0016EE34       out
  0003:0016F0F8       smack_malloc_mem
@@ -4818,11 +4952,13 @@
  0003:001A1E64       W?ix_Triangles$nl
  0003:001A1E68       W?count_Triangles$nl
  0003:001A1E6C       W?free_Triangles$nl
+ 0003:001A1E70       W?active_limit_of_Triangles$nl
  0003:001A1E74       W?limit_of_Triangles$nl
  0003:001A1E78       W?Triangles$n[]$__5hgd6Triangle$$
  0003:001A1E7C       W?ix_Points$nl
  0003:001A1E80       W?count_Points$nl
  0003:001A1E84       W?free_Points$nl
+ 0003:001A1E88       W?active_limit_of_Points$nl
  0003:001A1E8C       W?limit_of_Points$nl
  0003:001A1E90       W?Points$n[]$__dg6glPoint$$
  0003:001A20B0       tri_module_init
@@ -4848,6 +4984,8 @@
  0003:001B9B20       W?fwd_path$n$Path$$
  0003:001BA334       W?Heap$n[]l
  0003:001BA738       W?heap_end$nl
+ 0003:001BA73C       bfsQ_list
+ 0003:001BA93C       bfsQ_current
  0003:001BA940       W?ix_EdgePoints$nl
  0003:001BA944       W?fringe_y$n[]l
  0003:001BAD44       W?fringe_x1$nl
@@ -4862,6 +5000,9 @@
  0003:001D7484       memory_blocks0_Field2
  0003:001D7488       memory_blocks1
  0003:001D807C       W?memory_arenas$n[]$mem_arena$$
+ 0003:001D9A6C       W?sndheap$npn$HeapMgrHeader$$
+ 0003:001D9A70       W?samples_in_bank$nl
+ 0003:001D9A74       W?sample_table$npn$SampleTable$$
  0003:001D9A78       W?setup$:.0$:?LbScreenIsModeAvailable$n($TbScreenMode$$)lnul
  0003:001D9A7C       lbDisplay__PhysicalScreen
  0003:001D9A80       lbDisplay__WScreen
@@ -4978,6 +5119,8 @@
  0003:001DC8BC       W?error_log$n$TbLog$$
  0003:001DC980       W?oinkey$:.0$:?KInt$f()vnuc
  0003:001DC984       W?OldInt$npf()v
+ 0003:001DC9D4       W?largest_dat_size$nl
+ 0003:001DC9D8       W?largest_tab_size$nl
  0003:001DC9DC       W?full_sound_data_path$n[]a
  0003:001DCABC       W?music_bank_size_info$n$MusicBankSizes$$
  0003:001DCADC       W?full_music_data_path$n[]a
@@ -5004,6 +5147,12 @@
  0003:001DCBE8       GRIP_ES
  0003:001DCBF8       _realModePacket
  0003:001DCBFA       _SpwError
+ 0003:001DCC08       r2
+ 0003:001DCD08       _VFX_SENSE
+ 0003:001DCD3C       _vfx_segment
+ 0003:001DCD40       _vfx_pdosmem
+ 0003:001DCDB0       _vip_air_port
+ 0003:001DCDB4       _vip_csr_port
  0003:001DCFE0       W?start_time$:.0$:?ipx_update$n()vnul
  0003:001DCFE4       W?end_time$:.0$:?ipx_update$n()vnul
  0003:001DCFE8       _IPXHandler
