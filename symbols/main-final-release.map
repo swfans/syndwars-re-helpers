@@ -10,7 +10,7 @@
 
  0001:00010000       ___dbgtrap
  0001:00010003       ___begtext
- 0001:00011B9C       asm_main
+ 0001:00011B9C       main_
  0001:00011EE5       main_case_b
  0001:00011EF1       main_case_def
  0001:00012B60       nullsub_1
@@ -22,15 +22,20 @@
  0001:0003422C       savegame_write
  0001:00034CF4       read_conf_file
  0001:000351F8       nullsub_13
+ 0001:000351FC       PacketRecord_Close
  0001:00035324       play_intro
  0001:000353EC       W?init_syndwars$n()v
- 0001:00035644       nullsub_2
+ 0001:00035644       phony_mfree
  0001:0003565C       W?setup_host$n()l
- 0001:0003595C       free_host
+ 0001:0003595C       W?host_reset$n()v
+ 0001:000359C0       smack_malloc
+ 0001:000359E0       smack_malloc_free_all
+ 0001:000359F0       LbIffSave_
+ 0001:00036200       W?get_highest_file_no$n(pnaucpna)ul
  0001:0003643C       set_mouse_sprite
  0001:0003BC1C       load_packet
  0001:0003D820       load_mission_map_lvl
- 0001:0003E18C       W?game_process$n()l
+ 0001:0003E18C       W?game_process$n()v
  0001:0003FDCC       unused_func_010
  0001:0003FE78       unused_func_011
  0001:00040434       unused_func_012
@@ -40,10 +45,11 @@
  0001:0004113C       game_setup_sub6
  0001:000415B8       unused_func_015
  0001:00041638       unused_func_016
- 0001:00041668       W?game_setup$n()l
- 0001:00041914       W?game_reset$n()l
+ 0001:00041668       W?game_setup$n()v
+ 0001:00041914       W?game_reset$n()v
  0001:00041928       unused_func_017
  0001:00041950       W?setup_language$n()v
+ 0001:00041A70       free_texturemaps
  0001:00041A80       veh_add
  0001:00041FDC       unused_func_018
  0001:00042060       unused_func_019
@@ -51,6 +57,8 @@
  0001:00042A84       game_setup_sub11
  0001:00043A6C       unused_func_020
  0001:0004A7F8       nullsub_3
+ 0001:0004BA98       wander_fly
+ 0001:00050898       nav_goto_person
  0001:00062044       init_arrays_1
  0001:0006B138       nullsub_4
  0001:0006E604       play_smacker
@@ -138,6 +146,7 @@
  0001:000C9050       nullsub_9
  0001:000D5870       load_credits_and_sound
  0001:000D6650       game_setup_sub3
+ 0001:000DAAB8       FIRE_process_flame
  0001:000DC6A0       LbMemoryAlloc_
  0001:000DC728       LbMemoryAllocLow_
  0001:000DC7AC       LbMemoryCheck_
@@ -148,12 +157,14 @@
  0001:000DCD64       LbMemoryShrink_
  0001:000DCDE8       W?split_arena$n(pn$mem_arena$$ul)uc
  0001:000DCE64       W?delete_arena$n(pn$mem_arena$$)v
+ 0001:000DCEAC       W?compare$n(pn$mem_block$$pn$1$)i
  0001:000DCEB0       W?dos_alloc$n(ul)ul
  0001:000DCF00       W?dos_free$n(us)v
  0001:000DD210       breakout_play_sub1
  0001:000DD620       breakout_play_sub2
  0001:000DDAE0       breakout_sub_DDAE0
  0001:000DE8FC       breakout_play
+ 0001:000DF8D0       FileNameTransformSW
  0001:000DF9E4       FileOpenInclCD
  0001:000E00A8       nullsub_10
  0001:000E00E0       W?process_sound_heap$n()v
@@ -168,12 +179,14 @@
  0001:000E0FD0       memset_
  0001:000E0FE8       mem_putc_
  0001:000E0FFB       sprintf_
- 0001:000E1030       get_cmdline
+ 0001:000E1030       joy_grip_init
+ 0001:000E11A8       joy_grip_shutdown
  0001:000E3210       unused_off_E3210
  0001:000E3268       unused_func_058
  0001:000E3648       unused_func_059
  0001:000E368C       unused_off_E368C
  0001:000E36E4       unused_func_057
+ 0001:000E3A78       joy_grip_unknsub_08
  0001:000E3AD0       unused_func_055
  0001:000E3B48       unused_func_056
  0001:000E3BF8       unused_func_054
@@ -189,6 +202,8 @@
  0001:000E4220       unused_func_047
  0001:000E4240       unused_func_048
  0001:000E49E7       atoi_
+ 0001:000E4F7C       LbNetworkReset_
+ 0001:000E54C8       LbNetworkSetupIPXAddress_
  0001:000E581C       _cstart_
  0001:000E581E       aWatcomCC32RunT
  0001:000E5AAB       __exit_
@@ -294,6 +309,7 @@
  0001:000EC390       GetLastSampleInfoStructure_
  0001:000EC3A0       GetSongHandle_
  0001:000EC3B0       GetCDSpeed_
+ 0001:000EC3DC       LbKeyboardClose_
  0001:000EC3E8       LbKeyboard_
  0001:000EC488       LbDosKeyboard_
  0001:000EC4F4       W?KInt$f()v
@@ -318,6 +334,7 @@
  0001:000EDC48       LbScreenSwapBox_
  0001:000EDDD4       LbScreenDrawHVLineDirect_
  0001:000EE1C0       LbScreenWaitVbi_
+ 0001:000EE1D8       atol_
  0001:000EE245       __open_flags_
  0001:000EE316       __doopen_
  0001:000EE3DA       _fsopen_
@@ -333,7 +350,7 @@
  0001:000EE6B0       SetMusicMasterVolume_
  0001:000EE700       SetSoundMasterVolume_
  0001:000EE750       IsSamplePlaying_
- 0001:000EE830       j___clock_
+ 0001:000EE830       clock_
  0001:000EE840       LbPaletteGet_
  0001:000EE8A4       LbPaletteSet_
  0001:000EE910       StopAllSamples_
@@ -716,6 +733,8 @@
  0001:0010AEB6       a123456789abc_0
  0001:0010AEDA       ultoa_
  0001:0010AF24       ltoa_
+ 0001:0010AF3F       __get_errno_ptr_
+ 0001:0010AF45       __get_doserrno_ptr_
  0001:0010AF4B       getcwd_
  0001:0010AFD3       strlen_
  0001:0010AFEC       strcpy_
@@ -1512,8 +1531,9 @@
  0003:00153054       unk01_load_files
  0003:0015315C       conf_file_cmnds
  0003:00153188       aCTmp
- 0003:001531A8       aTemp
- 0003:00153248       aSwara
+ 0003:001531A0       mem_alloc_size
+ 0003:001531A8       user_name
+ 0003:00153248       session_name
  0003:00153268       fadedat_offs
  0003:00153274       _tables_start
  0003:00153278       tex00dat_offs
@@ -1527,12 +1547,16 @@
  0003:00153298       zprojdat_offs
  0003:0015329C       bprojdat_offs
  0003:001532E8       format
- 0003:0015332C       use_cd_paths
+ 0003:001532FC       fname
+ 0003:00153308       fmt
+ 0003:00153328       game_dirs
+ 0003:0015337C       unkn01_maskarr
  0003:001533A8       unk02_load_files
  0003:0015363C       aSyn2PrototypeEngine
  0003:001537B4       gameobjctv_names
  0003:00153820       objective_textnames
  0003:00153884       poo_textnames
+ 0003:001539C4       buffer_allocs
  0003:00154872       pointer_hotspot
  0003:00154AAC       person_st_text
  0003:00154BBC       control_keys_text
@@ -1560,6 +1584,7 @@
  0003:00158B30       _smack_free
  0003:00158B34       W?InitialCDVolume$nc
  0003:00158B35       _CDAble
+ 0003:00158B50       ___nheapbeg
  0003:00158B5C       aGrip_gll
  0003:00158B68       aGrip
  0003:00158B70       aCGrip
@@ -1590,6 +1615,16 @@
  0003:00159324       W?active$nuc
  0003:00159328       _AIL_locked
  0003:0015932C       W?cd_errors$n[]pna
+ 0003:00159378       ___iob
+ 0003:00159580       ___tmpfnext
+ 0003:00159581       __fmode
+ 0003:00159585       _force
+ 0003:00159590       ___NFiles
+ 0003:00159594       ___init_mode
+ 0003:001595E4       __iomode
+ 0003:001595FC       ___umaskval
+ 0003:00159600       ___EFG_printf
+ 0003:00159604       ___EFG_scanf
  0003:0015960A       aStackOverflow
  0003:00159734       aEst
  0003:00159753       aEdt
@@ -1603,6 +1638,7 @@
  0003:00159858       smack_func_addr003
  0003:0015985C       smack_func_addr004
  0003:00159E48       aBullfrog
+ 0003:00159E54       handle
  0003:0015AADC       aSample
  0003:0015AB64       aTimb_0
  0003:0015AB70       _locked_AILXDIG
@@ -2989,8 +3025,16 @@
  0003:00162058       aReturnFromUnex
  0003:0016207C       _IsTable
  0003:001621E1       aFmamjjasondaeapauuuecoe
- 0003:00180C53       flags_180C53
+ 0003:00177100       language_3str
+ 0003:00177104       fhandle
+ 0003:00177108       smack_malloc_used_tot
+ 0003:00177754       cd_drive
+ 0003:001807D4       unkn01_mode
+ 0003:00180C53       flags_general_unkn01
+ 0003:00180C81       selected_map_index
+ 0003:00180C87       cmdln_param_a
  0003:00180C89       cmdln_param_w
+ 0003:00180CBF       flags_general_unkn02
  0003:00197158       W?text_window_x1$nus
  0003:0019715A       W?text_window_y1$nus
  0003:0019715C       W?text_window_x2$nus
@@ -3002,6 +3046,7 @@
  0003:00197238       prim_object_faces4
  0003:0019723C       prim_objects
  0003:00197484       traffic_nodes
+ 0003:0019CB54       buf
  0003:0019CBDC       W?pop_sprites$n[]pn$TbSprite$$
  0003:0019CBE0       W?pop_sprites_end$n[]pn$TbSprite$$
  0003:0019CBE4       W?pop_data$n[]ul
@@ -3015,6 +3060,8 @@
  0003:0019CC54       nsta_ani
  0003:0019CC58       nsta_ani_end
  0003:0019EC6E       cmdln_param_d
+ 0003:0019EC71       game_perspective
+ 0003:0019F50C       pktrec_mode
  0003:0019F50D       cmdln_pr_num
  0003:0019F510       anim_tmaps
  0003:0019F514       commands
@@ -3052,12 +3099,16 @@
  0003:001A5848       W?font0_sprites$n[]pn$TbSprite$$
  0003:001A584C       W?font0_sprites_end$n[]pn$TbSprite$$
  0003:001A5878       W?palette$npnuc
+ 0003:001A5880       W?game_text_str$npc
  0003:001A62BC       W?pointer_data$n__ul
  0003:001A62C0       W?font0_data$n[]ul
+ 0003:001A62DC       gameturn
+ 0003:001A71B2       in_network_game
  0003:001A71B3       cmdln_param_mp
  0003:001A71B4       cmdln_param_tf
  0003:001A71B5       cmdln_param_bcg
  0003:001AA278       vec_tmap
+ 0003:001AA2F8       mem_ptr
  0003:001AA988       palette_data
  0003:001AABA8       game_prev_object_count
  0003:001AABAC       game_prev_object_face_count
@@ -3110,14 +3161,19 @@
  0003:001C4A82       sound_tension_music_volume
  0003:001C4A84       sound_music_volume
  0003:001C4B18       text
+ 0003:001C6D4C       out
  0003:001C6DF2       str
+ 0003:001C6F4C       buffer
  0003:001C7754       h
  0003:001C83D0       cmdln_param_n
- 0003:001C83D4       bez_edit
+ 0003:001C83D4       game_bez_edit
+ 0003:001C83DA       len
+ 0003:001C8448       cmdln_param_map_index
  0003:001C8454       spare_map_buffer
  0003:001DC78C       W?purple_draw_list$npn$PurpleDrawItem$$
  0003:001DC790       W?purple_draw_index$nus
- 0003:001E08D0       _lbMemoryAvailable
+ 0003:001E08C0       _lbMemoryAvailable
+ 0003:001E08D4       W?memory_blocks$n[]$mem_block$$
  0003:001E14D4       W?memory_arenas$n[]$mem_arena$$
  0003:001E2E48       W?samples_in_bank$nl
  0003:001E2E50       W?setup$:.0$:?LbScreenIsModeAvailable$n($TbScreenMode$$)lnul
@@ -3146,6 +3202,7 @@
  0003:001E2F70       _lbExtendedKeyPress
  0003:001E2F74       _lbKeyOn
  0003:001E3074       _lbInkey
+ 0003:001E3078       _lbShift
  0003:001E56D8       W?fade_started$nuc
  0003:001E5A2C       _smack_draw_callback
  0003:001E5B50       _CurrentAwe32SoundfontPrefix
@@ -3227,6 +3284,20 @@
  0003:001E9550       W?control_real$nul
  0003:001E9554       W?control_selector$nul
  0003:001E9558       W?control_prot$npnuc
+ 0003:001E955C       ___ClosedStreams
+ 0003:001E9560       ___OpenStreams
+ 0003:001E9564       _clock_start
+ 0003:001E9568       W?sample_fade_handle$nl
+ 0003:001E956C       W?switch_off_sample_fade_timer$nyuc
+ 0003:001E956D       W?a_sample_is_fading$nyuc
+ 0003:001E956E       W?samples_currently_fading$nyuc
+ 0003:001E9570       W?current_sample_queue_count$nyul
+ 0003:001E9574       W?sample_queue_handle_initiated$nuc
+ 0003:001E9578       W?sample_queue_handle$npn$_SAMPLE$$
+ 0003:001EA47C       ___nheap_clean
+ 0003:001EA47D       ___fheap_clean
+ 0003:001EA480       _errno
+ 0003:001EA484       __doserrno
  0003:001ED5AC       static)argc
  0003:001ED5B0       static_argv
  0003:001ED5B4       splitprm_var1

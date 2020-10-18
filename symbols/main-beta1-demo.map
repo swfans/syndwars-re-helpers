@@ -26,7 +26,7 @@
  0001:0003B7B0       PacketRecord_sub_3B7B0
  0001:0003B82C       PacketRecord_sub_3B82C
  0001:0003B878       nullsub_2
- 0001:0003B87C       PacketRecord_sub_3B87C
+ 0001:0003B87C       PacketRecord_Close
  0001:0003B888       show_black_screen
  0001:0003B8AC       play_game
  0001:0003BB2C       phony_mfree
@@ -36,7 +36,8 @@
  0001:0003C348       smack_malloc
  0001:0003C380       smack_malloc_free_all
  0001:0003C390       LbIffSave_
- 0001:0003CC10       W?get_highest_file_no$n(pnauc)ul
+ 0001:0003CC10       W?get_highest_file_no$n(pnaucpna)ul
+ 0001:0003CE94       set_mouse_sprite
  0001:00040354       peep_select_weapon
  0001:000417C8       load_packet
  0001:000425D4       packet_action_1
@@ -48,16 +49,17 @@
  0001:00046448       setup_color_lookups
  0001:000468FC       next_p_q
  0001:00046A48       W?game_setup$n()l
- 0001:00046CC4       W?game_reset$n()l
+ 0001:00046CC4       W?game_reset$n()v
  0001:00046D00       load_texturemaps
  0001:00046E0C       free_texturemaps
  0001:00046E20       veh_add
  0001:000477D4       setup_screen_mode
  0001:00047E70       read_textwalk
- 0001:0004BD40       node_add
- 0001:0004BE48       snode_add
- 0001:0004C220       node_delete
- 0001:0004C4EC       snode_delete
+ 0001:0004BD40       mapwho_node_add
+ 0001:0004BE48       mapwho_snode_add
+ 0001:0004BF40       mapwho_sub_4BF40
+ 0001:0004C220       mapwho_node_delete
+ 0001:0004C4EC       mapwho_snode_delete
  0001:0004CFC4       set_int_target
  0001:0004D1A4       drop_weapons
  0001:0004D774       set_person_dead
@@ -92,10 +94,12 @@
  0001:00056CC4       peep_persuade
  0001:000575A4       kill_person
  0001:00057C38       limit_mood
+ 0001:00057CEC       person_update_stamina
  0001:00058468       fire_weapon
  0001:0005DF5C       drive_vehicle
  0001:0005E5B8       shoot_at_point
  0001:000627B0       collide_sub_627B0
+ 0001:00062D6C       del_col_vect_fr
  0001:00063DC8       collide_sub_63DC8
  0001:00068458       shockwave_person
  0001:00070450       nullsub_5
@@ -105,12 +109,12 @@
  0001:000733F0       fli_sub_733F0
  0001:00073A64       play_smacker_video
  0001:00073F80       anim_open
- 0001:00074B78       DEBUGMSG
+ 0001:00074B78       DEBUGLOG
  0001:00074B7C       nullsub_6
  0001:00074C58       highlight_thing
  0001:00074FE4       check_on_mapwho
  0001:00075220       nullsub_7
- 0001:00075248       W?ERRORMSG$n(pna)v
+ 0001:00075248       W?ERRORLOG$n(pna)v
  0001:000754C4       W?ERRORMBOX$n(pna)v
  0001:000756C8       debug_sub_756C8
  0001:000759A4       debug_sub_759A4
@@ -221,13 +225,42 @@
  0001:0008E190       triangulation_select_0
  0001:0008E8BC       make_triangle_solid
  0001:0008F4C8       create_crater
+ 0001:00092C90       W?draw_unkn34$n(pn$ScreenBox$$)uc
+ 0001:00093268       W?draw_unkn45$n(pn$ScreenButton$$)uc
+ 0001:000934B0       W?draw_unkn46$n(pn$ScreenButton$$)uc
+ 0001:00093614       W?draw_unkn01$n(pn$ScreenBox$$)uc
+ 0001:0009361C       W?draw_unkn04$n(pn$ScreenBox$$)uc
+ 0001:00093B40       W?draw_unkn03_spec$n(pn$ScreenBox$$)uc
+ 0001:00094168       W?draw_unkn02$n(pn$ScreenBox$$)uc
+ 0001:00094A88       W?draw_unkn03$n(pn$ScreenBox$$)uc
+ 0001:00095114       W?draw_unkn06$n(pn$ScreenBox$$)uc
+ 0001:00096674       W?draw_unkn07_text$n(pn$ScreenBox$$)uc
+ 0001:00096BDC       W?draw_unkn05_text$n(pn$ScreenBox$$)uc
+ 0001:00096CA0       W?draw_tbunkn06_text$n(pn$ScreenTextBox$$)uc
+ 0001:00097298       W?draw_unkn07$n(pn$ScreenBox$$)uc
+ 0001:0009775C       W?draw_tbunkn10_text$n(pn$ScreenTextBox$$)uc
+ 0001:00098040       W?draw_unkn10$n(pn$ScreenBox$$)uc
+ 0001:0009837C       W?draw_tbunkn11_text$n(pn$ScreenTextBox$$)uc
+ 0001:00098F04       W?draw_unkn06_text$n(pn$ScreenBox$$)uc
+ 0001:00099394       W?init_screen_boxes$n()v
+ 0001:0009C808       W?show_date_time$n()v
+ 0001:0009E04C       init_read_all_sprite_files
  0001:0009E65C       W?show_main_screen$n()v
+ 0001:000A0400       W?my_set_text_window$n(usususus)v
+ 0001:000A05E0       W?my_count_lines$n(pna)us
+ 0001:000A0738       W?my_draw_vertical_text$n(ususpnauc)v
+ 0001:000A085C       W?my_draw_text$n(sspnaus)us
+ 0001:000A1AF8       W?flashy_draw_text$n(llpnaucuspnsuc)uc
  0001:000A1F14       objectiv_sub_A1F14
  0001:000A3CA4       objectiv_sub_A3CA4
  0001:000A5590       objectiv_sub_A5590
  0001:000A5998       veh_heap_add
+ 0001:000A5DE0       VNAV_sub_A5DE0
  0001:000A5F5C       VNAV_find_dropoff_point
  0001:000A609C       VNAV_do
+ 0001:000A6570       VNAV_sub_A6570
+ 0001:000A6598       VNAV_sub_A6598
+ 0001:000A65A8       VNAV_sub_A65A8
  0001:000A6614       VNAV_goto
  0001:000A6AD4       VNAV_sub_A6AD4
  0001:000A6C58       VNAV_sub_A6C58
@@ -235,13 +268,40 @@
  0001:000A7354       VNAV_sub_A7354
  0001:000A7CBC       scanner_sub_A7CBC
  0001:000A8770       scanner_sub_A8770
- 0001:000ABB58       scanner_sub_ABB58
+ 0001:000A8AF4       scanner_draw_person
+ 0001:000ABB58       scanner_draw_transparent
+ 0001:000ACD80       new_bang
+ 0001:000AD768       new_bang_2
+ 0001:000AD77C       new_bang_3
+ 0001:000AD790       W?block_screen_copy$n(usususus)v
+ 0001:000AD7FC       W?button_text$n(pn$ScreenButton$$)uc
+ 0001:000AD8B0       guicontrol01_text
+ 0001:000AD9DC       W?init_screen_box$n(pn$ScreenBox$$ususususus)v
+ 0001:000ADA18       W?init_screen_text_box$n(pn$ScreenTextBox$$usususususpn$TbSprite$$us)v
+ 0001:000ADA94       W?init_screen_button$n(pn$ScreenButton$$ususpnauspn$TbSprite$$usus)v
+ 0001:000ADB44       init_screen_guicontrol01
+ 0001:000ADBFC       flashy_draw_purple_guicontrol02
+ 0001:000AE588       W?flashy_draw_purple_box$n(pn$ScreenBox$$)uc
+ 0001:000AEED4       W?flashy_draw_purple_text_box$n(pn$ScreenTextBox$$)uc
+ 0001:000B0B30       W?flashy_draw_purple_button$n(pn$ScreenButton$$)uc
+ 0001:000B1D38       W?flashy_draw_purple_guicontrol01$n(pn$ScreenControl01$$)uc
+ 0001:000B2694       W?copy_box_purple_list$n(llulul)v
+ 0001:000B2724       W?draw_box_purple_list$n(llululuc)v
+ 0001:000B27B8       W?draw_text_purple_list$n(llpnaus)v
+ 0001:000B2888       W?draw_sprite_purple_list$n(llpn$TbSprite$$)v
+ 0001:000B290C       W?draw_trig_purple_list$n(llll)v
+ 0001:000B29AC       W?draw_triangle_purple_list$n(lllllluc)v
+ 0001:000B2A68       W?draw_line_purple_list$n(lllluc)v
+ 0001:000B2B48       W?draw_flic_purple_list$n(pn()v)v
+ 0001:000B2BB0       W?draw_hotspot_purple_list$n(ll)v
  0001:000B2C48       W?draw_purple_screen$n()v
+ 0001:000B4094       person_command_to_text
  0001:000B6584       ship_sub_B6584
  0001:000B6ABC       ship_sub_B6ABC
  0001:000B6CD0       swap_wscreen
  0001:000B6D00       init_mech
  0001:000B9E1C       veh_leave
+ 0001:000B9FB0       count_fnavs
  0001:000BA0CC       W?navi_onscreen_debug$n(l)v
  0001:000BA374       thing_nav1
  0001:000BA5C4       set_xz_for_quad210
@@ -252,7 +312,11 @@
  0001:000BBC70       veh_fly
  0001:000BBDC8       tank_drive
  0001:000BBFC8       usenav_sub_BBFC8
+ 0001:000BC2E8       process_next_quick_light
+ 0001:000BC718       load_mad
  0001:000BCF88       nullsub_9
+ 0001:000BCF90       fire_weapon_0
+ 0001:000BD67C       bul_path_end
  0001:000BE84C       nullsub_10
  0001:000BEDA0       nullsub_11
  0001:000BF7B4       nullsub_12
@@ -263,12 +327,39 @@
  0001:000C1B88       nullsub_17
  0001:000C1C34       nullsub_18
  0001:000C1EDC       V_PROCESS
- 0001:000C3998       init_fonts
+ 0001:000C3998       init_read_all_items
+ 0001:000C4310       W?do_unkn55_action$n(uc)v
  0001:000C4314       nullsub_19
+ 0001:000C43CC       W?font_height$n(a)uc
+ 0001:000C4D58       load_objective_text
  0001:000C6A54       nullsub_20
  0001:000C6AE4       nullsub_21
  0001:000C6B24       mail_queue_up
+ 0001:000C72F0       W?draw_unkn09$n(pn$ScreenTextBox$$)uc
+ 0001:000C73D0       W?draw_unkn03_text$n(pn$ScreenBox$$)uc
+ 0001:000C7654       W?do_unkn32_action$n(uc)uc
+ 0001:000C76E4       W?do_unkn33_action$n(uc)v
+ 0001:000C7724       W?do_unkn59_action$n(uc)v
+ 0001:000C7728       W?do_unkn01_action$n(uc)uc
+ 0001:000C7730       W?do_unkn10_action$n(uc)uc
+ 0001:000C7734       W?do_unkn35_action$n(uc)v
+ 0001:000C77D0       W?do_unkn36_action$n(uc)v
+ 0001:000C77E8       W?do_unkn38_action$n(uc)v
+ 0001:000C7858       W?do_unkn39_action$n(uc)v
+ 0001:000C787C       W?do_unkn44_action$n(uc)v
+ 0001:000C7880       W?do_unkn07_action$n(uc)v
+ 0001:000C788C       W?do_unkn40_action$n(uc)v
+ 0001:000C78A8       W?do_unkn41_action$n(uc)v
+ 0001:000C78C4       W?do_unkn42_action$n(uc)v
+ 0001:000C7A0C       W?do_unkn43_action$n(uc)v
+ 0001:000C7A18       W?do_unkn37_action$n(uc)v
+ 0001:000C7AE4       W?do_unkn48_action$n(uc)v
+ 0001:000C7B7C       W?do_unkn47_action$n(uc)v
+ 0001:000C8F90       load_credits_and_sound
  0001:000C903C       init_speech_wad
+ 0001:000C92E4       new_scale_effect
+ 0001:000C94C0       sound_update_all_samples_volume
+ 0001:000C9520       sound_monitor_all_samples
  0001:000C996C       play_dist_sample2
  0001:000C9AF4       play_dist_S_sample
  0001:000C9C90       play_disk_sample
@@ -289,29 +380,29 @@
  0001:000D0580       W?dos_alloc$n(ul)ul
  0001:000D05D0       W?dos_free$n(us)v
  0001:000D0610       BAT_draw_char
- 0001:000D06D8       BAT_sub_D06D8
- 0001:000D0718       BAT_sub_D0718
- 0001:000D0778       BAT_sub_D0778
- 0001:000D07BC       BAT_sub_D07BC
- 0001:000D07EC       BAT_sub_D07EC
- 0001:000D088C       BAT_sub_D088C
- 0001:000D0BE0       BAT_sub_D0BE0
- 0001:000D0E38       BAT_sub_D0E38
- 0001:000D0F2C       BAT_sub_D0F2C
- 0001:000D0FA8       BAT_sub_D0FA8
- 0001:000D0FEC       BAT_sub_D0FEC
- 0001:000D101C       BAT_sub_D101C
- 0001:000D104C       BAT_sub_D104C
- 0001:000D107C       BAT_sub_D107C
- 0001:000D1100       BAT_sub_D1100
- 0001:000D1238       BAT_sub_D1238
- 0001:000D1478       BAT_sub_D1478
- 0001:000D18AC       BAT_sub_D18AC
- 0001:000D1908       BAT_sub_D1908
- 0001:000D1934       BAT_sub_D1934
- 0001:000D1A40       BAT_sub_D1A40
- 0001:000D1B6C       BAT_sub_D1B6C
- 0001:000D2A70       file_prepare_cd_path
+ 0001:000D06D8       BAT_unknsub_01
+ 0001:000D0718       BAT_unknsub_02
+ 0001:000D0778       BAT_unknsub_03
+ 0001:000D07BC       BAT_unknsub_04
+ 0001:000D07EC       BAT_unknsub_05
+ 0001:000D088C       BAT_unknsub_08
+ 0001:000D0BE0       BAT_unknsub_09
+ 0001:000D0E38       BAT_unknsub_10
+ 0001:000D0F2C       BAT_unknsub_12
+ 0001:000D0FA8       BAT_unknsub_13
+ 0001:000D0FEC       BAT_unknsub_14
+ 0001:000D101C       BAT_unknsub_15
+ 0001:000D104C       BAT_unknsub_16
+ 0001:000D107C       BAT_unknsub_19
+ 0001:000D1100       BAT_unknsub_20
+ 0001:000D1238       BAT_unknsub_21
+ 0001:000D1478       BAT_unknsub_22
+ 0001:000D18AC       BAT_unknsub_23
+ 0001:000D1908       BAT_unknsub_24
+ 0001:000D1934       BAT_unknsub_26
+ 0001:000D1A40       BAT_unknsub_27
+ 0001:000D1B6C       BAT_unknsub_28
+ 0001:000D2A70       FileNameTransformSW
  0001:000D2B84       FileOpenInclCD
  0001:000D2C20       W?heapmgr_init$n(pnucll)pn$HeapMgrHeader$$
  0001:000D2C84       W?heapmgr_add_item$n(pn$HeapMgrHeader$$l)pn$HeapMgrHandle$$
@@ -342,23 +433,35 @@
  0001:000D3CA0       joy_grip_init
  0001:000D3E18       joy_grip_shutdown
  0001:000D3EAC       joy_grip_init2
+ 0001:000D4B04       joy_grip_unknsub_03
  0001:000D4C04       joy_grip_read
- 0001:000D5C00       joy_sub_D5C00
- 0001:000D607C       joy_sub_D607C
- 0001:000D6658       joy_sub_D6658
+ 0001:000D5B98       joy_grip_unknsub_04
+ 0001:000D5C00       joy_grip_unknsub_05
+ 0001:000D5FE0       joy_grip_unknsub_06
+ 0001:000D607C       joy_grip_unknsub_07
+ 0001:000D6410       joy_grip_unknsub_08
+ 0001:000D6428       joy_grip_unknsub_09
+ 0001:000D6468       joy_grip_unknsub_10
+ 0001:000D64E0       joy_grip_unknsub_11
+ 0001:000D6590       joy_grip_unknsub_12
+ 0001:000D6604       joy_grip_unknsub_13
+ 0001:000D6658       joy_grip_unknsub_14
+ 0001:000D67C0       joy_grip_unknsub_15
+ 0001:000D6878       joy_grip_unknsub_16
+ 0001:000D68EC       joy_grip_unknsub_17
  0001:000D6960       joy_grip_do_init1
  0001:000D6AC0       joy_grip_do_init2
  0001:000D6B00       joy_grip_do_shutdown
  0001:000D6B20       joy_grip_read2
- 0001:000D6CA8       joy_sub_D6CA8
- 0001:000D6DA8       joy_sub_D6DA8
+ 0001:000D6CA8       joy_grip_unknsub_21
+ 0001:000D6DA8       joy_grip_unknsub_22
  0001:000D7108       CloseSpaceBall_
  0001:000D7120       GrGetPackedValues
  0001:000D714C       GrGetValue
  0001:000D7168       GrGetValue_1
- 0001:000D7188       joy_sub_D7188
- 0001:000D7210       joy_sub_D7210
- 0001:000D7234       joy_sub_D7234
+ 0001:000D7188       joy_grip_unknsub_27
+ 0001:000D7210       joy_grip_unknsub_28
+ 0001:000D7234       joy_grip_unknsub_29
  0001:000D72C7       atoi_
  0001:000D7340       LbNetworkUpdate_
  0001:000D7360       LbNetworkSessionList_
@@ -441,6 +544,8 @@
  0001:000DB698       W?mouse_setup_range$n()ul
  0001:000DB7B0       W?screen_place$n()l
  0001:000DBA68       W?screen_remove$n(ul)l
+ 0001:000DBC2C       LbArcTanAngle
+ 0001:000DBD38       lbArcTanFactors
  0001:000DBF3A       strrchr_
  0001:000DBF54       toupper_
  0001:000DBF70       strcmp_
@@ -592,7 +697,9 @@
  0001:000E1F50       LbTextStringHeight_
  0001:000E1FC4       LbTextDraw_
  0001:000E2818       W?put_down_sprites$n(pnapnalll)v
+ 0001:000E2A90       DangerMusicVolume
  0001:000E2AF0       StopAllSamples_
+ 0001:000E2B60       W?cb_get_trigger_info$n(pn$_SEQUENCE$$ll)v
  0001:000E2C20       StartMusic_
  0001:000E2E7F       printf_
  0001:000E2EB0       LbDate_
@@ -669,24 +776,24 @@
  0001:000E6109       SpwSimpleClose_
  0001:000E6154       segread_
  0001:000E617C       int386x_
- 0001:000E6198       joy_sub_E6198
- 0001:000E62BB       joy_sub_E62BB
+ 0001:000E6198       joy_unknsub_01
+ 0001:000E62BB       joy_unknsub_02
  0001:000E6400       vfx1_SenseStatus_
  0001:000E64D4       vfx1_SenseGetConfiguration_
  0001:000E65A8       vfx1_SenseSetConfiguration_
  0001:000E6668       vfx1_SenseReport_
  0001:000E675C       vfx1_init_
  0001:000E6DE8       vfx1_CleanUp__0
- 0001:000E6E28       joy_sub_E6E28
- 0001:000E6F80       joy_sub_E6F80
- 0001:000E6FD4       joy_sub_E6FD4
+ 0001:000E6E28       vfx1_unknsub07
+ 0001:000E6F80       vfx1_unknsub08
+ 0001:000E6FD4       vfx1_unknsub09
  0001:000E7070       vfx1_CleanUp_
  0001:000E70B0       VFX1MouseInt_
  0001:000E7118       freeDOS_
  0001:000E7140       allocDOS_
- 0001:000E71A8       joy_sub_E71A8
- 0001:000E71BC       joy_sub_E71BC
- 0001:000E71D0       joy_sub_E71D0
+ 0001:000E71A8       joy_unknsub_12
+ 0001:000E71BC       joy_unknsub_13
+ 0001:000E71D0       joy_unknsub_14
  0001:000E7210       CallIPX_
  0001:000E7288       CallRealModeInterrupt_
  0001:000E72DC       setup_bullfrog_header_
@@ -697,8 +804,8 @@
  0001:000E7EA0       ipx_log_on_new_players_
  0001:000E7F78       ipx_add_new_player_
  0001:000E8080       ipx_send_packet_
- 0001:000E815C       ipx_sub_E815C
- 0001:000E81D8       ipx_sub_E81D8
+ 0001:000E815C       ipx_service_start
+ 0001:000E81D8       ipx_deinit
  0001:000E82F8       ipx_get_packet_
  0001:000E839C       ipx_exchange_packets_
  0001:000E859C       ipx_get_players_packets_
@@ -766,12 +873,12 @@
  0001:000EB7C9       W?AllocDosMem$n(ulpnus)pnv
  0001:000EB82F       W?run_exchange_func$n()l
  0001:000EB886       tx_bytes_target_func
- 0001:000EB8D5       comm_sub_EB8D5
+ 0001:000EB8D5       comm_unknsub_16
  0001:000EB957       rx_bytes_target_func
  0001:000EB9BD       write_char_sub_2
  0001:000EB9EE       write_char_sub_1
- 0001:000EBA1F       modem_sub_EBA1F
- 0001:000EBA50       comm_sub_EBA50
+ 0001:000EBA1F       modem_unknsub07
+ 0001:000EBA50       comm_unknsub_19
  0001:000EBA81       __CMain
  0001:000EBAD0       __InitRtns
  0001:000EBB1B       __FiniRtns
@@ -1141,17 +1248,17 @@
  0001:000FCCE8       __wcpp_2_undefed_cdtor__
  0001:000FCCFC       __wcpp_2_undef_member_debug__
  0001:000FCD10       ser_clear
- 0001:000FCDE3       comm_sub_FCDE3
- 0001:000FCE00       comm_sub_FCE00
- 0001:000FD189       comm_sub_FD189
+ 0001:000FCDE3       ser_unknsub01
+ 0001:000FCE00       ser_unknsub02
+ 0001:000FD189       ser_unknsub03
  0001:000FD29F       ser_transmit_ab
  0001:000FD2C6       ser_transmit_ac
  0001:000FD2ED       ser_transmit_ad
- 0001:000FD314       comm_sub_FD314
- 0001:000FD6E2       comm_sub_FD6E2
- 0001:000FD84E       comm_sub_FD84E
+ 0001:000FD314       ser_unknsub07
+ 0001:000FD6E2       ser_unknsub08
+ 0001:000FD84E       ser_unknsub09
  0001:000FD8B9       ser_sync
- 0001:000FDA95       comm_sub_FDA95
+ 0001:000FDA95       ser_unknsub11
  0001:000FDC1E       ser_print_dump_data
  0001:000FDEF6       ser_set_tx_target_cb
  0001:000FDF16       ser_set_rx_target_cb
@@ -2078,21 +2185,29 @@
  0003:00143030       W?unk01_load_files$n__$TbLoadFiles$$
  0003:00143138       conf_file_cmnds
  0003:00143164       aCTmp
- 0003:00143178       aTemp
+ 0003:00143170       mem_alloc_size
+ 0003:00143178       user_name
  0003:001431BE       next_traffic
  0003:001431D0       next_quick_light
- 0003:00143218       aSwara
+ 0003:00143218       session_name
  0003:00143238       fname
- 0003:001432F8       use_cd_paths
+ 0003:001432A0       data_path_base
+ 0003:001432F4       game_dirs
+ 0003:00143348       unkn01_maskarr
  0003:00143374       W?unk02_load_files$n__$TbLoadFiles$$
  0003:0014352C       aSyn2PrototypeE
  0003:001436A4       game_obj_dname
  0003:00143710       game_obj_text
+ 0003:001438B4       buffer_allocs
+ 0003:001446DE       pointer_hotspot
  0003:00144A28       control_keys_text
  0003:00144D78       aConfirmCritica
  0003:00144F34       W?nav_rulesA2B$npn(ll)l
  0003:00144F38       W?MOD3$n[]xl
  0003:00144F54       W?tag_current$nuc
+ 0003:00145176       proj_origin_m2
+ 0003:00145178       W?proj_origin$n$StartScreenPoint$$
+ 0003:00145180       W?AsciiToInkey$n[]uc
  0003:0014529C       aJul301996
  0003:001452A8       a182055
  0003:00145520       BAT_cheat_grants__pass
@@ -4877,12 +4992,70 @@
  0003:00159FE0       _tables_start
  0003:0015AFE0       cmap
  0003:0015DFE0       _ghost_table
+ 0003:0016EACC       language_3str
  0003:0016EAD0       handle
  0003:0016EAD4       smack_malloc_used_tot
  0003:0016EE34       out
  0003:0016F0F8       smack_malloc_mem
+ 0003:0016F100       cd_drive
+ 0003:00177724       joy_Yaw
+ 0003:00177764       joy_Roll
+ 0003:001777A4       joy_Pitch
+ 0003:001777E4       joy_AnalogueX
+ 0003:00177824       joy_AnalogueY
+ 0003:00177864       joy_AnalogueZ
+ 0003:001778A4       joy_AnalogueU
+ 0003:001778E4       joy_AnalogueV
+ 0003:00177924       joy_AnalogueR
+ 0003:00177964       joy_DigitalX
+ 0003:001779A4       joy_DigitalY
+ 0003:001779E4       joy_DigitalZ
+ 0003:00177A24       joy_DigitalU
+ 0003:00177A64       joy_DigitalV
+ 0003:00177AA4       joy_DigitalR
+ 0003:00177AE4       joy_MinXAxis
+ 0003:00177B24       joy_MinYAxis
+ 0003:00177B64       joy_MinZAxis
+ 0003:00177BA4       joy_MinUAxis
+ 0003:00177BE4       joy_MinVAxis
+ 0003:00177C24       joy_MinRAxis
+ 0003:00177C64       joy_MaxXAxis
+ 0003:00177CA4       joy_MaxYAxis
+ 0003:00177CE4       joy_MaxZAxis
+ 0003:00177D24       joy_MaxUAxis
+ 0003:00177D64       joy_MaxVAxis
+ 0003:00177DA4       joy_MaxRAxis
+ 0003:00177DE4       joy_XCentre
+ 0003:00177E24       joy_YCentre
+ 0003:00177E64       joy_ZCentre
+ 0003:00177EA4       joy_UCentre
+ 0003:00177EE4       joy_VCentre
+ 0003:00177F24       joy_RCentre
+ 0003:00177F64       joy_HatX
+ 0003:00177FA4       joy_HatY
+ 0003:00177FE4       joy_HatMax
+ 0003:00178024       joy_Buttons
+ 0003:00178044       joy_Buttons8
+ 0003:00178064       joy_NumberOfButtons
+ 0003:001780A4       joy_ConfigType
+ 0003:001780E4       joy_MenuButtons
+ 0003:00178124       joy_Type
+ 0003:00178128       joy_NumberOfDevices
+ 0003:0017812C       joy_DeviceType
+ 0003:0017816C       joy_Init
+ 0003:00178180       unkn01_mode
+ 0003:00178182       displaymode
+ 0003:001785FF       flags_general_unkn01
+ 0003:0017862D       selected_map_index
+ 0003:00178633       cmdln_param_a
  0003:00178635       cmdln_param_w
+ 0003:00178639       fhandle
  0003:0017865A       ingame__LastTmap
+ 0003:0018E6F0       W?text_window_x1$nus
+ 0003:0018E6F2       W?text_window_y1$nus
+ 0003:0018E6F4       W?text_window_x2$nus
+ 0003:0018E6F6       W?text_window_y2$nus
+ 0003:0018E6F8       W?my_line_spacing$nuc
  0003:0018E7C0       prim4_textures
  0003:0018E7C4       prim_face_textures
  0003:0018E7C8       prim_object_points
@@ -4891,13 +5064,25 @@
  0003:0018E7D4       prim_objects
  0003:0018EA1C       traffic_nodes
  0003:00193F0C       buf
- 0003:00193F94       W?pop1_sprites$n__pn$TbSprite$$
- 0003:00193F98       W?pop1_sprites_end$n__pn$TbSprite$$
- 0003:00193F9C       W?pop1_data$n__ul
- 0003:00193FE4       W?mspr0_data$n__ul
- 0003:00193FE8       W?mspr0_data_end$n__ul
- 0003:00193FEC       W?mspr0_sprites$n__pn$TbSprite$$
- 0003:00193FF0       W?mspr0_sprites_end$n__pn$TbSprite$$
+ 0003:00193F94       W?pop1_sprites$n[]pn$TbSprite$$
+ 0003:00193F98       W?pop1_sprites_end$n[]pn$TbSprite$$
+ 0003:00193F9C       W?pop1_data$n[]ul
+ 0003:00193FA0       sprites_Icons0_0
+ 0003:00193FA4       sprites_Icons0_0_end
+ 0003:00193FA8       data_Icons0_0
+ 0003:00193FAC       sprites_Mouse0
+ 0003:00193FB0       sprites_Mouse0_end
+ 0003:00193FB4       data_Mouse0
+ 0003:00193FB8       sprites_wIcons
+ 0003:00193FBC       sprites_wIcons_end
+ 0003:00193FC0       data_wIcons
+ 0003:00193FD4       sprites_Panel0_0
+ 0003:00193FD8       sprites_Panel0_0_end
+ 0003:00193FDC       data_Panel0_0
+ 0003:00193FE4       W?m_spr_data$n[]ul
+ 0003:00193FE8       W?mspr0_data_end$n[]ul
+ 0003:00193FEC       W?m_sprites$n[]pn$TbSprite$$
+ 0003:00193FF0       W?m_sprites_end$n[]pn$TbSprite$$
  0003:00193FF4       nfra0_ani
  0003:00193FF8       nfra0_ani_end
  0003:00194004       mele0_ani
@@ -4905,6 +5090,9 @@
  0003:0019400C       nsta0_ani
  0003:00194010       nsta0_ani_end
  0003:00196026       cmdln_param_d
+ 0003:00196029       game_perspective
+ 0003:001968C4       pktrec_mode
+ 0003:001968C5       cmdln_pr_num
  0003:001968C8       anim_tmaps
  0003:001968CC       commands
  0003:001968D0       used_objectives
@@ -4930,6 +5118,7 @@
  0003:00197D8C       textures
  0003:00197D90       face_textures
  0003:00197D94       things
+ 0003:00197D98       sthings
  0003:00197D9C       object_points
  0003:00197DA0       object_faces
  0003:00197DA4       object_faces4
@@ -4940,11 +5129,27 @@
  0003:0019CBFC       W?pointer_sprites_end$n[]pn$TbSprite$$
  0003:0019CC00       W?font0_sprites$n[]pn$TbSprite$$
  0003:0019CC04       W?font0_sprites_end$n[]pn$TbSprite$$
+ 0003:0019CC08       sprites_Font5
+ 0003:0019CC0C       sprites_Font5_end
+ 0003:0019CC10       sprites_Font3
+ 0003:0019CC14       sprites_Font3_end
+ 0003:0019CC18       sprites_Font_Tit
+ 0003:0019CC1C       sprites_Font_Tit_end
+ 0003:0019CC20       sprites_Font_Qot
+ 0003:0019CC24       sprites_Font_Qot_end
+ 0003:0019CC28       sprites_Font_Nam
+ 0003:0019CC2C       sprites_Font_Nam_end
  0003:0019CC30       W?palette$npnuc
+ 0003:0019CC38       W?game_text_str$npc
+ 0003:0019D310       text
  0003:0019D64C       W?pointer_data$n[]ul
  0003:0019D650       W?font0_data$n[]ul
+ 0003:0019D65C       data_Font_Tit
+ 0003:0019D660       data_Font_Qot
+ 0003:0019D664       data_Font_Nam
  0003:0019D66C       gameturn
  0003:0019E542       in_network_game
+ 0003:0019E543       cmdln_param_mp
  0003:0019E544       cmdln_param_tf
  0003:0019E545       cmdln_param_bcg
  0003:001A1608       vec_tmap
@@ -4993,12 +5198,97 @@
  0003:001BAD4C       W?fringe_x2$nl
  0003:001BAD50       W?fringe_y2$nl
  0003:001BAD54       W?fringe_map$npn[256]uc
+ 0003:001BBB30       W?hotspot_buffer$npn$StartScreenPoint$$
+ 0003:001BBB34       data_mapinsid_end
+ 0003:001BC358       data_mapout
+ 0003:001BC370       data_mapinsid
+ 0003:001BDEA5       global_time__hour
+ 0003:001BDEA6       global_date__day
+ 0003:001BDEA7       global_date_1
+ 0003:001BDEA8       global_date_2
+ 0003:001BE004       unkn09_box
+ 0003:001BE048       unkn65_textbox
+ 0003:001BE08C       unkn27_textbox
+ 0003:001BE0D0       unkn28_textbox
+ 0003:001BE114       unkn66_box
+ 0003:001BE12C       unkn67_textbox
+ 0003:001BE170       unkn07_button
+ 0003:001BE284       unkn08_button
+ 0003:001BE2B4       unkn09_button
+ 0003:001BE2E4       unkn10_button
+ 0003:001BE314       unkn01_box
+ 0003:001BE32C       unkn02_box
+ 0003:001BE374       unkn03_box
+ 0003:001BE38C       unkn11_button
+ 0003:001BE4D0       unkn18_button
+ 0003:001BE754       unkn32_button
+ 0003:001BE782       unkn33_button
+ 0003:001BE7B0       unkn34_button
+ 0003:001BE7C8       unkn01_textbox
+ 0003:001BE80C       unkn02_textbox
+ 0003:001BE850       unkn35_button
+ 0003:001BE880       unkn36_button
+ 0003:001BE8B0       unkn37_button
+ 0003:001BE8E0       unkn01_guicontrol01
+ 0003:001BE90C       unkn04_box
+ 0003:001BE924       unkn05_box
+ 0003:001BE93C       unkn06_box
+ 0003:001BE954       unkn03_textbox
+ 0003:001BE998       unkn38_button
+ 0003:001BE9C8       unkn39_button
+ 0003:001BE9F8       unkn40_button
+ 0003:001BEA28       unkn41_button
+ 0003:001BEA58       unkn42_button
+ 0003:001BEA88       unkn43_button
+ 0003:001BEAB8       unkn44_button
+ 0003:001BEAE8       unkn45_button
+ 0003:001BEB00       unkn46_button
+ 0003:001BEB18       unkn04_textbox
+ 0003:001BEB5C       unkn05_textbox
+ 0003:001BEBA0       unkn07_box
+ 0003:001BEBB8       unkn06_textbox
+ 0003:001BEBFC       unkn07_textbox
+ 0003:001BEC40       unkn47_button
+ 0003:001BEC70       unkn48_button
+ 0003:001BECA0       unkn02_guicontrol01
+ 0003:001BECCC       unkn01_guicontrol02
+ 0003:001BEDA0       unkn08_textbox
+ 0003:001BEDE4       unkn49_button
+ 0003:001BEE14       unkn50_button
+ 0003:001BEE44       unkn09_textbox
+ 0003:001BEE88       unkn08_box
+ 0003:001BEEA0       unkn10_textbox
+ 0003:001BEEE4       unkn10_box
+ 0003:001BEEFC       unkn11_textbox
+ 0003:001BEF40       unkn51_button
+ 0003:001BEF70       unkn52_button
+ 0003:001BEFA0       unkn53_button
+ 0003:001BEFD0       unkn54_button
+ 0003:001BF000       unkn55_button
+ 0003:001BF030       unkn56_button
+ 0003:001BF060       unkn11_box
+ 0003:001BF078       unkn12_box
+ 0003:001BF090       unkn13_box
+ 0003:001BF0A8       unkn14_box
+ 0003:001BF0C0       unkn15_box
+ 0003:001BF0D8       unkn16_box
+ 0003:001BF0F0       unkn17_box
+ 0003:001BF108       unkn18_box
+ 0003:001BF120       unkn57_button
+ 0003:001BF150       unkn58_button
+ 0003:001BF180       unkn59_button
+ 0003:001BF360       W?text_buf_pos$nul
+ 0003:001BF368       cmdln_param_n
  0003:001BF36C       bez_edit
+ 0003:001BF372       len
+ 0003:001BF3E0       cmdln_param_map_index
  0003:001BF3EC       spare_map_buffer
- 0003:001D747C       memory_blocks0_Field0
- 0003:001D7480       memory_blocks0_Field1
- 0003:001D7484       memory_blocks0_Field2
- 0003:001D7488       memory_blocks1
+ 0003:001D3568       W?joy_move$:.0$:?draw_purple_screen$n()vnuc
+ 0003:001D356C       unkn01_button
+ 0003:001D359C       W?purple_draw_list$npn$PurpleDrawItem$$
+ 0003:001D35A0       W?purple_draw_index$nus
+ 0003:001D7468       _lbMemoryAvailable
+ 0003:001D747C       W?memory_blocks$n[]$mem_block$$
  0003:001D807C       W?memory_arenas$n[]$mem_arena$$
  0003:001D9A6C       W?sndheap$npn$HeapMgrHeader$$
  0003:001D9A70       W?samples_in_bank$nl
@@ -5134,6 +5424,7 @@
  0003:001DCB84       _lbVesaData
  0003:001DCB88       _lbVesaPage
  0003:001DCBB8       lbFontPtr
+ 0003:001DCBBC       _DangerChannel
  0003:001DCBD0       GRIP_Thunk_0
  0003:001DCBD2       GRIP_Thunk_2
  0003:001DCBD4       GRIP_Thunk_4
