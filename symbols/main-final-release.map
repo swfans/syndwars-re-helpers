@@ -13,20 +13,29 @@
  0001:00011B9C       main_
  0001:00011EE5       main_case_b
  0001:00011EF1       main_case_def
+ 0001:000122FC       draw_sorted_sprite
+ 0001:0001260C       setup_drawlist
  0001:00012B60       nullsub_1
- 0001:0003027C       game_setup_sub10
- 0001:0003076C       game_setup_sub9
+ 0001:00022C78       W?display_drawlist$n()v
+ 0001:000236E0       W?display_drawlist2$n()v
+ 0001:0002ADE8       draw_screen
+ 0001:0003027C       read_primveh_obj
+ 0001:0003076C       load_mission_file
  0001:000309D4       game_setup_sub8
  0001:00030CFC       load_level
  0001:00033478       savegame_load
  0001:0003422C       savegame_write
+ 0001:00034B98       load_file_wad
  0001:00034CF4       read_conf_file
+ 0001:00034F94       LbGhostTableGenerate_
+ 0001:000350CC       LbGhostTableLoad_
  0001:000351F8       nullsub_13
  0001:000351FC       PacketRecord_Close
+ 0001:00035300       show_black_screen
  0001:00035324       play_intro
  0001:000353EC       W?init_syndwars$n()v
- 0001:00035644       phony_mfree
- 0001:0003565C       W?setup_host$n()l
+ 0001:00035644       smack_mfree
+ 0001:0003565C       W?setup_host$n()v
  0001:0003595C       W?host_reset$n()v
  0001:000359C0       smack_malloc
  0001:000359E0       smack_malloc_free_all
@@ -34,77 +43,121 @@
  0001:00036200       W?get_highest_file_no$n(pnaucpna)ul
  0001:0003643C       set_mouse_sprite
  0001:0003BC1C       load_packet
+ 0001:0003CD0C       packet_action_1
+ 0001:0003CF38       packet_action_2
+ 0001:0003D174       packet_action_3
+ 0001:0003D3B0       packet_action_4
+ 0001:0003D72C       game_process_display
  0001:0003D820       load_mission_map_lvl
+ 0001:0003D9D8       game_process_sub08
+ 0001:0003DB94       game_process_sub09
+ 0001:0003DC68       joy_input
+ 0001:0003DD74       game_process_sub01
+ 0001:0003DE08       W?input$n()v
  0001:0003E18C       W?game_process$n()v
+ 0001:0003E728       process_packets
  0001:0003FDCC       unused_func_010
  0001:0003FE78       unused_func_011
  0001:00040434       unused_func_012
  0001:000408A4       unused_func_013
  0001:0004092C       game_setup_sub5
  0001:000409F8       unused_func_014
- 0001:0004113C       game_setup_sub6
- 0001:000415B8       unused_func_015
+ 0001:00040D78       read_user_settings
+ 0001:000410FC       game_process_sub04
+ 0001:0004113C       setup_color_lookups
+ 0001:000415B8       load_prim_quad
  0001:00041638       unused_func_016
  0001:00041668       W?game_setup$n()v
  0001:00041914       W?game_reset$n()v
  0001:00041928       unused_func_017
- 0001:00041950       W?setup_language$n()v
+ 0001:00041950       load_texturemaps
  0001:00041A70       free_texturemaps
  0001:00041A80       veh_add
  0001:00041FDC       unused_func_018
  0001:00042060       unused_func_019
  0001:00042404       setup_screen_mode
- 0001:00042A84       game_setup_sub11
+ 0001:00042A84       read_textwalk
  0001:00043A6C       unused_func_020
+ 0001:00045B40       LbRandomAnyShort
+ 0001:00045B68       LbRandomPosShort
+ 0001:00046C80       mapwho_node_add
+ 0001:00046D40       mapwho_snode_add
+ 0001:00046DEC       mapwho_node_delete
+ 0001:00046EEC       mapwho_snode_delete
  0001:0004A7F8       nullsub_3
  0001:0004BA98       wander_fly
  0001:00050898       nav_goto_person
+ 0001:000572F8       game_process_sub02
+ 0001:0005811C       drive_vehicle
+ 0001:00058FA0       init_follow_person
+ 0001:00060F50       gproc3_unknsub1
  0001:00062044       init_arrays_1
- 0001:0006B138       nullsub_4
+ 0001:00062A38       mapwho_unkn01
+ 0001:0006B138       gproc3_unknsub3
+ 0001:0006DE00       setup_host_sub6
  0001:0006E604       play_smacker
  0001:0006F828       game_setup_sub4
- 0001:0006F82C       nullsub_5
+ 0001:0006F82C       test_open
  0001:0006F9DC       nullsub_6
  0001:0006FAA8       nullsub_7
+ 0001:00073798       gproc3_unknsub2
+ 0001:00074254       setup_host_sub5
  0001:00074CDC       init_player
  0001:00075DDC       game_setup_sub7
+ 0001:0007E78C       explode_mgun
+ 0001:0007E85C       W?Synd_nav_rulesA2B$n(ll)l
+ 0001:0007E868       W?Unkn1_nav_rulesA2B$n(ll)l
+ 0001:0007E874       W?Unkn2_nav_rulesA2B$n(ll)l
+ 0001:0007E880       W?SHDIV14$n(ll)l
+ 0001:0007E898       triangulation_initialize
+ 0001:0007E918       W?triangulation_allocate$n(ll)v
  0001:0007E9AC       triangulation_select
- 0001:0007EA80       tri_dispose
- 0001:0007EAB4       tri_new
- 0001:0007EB10       point_dispose
- 0001:0007EB48       point_new
+ 0001:0007EA80       W?tri_dispose$n(l)v
+ 0001:0007EAB4       W?tri_new$n()l
+ 0001:0007EB10       W?point_dispose$n(l)v
+ 0001:0007EB48       W?point_new$n()l
  0001:0007EB98       triangulation_init_edges
- 0001:0007EC24       triangulation_initxy
- 0001:0007ED68       triangulation_init
- 0001:0007EDA0       triangulation_clear
- 0001:0007EE5C       save_triangulation
- 0001:0007EED8       pointed_at8
- 0001:0007F5AC       triangle_find8
- 0001:0007F950       point_find
- 0001:0007FA3C       edge_find
- 0001:0007FBE4       triangle_findSE8
- 0001:0007FD8C       edge_rotateAC
+ 0001:0007EC24       W?triangulation_initxy$n(llll)v
+ 0001:0007ED68       W?triangulation_init$n()v
+ 0001:0007EDA0       W?triangulation_clear$n()v
+ 0001:0007EE5C       W?save_triangulation$n()v
+ 0001:0007EE94       W?link_find$n(ll)l
+ 0001:0007EED8       W?pointed_at8$n(llpnlpnl)l
+ 0001:0007F0A0       W?point_loop$n(ll)l
+ 0001:0007F128       W?triangle_contains8$n(lll)l
+ 0001:0007F264       W?point_quad_status$n(llll)l
+ 0001:0007F548       W?clear_find_cache$n()v
+ 0001:0007F554       W?triangle_brute_find8$n(ll)l
+ 0001:0007F5AC       W?triangle_find8$n(ll)l
+ 0001:0007F950       W?point_find$n(llpnlpnl)l
+ 0001:0007FA3C       W?edge_find$n(llllpnlpnl)l
+ 0001:0007FBE4       W?triangle_findSE8$n(ll)l
+ 0001:0007FD8C       W?edge_rotateAC$n(ll)l
  0001:00080230       tri_split3
  0001:000804DC       tri_split2
- 0001:00080630       edge_split
- 0001:00080720       line_intersect8
- 0001:00080800       insert_point
- 0001:00080A64       reduce_point
- 0001:00080B24       make_3or4point
- 0001:00080D44       delete_4point
- 0001:00081218       delete_3point
- 0001:00081540       delete_point
- 0001:000816A4       unused_func_043
- 0001:00081804       fill_concave
- 0001:00081964       make_edge
- 0001:00081DB4       quad_split
- 0001:00081EAC       make_clip_list
- 0001:00082308       make_clipped_edges
- 0001:00082420       thin_wall
- 0001:00082478       triangle_area1
- 0001:000824E4       triangulation_area1
- 0001:0008260C       fill_rectangle
- 0001:000827A0       tri_set_rectangle
+ 0001:00080630       W?edge_split$n(llll)v
+ 0001:00080720       W?line_intersect8$n(llllllllpnlpnl)v
+ 0001:00080800       W?insert_point$n(ll)v
+ 0001:00080A64       W?reduce_point$n(pnlpnl)l
+ 0001:00080B24       W?make_3or4point$n(pnlpnl)l
+ 0001:00080C94       W?edge_collapse$n(llll)v
+ 0001:00080D44       W?delete_4point$n(ll)l
+ 0001:00081218       W?delete_3point$n(ll)l
+ 0001:00081540       W?delete_point$n(ll)v
+ 0001:000816A4       W?triangle_reppoint8$n(lpnlpnl)v
+ 0001:00081804       W?fill_concave$n(lll)l
+ 0001:00081964       W?make_edge$n(llll)v
+ 0001:00081DB4       W?quad_split$n(llllpnlpnl)v
+ 0001:00081EAC       W?make_clip_list$n(llll)v
+ 0001:00082308       W?make_clipped_edges$n(ll)v
+ 0001:00082420       W?thin_wall$n(llllll)v
+ 0001:00082478       W?triangle_area1$n(l)l
+ 0001:000824E4       W?triangulation_area1$n()l
+ 0001:00082528       W?brute_fill_rectangle$n(lllluc)v
+ 0001:0008260C       W?fill_rectangle$n(lllluc)v
+ 0001:000827A0       W?tri_set_rectangle$n(lllluc)v
+ 0001:00082840       triangle_get_points_xy_dist_div_3
+ 0001:000828AC       triangle_get_relation_to_coords
  0001:0008297C       edge_points8
  0001:00082B5C       W?triangle_route_do_fwd$n(llpnlpnl)l
  0001:00083128       triangle_route_do_bak
@@ -126,24 +179,32 @@
  0001:0008C578       W?KInt$f()v_1
  0001:0008C7F0       unused_func_027
  0001:00090D30       unused_func_028
+ 0001:00099FEC       W?init_screen_boxes$n()v
  0001:0009D460       unused_func_029
  0001:0009D4EC       unused_func_030
  0001:0009F5E0       show_date_time
+ 0001:000A0ED8       init_read_all_sprite_files
+ 0001:000A13D8       W?show_menu_screen$n()v
  0001:000A3440       W?my_set_text_window$n(usususus)v
  0001:000A3A64       W?my_draw_text$n(sspnaus)us
  0001:000A4EDC       W?my_str_len$n(pna)ul
  0001:000ACF8C       unused_func_031
  0001:000B0E00       game_setup_sub1
  0001:000B0ED4       game_setup_sub2
+ 0001:000B1B30       new_bang
+ 0001:000B2638       new_bang_2
+ 0001:000B264C       new_bang_3
  0001:000B75D8       draw_box_purple_list
  0001:000B7AFC       W?draw_purple_screen$n()v
  0001:000B8F48       format_debug_msg
  0001:000BAC50       unused_func_022
  0001:000BB3E0       unused_func_023
- 0001:000BBC50       swap_screen
+ 0001:000BBC50       swap_wscreen
  0001:000C0A94       ariadne_initialise_route
+ 0001:000C1964       setup_mele
  0001:000C19E8       nullsub_8
  0001:000C9050       nullsub_9
+ 0001:000CF1E4       load_objective_text
  0001:000D5870       load_credits_and_sound
  0001:000D6650       game_setup_sub3
  0001:000DAAB8       FIRE_process_flame
@@ -160,14 +221,23 @@
  0001:000DCEAC       W?compare$n(pn$mem_block$$pn$1$)i
  0001:000DCEB0       W?dos_alloc$n(ul)ul
  0001:000DCF00       W?dos_free$n(us)v
+ 0001:000DCF40       BAT_draw_char
  0001:000DD210       breakout_play_sub1
  0001:000DD620       breakout_play_sub2
  0001:000DDAE0       breakout_sub_DDAE0
- 0001:000DE8FC       breakout_play
+ 0001:000DDB64       BAT_unknsub_20
+ 0001:000DDCF8       BAT_unknsub_21
+ 0001:000DDF38       BAT_unknsub_22
+ 0001:000DE62C       BAT_unknsub_23
+ 0001:000DE688       BAT_unknsub_24
+ 0001:000DE6B4       BAT_unknsub_26
+ 0001:000DE7C0       BAT_unknsub_27
+ 0001:000DE8FC       BAT_play
  0001:000DF8D0       FileNameTransformSW
  0001:000DF9E4       FileOpenInclCD
  0001:000E00A8       nullsub_10
  0001:000E00E0       W?process_sound_heap$n()v
+ 0001:000E0218       W?play_sample_using_heap$n(ulsulululcuc)pn$SampleInfo$$
  0001:000E0C90       LbScreenSetup_
  0001:000E0CC0       LbScreenIsModeAvailable_
  0001:000E0D00       LbScreenSetGraphicsWindow_
@@ -204,6 +274,14 @@
  0001:000E49E7       atoi_
  0001:000E4F7C       LbNetworkReset_
  0001:000E54C8       LbNetworkSetupIPXAddress_
+ 0001:000E56EC       LbNetworkReadConfig_
+ 0001:000E5734       LbNetworkSetSessionCreateFunction_
+ 0001:000E5740       LbNetworkSetSessionJoinFunction_
+ 0001:000E5758       LbNetworkSetSessionExchangeFunction_
+ 0001:000E5764       LbNetworkSetSessionInitFunction_
+ 0001:000E5770       LbNetworkSetSessionDialFunction_
+ 0001:000E577C       LbNetworkSetSessionAnswerFunction_
+ 0001:000E5788       LbNetworkSetSessionHangUpFunction_
  0001:000E581C       _cstart_
  0001:000E581E       aWatcomCC32RunT
  0001:000E5AAB       __exit_
@@ -309,6 +387,7 @@
  0001:000EC390       GetLastSampleInfoStructure_
  0001:000EC3A0       GetSongHandle_
  0001:000EC3B0       GetCDSpeed_
+ 0001:000EC3D0       LbKeyboardOpen_
  0001:000EC3DC       LbKeyboardClose_
  0001:000EC3E8       LbKeyboard_
  0001:000EC488       LbDosKeyboard_
@@ -1063,7 +1142,7 @@
  0001:001186E6       file_putc_
  0001:001186F7       __fprtf_
  0001:00118776       __FDFS
- 0001:001187C2       unknown_libname_6
+ 0001:001187C2       _heapenable_
  0001:001187D2       sbrk_
  0001:0011889A       __brk_
  0001:00118965       __exit_with_msg_
@@ -1344,7 +1423,7 @@
  0001:00120285       raise_
  0001:00120347       __setbits_
  0001:00120388       __wcpp_2_bit_test__
- 0001:001203A8       j_W?terminate$n()v
+ 0001:001203A8       __wcpp_2_call_terminate__
  0001:001203B0       W?catBaseSig$n(pn$rt_type_sig$$)pn$1$
  0001:001203B9       __wcpp_2_ts_equiv__
  0001:00120412       _setjmp_
@@ -1353,7 +1432,7 @@
  0001:00120607       __wcpp_2_free_exc__
  0001:00120634       __wcpp_2_pop_exc__
  0001:00120643       __wcpp_2_push_exc__
- 0001:00120650       nullsub_14
+ 0001:00120650       default_handler_
  0001:00120654       W?arr_state_table$n(pn$ro_dtreg$$)pn$__7a4u3RO_STATE$$
  0001:00120658       W?arr_point_object$n(pn$rw_dtreg$$ui)pnv
  0001:00120671       W?arr_init_traverse$n(pn$__1j2o3bSTAB_TRAVERSE$$pn$rw_dtreg$$)v
@@ -1361,7 +1440,7 @@
  0001:00120681       __wcpp_2_arr_register__
  0001:001206B1       abort_
  0001:001206B7       __terminate_
- 0001:001206C9       GrabFP87_
+ 0001:001206C9       __grab_fpe_
  0001:001206D0       W?terminate$n()v
  0001:0012071C       W?unexpected$n()v
  0001:00120774       __wcpp_2_ts_size__
@@ -1374,7 +1453,7 @@
  0001:001208E0       __FPE2Handler_pt2
  0001:001209C8       __FPEHandler_sub1
  0001:00120A55       __FPEHandler_sub2
- 0001:00120AA7       __FPEHandler_sub2_sub2
+ 0001:00120AA7       __FPEHandler_sub3
  0001:00120ACD       __FPEHandler_sub2_sub
  0001:00120AF2       __FPEHandler_subx_sub
  0001:00120B00       __Phar_hook_init_
@@ -1397,29 +1476,34 @@
  0001:00127D43       setup_vecs_
  0001:00127DAF       poly_line_
  0001:00128380       draw_gpoly_
+ 0001:0012D830       LbSpriteDraw_1
+ 0001:00135190       DrawAlphaSpriteUsingScalingData_
+ 0001:00136A08       SetAlphaScalingData_
  0001:00136D20       LbSpriteDrawUsingScalingData_
  0001:00138598       LbSpriteSetScalingData_
  0001:001388AC       LbDrawTriangleFilled_
- 0001:00139100       _SmackDoTables_subsub1
- 0001:001391A0       _SmackDoTables_subsub2
- 0001:00139490       _SmackDoTables_subsub3
- 0001:00139500       _SmackDoTables_sub1
+ 0001:00139100       _SmackInternal001
+ 0001:001391A0       _SmackInternal002
+ 0001:00139490       _SmackInternal003
+ 0001:00139500       _SmackInternal004
  0001:00139590       _SmackGetSizeTables
  0001:001395A0       _SmackDoTables
- 0001:001398E0       _SmackDoTables_sub2
- 0001:00139910       _SmackDoTables_sub3
- 0001:00139940       _Smacksub_139940
- 0001:0013A660       _Smacksub_13A660
- 0001:0013A66C       _Smacksub_13A66C
- 0001:0013A678       _Smacksub_13A678
- 0001:0013A684       _Smacksub_13A684
- 0001:0013A690       _Smacksub_13A690
- 0001:0013A6A0       _Smacksub_13A6A0
- 0001:0013A6B0       _Smacksub_13A6B0
- 0001:0013A6C0       _Smacksub_13A6C0
- 0001:0013A6D0       _Smacksub_13A6D0
- 0001:0013A6DC       _Smacksub_13A6DC
- 0001:0013A6E8       _Smacksub_13A6E8
+ 0001:001398E0       _SmackInternal005
+ 0001:00139910       _SmackInternal006
+ 0001:00139940       _SmackInternal007
+ 0001:00139CA0       _SmackInternal008
+ 0001:0013A4B0       _SmackInternal009
+ 0001:0013A660       _SmackInternalSwitch1_case000
+ 0001:0013A66C       _SmackInternalSwitch1_case001
+ 0001:0013A678       _SmackInternalSwitch1_case002
+ 0001:0013A684       _SmackInternalSwitch1_case003
+ 0001:0013A690       _SmackInternalSwitch1_case004
+ 0001:0013A6A0       _SmackInternalSwitch1_case005
+ 0001:0013A6B0       _SmackInternalSwitch1_case006
+ 0001:0013A6C0       _SmackInternalSwitch1_case007
+ 0001:0013A6D0       _SmackInternalSwitch1_case008
+ 0001:0013A6DC       _SmackInternalSwitch1_case009
+ 0001:0013A6E8       _SmackInternalSwitch1_case010
  0001:0013A6F4       _Smacksub_13A6F4
  0001:0013A700       _Smacksub_13A700
  0001:0013A710       _Smacksub_13A710
@@ -1507,6 +1591,65 @@
  0001:0013AB94       _Smacksub_13AB94
  0001:0013ABA4       _Smacksub_13ABA4
  0001:0013ABB4       _Smacksub_13ABB4
+ 0001:0013B0D8       _SmackInternalSwitch1_case199
+ 0001:0013B0E8       _SmackInternalSwitch1_case200
+ 0001:0013B0F4       _SmackInternalSwitch1_case201
+ 0001:0013B100       _SmackInternalSwitch1_case202
+ 0001:0013B10C       _SmackInternalSwitch1_case203
+ 0001:0013B118       _SmackInternalSwitch1_case204
+ 0001:0013B124       _SmackInternalSwitch1_case205
+ 0001:0013B130       _SmackInternalSwitch1_case206
+ 0001:0013B13C       _SmackInternalSwitch1_case207
+ 0001:0013B148       _SmackInternalSwitch1_case208
+ 0001:0013B158       _SmackInternalSwitch1_case209
+ 0001:0013B168       _SmackInternalSwitch1_case210
+ 0001:0013B178       _SmackInternalSwitch1_case211
+ 0001:0013B188       _SmackInternalSwitch1_case212
+ 0001:0013B198       _SmackInternalSwitch1_case213
+ 0001:0013B1A8       _SmackInternalSwitch1_case214
+ 0001:0013B1B8       _SmackInternalSwitch1_case215
+ 0001:0013B1C8       _SmackInternalSwitch1_case216
+ 0001:0013B1D4       _SmackInternalSwitch1_case217
+ 0001:0013B1E0       _SmackInternalSwitch1_case218
+ 0001:0013B1EC       _SmackInternalSwitch1_case219
+ 0001:0013B1F8       _SmackInternalSwitch1_case220
+ 0001:0013B204       _SmackInternalSwitch1_case221
+ 0001:0013B210       _SmackInternalSwitch1_case222
+ 0001:0013B220       _SmackInternalSwitch1_case223
+ 0001:0013B22C       _SmackInternalSwitch1_case224
+ 0001:0013B23C       _SmackInternalSwitch1_case225
+ 0001:0013B24C       _SmackInternalSwitch1_case226
+ 0001:0013B25C       _SmackInternalSwitch1_case227
+ 0001:0013B26C       _SmackInternalSwitch1_case228
+ 0001:0013B27C       _SmackInternalSwitch1_case229
+ 0001:0013B28C       _SmackInternalSwitch1_case230
+ 0001:0013B29C       _SmackInternalSwitch1_case231
+ 0001:0013B2AC       _SmackInternalSwitch1_case232
+ 0001:0013B2B8       _SmackInternalSwitch1_case233
+ 0001:0013B2C4       _SmackInternalSwitch1_case234
+ 0001:0013B2D0       _SmackInternalSwitch1_case235
+ 0001:0013B2DC       _SmackInternalSwitch1_case236
+ 0001:0013B2E8       _SmackInternalSwitch1_case237
+ 0001:0013B2F8       _SmackInternalSwitch1_case238
+ 0001:0013B304       _SmackInternalSwitch1_case239
+ 0001:0013B310       _SmackInternalSwitch1_case240
+ 0001:0013B320       _SmackInternalSwitch1_case241
+ 0001:0013B330       _SmackInternalSwitch1_case242
+ 0001:0013B340       _SmackInternalSwitch1_case243
+ 0001:0013B350       _SmackInternalSwitch1_case244
+ 0001:0013B360       _SmackInternalSwitch1_case245
+ 0001:0013B370       _SmackInternalSwitch1_case246
+ 0001:0013B380       _SmackInternalSwitch1_case247
+ 0001:0013B390       _SmackInternalSwitch1_case248
+ 0001:0013B39C       _SmackInternalSwitch1_case249
+ 0001:0013B3A8       _SmackInternalSwitch1_case250
+ 0001:0013B3B4       _SmackInternalSwitch1_case251
+ 0001:0013B3C0       _SmackInternalSwitch1_case252
+ 0001:0013B3CC       _SmackInternalSwitch1_case253
+ 0001:0013B3D8       _SmackInternalSwitch1_case254
+ 0001:0013B3E4       _SmackInternalSwitch1_case255
+ 0001:0013B3F0       _SmackInternal010
+ 0001:0013B730       _SmackInternal013
  0001:0013C220       _Unsmack
  0001:0013C5F0       _SmackDoPCM
  0001:0013CE20       _SmackGetSizeDeltas
@@ -1530,38 +1673,67 @@
  0003:00152E25       _vec_mode
  0003:00153054       unk01_load_files
  0003:0015315C       conf_file_cmnds
+ 0003:00153184       unkn_prop_03
  0003:00153188       aCTmp
- 0003:001531A0       mem_alloc_size
+ 0003:001531A0       engine_mem_alloc_size
  0003:001531A8       user_name
+ 0003:001531E2       prim4_textures_count
+ 0003:001531E4       prim_face_textures_count
+ 0003:001531E6       prim_object_points_count
+ 0003:001531E8       prim_object_faces_count
+ 0003:001531EA       prim_object_faces4_count
+ 0003:001531EC       prim_objects_count
+ 0003:001531F2       msecs_per_frame
+ 0003:001531FE       game_normal_count
+ 0003:00153200       game_quick_light_count
+ 0003:00153202       game_full_light_count
+ 0003:00153204       game_face_texture_count
+ 0003:00153206       game_texture_count
+ 0003:0015320A       game_object_point_count
+ 0003:0015320C       game_object_face_count
+ 0003:0015320E       game_object_face4_count
+ 0003:00153210       game_object_count
+ 0003:00153212       game_light_command_count
  0003:00153248       session_name
- 0003:00153268       fadedat_offs
- 0003:00153274       _tables_start
- 0003:00153278       tex00dat_offs
- 0003:0015327C       wmstxt_offs
- 0003:00153280       netscantxt_offs
- 0003:00153284       citytxt_offs
- 0003:00153288       bgmandat_offs
- 0003:0015328C       bgmanzdat_offs
- 0003:00153290       bgmanbdat_offs
- 0003:00153294       sprojdat_offs
- 0003:00153298       zprojdat_offs
- 0003:0015329C       bprojdat_offs
- 0003:001532E8       format
- 0003:001532FC       fname
- 0003:00153308       fmt
+ 0003:00153268       fadedat_fname
+ 0003:00153274       tables_fname
+ 0003:00153278       tex00dat_fname
+ 0003:0015327C       wmstxt_fname
+ 0003:00153280       netscantxt_fname
+ 0003:00153284       citytxt_fname
+ 0003:00153288       bgmandat_fname
+ 0003:0015328C       bgmanzdat_fname
+ 0003:00153290       bgmanbdat_fname
+ 0003:00153294       sprojdat_fname
+ 0003:00153298       zprojdat_fname
+ 0003:0015329C       bprojdat_fname
+ 0003:001532D0       data_path_base
+ 0003:001532D8       fmt
+ 0003:001532DC       pop_dat_fname_fmt
+ 0003:001532E0       pop_tab_fname_fmt
+ 0003:001532E4       primvehobj_fname
+ 0003:001532E8       maps_dir
+ 0003:001532EC       tmapani_fname
+ 0003:001532FC       citiesdat_fname
+ 0003:00153300       fname
+ 0003:00153308       savegame_mortal_fname
+ 0003:0015331C       a2
  0003:00153328       game_dirs
  0003:0015337C       unkn01_maskarr
- 0003:001533A8       unk02_load_files
+ 0003:001533A8       W?unk02_load_files$n__$TbLoadFiles$$
  0003:0015363C       aSyn2PrototypeEngine
  0003:001537B4       gameobjctv_names
  0003:00153820       objective_textnames
  0003:00153884       poo_textnames
  0003:001539C4       buffer_allocs
+ 0003:001545C8       unknstrct7_arr1
+ 0003:001546F8       unknstrct7_arr2
+ 0003:00154838       unknstrct7_ref
  0003:00154872       pointer_hotspot
  0003:00154AAC       person_st_text
  0003:00154BBC       control_keys_text
  0003:00154F0C       aConfirmCritica
- 0003:001550D4       MOD3
+ 0003:001550D4       W?MOD3$n[]xl
  0003:001550F0       tag_current
  0003:00155138       a19200
  0003:00155140       a0000
@@ -1571,15 +1743,11 @@
  0003:00155458       weapon_names
  0003:001554D8       aUnusedEmptyArray1
  0003:0015566C       objcount_text
- 0003:00155878       breakout_levs
+ 0003:00155878       BAT_levels
  0003:00155D74       _lbScreenModeInfo
  0003:0015622C       _lbSinTable
- 0003:00158A2E       a1234567890Qwer
- 0003:00158A4A       aAsdfghjkl
- 0003:00158A57       aZxcvbnm_
- 0003:00158AAE       a_Qwertyuiop
- 0003:00158ACA       aAsdfghjkl@
- 0003:00158AD7       aZxcvbnm?
+ 0003:00158A2C       _lbInkeyToAscii
+ 0003:00158AAC       _lbInkeyToAsciiShift
  0003:00158B2C       _smack_malloc
  0003:00158B30       _smack_free
  0003:00158B34       W?InitialCDVolume$nc
@@ -1642,6 +1810,7 @@
  0003:0015AADC       aSample
  0003:0015AB64       aTimb_0
  0003:0015AB70       _locked_AILXDIG
+ 0003:0015AB74       ___heap_enabled
  0003:0015AB84       aDiademIncSign
  0003:0015AC6C       ___abort
  0003:0015BE98       __8087
@@ -3025,20 +3194,69 @@
  0003:00162058       aReturnFromUnex
  0003:0016207C       _IsTable
  0003:001621E1       aFmamjjasondaeapauuuecoe
+ 0003:0016227E       _tables_start_m2
+ 0003:00162280       _fade_table
+ 0003:00164A80       unknoise_tmap
+ 0003:00166280       _ghost_table
+ 0003:00176CD4       posx
+ 0003:00176CE0       x
+ 0003:00176CE4       y
+ 0003:00176CE8       swidth
+ 0003:00176CF0       dwidth
  0003:00177100       language_3str
- 0003:00177104       fhandle
+ 0003:00177104       packet_rec_fh
  0003:00177108       smack_malloc_used_tot
+ 0003:00177740       navi2_unkn_counter
+ 0003:00177744       engine_mem_alloc_ptr
+ 0003:00177748       smack_malloc_mem
  0003:00177754       cd_drive
+ 0003:00177798       gamep_unknval_10
+ 0003:0017779C       gamep_unknval_11
+ 0003:001777A0       gamep_unknval_12
+ 0003:001777A4       gamep_unknval_13
+ 0003:001777A8       gamep_unknval_14
+ 0003:001777AC       gamep_unknval_15
+ 0003:001777B0       gamep_unknval_16
+ 0003:001777C8       gamep_unknval_01
+ 0003:0017FA50       input_char
+ 0003:0017FD78       joy_Yaw
+ 0003:0017FDB8       joy_Roll
+ 0003:0017FDF8       joy_Pitch
+ 0003:0017FE38       joy_AnalogueX
+ 0003:0017FFB8       joy_DigitalX
+ 0003:0017FFF8       joy_DigitalY
+ 0003:00180138       joy_MinXAxis
+ 0003:001802B8       joy_MaxXAxis
+ 0003:00180438       joy_XCentre
+ 0003:001805B8       joy_HatX
+ 0003:001805F8       joy_HatY
+ 0003:00180638       joy_HatMax
+ 0003:00180678       joy_Buttons
+ 0003:001806B8       joy_NumberOfButtons
+ 0003:001806F8       joy_ConfigType
+ 0003:00180738       joy_MenuButtons
+ 0003:00180778       joy_Type
+ 0003:0018077C       joy_NumberOfDevices
+ 0003:00180780       joy_DeviceType
+ 0003:001807C0       joy_Init
  0003:001807D4       unkn01_mode
+ 0003:001807D6       displaymode
+ 0003:001807DB       game_music_track
+ 0003:001807DC       game_tension_music_track
  0003:00180C53       flags_general_unkn01
+ 0003:00180C5B       draw_unknprop_01
  0003:00180C81       selected_map_index
  0003:00180C87       cmdln_param_a
  0003:00180C89       cmdln_param_w
+ 0003:00180CA3       game_panel_permutation
+ 0003:00180CA4       game_trenchcoat_preference
+ 0003:00180CAE       ingame__LastTmap
  0003:00180CBF       flags_general_unkn02
  0003:00197158       W?text_window_x1$nus
  0003:0019715A       W?text_window_y1$nus
  0003:0019715C       W?text_window_x2$nus
  0003:0019715E       W?text_window_y2$nus
+ 0003:00197224       prim_unknprop01
  0003:00197228       prim4_textures
  0003:0019722C       prim_face_textures
  0003:00197230       prim_object_points
@@ -3046,10 +3264,13 @@
  0003:00197238       prim_object_faces4
  0003:0019723C       prim_objects
  0003:00197484       traffic_nodes
- 0003:0019CB54       buf
- 0003:0019CBDC       W?pop_sprites$n[]pn$TbSprite$$
- 0003:0019CBE0       W?pop_sprites_end$n[]pn$TbSprite$$
- 0003:0019CBE4       W?pop_data$n[]ul
+ 0003:0019CB54       fade_data
+ 0003:0019CBDC       W?pop1_sprites$n[]pn$TbSprite$$
+ 0003:0019CBE0       W?pop1_sprites_end$n[]pn$TbSprite$$
+ 0003:0019CBE4       W?pop1_data$n[]ul
+ 0003:0019CBE8       start
+ 0003:0019CBEC       end
+ 0003:0019CBF0       data
  0003:0019CC2C       W?m_spr_data$n[]ul
  0003:0019CC34       W?m_sprites$n[]pn$TbSprite$$
  0003:0019CC38       W?m_sprites_end$n[]pn$TbSprite$$
@@ -3080,6 +3301,8 @@
  0003:0019F548       sort_sprites
  0003:0019F54C       sort_lines
  0003:0019F550       col_columns
+ 0003:0019F554       unkn_mode_02
+ 0003:0019F73C       textwalk_data
  0003:001A09C0       floor_tiles
  0003:001A09C4       light_commands
  0003:001A09C8       normals
@@ -3088,6 +3311,7 @@
  0003:001A09D4       textures
  0003:001A09D8       face_textures
  0003:001A09DC       things
+ 0003:001A09E0       sthings
  0003:001A09E4       object_points
  0003:001A09E8       object_faces
  0003:001A09EC       object_faces4
@@ -3098,17 +3322,30 @@
  0003:001A5844       W?pointer_sprites_end$n[]pn$TbSprite$$
  0003:001A5848       W?font0_sprites$n[]pn$TbSprite$$
  0003:001A584C       W?font0_sprites_end$n[]pn$TbSprite$$
- 0003:001A5878       W?palette$npnuc
- 0003:001A5880       W?game_text_str$npc
+ 0003:001A5878       W?display_palette$npnuc
+ 0003:001A5880       W?gui_strings_data$npc
+ 0003:001A5888       gui_strings
  0003:001A62BC       W?pointer_data$n__ul
  0003:001A62C0       W?font0_data$n[]ul
+ 0003:001A62D8       turns_delta
  0003:001A62DC       gameturn
+ 0003:001A62E0       players
+ 0003:001A71B0       local_player_no
+ 0003:001A71B1       W?exit_game$nuc
  0003:001A71B2       in_network_game
  0003:001A71B3       cmdln_param_mp
  0003:001A71B4       cmdln_param_tf
  0003:001A71B5       cmdln_param_bcg
+ 0003:001A7318       prev_tick_time
+ 0003:001A731C       prev_gameturn
+ 0003:001A7320       curr_tick_time
+ 0003:001A7324       active_flags_general_unkn01
+ 0003:001A732C       navi2_unkn_counter_max
  0003:001AA278       vec_tmap
- 0003:001AA2F8       mem_ptr
+ 0003:001AA288       unkn_val_04
+ 0003:001AA3B8       unkn01_downcount
+ 0003:001AA3BC       unkn01_pos_x
+ 0003:001AA3C0       unkn01_pos_y
  0003:001AA988       palette_data
  0003:001AABA8       game_prev_object_count
  0003:001AABAC       game_prev_object_face_count
@@ -3117,15 +3354,22 @@
  0003:001AABB8       game_prev_normal_count
  0003:001AABBC       game_prev_face_texture_count
  0003:001AABC0       game_prev_texture_count
+ 0003:001AABE0       trial_alloc
  0003:001AABE4       tri_initialised
- 0003:001AABEC       ix_Triangles
- 0003:001AABF0       count_Triangles
- 0003:001AABF4       free_Triangles
- 0003:001AAC00       triangles
+ 0003:001AABE8       W?find_cache1$nl
+ 0003:001AABEC       W?ix_Triangles$nl
+ 0003:001AABF0       W?count_Triangles$nl
+ 0003:001AABF4       W?free_Triangles$nl
+ 0003:001AABF8       W?active_limit_of_Triangles$nl
+ 0003:001AABFC       W?limit_of_Triangles$nl
+ 0003:001AAC00       W?Triangles$n[]$__5hgd6Triangle$$
  0003:001AAC04       ix_Points
  0003:001AAC08       count_Points
  0003:001AAC0C       free_Points
- 0003:001AAC18       points
+ 0003:001AAC10       W?active_limit_of_Points$nl
+ 0003:001AAC14       W?limit_of_Points$nl
+ 0003:001AAC18       W?Points$n[]$__dg6glPoint$$
+ 0003:001AAE38       tri_module_init
  0003:001AAE48       W?Ex$n[]l
  0003:001AAFD8       W?Ey$n[]l
  0003:001AB168       ixE
@@ -3160,6 +3404,7 @@
  0003:001C4A80       sound_volume
  0003:001C4A82       sound_tension_music_volume
  0003:001C4A84       sound_music_volume
+ 0003:001C4AAC       a3
  0003:001C4B18       text
  0003:001C6D4C       out
  0003:001C6DF2       str
@@ -3185,24 +3430,49 @@
  0003:001E2E68       lbDisplay__MouseSprite
  0003:001E2E6C       lbDisplay__PhysicalScreenWidth
  0003:001E2E70       lbDisplay__PhysicalScreenHeight
- 0003:001E2E74       lbDisplay__GraphicsWindowX
- 0003:001E2E78       lbDisplay__GraphicsWindowY
- 0003:001E2E7C       lbDisplay__GraphicsWindowWidth
- 0003:001E2E80       lbDisplay__GraphicsWindowHeight
- 0003:001E2E84       lbDisplay__MouseWindowX
- 0003:001E2E88       lbDisplay__MouseWindowY
- 0003:001E2E8C       lbDisplay__MouseWindowWidth
- 0003:001E2E90       lbDisplay__MouseWindowHeight
+ 0003:001E2E74       lbDisplay__GraphicsScreenWidth
+ 0003:001E2E78       lbDisplay__GraphicsScreenHeight
+ 0003:001E2E7C       lbDisplay__GraphicsWindowX
+ 0003:001E2E80       lbDisplay__GraphicsWindowY
+ 0003:001E2E84       lbDisplay__GraphicsWindowWidth
+ 0003:001E2E88       lbDisplay__GraphicsWindowHeight
+ 0003:001E2E8C       lbDisplay__MouseWindowX
+ 0003:001E2E90       lbDisplay__MouseWindowY
+ 0003:001E2E94       lbDisplay__MouseWindowWidth
+ 0003:001E2E98       lbDisplay__MouseWindowHeight
+ 0003:001E2E9C       lbDisplay__MouseX
+ 0003:001E2EA0       lbDisplay__MouseY
+ 0003:001E2EA4       lbDisplay__MMouseX
+ 0003:001E2EA8       lbDisplay__MMouseY
  0003:001E2EAC       lbDisplay__RMouseX
  0003:001E2EB0       lbDisplay__RMouseY
  0003:001E2EB4       lbDisplay__DrawFlags
  0003:001E2EB6       lbDisplay__OldVideoMode
  0003:001E2EB8       lbDisplay__ScreenMode
+ 0003:001E2EBA       lbDisplay__VesaIsSetUp
+ 0003:001E2EBB       lbDisplay__LeftButton
+ 0003:001E2EBC       lbDisplay__RightButton
+ 0003:001E2EBD       lbDisplay__MiddleButton
+ 0003:001E2EBE       lbDisplay__MLeftButton
+ 0003:001E2EBF       lbDisplay__MRightButton
+ 0003:001E2EC0       lbDisplay__MMiddleButton
+ 0003:001E2EC1       lbDisplay__RLeftButton
+ 0003:001E2EC4       lbDisplay__FadeStep
+ 0003:001E2EC5       lbDisplay__DrawColour
+ 0003:001E2ECC       _lbSpriteReMapPtr
  0003:001E2ED0       __wint_thread_data
  0003:001E2F70       _lbExtendedKeyPress
  0003:001E2F74       _lbKeyOn
  0003:001E3074       _lbInkey
+ 0003:001E3075       lbInkeyFlags
+ 0003:001E3076       lbIInkey
+ 0003:001E3077       lbIInkeyFlags
  0003:001E3078       _lbShift
+ 0003:001E307C       MouseHandler256__old_mx
+ 0003:001E307E       MouseHandler256__old_my
+ 0003:001E3080       MouseHandler256__old_rx
+ 0003:001E3084       MouseHandler256__old_ry
+ 0003:001E3088       lbMouseInstalled
  0003:001E56D8       W?fade_started$nuc
  0003:001E5A2C       _smack_draw_callback
  0003:001E5B50       _CurrentAwe32SoundfontPrefix
