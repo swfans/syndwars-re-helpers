@@ -9,16 +9,25 @@
   Address         Publics by Value
 
  0001:00010003       ___begtext
+ 0001:00010EC0       find_player
  0001:0001163C       main_
+ 0001:00011C04       draw_unkn_func_069
  0001:00011F34       draw_sorted_sprite
- 0001:00012268       setup_drawlist
+ 0001:00012268       init_engine
  0001:000127BC       nullsub_1
  0001:00016AD8       draw_frame
- 0001:00016FC8       draw_thing_o
+ 0001:00016FC8       draw_thing_object
+ 0001:0001E038       draw_object
+ 0001:0001FB90       show_mapwho
+ 0001:0001FF24       draw_hud_health_bar
+ 0001:000200E8       draw_hud_shield_bar
+ 0001:00020704       draw_unkn_func_077
+ 0001:0002094C       draw_unkn_func_078
  0001:00026F94       W?display_drawlist$n()v
  0001:00027A34       W?display_drawlist2$n()v
  0001:00030590       draw_screen
  0001:000384FC       read_primveh_obj
+ 0001:00038714       load_map_bnb
  0001:00038A84       load_mission_file
  0001:00038DA4       game_setup_sub8
  0001:00039100       load_level
@@ -33,6 +42,7 @@
  0001:0003B888       show_black_screen
  0001:0003B8AC       play_game
  0001:0003B950       W?init_syndwars$n()v
+ 0001:0003BA20       load_pop1_sprites
  0001:0003BB2C       smack_mfree
  0001:0003BB44       W?setup_host$n()v
  0001:0003BDB8       play_game_0
@@ -55,6 +65,7 @@
  0001:000436C8       joy_input
  0001:000437D4       game_process_sub01
  0001:00043868       W?input$n()v
+ 0001:000439CC       debug_check_unkn_sprite_size
  0001:00043A10       W?game_process$n()l
  0001:00043E80       process_packets
  0001:00045CBC       game_setup_sub5
@@ -74,6 +85,7 @@
  0001:00047410       unused_func_019
  0001:000477D4       setup_screen_mode
  0001:00047E70       read_textwalk
+ 0001:00047EC4       rotate_texture
  0001:00048E28       unused_func_020
  0001:0004ABD0       LbRandomAnyShort
  0001:0004ABEC       LbRandomPosShort
@@ -82,6 +94,11 @@
  0001:0004BF40       mapwho_sub_4BF40
  0001:0004C220       mapwho_node_delete
  0001:0004C4EC       mapwho_snode_delete
+ 0001:0004C998       gun_out_anim
+ 0001:0004CB5C       choose_best_weapon_for_range
+ 0001:0004CD48       set_person_animmode_walk
+ 0001:0004CDE8       set_person_animmode_run
+ 0001:0004CE84       check_person_within
  0001:0004CFC4       set_int_target
  0001:0004D1A4       drop_weapons
  0001:0004D774       set_person_dead
@@ -91,20 +108,22 @@
  0001:0004FFE8       quick_lights_loop
  0001:0005011C       create_door
  0001:0005040C       move_person
- 0001:00051334       wander_fly
- 0001:00051434       d_process_wander
- 0001:00051A34       process_wander
+ 0001:00051334       process_wander_and_fly
+ 0001:00051434       process_wander
+ 0001:000518FC       set_angle_to_avoid_group
+ 0001:00051A34       process_avoid_group
+ 0001:00051B68       get_weapon_out
  0001:00051CCC       search_people
  0001:00051D94       find_bezier_nav_point
- 0001:00052128       init_new_command
- 0001:00053774       dp_goto_point_rel
- 0001:000539E0       dp_goto_i
- 0001:00053F48       peep_goto_point
- 0001:00054868       process_vanish
+ 0001:00052128       person_init_command
+ 0001:00053774       person_goto_point_rel
+ 0001:000539E0       do_person_gotothingindex
+ 0001:00053F48       person_goto_point
+ 0001:00054868       person_vanish
  0001:00054910       reinit_players
  0001:000549A8       person_pick_up_2
  0001:00054D14       person_pick_up_1
- 0001:00055218       peep_get_item
+ 0001:00055218       set_get_item
  0001:00056020       init_plant_mine
  0001:00056054       do_init_plant_mine
  0001:00056110       plant_mine
@@ -112,23 +131,28 @@
  0001:00056518       init_drop_tempweapon
  0001:000565D0       drop_item
  0001:00056800       save_victim
- 0001:0005686C       nav_goto_person
+ 0001:0005686C       person_goto_person_nav
  0001:00056CC4       peep_persuade
  0001:000575A4       kill_person
  0001:00057C38       limit_mood
  0001:00057CEC       person_update_stamina
  0001:00058468       fire_weapon
+ 0001:0005B334       find_nearest_from_group
  0001:0005D17C       game_process_sub02
  0001:0005DF5C       drive_vehicle
  0001:0005E5B8       shoot_at_point
  0001:0005EC74       init_follow_person
  0001:000627B0       collide_sub_627B0
  0001:00062D6C       del_col_vect_fr
+ 0001:00063338       station_load
+ 0001:00063580       get_height_on_face
  0001:00063DC8       collide_sub_63DC8
  0001:00066568       gproc3_unknsub1
+ 0001:000666A8       calc_bul_offsets
  0001:00067570       init_arrays_1
  0001:00067FB0       mapwho_unkn01
  0001:00068458       shockwave_person
+ 0001:0006D23C       draw_circle2
  0001:00070450       gproc3_unknsub3
  0001:00070C00       check_unlock_target
  0001:0007135C       group_find_best_guardian
@@ -170,12 +194,12 @@
  0001:00084E18       triangulation_initialize
  0001:00084E98       W?triangulation_allocate$n(ll)v
  0001:00084F60       triangulation_select
- 0001:00085034       tri_sub_85034
+ 0001:00085034       triangulation_set_max_triangles
  0001:00085064       W?tri_dispose$n(l)v
  0001:00085098       W?tri_new$n()l
  0001:00085104       W?point_dispose$n(l)v
  0001:0008513C       W?point_new$n()l
- 0001:0008519C       triangulation_border_sub_8519C
+ 0001:0008519C       triangulation_init_edges
  0001:00085228       W?triangulation_initxy$n(llll)v
  0001:00085390       W?triangulation_init$n()v
  0001:000853C8       W?triangulation_clear$n()v
@@ -219,27 +243,27 @@
  0001:00088EE4       triangle_get_relation_to_coords
  0001:00088FB4       W?edge_points8$n(llpnlpnlpnlpnl)v
  0001:00089170       W?tags_init$n()v
- 0001:000891A0       W?triangle_route_do_1_fwd$n(llpnlpnl)l
- 0001:00089780       W?triangle_route_do_1_bak$n(llpnlpnl)l
- 0001:00089D5C       W?ma_triangle_route_1$n(llpnlpnl)l
- 0001:00089E98       triangle_route_do_2_fwd
- 0001:0008A608       triangle_route_do_2_bak
- 0001:0008AD60       W?ma_triangle_route_2$n(llpnlpnl)l
- 0001:0008AE9C       triangle_point_dist_below_128
- 0001:0008AF08       triangles_update_flags
- 0001:0008AF88       triangle_route_do_3_bak
- 0001:0008B6D8       triangle_route_do_3_fwd
- 0001:0008BE28       triangle_route_do_4_fwd
+ 0001:000891A0       W?triangle_route_do_given$n(llpnlpnlpnl)l
+ 0001:00089780       triangle_route_do_bak
+ 0001:00089D5C       ma_triangle_route_given
+ 0001:00089E98       W?triangle_route_do_unkn3$n(llpnlpnl)l
+ 0001:0008A608       W?triangle_route_do_unkn4$n(llpnlpnl)l
+ 0001:0008AD60       W?ma_triangle_route_3$n(llpnl)l
+ 0001:0008AE9C       distance_unkn_is_above_128
+ 0001:0008AF08       triangles_update_flags_unkn_1
+ 0001:0008AF88       W?triangle_route_do_unkn5$n(llpnlpnl)l
+ 0001:0008B6D8       W?triangle_route_do_unkn6$n(llpnlpnl)l
+ 0001:0008BE28       W?triangle_route_do_unkn7$n(llpnlpnl)l
  0001:0008C58C       W?ma_triangle_route_3$n(llpnlpnl)l
  0001:0008C6DC       W?ma_triangle_route_4$n(llpnl)l
  0001:0008C7B8       bfsQ_clear
  0001:0008C7CC       bfsQ_queue
  0001:0008C814       bfsQ_get
- 0001:0008C844       W?pfs_visit$n(l)v
- 0001:0008CA34       W?dfs_search$n(llpnl)l
- 0001:0008CA84       W?pfs_search$n(llpnl)l
+ 0001:0008C844       W?dfs_visit$n(l)v
+ 0001:0008CA34       W?tree_to_route$n(llpnl)l
+ 0001:0008CA84       W?dfs_search$n(llpnl)l
  0001:0008CAE8       W?optimise_heuristic$n(ll)l
- 0001:0008CCF0       W?delaunay_seeded$n(llll)l
+ 0001:0008CCF0       delaunay_step
  0001:0008CD8C       W?fringe_init$n(pn[256]ucllll)v
  0001:0008CDD0       W?fringe_scan$n(pnlpnlpnlpnl)l
  0001:0008CE78       W?fringe_get_rectangle$n(pnlpnlpnlpnlpnuc)l
@@ -249,15 +273,31 @@
  0001:0008D0E0       W?fov_region$n(llpn$__8cl6tFOV$$)l
  0001:0008D17C       W?route_to_path$n(llllpnllpn$Path$$pnl)l
  0001:0008D50C       path_init8_thing
- 0001:0008D624       W?path_init8_veh$n(pn$Path$$lllll)v
+ 0001:0008D624       path_init8_wide
  0001:0008D76C       path_init8_tank
- 0001:0008D878       path_init8_3
+ 0001:0008D878       path_init8_unkn3
  0001:0008D990       point_new_from_top
  0001:0008D9B8       tri_update_active_limits
  0001:0008D9D0       tri_path_init8
+ 0001:0008DB48       unused_func_188_sub1
+ 0001:0008DD80       fatter_than_nothing
  0001:0008E190       triangulation_select_0
+ 0001:0008E624       is_this_a_nice_place_for_a_picnic
+ 0001:0008E7CC       unused_func_188
  0001:0008E8BC       make_triangle_solid
+ 0001:0008E940       triangulation_unused_func_189
+ 0001:0008EAD0       game_exit_unused
+ 0001:0008EAE4       game_vsync_unused
+ 0001:0008EAF8       game_conditional_exit_usused
+ 0001:0008EBCC       string_to_upper
+ 0001:0008EBF0       init_crater_textures
  0001:0008F4C8       create_crater
+ 0001:0008F638       is_that_a_sea_texture
+ 0001:00090370       unused_func_024
+ 0001:00090414       unused_func_025
+ 0001:00090518       unused_func_192
+ 0001:00090614       unused_func_026
+ 0001:000908B4       unkstruct03_process
  0001:00092C90       W?draw_unkn34$n(pn$ScreenBox$$)uc
  0001:00093268       W?draw_unkn45$n(pn$ScreenButton$$)uc
  0001:000934B0       W?draw_unkn46$n(pn$ScreenButton$$)uc
@@ -285,6 +325,7 @@
  0001:000A085C       W?my_draw_text$n(sspnaus)us
  0001:000A1AF8       W?flashy_draw_text$n(llpnaucuspnsuc)uc
  0001:000A1F14       objectiv_sub_A1F14
+ 0001:000A3408       conditional_command_state_true
  0001:000A3CA4       objectiv_sub_A3CA4
  0001:000A5590       objectiv_sub_A5590
  0001:000A5998       veh_heap_add
@@ -298,6 +339,7 @@
  0001:000A6AD4       VNAV_sub_A6AD4
  0001:000A6C58       VNAV_sub_A6C58
  0001:000A6E90       VNAV_init_veh
+ 0001:000A7298       VNAV_unpark
  0001:000A7354       VNAV_sub_A7354
  0001:000A7CBC       scanner_sub_A7CBC
  0001:000A8770       scanner_sub_A8770
@@ -335,18 +377,23 @@
  0001:000B6ABC       ship_sub_B6ABC
  0001:000B6CD0       swap_wscreen
  0001:000B6D00       init_mech
+ 0001:000B9B64       mech_unused_func_213
+ 0001:000B9BAC       mech_unkn_func_20
  0001:000B9E1C       veh_leave
  0001:000B9FB0       count_fnavs
  0001:000BA0CC       W?navi_onscreen_debug$n(l)v
- 0001:000BA374       thing_nav1
+ 0001:000BA374       use_nav_data
  0001:000BA5C4       set_xz_for_quad210
  0001:000BA8C4       set_xz_for_quad123
+ 0001:000BAC38       set_xz_for_tri
  0001:000BAD28       nullsub_8
- 0001:000BAD2C       thing_navigate_2
- 0001:000BB7DC       thing_navigate
+ 0001:000BAD2C       build_navigate_path_to_person
+ 0001:000BB5B0       build_navigate_path_to_face_xz
+ 0001:000BB7DC       build_navigate_path
  0001:000BBC70       veh_fly
  0001:000BBDC8       tank_drive
- 0001:000BBFC8       usenav_sub_BBFC8
+ 0001:000BBFC8       remove_path
+ 0001:000BC09C       unkn_path_func_001
  0001:000BC2E8       process_next_quick_light
  0001:000BC718       load_mad
  0001:000BCF04       setup_mele
@@ -355,8 +402,9 @@
  0001:000BD67C       bul_path_end
  0001:000BE84C       nullsub_10
  0001:000BEDA0       nullsub_11
- 0001:000BF7B4       nullsub_12
+ 0001:000BF7B4       finalise_razor_wire
  0001:000BFBFC       nullsub_13
+ 0001:000C05AC       angle_between_points
  0001:000C1350       nullsub_14
  0001:000C1A00       nullsub_15
  0001:000C1A58       nullsub_16
@@ -364,13 +412,17 @@
  0001:000C1C34       nullsub_18
  0001:000C1EDC       V_PROCESS
  0001:000C3998       init_read_all_items
+ 0001:000C42F0       my_net_session_callback
  0001:000C4310       W?do_unkn55_action$n(uc)v
  0001:000C4314       nullsub_19
  0001:000C43CC       W?font_height$n(a)uc
  0001:000C4D58       load_objective_text
+ 0001:000C4FE4       init_obj_info_text
+ 0001:000C549C       read_cities
  0001:000C6A54       nullsub_20
  0001:000C6AE4       nullsub_21
  0001:000C6B24       mail_queue_up
+ 0001:000C6D70       mail_activate_email
  0001:000C72F0       W?draw_unkn09$n(pn$ScreenTextBox$$)uc
  0001:000C73D0       W?draw_unkn03_text$n(pn$ScreenBox$$)uc
  0001:000C7654       W?do_unkn32_action$n(uc)uc
@@ -385,15 +437,16 @@
  0001:000C787C       W?do_unkn44_action$n(uc)v
  0001:000C7880       W?do_unkn07_action$n(uc)v
  0001:000C788C       W?do_unkn40_action$n(uc)v
- 0001:000C78A8       W?do_unkn41_action$n(uc)v
+ 0001:000C78A8       main_do_login_1
  0001:000C78C4       W?do_unkn42_action$n(uc)v
- 0001:000C7A0C       W?do_unkn43_action$n(uc)v
+ 0001:000C7A0C       main_do_map_editor
  0001:000C7A18       W?do_unkn37_action$n(uc)v
  0001:000C7AE4       W?do_unkn48_action$n(uc)v
  0001:000C7B7C       W?do_unkn47_action$n(uc)v
  0001:000C8F90       load_credits_and_sound
  0001:000C903C       init_speech_wad
  0001:000C92E4       new_scale_effect
+ 0001:000C9444       W?compute_volume$n(lll)l
  0001:000C94C0       sound_update_all_samples_volume
  0001:000C9520       sound_monitor_all_samples
  0001:000C996C       play_dist_sample2
@@ -729,7 +782,7 @@
  0001:000E1C40       LbTextSetWindow_
  0001:000E1C7C       LbTextSetJustifyWindow_
  0001:000E1CCC       LbTextSetClipWindow_
- 0001:000E1DF4       LbTextStringWidth_
+ 0001:000E1DF4       my_string_width
  0001:000E1ECC       LbTextWordWidth_
  0001:000E1F50       LbTextStringHeight_
  0001:000E1FC4       LbTextDraw_
@@ -2226,8 +2279,11 @@
  0003:00143170       engine_mem_alloc_size
  0003:00143178       user_name
  0003:001431BE       next_traffic
- 0003:001431C2       msecs_per_frame
+ 0003:001431C0       all_missions_count
+ 0003:001431C2       fifties_per_gameturn
  0003:001431D0       next_quick_light
+ 0003:001431D6       next_floor_texture
+ 0003:001431EE       used_objectives_count
  0003:00143210       rand_anyshort_seed
  0003:00143218       session_name
  0003:00143238       fadedat_fname
@@ -2249,19 +2305,23 @@
  0003:001432CC       citiesdat_fname
  0003:001432D8       savegame_mortal_fname
  0003:001432F4       game_dirs
+ 0003:00143326       angle_direction
  0003:00143348       unkn01_maskarr
  0003:00143374       W?unk02_load_files$n__$TbLoadFiles$$
  0003:0014352C       aSyn2PrototypeE
  0003:001436A4       game_obj_dname
  0003:00143710       game_obj_text
  0003:001438B4       buffer_allocs
+ 0003:00143C4C       people_frames
  0003:001446DE       pointer_hotspot
  0003:00144A28       control_keys_text
  0003:00144D78       aConfirmCritica
  0003:00144DD4       rand_posshort_seed
  0003:00144F34       W?nav_rulesA2B$npn(ll)l
  0003:00144F38       W?MOD3$n[]xl
+ 0003:00144F50       selected_triangulation_no
  0003:00144F54       W?tag_current$nuc
+ 0003:00144F9C       a19200
  0003:00145176       proj_origin_m2
  0003:00145178       W?proj_origin$n$StartScreenPoint$$
  0003:00145180       W?AsciiToInkey$n[]uc
@@ -5058,6 +5118,7 @@
  0003:0016F0F4       engine_mem_alloc_ptr
  0003:0016F0F8       smack_malloc_mem
  0003:0016F100       cd_drive
+ 0003:0016F140       map_bnb
  0003:0016F144       gamep_unknval_10
  0003:0016F148       gamep_unknval_11
  0003:0016F14C       gamep_unknval_12
@@ -5112,12 +5173,12 @@
  0003:00178128       joy_NumberOfDevices
  0003:0017812C       joy_DeviceType
  0003:0017816C       joy_Init
- 0003:00178180       unkn01_mode
+ 0003:00178180       ingame__GameMode
  0003:00178182       displaymode
- 0003:001785FF       flags_general_unkn01
+ 0003:001785FF       ingame__Flags
  0003:0017862D       selected_map_index
- 0003:00178633       cmdln_param_a
- 0003:00178635       cmdln_param_w
+ 0003:00178633       ingame__cmdln_param_a
+ 0003:00178635       ingame__cmdln_param_w
  0003:00178639       fhandle
  0003:0017864C       unkn_prop_02
  0003:0017865A       ingame__LastTmap
@@ -5133,6 +5194,7 @@
  0003:0018E7D0       prim_object_faces4
  0003:0018E7D4       prim_objects
  0003:0018EA1C       traffic_nodes
+ 0003:0018EA20       all_missions
  0003:00193F0C       buf
  0003:00193F94       W?pop1_sprites$n[]pn$TbSprite$$
  0003:00193F98       W?pop1_sprites_end$n[]pn$TbSprite$$
@@ -5153,11 +5215,11 @@
  0003:00193FE8       W?mspr0_data_end$n[]ul
  0003:00193FEC       W?m_sprites$n[]pn$TbSprite$$
  0003:00193FF0       W?m_sprites_end$n[]pn$TbSprite$$
- 0003:00193FF4       nfra0_ani
+ 0003:00193FF4       frame
  0003:00193FF8       nfra0_ani_end
- 0003:00194004       mele0_ani
+ 0003:00194004       melement_ani
  0003:00194008       mele0_ani_end
- 0003:0019400C       nsta0_ani
+ 0003:0019400C       nstart_ani
  0003:00194010       nsta0_ani_end
  0003:00196026       cmdln_param_d
  0003:00196029       game_perspective
@@ -5181,6 +5243,7 @@
  0003:00196904       sort_lines
  0003:00196908       col_columns
  0003:0019690C       unkn_mode_02
+ 0003:00196AF4       textwalk_data
  0003:00197D78       floor_tiles
  0003:00197D7C       light_commands
  0003:00197D80       normals
@@ -5196,23 +5259,25 @@
  0003:00197DA8       objects
  0003:00197DAC       special_object_faces
  0003:00197DB0       special_object_faces4
+ 0003:0019CBE0       p_current_sort_sprite
+ 0003:0019CBE8       p_current_draw_item
  0003:0019CBF8       W?pointer_sprites$n[]pn$TbSprite$$
  0003:0019CBFC       W?pointer_sprites_end$n[]pn$TbSprite$$
- 0003:0019CC00       W?font0_sprites$n[]pn$TbSprite$$
+ 0003:0019CC00       small_font
  0003:0019CC04       W?font0_sprites_end$n[]pn$TbSprite$$
  0003:0019CC08       sprites_Font5
  0003:0019CC0C       sprites_Font5_end
  0003:0019CC10       sprites_Font3
  0003:0019CC14       sprites_Font3_end
- 0003:0019CC18       sprites_Font_Tit
+ 0003:0019CC18       med_font
  0003:0019CC1C       sprites_Font_Tit_end
- 0003:0019CC20       sprites_Font_Qot
+ 0003:0019CC20       med2_font
  0003:0019CC24       sprites_Font_Qot_end
- 0003:0019CC28       sprites_Font_Nam
+ 0003:0019CC28       big_font
  0003:0019CC2C       sprites_Font_Nam_end
  0003:0019CC30       W?display_palette$npnuc
- 0003:0019CC38       W?game_text_str$npc
- 0003:0019D310       text
+ 0003:0019CC38       W?gui_strings_data$npc
+ 0003:0019CC40       gui_strings
  0003:0019D64C       W?pointer_data$n[]ul
  0003:0019D650       W?font0_data$n[]ul
  0003:0019D65C       data_Font_Tit
@@ -5220,12 +5285,14 @@
  0003:0019D664       data_Font_Nam
  0003:0019D668       turns_delta
  0003:0019D66C       gameturn
+ 0003:0019D670       players
  0003:0019E540       local_player_no
  0003:0019E541       W?exit_game$nuc
  0003:0019E542       in_network_game
  0003:0019E543       cmdln_param_mp
  0003:0019E544       cmdln_param_tf
  0003:0019E545       cmdln_param_bcg
+ 0003:0019E548       colour_lookup
  0003:0019E6A8       prev_tick_time
  0003:0019E6AC       prev_gameturn
  0003:0019E6B0       curr_tick_time
@@ -5234,27 +5301,29 @@
  0003:001A1738       unkn01_downcount
  0003:001A173C       unkn01_pos_x
  0003:001A1740       unkn01_pos_y
- 0003:001A1E58       trial_alloc
- 0003:001A1E60       W?find_cache1$nl
- 0003:001A1E64       W?ix_Triangles$nl
- 0003:001A1E68       W?count_Triangles$nl
- 0003:001A1E6C       W?free_Triangles$nl
- 0003:001A1E70       W?active_limit_of_Triangles$nl
- 0003:001A1E74       W?limit_of_Triangles$nl
- 0003:001A1E78       W?Triangles$n[]$__5hgd6Triangle$$
+ 0003:001A1E58       triangulation__tri_allocated
+ 0003:001A1E5C       triangulation__tri_initialised
+ 0003:001A1E60       triangulation__last_tri
+ 0003:001A1E64       triangulation__ix_Triangles
+ 0003:001A1E68       triangulation__count_Triangles
+ 0003:001A1E6C       triangulation__free_Triangles
+ 0003:001A1E70       triangulation__triangle_top
+ 0003:001A1E74       triangulation__max_Triangles
+ 0003:001A1E78       triangulation__Triangles
  0003:001A1E7C       W?ix_Points$nl
  0003:001A1E80       W?count_Points$nl
  0003:001A1E84       W?free_Points$nl
- 0003:001A1E88       W?active_limit_of_Points$nl
- 0003:001A1E8C       W?limit_of_Points$nl
- 0003:001A1E90       W?Points$n[]$__dg6glPoint$$
+ 0003:001A1E88       triangulation__point_top
+ 0003:001A1E8C       triangulation__max_Points
+ 0003:001A1E90       triangulation__Points
+ 0003:001A1E98       triangulation_1_tri_initialised
  0003:001A20B0       tri_module_init
  0003:001A20C0       W?Ex$n[]l
  0003:001A2250       W?Ey$n[]l
  0003:001A23E0       W?ixE$nl
  0003:001A23F4       W?tree_dad$n[]l
  0003:001AA0F4       W?tree_val$n[]l
- 0003:001B1DF4       W?Tags$n[]uc
+ 0003:001B1DF4       W?routeTags$n[]uc
  0003:001B3D34       W?tree_Ax8$nl
  0003:001B3D38       W?tree_Ay8$nl
  0003:001B3D3C       W?tree_Bx8$nl
@@ -5271,8 +5340,8 @@
  0003:001B9B20       W?fwd_path$n$Path$$
  0003:001BA334       W?Heap$n[]l
  0003:001BA738       W?heap_end$nl
- 0003:001BA73C       bfsQ_list
- 0003:001BA93C       bfsQ_current
+ 0003:001BA73C       W?dfs_node$n[]l
+ 0003:001BA93C       W?ix_dfs$nl
  0003:001BA940       W?ix_EdgePoints$nl
  0003:001BA944       W?fringe_y$n[]l
  0003:001BAD44       W?fringe_x1$nl
@@ -5280,16 +5349,24 @@
  0003:001BAD4C       W?fringe_x2$nl
  0003:001BAD50       W?fringe_y2$nl
  0003:001BAD54       W?fringe_map$npn[256]uc
+ 0003:001BB574       crater_unkn_texture_flags
  0003:001BBB30       W?hotspot_buffer$npn$StartScreenPoint$$
- 0003:001BBB34       data_mapinsid_end
+ 0003:001BBB34       back_buffer
+ 0003:001BBB61       screentype
+ 0003:001BBBD4       text
+ 0003:001BBC1C       map_editor
+ 0003:001BBC3C       reload_background_flag
  0003:001BC358       data_mapout
  0003:001BC370       data_mapinsid
+ 0003:001BC374       num_cities
  0003:001BDEA5       global_time__hour
  0003:001BDEA6       global_date__day
  0003:001BDEA7       global_date_1
  0003:001BDEA8       global_date_2
- 0003:001BE004       unkn09_box
- 0003:001BE048       unkn65_textbox
+ 0003:001BDFEE       next_email
+ 0003:001BDFFE       edit_flag
+ 0003:001BE004       heading_box
+ 0003:001BE048       loading_INITIATING_box
  0003:001BE08C       unkn27_textbox
  0003:001BE0D0       unkn28_textbox
  0003:001BE114       unkn66_box
@@ -5307,11 +5384,11 @@
  0003:001BE782       unkn33_button
  0003:001BE7B0       unkn34_button
  0003:001BE7C8       unkn01_textbox
- 0003:001BE80C       unkn02_textbox
+ 0003:001BE80C       mission_text_box
  0003:001BE850       unkn35_button
  0003:001BE880       unkn36_button
  0003:001BE8B0       unkn37_button
- 0003:001BE8E0       unkn01_guicontrol01
+ 0003:001BE8E0       brief_NETSCAN_COST_box
  0003:001BE90C       unkn04_box
  0003:001BE924       unkn05_box
  0003:001BE93C       unkn06_box
@@ -5362,13 +5439,15 @@
  0003:001BF360       W?text_buf_pos$nul
  0003:001BF368       cmdln_param_n
  0003:001BF36C       bez_edit
- 0003:001BF372       len
- 0003:001BF3E0       cmdln_param_map_index
+ 0003:001BF372       miss_unk2_len
+ 0003:001BF3E0       cmdln_param_current_map
  0003:001BF3EC       spare_map_buffer
  0003:001D3568       W?joy_move$:.0$:?draw_purple_screen$n()vnuc
  0003:001D356C       unkn01_button
  0003:001D359C       W?purple_draw_list$npn$PurpleDrawItem$$
  0003:001D35A0       W?purple_draw_index$nus
+ 0003:001D36E0       path
+ 0003:001D3EF4       f
  0003:001D7468       _lbMemoryAvailable
  0003:001D747C       W?memory_blocks$n[]$mem_block$$
  0003:001D807C       W?memory_arenas$n[]$mem_arena$$
@@ -5428,7 +5507,6 @@
  0003:001D9B52       grip_byte_1D9B52
  0003:001D9B53       grip_byte_1D9B53
  0003:001D9B58       W?NetworkServicePtr$n$TbNetworkService$$
- 0003:001D9B80       UsedSessionInit
  0003:001D9B88       _lbExtendedKeyPress
  0003:001D9B8C       _lbKeyOn
  0003:001D9C8C       _lbInkey
