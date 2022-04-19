@@ -2,7 +2,7 @@
 <?program_dtd version="1"?>
 
 <PROGRAM NAME="SYN2.EXE" EXE_PATH="D:\source\disasm\swars_alpha\SYN2.EXE" EXE_FORMAT="Linear Executable (LE)" INPUT_MD5="920CAE0B9EF15BE5D36928EDF063ECD5">
-    <INFO_SOURCE TOOL="IDA-Pro 7.00 XML plugin v5.0.1 (Python) SDK 700" USER="tomasz" FILE="D:\source\disasm\swars_alpha\SYN2.idb" TIMESTAMP="2022-04-18 15:39" />
+    <INFO_SOURCE TOOL="IDA-Pro 7.00 XML plugin v5.0.1 (Python) SDK 700" USER="tomasz" FILE="D:\source\disasm\swars_alpha\SYN2.idb" TIMESTAMP="2022-04-19 22:53" />
     <PROCESSOR NAME="metapc" ENDIAN="little" ADDRESS_MODEL="32-bit" />
     <COMPILER NAME="Watcom C++" />
     <DATATYPES>
@@ -1810,8 +1810,8 @@
             <MEMBER OFFSET="0x35" NAME="field_35" DATATYPE="byte" SIZE="0x1" />
         </STRUCTURE>
         <STRUCTURE NAME="UnkStruct0E" SIZE="0xE">
-            <MEMBER OFFSET="0x0" NAME="SpriteId" DATATYPE="word" SIZE="0x2" />
-            <MEMBER OFFSET="0x2" NAME="field_2" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x0" NAME="SpriteId1" DATATYPE="word" SIZE="0x2" />
+            <MEMBER OFFSET="0x2" NAME="SpriteId2" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x4" NAME="field_4" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x6" NAME="field_6" DATATYPE="word" SIZE="0x2" />
             <MEMBER OFFSET="0x8" NAME="field_8" DATATYPE="word" SIZE="0x2" />
@@ -2738,7 +2738,7 @@
             <ENUM_ENTRY NAME="EdSt_0" VALUE="0x0" />
             <ENUM_ENTRY NAME="EdSt_1" VALUE="0x1" />
             <ENUM_ENTRY NAME="EdSt_2" VALUE="0x2" />
-            <ENUM_ENTRY NAME="EdSt_FILE_LIST" VALUE="0x3" />
+            <ENUM_ENTRY NAME="EdSt_SUB_SCREEN" VALUE="0x3" />
             <ENUM_ENTRY NAME="EdSt_4" VALUE="0x4" />
             <ENUM_ENTRY NAME="EdSt_5" VALUE="0x5" />
             <ENUM_ENTRY NAME="EdSt_6" VALUE="0x6" />
@@ -10032,29 +10032,8 @@
         <DEFINED_DATA ADDRESS="0xCC7B8" DATATYPE="dword[1536]" SIZE="0x1800">
             <TYPEINFO_CMT>dword_CC7B8</TYPEINFO_CMT>
         </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0xCDFB8" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_CDFB8</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0xCDFB9" DATATYPE="string" SIZE="0x1D">
-            <TYPEINFO_CMT>a1234567890Qwer</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0xCDFD6" DATATYPE="string" SIZE="0xD">
-            <TYPEINFO_CMT>aAsdfghjkl</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0xCDFE3" DATATYPE="string" SIZE="0xC">
-            <TYPEINFO_CMT>aZxcvbnm</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0xCE0A0" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>char fade_started</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0xCE0AC" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>unsigned long redraw_active_lock</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0xCE0B0" DATATYPE="byte" SIZE="0x1">
-            <TYPEINFO_CMT>byte_CE0B0</TYPEINFO_CMT>
-        </DEFINED_DATA>
-        <DEFINED_DATA ADDRESS="0xCE0B4" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>unsigned long lbMouseInstalled</TYPEINFO_CMT>
+        <DEFINED_DATA ADDRESS="0xCDFB8" DATATYPE="byte[256]" SIZE="0x100">
+            <TYPEINFO_CMT>key_to_ascii</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0xCE0B8" DATATYPE="dword" SIZE="0x4">
             <TYPEINFO_CMT>minfo__XSpriteOffset</TYPEINFO_CMT>
@@ -11753,7 +11732,7 @@
             <TYPEINFO_CMT>byte_531D70</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x531D74" DATATYPE="dword" SIZE="0x4">
-            <TYPEINFO_CMT>dword_531D74</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unkn4_active_menu_item</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x531D78" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_531D78</TYPEINFO_CMT>
@@ -12462,10 +12441,10 @@
             <TYPEINFO_CMT>byte_5AA622</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5AA654" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5AA654</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ed_unkn18_state</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5AA656" DATATYPE="word" SIZE="0x2">
-            <TYPEINFO_CMT>word_5AA656</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ed_unkn18_substate</TYPEINFO_CMT>
         </DEFINED_DATA>
         <DEFINED_DATA ADDRESS="0x5AA658" DATATYPE="word" SIZE="0x2">
             <TYPEINFO_CMT>word_5AA658</TYPEINFO_CMT>
@@ -14340,11 +14319,16 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x2BEB2" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x2BEB7" TYPE="end-of-line">p_a1 </COMMENT>
         <COMMENT ADDRESS="0x2BEC1" TYPE="end-of-line">p_a1 </COMMENT>
-        <COMMENT ADDRESS="0x2D480" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x2D480" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x2E354" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x2E51D" TYPE="end-of-line">switch 4 cases  </COMMENT>
         <COMMENT ADDRESS="0x2E52A" TYPE="end-of-line">switch jump </COMMENT>
         <COMMENT ADDRESS="0x2E532" TYPE="repeatable">jumptable 0002E52A cases 0,2 </COMMENT>
+        <COMMENT ADDRESS="0x2E54B" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x2E555" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x2E55F" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x2E569" TYPE="end-of-line">a5 </COMMENT>
+        <COMMENT ADDRESS="0x2E56E" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x2E5D0" TYPE="end-of-line">a6 </COMMENT>
         <COMMENT ADDRESS="0x2E5D5" TYPE="end-of-line">a5 </COMMENT>
         <COMMENT ADDRESS="0x2E5DD" TYPE="end-of-line">a2 </COMMENT>
@@ -14352,6 +14336,11 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x2E5F2" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x2E5F7" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x2E5FF" TYPE="repeatable">jumptable 0002E52A cases 1,3 </COMMENT>
+        <COMMENT ADDRESS="0x2E60C" TYPE="end-of-line">a4 </COMMENT>
+        <COMMENT ADDRESS="0x2E622" TYPE="end-of-line">a3 </COMMENT>
+        <COMMENT ADDRESS="0x2E62C" TYPE="end-of-line">a2 </COMMENT>
+        <COMMENT ADDRESS="0x2E636" TYPE="end-of-line">a5 </COMMENT>
+        <COMMENT ADDRESS="0x2E63B" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x2E6A0" TYPE="end-of-line">a6 </COMMENT>
         <COMMENT ADDRESS="0x2E6A5" TYPE="end-of-line">a5 </COMMENT>
         <COMMENT ADDRESS="0x2E6AC" TYPE="end-of-line">a2 </COMMENT>
@@ -14493,7 +14482,7 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x31FE0" TYPE="end-of-line">x </COMMENT>
         <COMMENT ADDRESS="0x31FE5" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x31FEC" TYPE="end-of-line">y </COMMENT>
-        <COMMENT ADDRESS="0x32002" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x32002" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3202B" TYPE="end-of-line">a5 </COMMENT>
         <COMMENT ADDRESS="0x3202D" TYPE="end-of-line">z </COMMENT>
         <COMMENT ADDRESS="0x3203B" TYPE="end-of-line">x </COMMENT>
@@ -14770,7 +14759,7 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x34FA7" TYPE="end-of-line">y1 </COMMENT>
         <COMMENT ADDRESS="0x34FAA" TYPE="end-of-line">colour </COMMENT>
         <COMMENT ADDRESS="0x34FAE" TYPE="end-of-line">x1 </COMMENT>
-        <COMMENT ADDRESS="0x35085" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x35085" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3524C" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x352D8" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x352DB" TYPE="end-of-line">colour </COMMENT>
@@ -14835,7 +14824,7 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x355F6" TYPE="end-of-line">switch 9 cases  </COMMENT>
         <COMMENT ADDRESS="0x35603" TYPE="end-of-line">switch jump </COMMENT>
         <COMMENT ADDRESS="0x3560B" TYPE="repeatable">jumptable 00035603 case 0 </COMMENT>
-        <COMMENT ADDRESS="0x35616" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x35616" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x35628" TYPE="repeatable">jumptable 00035603 case 1 </COMMENT>
         <COMMENT ADDRESS="0x35636" TYPE="repeatable">jumptable 00035603 case 4 </COMMENT>
         <COMMENT ADDRESS="0x35648" TYPE="repeatable">jumptable 00035603 case 2 </COMMENT>
@@ -14844,12 +14833,12 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x35776" TYPE="repeatable">jumptable 00035603 case 8 </COMMENT>
         <COMMENT ADDRESS="0x35806" TYPE="repeatable">jumptable 00035603 default case </COMMENT>
         <COMMENT ADDRESS="0x35841" TYPE="end-of-line">eptr </COMMENT>
-        <COMMENT ADDRESS="0x358FE" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x35A77" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x35B00" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x358FE" TYPE="end-of-line">ed_state </COMMENT>
+        <COMMENT ADDRESS="0x35A77" TYPE="end-of-line">ed_state </COMMENT>
+        <COMMENT ADDRESS="0x35B00" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x36374" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x3637B" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x372B0" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x372B0" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3764A" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x3764E" TYPE="end-of-line">colour </COMMENT>
         <COMMENT ADDRESS="0x37651" TYPE="end-of-line">a1 </COMMENT>
@@ -14970,8 +14959,8 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x39413" TYPE="end-of-line">x2 </COMMENT>
         <COMMENT ADDRESS="0x39421" TYPE="end-of-line">y1 </COMMENT>
         <COMMENT ADDRESS="0x39426" TYPE="end-of-line">x1 </COMMENT>
-        <COMMENT ADDRESS="0x395EC" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x396F8" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x395EC" TYPE="end-of-line">ed_state </COMMENT>
+        <COMMENT ADDRESS="0x396F8" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x397EB" TYPE="end-of-line">eptr </COMMENT>
         <COMMENT ADDRESS="0x398FD" TYPE="end-of-line">y2 </COMMENT>
         <COMMENT ADDRESS="0x39901" TYPE="end-of-line">x2 </COMMENT>
@@ -15078,13 +15067,13 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x3AD85" TYPE="end-of-line">text </COMMENT>
         <COMMENT ADDRESS="0x3AD93" TYPE="end-of-line">y </COMMENT>
         <COMMENT ADDRESS="0x3AD9E" TYPE="end-of-line">x </COMMENT>
-        <COMMENT ADDRESS="0x3B21F" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x3B340" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x3B394" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x3B746" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3B21F" TYPE="end-of-line">ed_state </COMMENT>
+        <COMMENT ADDRESS="0x3B340" TYPE="end-of-line">ed_state </COMMENT>
+        <COMMENT ADDRESS="0x3B394" TYPE="end-of-line">ed_state </COMMENT>
+        <COMMENT ADDRESS="0x3B746" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3B807" TYPE="end-of-line">sz </COMMENT>
-        <COMMENT ADDRESS="0x3BCB9" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x3BDE9" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3BCB9" TYPE="end-of-line">ed_state </COMMENT>
+        <COMMENT ADDRESS="0x3BDE9" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3BF30" TYPE="end-of-line">colour </COMMENT>
         <COMMENT ADDRESS="0x3BF3E" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x3BF4E" TYPE="end-of-line">a3 </COMMENT>
@@ -15169,14 +15158,14 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x3C6A4" TYPE="repeatable">jumptable 0003C69C case 0 </COMMENT>
         <COMMENT ADDRESS="0x3C6A6" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x3C6AB" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x3C6C4" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3C6C4" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3C6FC" TYPE="repeatable">jumptable 0003C69C case 1 </COMMENT>
         <COMMENT ADDRESS="0x3C6FE" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x3C703" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x3C73F" TYPE="repeatable">jumptable 0003C69C case 2 </COMMENT>
         <COMMENT ADDRESS="0x3C741" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x3C746" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x3C763" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3C763" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3C79B" TYPE="repeatable">jumptable 0003C69C case 3 </COMMENT>
         <COMMENT ADDRESS="0x3C79D" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x3C7A2" TYPE="end-of-line">a1 </COMMENT>
@@ -15192,7 +15181,7 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x3C8D7" TYPE="repeatable">jumptable 0003C876 case 4 </COMMENT>
         <COMMENT ADDRESS="0x3C8EC" TYPE="repeatable">jumptable 0003C876 case 6 </COMMENT>
         <COMMENT ADDRESS="0x3C901" TYPE="repeatable">jumptable 0003C876 case 7 </COMMENT>
-        <COMMENT ADDRESS="0x3C913" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3C913" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3C92D" TYPE="repeatable">jumptable 0003C876 case 8 </COMMENT>
         <COMMENT ADDRESS="0x3C942" TYPE="repeatable">jumptable 0003C876 case 9 </COMMENT>
         <COMMENT ADDRESS="0x3C95E" TYPE="repeatable">jumptable 0003C876 case 10 </COMMENT>
@@ -15235,26 +15224,26 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x3D2D2" TYPE="end-of-line">switch 9 cases  </COMMENT>
         <COMMENT ADDRESS="0x3D2DF" TYPE="end-of-line">switch jump </COMMENT>
         <COMMENT ADDRESS="0x3D2E7" TYPE="repeatable">jumptable 0003D2DF case 4 </COMMENT>
-        <COMMENT ADDRESS="0x3D329" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x3D340" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3D329" TYPE="end-of-line">ed_state </COMMENT>
+        <COMMENT ADDRESS="0x3D340" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3D35F" TYPE="repeatable">jumptable 0003D2DF case 0 </COMMENT>
         <COMMENT ADDRESS="0x3D39D" TYPE="repeatable">jumptable 0003D2DF case 8 </COMMENT>
-        <COMMENT ADDRESS="0x3D39F" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3D39F" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3D3C3" TYPE="repeatable">jumptable 0003D2DF case 1 </COMMENT>
-        <COMMENT ADDRESS="0x3D3C5" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3D3C5" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3D3F4" TYPE="repeatable">jumptable 0003D2DF default case </COMMENT>
         <COMMENT ADDRESS="0x3D6E3" TYPE="end-of-line">switch 14 cases  </COMMENT>
         <COMMENT ADDRESS="0x3D6F0" TYPE="end-of-line">switch jump </COMMENT>
         <COMMENT ADDRESS="0x3D6F8" TYPE="repeatable">jumptable 0003D6F0 case 9 </COMMENT>
         <COMMENT ADDRESS="0x3D725" TYPE="repeatable">jumptable 0003D6F0 case 13 </COMMENT>
         <COMMENT ADDRESS="0x3D761" TYPE="repeatable">jumptable 0003D6F0 case 4 </COMMENT>
-        <COMMENT ADDRESS="0x3D78F" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x3D7A5" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3D78F" TYPE="end-of-line">ed_state </COMMENT>
+        <COMMENT ADDRESS="0x3D7A5" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3D7C6" TYPE="repeatable">jumptable 0003D6F0 case 0 </COMMENT>
-        <COMMENT ADDRESS="0x3D805" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3D805" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3D811" TYPE="repeatable">jumptable 0003D6F0 case 6 </COMMENT>
         <COMMENT ADDRESS="0x3D81D" TYPE="repeatable">jumptable 0003D6F0 case 5 </COMMENT>
-        <COMMENT ADDRESS="0x3D829" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3D829" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3D83E" TYPE="repeatable">jumptable 0003D6F0 default case </COMMENT>
         <COMMENT ADDRESS="0x3DB54" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x3DB59" TYPE="end-of-line">a7 </COMMENT>
@@ -15287,11 +15276,12 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x3DD7F" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x3DD83" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x3DD87" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x3DDAA" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3DDAA" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3DDC6" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x3DDC8" TYPE="end-of-line">a3 </COMMENT>
         <COMMENT ADDRESS="0x3DDCA" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x3DDCC" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3E785" TYPE="end-of-line">do_init </COMMENT>
         <COMMENT ADDRESS="0x3E8DB" TYPE="end-of-line">str </COMMENT>
         <COMMENT ADDRESS="0x3E947" TYPE="end-of-line">str </COMMENT>
         <COMMENT ADDRESS="0x3E97F" TYPE="end-of-line">a1 </COMMENT>
@@ -15341,8 +15331,8 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x3EFE5" TYPE="end-of-line">y </COMMENT>
         <COMMENT ADDRESS="0x3EFEC" TYPE="end-of-line">x </COMMENT>
         <COMMENT ADDRESS="0x3EFF1" TYPE="end-of-line">colour </COMMENT>
-        <COMMENT ADDRESS="0x3F4AC" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x3F54C" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x3F4AC" TYPE="end-of-line">ed_state </COMMENT>
+        <COMMENT ADDRESS="0x3F54C" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x3F977" TYPE="end-of-line">eptr </COMMENT>
         <COMMENT ADDRESS="0x3F9F1" TYPE="end-of-line">eptr </COMMENT>
         <COMMENT ADDRESS="0x3FA67" TYPE="end-of-line">eptr </COMMENT>
@@ -15352,14 +15342,14 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x3FD1C" TYPE="end-of-line">eptr </COMMENT>
         <COMMENT ADDRESS="0x4020D" TYPE="end-of-line">p_thing </COMMENT>
         <COMMENT ADDRESS="0x4021C" TYPE="end-of-line">item </COMMENT>
-        <COMMENT ADDRESS="0x40479" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x40479" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x4058D" TYPE="end-of-line">p_thing </COMMENT>
         <COMMENT ADDRESS="0x40596" TYPE="end-of-line">item </COMMENT>
         <COMMENT ADDRESS="0x40686" TYPE="end-of-line">p_thing </COMMENT>
         <COMMENT ADDRESS="0x4068F" TYPE="end-of-line">item </COMMENT>
         <COMMENT ADDRESS="0x40755" TYPE="end-of-line">p_thing </COMMENT>
         <COMMENT ADDRESS="0x40776" TYPE="end-of-line">item </COMMENT>
-        <COMMENT ADDRESS="0x407B9" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x407B9" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x41008" TYPE="end-of-line">jump table for switch statement </COMMENT>
         <COMMENT ADDRESS="0x410B6" TYPE="repeatable">jumptable 00041144 case 0 </COMMENT>
         <COMMENT ADDRESS="0x410FF" TYPE="repeatable">jumptable 00041144 default case </COMMENT>
@@ -15665,7 +15655,7 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x49F4E" TYPE="repeatable">jumptable 0004917E case 5 </COMMENT>
         <COMMENT ADDRESS="0x49FC3" TYPE="repeatable">jumptable 0004917E case 12 </COMMENT>
         <COMMENT ADDRESS="0x4A38A" TYPE="repeatable">jumptable 0004917E case 6 </COMMENT>
-        <COMMENT ADDRESS="0x4A38C" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x4A38C" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x4A3A3" TYPE="repeatable">jumptable 0004917E default case </COMMENT>
         <COMMENT ADDRESS="0x4A5C8" TYPE="end-of-line">_DWORD </COMMENT>
         <COMMENT ADDRESS="0x4A5CD" TYPE="end-of-line">_DWORD </COMMENT>
@@ -16008,13 +15998,13 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x602A9" TYPE="end-of-line">y </COMMENT>
         <COMMENT ADDRESS="0x602B4" TYPE="end-of-line">text </COMMENT>
         <COMMENT ADDRESS="0x602B7" TYPE="end-of-line">x </COMMENT>
-        <COMMENT ADDRESS="0x602CE" TYPE="end-of-line">a1 </COMMENT>
-        <COMMENT ADDRESS="0x60451" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x602CE" TYPE="end-of-line">ed_state </COMMENT>
+        <COMMENT ADDRESS="0x60451" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x60482" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x604DF" TYPE="end-of-line">new_thing </COMMENT>
         <COMMENT ADDRESS="0x6050E" TYPE="end-of-line">p_thing </COMMENT>
         <COMMENT ADDRESS="0x60541" TYPE="end-of-line">new_thing </COMMENT>
-        <COMMENT ADDRESS="0x60582" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x60582" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x60597" TYPE="end-of-line">p_thing </COMMENT>
         <COMMENT ADDRESS="0x605CF" TYPE="end-of-line">a4 </COMMENT>
         <COMMENT ADDRESS="0x605D5" TYPE="end-of-line">a7 </COMMENT>
@@ -16032,7 +16022,7 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x607CD" TYPE="end-of-line">str </COMMENT>
         <COMMENT ADDRESS="0x607DD" TYPE="end-of-line">x </COMMENT>
         <COMMENT ADDRESS="0x607E2" TYPE="end-of-line">colour </COMMENT>
-        <COMMENT ADDRESS="0x60C06" TYPE="end-of-line">a1 </COMMENT>
+        <COMMENT ADDRESS="0x60C06" TYPE="end-of-line">ed_state </COMMENT>
         <COMMENT ADDRESS="0x6129E" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x6219E" TYPE="end-of-line">a1 </COMMENT>
         <COMMENT ADDRESS="0x63028" TYPE="end-of-line">a1 </COMMENT>
@@ -16175,6 +16165,14 @@ bits 4-7: Buttons/Triggers (digital inputs) </COMMENT>
         <COMMENT ADDRESS="0x6D6CF" TYPE="end-of-line">y </COMMENT>
         <COMMENT ADDRESS="0x6D6D1" TYPE="end-of-line">subtype </COMMENT>
         <COMMENT ADDRESS="0x6D798" TYPE="repeatable">jumptable 0006C648 default case </COMMENT>
+        <COMMENT ADDRESS="0x6D7D8" TYPE="end-of-line">col3 </COMMENT>
+        <COMMENT ADDRESS="0x6D7E0" TYPE="end-of-line">col2 </COMMENT>
+        <COMMENT ADDRESS="0x6D7E8" TYPE="end-of-line">y </COMMENT>
+        <COMMENT ADDRESS="0x6D7EC" TYPE="end-of-line">col1 </COMMENT>
+        <COMMENT ADDRESS="0x6D7ED" TYPE="end-of-line">x </COMMENT>
+        <COMMENT ADDRESS="0x6D7F1" TYPE="end-of-line">menu </COMMENT>
+        <COMMENT ADDRESS="0x6D7F2" TYPE="end-of-line">height </COMMENT>
+        <COMMENT ADDRESS="0x6D7F7" TYPE="end-of-line">width </COMMENT>
         <COMMENT ADDRESS="0x6D8DB" TYPE="end-of-line">a2 </COMMENT>
         <COMMENT ADDRESS="0x6D8DF" TYPE="end-of-line">colour </COMMENT>
         <COMMENT ADDRESS="0x6D8E0" TYPE="end-of-line">a1 </COMMENT>
@@ -18130,6 +18128,7 @@ BX = new size in paragraphs </COMMENT>
         <SYMBOL ADDRESS="0x31E20" NAME="unk10_input_unkn_mouse" />
         <SYMBOL ADDRESS="0x31EF0" NAME="unkn_nullfunc4_unused" />
         <SYMBOL ADDRESS="0x31F00" NAME="mapedit_frame_unkn3_input_UNUSED" />
+        <SYMBOL ADDRESS="0x34210" NAME="maped_unkn4_func2_menu_supp" />
         <SYMBOL ADDRESS="0x34BD0" NAME="mapedit_unkn4_input_UNUSED" />
         <SYMBOL ADDRESS="0x350B0" NAME="mapedit_mnu_delete_all_lights" />
         <SYMBOL ADDRESS="0x35270" NAME="mapedit_draw_lights_options_UNUSED" />
@@ -18155,10 +18154,10 @@ BX = new size in paragraphs </COMMENT>
         <SYMBOL ADDRESS="0x3BFB0" NAME="setup_screen_redo_UNUSED" />
         <SYMBOL ADDRESS="0x3C030" NAME="save_textwalk" />
         <SYMBOL ADDRESS="0x3C0A0" NAME="load_textwalk" />
-        <SYMBOL ADDRESS="0x3C110" NAME="unkn01a_input" />
+        <SYMBOL ADDRESS="0x3C110" NAME="unkn5_general_pre_input" />
         <SYMBOL ADDRESS="0x3C120" NAME="draw_purple_rect" />
-        <SYMBOL ADDRESS="0x3C210" NAME="draw_mapedit_top_menu_UNUSED" />
-        <SYMBOL ADDRESS="0x3C380" NAME="mapedit_topmnu_actions_UNUSED" />
+        <SYMBOL ADDRESS="0x3C210" NAME="draw_mapedit_topmenu_UNUSED" />
+        <SYMBOL ADDRESS="0x3C380" NAME="mapedit_topmenu_actions_UNUSED" />
         <SYMBOL ADDRESS="0x3CD40" NAME="unkn_lights_related_UNUSED" />
         <SYMBOL ADDRESS="0x3CEB0" NAME="mapedit_unkn6_input_UNUSED" />
         <SYMBOL ADDRESS="0x3D8A0" NAME="mapedit_mnu_reset_road_lights" />
@@ -18166,6 +18165,7 @@ BX = new size in paragraphs </COMMENT>
         <SYMBOL ADDRESS="0x3DAF0" NAME="mapedit_apply_ambient_inputs_UNUSED" />
         <SYMBOL ADDRESS="0x3DDC0" NAME="mapedit_mnu_del_ambient_light" />
         <SYMBOL ADDRESS="0x3DDE0" NAME="mapedit_mnu_recalc_lights" />
+        <SYMBOL ADDRESS="0x3E040" NAME="unkn5_general_post_input" />
         <SYMBOL ADDRESS="0x3E4D0" NAME="engine_ctrl" />
         <SYMBOL ADDRESS="0x3E720" NAME="unkn5_input_UNUSED" />
         <SYMBOL ADDRESS="0x3E7C0" NAME="show_displaymd01_screen" />
@@ -18221,6 +18221,7 @@ BX = new size in paragraphs </COMMENT>
         <SYMBOL ADDRESS="0x5FC30" NAME="generate_dattab_psx_input_unused" />
         <SYMBOL ADDRESS="0x60070" NAME="ql_debug_check_memory" />
         <SYMBOL ADDRESS="0x60120" NAME="ql_debug_print_stats" />
+        <SYMBOL ADDRESS="0x60410" NAME="adjust_Ifreq_damp_gravity_actions" />
         <SYMBOL ADDRESS="0x60B90" NAME="mapedit_unkn2_inputs_UNUSED" />
         <SYMBOL ADDRESS="0x60E20" NAME="__wcpp_1_unwind_leave__3" />
         <SYMBOL ADDRESS="0x62060" NAME="unkn_lights_processing_2_unused" />
@@ -18242,6 +18243,7 @@ BX = new size in paragraphs </COMMENT>
         <SYMBOL ADDRESS="0x6DAF0" NAME="unkn1_shift_on_mouse" />
         <SYMBOL ADDRESS="0x6DC90" NAME="unkn2_shift_on_mouse" />
         <SYMBOL ADDRESS="0x6DE30" NAME="unkn3_shift_on_mouse_unused" />
+        <SYMBOL ADDRESS="0x6E700" NAME="ed_menu_draw" />
         <SYMBOL ADDRESS="0x73970" NAME="thing_add_new_static" />
         <SYMBOL ADDRESS="0x74710" NAME="animate_explode" />
         <SYMBOL ADDRESS="0x74A90" NAME="build_polygon_circle_0" />
@@ -20227,12 +20229,7 @@ BX = new size in paragraphs </COMMENT>
         <SYMBOL ADDRESS="0xCB720" NAME="long_MOD3[]" MANGLED="W?MOD3$n[]xl" />
         <SYMBOL ADDRESS="0xCB758" NAME="NetworkService__Type" />
         <SYMBOL ADDRESS="0xCB794" NAME="aTester" />
-        <SYMBOL ADDRESS="0xCDFB9" NAME="a1234567890Qwer" />
-        <SYMBOL ADDRESS="0xCDFD6" NAME="aAsdfghjkl" />
-        <SYMBOL ADDRESS="0xCDFE3" NAME="aZxcvbnm" />
-        <SYMBOL ADDRESS="0xCE0A0" NAME="char_fade_started" MANGLED="W?fade_started$nuc" />
-        <SYMBOL ADDRESS="0xCE0AC" NAME="ulong_redraw_active_lock" MANGLED="W?redraw_active_lock$nul" />
-        <SYMBOL ADDRESS="0xCE0B4" NAME="ulong_lbMouseInstalled" MANGLED="W?lbMouseInstalled$nul" />
+        <SYMBOL ADDRESS="0xCDFB8" NAME="key_to_ascii" />
         <SYMBOL ADDRESS="0xCE0B8" NAME="minfo__XSpriteOffset" />
         <SYMBOL ADDRESS="0xCE0BC" NAME="minfo__YSpriteOffset" />
         <SYMBOL ADDRESS="0xCE0C0" NAME="sound_location" />
@@ -20361,6 +20358,7 @@ BX = new size in paragraphs </COMMENT>
         <SYMBOL ADDRESS="0x5277CC" NAME="unkn_changing_color_counter1" />
         <SYMBOL ADDRESS="0x5277D0" NAME="ingame__LastTmap" />
         <SYMBOL ADDRESS="0x5277D4" NAME="ingame__Tmaps" />
+        <SYMBOL ADDRESS="0x531D74" NAME="unkn4_active_menu_item" />
         <SYMBOL ADDRESS="0x531DA5" NAME="pick_mode" />
         <SYMBOL ADDRESS="0x531DDC" NAME="maped_mouse_over_what" />
         <SYMBOL ADDRESS="0x531E7E" NAME="unkn_edit_substate1" />
@@ -20378,6 +20376,8 @@ BX = new size in paragraphs </COMMENT>
         <SYMBOL ADDRESS="0x59A9F6" NAME="stored_global3d_inuse" />
         <SYMBOL ADDRESS="0x59AA2E" NAME="stored_g3d_next_local_mat" />
         <SYMBOL ADDRESS="0x5AA5F8" NAME="subtype" />
+        <SYMBOL ADDRESS="0x5AA654" NAME="ed_unkn18_state" />
+        <SYMBOL ADDRESS="0x5AA656" NAME="ed_unkn18_substate" />
         <SYMBOL ADDRESS="0x5AA660" NAME="comedit__Thing" />
         <SYMBOL ADDRESS="0x5AA960" NAME="animations__field_10" />
         <SYMBOL ADDRESS="0x5AAD80" NAME="animations__field_4" />
@@ -23204,7 +23204,7 @@ BX = new size in paragraphs </COMMENT>
             <ADDRESS_RANGE START="0x2BC20" END="0x2C0F0" />
             <TYPEINFO_CMT>mapedit_mnu_function</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x14" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x18" FRAME_PTR_OFFSET="-0x4" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x18" FRAME_PTR_OFFSET="-0x4" NAME="new_ed_state" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x2C100">
@@ -23341,7 +23341,7 @@ BX = new size in paragraphs </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" FRAME_PTR_OFFSET="-0xC" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" FRAME_PTR_OFFSET="-0x8" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" FRAME_PTR_OFFSET="-0x4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x10" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x10" NAME="a5" DATATYPE="pointer" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x2D510">
@@ -23834,9 +23834,9 @@ BX = new size in paragraphs </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x1C" FRAME_PTR_OFFSET="-0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x34210">
+        <FUNCTION ENTRY_POINT="0x34210" NAME="maped_unkn4_func2_menu_supp">
             <ADDRESS_RANGE START="0x34210" END="0x348D8" />
-            <TYPEINFO_CMT>sub_34210</TYPEINFO_CMT>
+            <TYPEINFO_CMT>maped_unkn4_func2_menu_supp</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x18" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" FRAME_PTR_OFFSET="-0xC" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x20" FRAME_PTR_OFFSET="-0x8" DATATYPE="dword" SIZE="0x4" />
@@ -24458,9 +24458,9 @@ BX = new size in paragraphs </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" FRAME_PTR_OFFSET="-0x4" NAME="fh" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3C110" NAME="unkn01a_input">
+        <FUNCTION ENTRY_POINT="0x3C110" NAME="unkn5_general_pre_input">
             <ADDRESS_RANGE START="0x3C110" END="0x3C119" />
-            <TYPEINFO_CMT>unkn01a_input</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unkn5_general_pre_input</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x4" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x3C120" NAME="draw_purple_rect">
@@ -24474,9 +24474,9 @@ BX = new size in paragraphs </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0x8" NAME="a5" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3C210" NAME="draw_mapedit_top_menu_UNUSED">
+        <FUNCTION ENTRY_POINT="0x3C210" NAME="draw_mapedit_topmenu_UNUSED">
             <ADDRESS_RANGE START="0x3C210" END="0x3C2A7" />
-            <TYPEINFO_CMT>draw_mapedit_top_menu_UNUSED</TYPEINFO_CMT>
+            <TYPEINFO_CMT>draw_mapedit_topmenu_UNUSED</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x4" REGISTER_SAVE_SIZE="0x10" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" FRAME_PTR_OFFSET="-0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -24486,9 +24486,9 @@ BX = new size in paragraphs </COMMENT>
             <TYPEINFO_CMT>sub_3C2B0</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x0" REGISTER_SAVE_SIZE="0x10" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0" />
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3C380" NAME="mapedit_topmnu_actions_UNUSED">
+        <FUNCTION ENTRY_POINT="0x3C380" NAME="mapedit_topmenu_actions_UNUSED">
             <ADDRESS_RANGE START="0x3C380" END="0x3CD30" />
-            <TYPEINFO_CMT>mapedit_topmnu_actions_UNUSED</TYPEINFO_CMT>
+            <TYPEINFO_CMT>mapedit_topmenu_actions_UNUSED</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0xC" REGISTER_SAVE_SIZE="0x18" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" FRAME_PTR_OFFSET="-0xC" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x20" FRAME_PTR_OFFSET="-0x8" NAME="submn_no" DATATYPE="dword" SIZE="0x4" />
@@ -24569,9 +24569,9 @@ BX = new size in paragraphs </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x1C" FRAME_PTR_OFFSET="-0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x3E040">
+        <FUNCTION ENTRY_POINT="0x3E040" NAME="unkn5_general_post_input">
             <ADDRESS_RANGE START="0x3E040" END="0x3E050" />
-            <TYPEINFO_CMT>sub_3E040</TYPEINFO_CMT>
+            <TYPEINFO_CMT>unkn5_general_post_input</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x20" REGISTER_SAVE_SIZE="0x8" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x28" FRAME_PTR_OFFSET="-0x20" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
@@ -27697,9 +27697,9 @@ BX = new size in paragraphs </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="-0x18" FRAME_PTR_OFFSET="-0x4" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x60410">
+        <FUNCTION ENTRY_POINT="0x60410" NAME="adjust_Ifreq_damp_gravity_actions">
             <ADDRESS_RANGE START="0x60410" END="0x607F5" />
-            <TYPEINFO_CMT>sub_60410</TYPEINFO_CMT>
+            <TYPEINFO_CMT>adjust_Ifreq_damp_gravity_actions</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x38" REGISTER_SAVE_SIZE="0x18" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
                 <STACK_VAR STACK_PTR_OFFSET="-0x50" FRAME_PTR_OFFSET="-0x38" NAME="a1" DATATYPE="byte" SIZE="0x28" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x28" FRAME_PTR_OFFSET="-0x10" DATATYPE="dword" SIZE="0x4" />
@@ -28417,8 +28417,8 @@ BX = new size in paragraphs </COMMENT>
             <ADDRESS_RANGE START="0x6B8F0" END="0x6BB40" />
             <TYPEINFO_CMT>sub_6B8F0</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x20" REGISTER_SAVE_SIZE="0x14" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x34" FRAME_PTR_OFFSET="-0x20" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x30" FRAME_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x34" FRAME_PTR_OFFSET="-0x20" NAME="mnitem" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x30" FRAME_PTR_OFFSET="-0x1C" NAME="p_thing" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x2C" FRAME_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x28" FRAME_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" FRAME_PTR_OFFSET="-0x10" DATATYPE="dword" SIZE="0x4" />
@@ -28431,8 +28431,8 @@ BX = new size in paragraphs </COMMENT>
             <ADDRESS_RANGE START="0x6BB50" END="0x6BD64" />
             <TYPEINFO_CMT>mapedit_thing_create_delete_actions_UNUSED</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x20" REGISTER_SAVE_SIZE="0x14" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x34" FRAME_PTR_OFFSET="-0x20" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x30" FRAME_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x34" FRAME_PTR_OFFSET="-0x20" NAME="mnitem" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x30" FRAME_PTR_OFFSET="-0x1C" NAME="p_thing" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x2C" FRAME_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x28" FRAME_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" FRAME_PTR_OFFSET="-0x10" DATATYPE="dword" SIZE="0x4" />
@@ -28605,23 +28605,23 @@ BX = new size in paragraphs </COMMENT>
                 <STACK_VAR STACK_PTR_OFFSET="0x14" FRAME_PTR_OFFSET="0x20" DATATYPE="dword" SIZE="0x4" />
             </STACK_FRAME>
         </FUNCTION>
-        <FUNCTION ENTRY_POINT="0x6E700">
+        <FUNCTION ENTRY_POINT="0x6E700" NAME="ed_menu_draw">
             <ADDRESS_RANGE START="0x6E700" END="0x6EADC" />
-            <TYPEINFO_CMT>sub_6E700</TYPEINFO_CMT>
+            <TYPEINFO_CMT>ed_menu_draw</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x54" REGISTER_SAVE_SIZE="0x8" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x10">
-                <STACK_VAR STACK_PTR_OFFSET="-0x5C" FRAME_PTR_OFFSET="-0x54" NAME="a3" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x5C" FRAME_PTR_OFFSET="-0x54" NAME="a3" DATATYPE="byte" SIZE="0x34" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x28" FRAME_PTR_OFFSET="-0x20" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x24" FRAME_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x20" FRAME_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x1C" FRAME_PTR_OFFSET="-0x14" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="-0x18" FRAME_PTR_OFFSET="-0x10" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x24" FRAME_PTR_OFFSET="-0x1C" NAME="xa" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x20" FRAME_PTR_OFFSET="-0x18" NAME="widtha" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x1C" FRAME_PTR_OFFSET="-0x14" NAME="haighta" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x18" FRAME_PTR_OFFSET="-0x10" NAME="ya" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x14" FRAME_PTR_OFFSET="-0xC" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x10" FRAME_PTR_OFFSET="-0x8" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0xC" FRAME_PTR_OFFSET="-0x4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0xC" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0x10" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x4" FRAME_PTR_OFFSET="0xC" NAME="a5" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="0x8" FRAME_PTR_OFFSET="0x10" NAME="col1" DATATYPE="byte" SIZE="0x1" />
                 <STACK_VAR STACK_PTR_OFFSET="0xC" FRAME_PTR_OFFSET="0x14" NAME="a4" DATATYPE="dword" SIZE="0x4" />
-                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x18" DATATYPE="byte" SIZE="0x1" />
+                <STACK_VAR STACK_PTR_OFFSET="0x10" FRAME_PTR_OFFSET="0x18" NAME="col3" DATATYPE="byte" SIZE="0x1" />
             </STACK_FRAME>
         </FUNCTION>
         <FUNCTION ENTRY_POINT="0x6EAE0">
@@ -28838,7 +28838,7 @@ BX = new size in paragraphs </COMMENT>
             <ADDRESS_RANGE START="0x71D00" END="0x7278A" />
             <TYPEINFO_CMT>sub_71D00</TYPEINFO_CMT>
             <STACK_FRAME LOCAL_VAR_SIZE="0x54" REGISTER_SAVE_SIZE="0x14" RETURN_ADDR_SIZE="0x4" BYTES_PURGED="0x0">
-                <STACK_VAR STACK_PTR_OFFSET="-0x68" FRAME_PTR_OFFSET="-0x54" NAME="a3" DATATYPE="dword" SIZE="0x4" />
+                <STACK_VAR STACK_PTR_OFFSET="-0x68" FRAME_PTR_OFFSET="-0x54" NAME="a3" DATATYPE="byte" SIZE="0x38" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x30" FRAME_PTR_OFFSET="-0x1C" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x2C" FRAME_PTR_OFFSET="-0x18" DATATYPE="dword" SIZE="0x4" />
                 <STACK_VAR STACK_PTR_OFFSET="-0x24" FRAME_PTR_OFFSET="-0x10" DATATYPE="dword" SIZE="0x4" />

@@ -30,7 +30,9 @@
  0001:00038714       load_map_bnb
  0001:00038A84       load_mission_file
  0001:00038DA4       game_setup_sub8
+ 0001:00038F48       load_objectives_text
  0001:00039100       load_level
+ 0001:0003AEBC       save_user_settings
  0001:0003B1BC       load_file_wad
  0001:0003B334       read_conf_file
  0001:0003B61C       LbGhostTableGenerate_
@@ -89,11 +91,14 @@
  0001:00048E28       unused_func_020
  0001:0004ABD0       LbRandomAnyShort
  0001:0004ABEC       LbRandomPosShort
- 0001:0004BD40       mapwho_node_add
+ 0001:0004B814       rotate_object_axis
+ 0001:0004BA2C       rotate_obj
+ 0001:0004BD40       add_node_thing
  0001:0004BE48       mapwho_snode_add
  0001:0004BF40       mapwho_sub_4BF40
- 0001:0004C220       mapwho_node_delete
+ 0001:0004C220       delete_node
  0001:0004C4EC       mapwho_snode_delete
+ 0001:0004C6C8       move_mapwho
  0001:0004C998       gun_out_anim
  0001:0004CB5C       choose_best_weapon_for_range
  0001:0004CD48       set_person_animmode_walk
@@ -147,6 +152,8 @@
  0001:00063338       station_load
  0001:00063580       get_height_on_face
  0001:00063DC8       collide_sub_63DC8
+ 0001:000640D4       set_thing_height_on_face_quad
+ 0001:00065FB4       alt_at_point
  0001:00066568       gproc3_unknsub1
  0001:000666A8       calc_bul_offsets
  0001:00067570       init_arrays_1
@@ -173,20 +180,50 @@
  0001:000756C8       debug_sub_756C8
  0001:000759A4       debug_sub_759A4
  0001:00079FA0       gproc3_unknsub2
- 0001:0007A94C       setup_host_sub5
- 0001:0007C6F8       game_setup_sub7
- 0001:0007DA64       vehicles_sub_7DA64
- 0001:0007F0F4       pod_exit
+ 0001:0007A94C       init_memory
+ 0001:0007C60C       init_just_things
+ 0001:0007C6F8       init_things
+ 0001:0007C738       get_new_thing
+ 0001:0007CB90       swoosh_veh
+ 0001:0007CE6C       check_tank_collision
+ 0001:0007D52C       check_person_close
+ 0001:0007D640       process_tank
+ 0001:0007DA64       process_stop_as_soon_as_you_can
+ 0001:0007DBD4       shadow_alt_at_point
+ 0001:0007DC74       unused_func_165
+ 0001:0007DE44       process_hovering_vehicle
+ 0001:0007E6A4       unused_func_166
+ 0001:0007E754       start_landing
+ 0001:0007E984       start_goto_vehicle
+ 0001:0007EEE0       process_unstopping
+ 0001:0007EFA4       process_unplacing
+ 0001:0007F0F4       exit_pod
  0001:0007FA84       vehicles_sub_7FA84
- 0001:00081DC0       vehicles_sub_81DC0
- 0001:00081F38       veh_takeoff
- 0001:00081F90       veh_land
+ 0001:00081430       check_two_vehicles
+ 0001:000815EC       check_vehicle_col
+ 0001:00081B98       move_vehicle
+ 0001:00081DC0       set_passengers_location
+ 0001:00081F38       process_vehicle_goto_point_takeoff
+ 0001:00081F90       process_vehicle_goto_point_land
  0001:00082140       vehicles_sub_82140
- 0001:000827B8       train_exit_1
- 0001:00082838       train_exit_2
+ 0001:00082248       person_clear_route_and_teleport_to_vehicle
+ 0001:000826A4       set_xz_for_unkn3
+ 0001:000827B8       unused_train_exit_func_2
+ 0001:00082838       train_unkn_st21_exit_func_1
+ 0001:0008293C       unused_func_171
+ 0001:0008299C       unused_func_172
+ 0001:00082A14       process_tank_turret
+ 0001:00082B84       unused_func_173
  0001:00082BE8       vehicles_sub_82BE8
- 0001:0008334C       vehicle_explode
- 0001:00084C9C       explode_mgun
+ 0001:0008334C       init_vehicle_explode
+ 0001:000835D0       mounted_los
+ 0001:00083760       init_mgun_laser
+ 0001:000839FC       rotate_object
+ 0001:00083A7C       aquire_target
+ 0001:00083C20       process_mounted_gun
+ 0001:00084C9C       init_mgun_explode
+ 0001:00084DC0       unused_func_174
+ 0001:00084DD0       unused_func_175
  0001:00084DDC       W?Synd_nav_rulesA2B$n(ll)l
  0001:00084DE8       W?Unkn1_nav_rulesA2B$n(ll)l
  0001:00084DF4       W?Unkn2_nav_rulesA2B$n(ll)l
@@ -334,12 +371,14 @@
  0001:000A609C       VNAV_do
  0001:000A6570       VNAV_sub_A6570
  0001:000A6598       VNAV_sub_A6598
- 0001:000A65A8       VNAV_sub_A65A8
+ 0001:000A65A8       VNAV_can_i_get_there
  0001:000A6614       VNAV_goto
  0001:000A6AD4       VNAV_sub_A6AD4
  0001:000A6C58       VNAV_sub_A6C58
  0001:000A6E90       VNAV_init_veh
- 0001:000A7298       VNAV_unpark
+ 0001:000A7218       VNAV_goto_and_unstop
+ 0001:000A7298       VNAV_goto_and_unpark
+ 0001:000A7308       VNAV_goto_and_unplace
  0001:000A7354       VNAV_sub_A7354
  0001:000A7CBC       scanner_sub_A7CBC
  0001:000A8770       scanner_sub_A8770
@@ -374,7 +413,7 @@
  0001:000B2C48       W?draw_purple_screen$n()v
  0001:000B4094       person_command_to_text
  0001:000B6584       ship_sub_B6584
- 0001:000B6ABC       ship_sub_B6ABC
+ 0001:000B6ABC       send_ship_to
  0001:000B6CD0       swap_wscreen
  0001:000B6D00       init_mech
  0001:000B9B64       mech_unused_func_213
@@ -382,6 +421,7 @@
  0001:000B9E1C       veh_leave
  0001:000B9FB0       count_fnavs
  0001:000BA0CC       W?navi_onscreen_debug$n(l)v
+ 0001:000BA220       do_next_navigate_index
  0001:000BA374       use_nav_data
  0001:000BA5C4       set_xz_for_quad210
  0001:000BA8C4       set_xz_for_quad123
@@ -390,8 +430,8 @@
  0001:000BAD2C       build_navigate_path_to_person
  0001:000BB5B0       build_navigate_path_to_face_xz
  0001:000BB7DC       build_navigate_path
- 0001:000BBC70       veh_fly
- 0001:000BBDC8       tank_drive
+ 0001:000BBC70       build_fly_path
+ 0001:000BBDC8       build_tank_path
  0001:000BBFC8       remove_path
  0001:000BC09C       unkn_path_func_001
  0001:000BC2E8       process_next_quick_light
@@ -2283,6 +2323,7 @@
  0003:001431C2       fifties_per_gameturn
  0003:001431D0       next_quick_light
  0003:001431D6       next_floor_texture
+ 0003:001431EA       commands_count
  0003:001431EE       used_objectives_count
  0003:00143210       rand_anyshort_seed
  0003:00143218       session_name
@@ -2311,7 +2352,9 @@
  0003:0014352C       aSyn2PrototypeE
  0003:001436A4       game_obj_dname
  0003:00143710       game_obj_text
- 0003:001438B4       buffer_allocs
+ 0003:001437A2       jskeys
+ 0003:001437D2       kbkeys
+ 0003:001438B4       mem_game
  0003:00143C4C       people_frames
  0003:001446DE       pointer_hotspot
  0003:00144A28       control_keys_text
@@ -2322,6 +2365,8 @@
  0003:00144F50       selected_triangulation_no
  0003:00144F54       W?tag_current$nuc
  0003:00144F9C       a19200
+ 0003:00144FA8       a0000
+ 0003:00144FE8       a100
  0003:00145176       proj_origin_m2
  0003:00145178       W?proj_origin$n$StartScreenPoint$$
  0003:00145180       W?AsciiToInkey$n[]uc
@@ -3009,6 +3054,7 @@
  0003:0014E7A7       aGame_obj_pki_0
  0003:0014E7B8       aGame_obj_pki_1
  0003:0014E7CD       aGame_obj_use_p
+ 0003:0014E7E0       aEmpty
  0003:0014E7E1       aGame_obj_prote
  0003:0014E7F4       aGame_obj_p_per
  0003:0014E806       aGame_obj_all_1
@@ -5110,6 +5156,7 @@
  0003:00159FE0       _fade_table
  0003:0015AFE0       cmap
  0003:0015DFE0       _ghost_table
+ 0003:0016EAC8       save_salt
  0003:0016EACC       language_3str
  0003:0016EAD0       handle
  0003:0016EAD4       smack_malloc_used_tot
@@ -5127,6 +5174,8 @@
  0003:0016F158       gamep_unknval_15
  0003:0016F15C       gamep_unknval_16
  0003:0016F174       unknval_01
+ 0003:0016F177       my_paths__X
+ 0003:0016F17F       my_paths__Z
  0003:001773FC       input_char
  0003:00177724       joy_Yaw
  0003:00177764       joy_Roll
@@ -5177,9 +5226,11 @@
  0003:00178182       displaymode
  0003:001785FF       ingame__Flags
  0003:0017862D       selected_map_index
+ 0003:00178630       ingame__DetailLevel
  0003:00178633       ingame__cmdln_param_a
  0003:00178635       ingame__cmdln_param_w
  0003:00178639       fhandle
+ 0003:00178645       ingame__TrackThing
  0003:0017864C       unkn_prop_02
  0003:0017865A       ingame__LastTmap
  0003:0018E6F0       W?text_window_x1$nus
@@ -5223,6 +5274,9 @@
  0003:00194010       nsta0_ani_end
  0003:00196026       cmdln_param_d
  0003:00196029       game_perspective
+ 0003:00196036       thing_count
+ 0003:0019603E       things_empty_head
+ 0003:00196040       things_used_head
  0003:001968C4       pktrec_mode
  0003:001968C5       cmdln_pr_num
  0003:001968C8       anim_tmaps
@@ -5244,6 +5298,7 @@
  0003:00196908       col_columns
  0003:0019690C       unkn_mode_02
  0003:00196AF4       textwalk_data
+ 0003:00196F68       local_mats
  0003:00197D78       floor_tiles
  0003:00197D7C       light_commands
  0003:00197D80       normals
@@ -5350,12 +5405,20 @@
  0003:001BAD50       W?fringe_y2$nl
  0003:001BAD54       W?fringe_map$npn[256]uc
  0003:001BB574       crater_unkn_texture_flags
+ 0003:001BBB2A       unkn_gfx_option_2
+ 0003:001BBB2B       unkn_option_3
+ 0003:001BBB2C       unkn_option_4
  0003:001BBB30       W?hotspot_buffer$npn$StartScreenPoint$$
  0003:001BBB34       back_buffer
+ 0003:001BBB3C       startscr_samplevol
+ 0003:001BBB3E       startscr_musicvol
+ 0003:001BBB40       startscr_cdvolume
  0003:001BBB61       screentype
  0003:001BBBD4       text
  0003:001BBC1C       map_editor
+ 0003:001BBC36       use_multimedia
  0003:001BBC3C       reload_background_flag
+ 0003:001BBC3D       unkn_gfx_option_1
  0003:001BC358       data_mapout
  0003:001BC370       data_mapinsid
  0003:001BC374       num_cities

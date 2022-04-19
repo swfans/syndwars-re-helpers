@@ -113,6 +113,7 @@
  0001:00031E20       unk10_input_unkn_mouse
  0001:00031EF0       unkn_nullfunc4_unused
  0001:00031F00       mapedit_frame_unkn3_input_UNUSED
+ 0001:00034210       maped_unkn4_func2_menu_supp
  0001:00034BD0       mapedit_unkn4_input_UNUSED
  0001:000350B0       mapedit_mnu_delete_all_lights
  0001:00035270       mapedit_draw_lights_options_UNUSED
@@ -138,10 +139,10 @@
  0001:0003BFB0       setup_screen_redo_UNUSED
  0001:0003C030       save_textwalk
  0001:0003C0A0       load_textwalk
- 0001:0003C110       unkn01a_input
+ 0001:0003C110       unkn5_general_pre_input
  0001:0003C120       draw_purple_rect
- 0001:0003C210       draw_mapedit_top_menu_UNUSED
- 0001:0003C380       mapedit_topmnu_actions_UNUSED
+ 0001:0003C210       draw_mapedit_topmenu_UNUSED
+ 0001:0003C380       mapedit_topmenu_actions_UNUSED
  0001:0003CD40       unkn_lights_related_UNUSED
  0001:0003CEB0       mapedit_unkn6_input_UNUSED
  0001:0003D8A0       mapedit_mnu_reset_road_lights
@@ -149,6 +150,7 @@
  0001:0003DAF0       mapedit_apply_ambient_inputs_UNUSED
  0001:0003DDC0       mapedit_mnu_del_ambient_light
  0001:0003DDE0       mapedit_mnu_recalc_lights
+ 0001:0003E040       unkn5_general_post_input
  0001:0003E4D0       engine_ctrl
  0001:0003E720       unkn5_input_UNUSED
  0001:0003E7C0       show_displaymd01_screen
@@ -204,6 +206,7 @@
  0001:0005FC30       generate_dattab_psx_input_unused
  0001:00060070       ql_debug_check_memory
  0001:00060120       ql_debug_print_stats
+ 0001:00060410       adjust_Ifreq_damp_gravity_actions
  0001:00060B90       mapedit_unkn2_inputs_UNUSED
  0001:00060E20       __wcpp_1_unwind_leave__3
  0001:00062060       unkn_lights_processing_2_unused
@@ -225,6 +228,7 @@
  0001:0006DAF0       unkn1_shift_on_mouse
  0001:0006DC90       unkn2_shift_on_mouse
  0001:0006DE30       unkn3_shift_on_mouse_unused
+ 0001:0006E700       ed_menu_draw
  0001:00073970       thing_add_new_static
  0001:00074710       animate_explode
  0001:00074A90       build_polygon_circle_0
@@ -2210,12 +2214,7 @@
  0002:000CB720       W?MOD3$n[]xl
  0002:000CB758       NetworkService__Type
  0002:000CB794       aTester
- 0002:000CDFB9       a1234567890Qwer
- 0002:000CDFD6       aAsdfghjkl
- 0002:000CDFE3       aZxcvbnm
- 0002:000CE0A0       W?fade_started$nuc
- 0002:000CE0AC       W?redraw_active_lock$nul
- 0002:000CE0B4       W?lbMouseInstalled$nul
+ 0002:000CDFB8       key_to_ascii
  0002:000CE0B8       minfo__XSpriteOffset
  0002:000CE0BC       minfo__YSpriteOffset
  0002:000CE0C0       sound_location
@@ -2344,6 +2343,7 @@
  0002:005277CC       unkn_changing_color_counter1
  0002:005277D0       ingame__LastTmap
  0002:005277D4       ingame__Tmaps
+ 0002:00531D74       unkn4_active_menu_item
  0002:00531DA5       pick_mode
  0002:00531DDC       maped_mouse_over_what
  0002:00531E7E       unkn_edit_substate1
@@ -2361,6 +2361,8 @@
  0002:0059A9F6       stored_global3d_inuse
  0002:0059AA2E       stored_g3d_next_local_mat
  0002:005AA5F8       subtype
+ 0002:005AA654       ed_unkn18_state
+ 0002:005AA656       ed_unkn18_substate
  0002:005AA660       comedit__Thing
  0002:005AA960       animations__field_10
  0002:005AAD80       animations__field_4
