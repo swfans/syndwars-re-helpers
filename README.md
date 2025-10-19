@@ -1,4 +1,4 @@
-# swars-re-helpers
+# syndwars-re-helpers
 
 Recovering symbols for the game Syndicate Wars by Bullfrog.
 
