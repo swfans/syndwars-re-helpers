@@ -72,9 +72,9 @@ tools (sorry BinaryNinja fans!).
  not be as quick as you expect.
 
 4. [ghidra Only] Install _ghidra LX/LE loader_ extension
- using ***'File -> Install Extensions...'***. Download it in a
- version which works with your IDA, on [the ghidra-lx-loader
- project releases page](https://github.com/yetmorecode/ghidra-lx-loader/releases).
+ using ***'File -> Install Extensions...'***. Download
+ it in a version which works with your _ghidra_, on
+ [the ghidra-lx-loader project releases page](https://github.com/yetmorecode/ghidra-lx-loader/releases).
 
 5. Open the proper binary executable file from `bin`
  folder into your tool of choice. That's ***'File -> Open'***
