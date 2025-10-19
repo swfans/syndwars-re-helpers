@@ -1,4 +1,4 @@
-﻿
+
  Start         Length     Name                   Class
  0001:00000000 00012D030H cseg01                 CODE
  0002:00000000 000000096H cseg02                 CODE
@@ -10,15 +10,15 @@
 
  0001:00010000       ___dbgtrap
  0001:00010003       ___begtext
- 0001:00010010       do_weapon_quantities_proper_to_player
+ 0001:00010010       do_weapon_quantities_net_to_player
  0001:000101F0       place_default_player
  0001:0001075C       move_matching_people_to_empty
  0001:000107C0       make_group_into_players
  0001:00010CA0       unkn_truce_groups
  0001:00010F10       fill_netgame_agent_pos
- 0001:00010F94       unkn1_handle_agent_groups
- 0001:000110EC       do_weapon_quantities_proper
- 0001:00011428       do_weapon_quantities
+ 0001:00010F94       place_multiplayer_agent_groups
+ 0001:000110EC       do_weapon_quantities_proper1
+ 0001:00011428       do_weapon_quantities1
  0001:00011560       place_single_player
  0001:000116A4       simulated_level
  0001:00011860       update_group_actions
@@ -26,10 +26,10 @@
  0001:00011B9C       main_
  0001:00011EE5       main_case_b
  0001:00011EF1       main_case_def
- 0001:00012040       unused_func_068
- 0001:000120E4       draw_unkn_func_069
- 0001:000122FC       draw_sorted_sprite
- 0001:0001247C       display_unkn14
+ 0001:00012040       process_engine_unk2_sub1
+ 0001:000120E4       draw_sorted_sprite1b
+ 0001:000122FC       draw_sorted_sprite1a
+ 0001:0001247C       draw_sort_sprite1c_sub
  0001:0001260C       init_engine
  0001:000126D0       process_engine_unk1
  0001:000127C4       calc_mouse_pos
@@ -39,10 +39,12 @@
  0001:00012FDC       draw_mapwho_vect_len
  0001:000134F4       draw_e_graphic
  0001:000137C0       draw_e_graphic_scale
+ 0001:00013A78       func_13a78
  0001:00013CA4       draw_pers_e_graphic
- 0001:00014294       draw_unkn_func_070
+ 0001:00014058       draw_unkn1_scaled_alpha_sprite
+ 0001:00014294       draw_unkn2_scaled_alpha_sprite
  0001:000145B4       FIRE_draw_fire
- 0001:00014870       display_unkn25
+ 0001:00014870       draw_fire_flame
  0001:0001493C       draw_bang
  0001:0001589C       draw_shrapnel
  0001:000159B0       draw_phwoar
@@ -56,10 +58,16 @@
  0001:0001BFF8       draw_hud_health_bar
  0001:0001C1BC       draw_hud_shield_bar
  0001:0001C2CC       number_player
- 0001:0001C7F0       draw_unkn_func_077
- 0001:0001C9A0       draw_unkn_func_078
+ 0001:0001C7F0       draw_fourpack_amount
+ 0001:0001C9A0       draw_fourpack_items
+ 0001:0001E834       draw_shield_level
+ 0001:0001E998       draw_health_level
+ 0001:0001EAE4       draw_wep_energy_level
+ 0001:0001EC68       draw_mood_level
+ 0001:0001EE14       draw_mood_limits
  0001:0001EF68       unused_func_070
- 0001:0001F220       draw_unkn1_rect
+ 0001:0001EFB8       draw_agent_grouping_bars
+ 0001:0001F220       draw_energy_bar
  0001:0001F368       draw_new_panel
  0001:00020100       draw_hud_lock_target_rocket
  0001:0002017C       draw_hud_lock_target
@@ -69,73 +77,85 @@
  0001:00020B10       unused_func_071
  0001:00020B50       draw_engine_net_text
  0001:00020C80       draw_hud
+ 0001:000211B0       draw_background_stars
  0001:000212DC       process_engine_unk3
  0001:00022C20       unused_func_072
- 0001:00022C78       W?display_drawlist$n()v
- 0001:000236E0       W?display_drawlist2$n()v
+ 0001:00022C78       draw_floor_tile1a
+ 0001:000236E0       draw_floor_tile1b
  0001:00024758       check_mouse_overvehicle
- 0001:0002585C       display_unkn2
+ 0001:00024A2C       check_mouse_over_face
+ 0001:000250A0       check_mouse_overlap
+ 0001:00025288       check_mouse_over_unkn2
+ 0001:00025428       check_mouse_overlap_corpse
+ 0001:00025624       check_mouse_overlap_item
+ 0001:0002585C       draw_sort_sprite1a
  0001:00025954       unused_func_073
  0001:00025990       unused_func_074
  0001:000259FC       draw_vehicle_health
- 0001:00025CB0       unused_func_075
+ 0001:00025CB0       draw_number
  0001:00025F44       draw_vehicle_shadow
  0001:00026CD0       draw_effect_object_face
- 0001:00027070       display_unkn12
- 0001:000274D0       display_unkn10
- 0001:00027638       display_unkn10b
- 0001:00027BBC       display_unkn24
- 0001:00027D78       display_unkn9b
- 0001:00028568       display_unkn23
- 0001:00028800       display_unkn13
- 0001:00028AA4       display_unkn16
- 0001:00028F90       display_unkn18
- 0001:000292C0       display_unkn6
- 0001:000295E4       display_unkn17
+ 0001:00027070       draw_sort_sprite1b
+ 0001:000274D0       draw_sort_line
+ 0001:00027638       draw_object_face1c
+ 0001:00027BBC       draw_object_face3_deep_rdr
+ 0001:00027D78       draw_object_face4d
+ 0001:00028568       draw_object_face4_deep_rdr
+ 0001:00028800       draw_object_face4_pole
+ 0001:00028AA4       draw_object_face4g
+ 0001:00028F90       draw_object_face4_reflect
+ 0001:000292C0       draw_object_face3g_textrd
+ 0001:000295E4       draw_object_face3_reflect
  0001:0002980C       calculate_enginepoint_shade_1
  0001:000298E0       calculate_enginepoint_shade_2
- 0001:000299B4       display_unkn9
- 0001:00029E90       display_unkn8
- 0001:0002A550       display_unkn11
+ 0001:000299B4       draw_object_face3_textrd_dk
+ 0001:00029E90       draw_object_face4d_textrd_dk
+ 0001:0002A550       draw_special_object_face4
+ 0001:0002A798       draw_falling_rain
+ 0001:0002AAA0       draw_static_noise
  0001:0002AB9C       unused_func_076
- 0001:0002ABE0       display_unkn22
+ 0001:0002ABE0       draw_sort_sprite_veh_health_bar
  0001:0002ACF0       unused_func_077
  0001:0002ADE8       draw_screen
- 0001:0002B324       draw_screen_0
+ 0001:0002B324       reset_drawlist
  0001:0002B3C0       transform_point
  0001:0002B558       unused_func_079
- 0001:0002B5A8       display_unkn4
+ 0001:0002B5A8       draw_ex_face
  0001:0002B8B8       draw_explode
  0001:0002E280       unused_func_080
  0001:0002E318       animate_textures
  0001:0002E404       local_to_worldr
+ 0001:0002E440       func_2e440
  0001:0002FE80       unused_func_081
  0001:0002FF50       rotate_thing_point
  0001:0002FFC0       unused_func_082
  0001:00030160       unused_func_083
  0001:000301A0       fill_floor_textures
  0001:0003027C       read_primveh_obj
+ 0001:000303FC       load_map_bnb
+ 0001:000304F0       sanitize_cybmods_fmtver11_flags
  0001:000305A8       find_nearest_object2
  0001:0003076C       load_missions
  0001:000308FC       unused_load_genvehic
  0001:00030944       unused_load_weapon_defs
  0001:0003098C       unused_load_moddefs
- 0001:000309D4       game_setup_sub8
+ 0001:000309D4       load_peep_type_stats
+ 0001:00030A1C       load_netscan_objectives
  0001:00030A9C       level_misc_update
  0001:00030B7C       load_objectives_text
  0001:00030C24       unkn_f_pressed_func
- 0001:00030CFC       load_mad_console_0
+ 0001:00030CFC       load_level_pc
  0001:00031840       search_things_for_index
  0001:000318C8       search_things_for_uniqueid
  0001:00031954       unused_sub_31954
  0001:000319E4       unkn_lights_processing
- 0001:00031C38       unkn_buildings_processing
- 0001:00031E7C       new_thing_type10
+ 0001:00031C38       update_map_thing_and_traffic_refs
+ 0001:00031E7C       new_thing_traffic_clone
  0001:00031F6C       fix_single_objective
  0001:00032060       find_platform
  0001:000320B4       fix_level_indexes
- 0001:00032578       load_tmap_ani_unused
- 0001:0003260C       save_tmap_ani_unused
+ 0001:00032578       load_texture_map_ani
+ 0001:0003260C       save_texture_map_ani
  0001:0003266C       unused_func_086
  0001:00032718       thing_light_unkn_087_unused
  0001:00032830       thing_light_unkn_088_unused
@@ -155,7 +175,7 @@
  0001:00033290       unused_func_094
  0001:00033424       save_game_checksum
  0001:00033478       load_game
- 0001:0003422C       save_game
+ 0001:0003422C       save_game_write
  0001:00034A84       open_file_from_wad
  0001:00034B98       load_file_wad
  0001:00034CF4       read_conf_file
@@ -181,12 +201,14 @@
  0001:000359E0       smack_malloc_free_all
  0001:000359F0       LbIffSave_
  0001:00036200       W?get_highest_file_no$n(pnaucpna)ul
+ 0001:00036270       unkn_player_group_add
+ 0001:0003631C       unkn_player_group_prot
  0001:0003643C       do_change_mouse
  0001:00036480       do_rotate_map
  0001:00036638       do_scroll_map
  0001:00036D14       weapon_select_input
  0001:000370F4       do_user_interface
- 0001:00038BEC       get_next_player
+ 0001:00038BEC       get_next_player_agent
  0001:00038CE8       process_send_person
  0001:00038DC8       check_panel_button
  0001:0003A260       process_panel_state
@@ -204,11 +226,12 @@
  0001:0003D700       read_palette_file
  0001:0003D72C       draw_game
  0001:0003D820       init_game
+ 0001:0003D904       func_3d904
  0001:0003D9D8       game_process_sub08
- 0001:0003DB94       game_process_sub09
- 0001:0003DC00       copy_to_screen
+ 0001:0003DB94       scene_post_effect_prepare
+ 0001:0003DC00       copy_from_screen_ani
  0001:0003DC68       joy_input
- 0001:0003DD74       game_process_sub01
+ 0001:0003DD74       update_tick_time
  0001:0003DE08       W?input$n()v
  0001:0003DE68       unused_func_098
  0001:0003DEA0       unused_func_099
@@ -217,13 +240,14 @@
  0001:0003DF90       unused_func_101
  0001:0003E124       unused_func_102
  0001:0003E18C       W?game_process$n()v
+ 0001:0003E580       player_chat_message_add_key
  0001:0003E728       process_packets
  0001:0003FDCC       unused_func_010
  0001:0003FE78       unused_func_011
  0001:0003FF04       net_unkn_check_1
  0001:000403E0       unused_func_103
  0001:00040434       unused_func_012
- 0001:000408A4       unused_func_013
+ 0001:000408A4       create_tables_file
  0001:0004092C       game_setup_stuff
  0001:000409F8       clear_unkn_func_014_unused
  0001:00040A64       set_default_user_settings
@@ -254,7 +278,7 @@
  0001:00042BA0       apply_full_light
  0001:00042D00       is_animating
  0001:00042D58       element_unkn_func_05
- 0001:00042E70       frame_unkn_func_06
+ 0001:00042E70       generate_shadows_for_multicolor_sprites
  0001:000431E4       apply_super_quick_light
  0001:00043410       light_cmd_unkn_func_05
  0001:000434A4       light_cmd_unkn_func_06
@@ -267,7 +291,7 @@
  0001:00044D74       quick_light_unkn_func_08
  0001:00044F04       quick_light_unkn_func_09
  0001:00045020       unkn_obj_faces4_lights_func_10
- 0001:0004557C       unkn_lights_func_11
+ 0001:0004557C       map_lights_update
  0001:00045B40       LbRandomAnyShort
  0001:00045B68       LbRandomPosShort
  0001:00045B84       calc_normal
@@ -319,8 +343,8 @@
  0001:00049EA8       check_for_people
  0001:0004A018       should_i_get_item
  0001:0004A118       check_for_other_people
- 0001:0004A63C       unused_calc_lighting_0
- 0001:0004A6D8       unused_func_109
+ 0001:0004A63C       add_person_shadow_UNUSED
+ 0001:0004A6D8       reset_person_shadows_UNUSED
  0001:0004A700       calc_lighting
  0001:0004A7F8       nullsub_3
  0001:0004A7FC       unkn_update_thing_to_light
@@ -397,7 +421,7 @@
  0001:00054508       person_go_plant_mine
  0001:0005452C       qdist_to_thing
  0001:00054564       person_use_vehicle
- 0001:000545E4       person_unkn_leave_veh
+ 0001:000545E4       person_attempt_to_leave_ferry
  0001:00054744       person_catch_train
  0001:000547C0       person_wait_train
  0001:000547E0       process_follow_person
@@ -486,14 +510,14 @@
  0001:0005C888       check_col_collision
  0001:0005CA40       unused_func_116
  0001:0005CB0C       check_big_point_triangle
- 0001:0005CBC4       unused_func_117
+ 0001:0005CBC4       set_mapel_col_columns
  0001:0005CC60       unused_func_118
  0001:0005CC88       unused_func_119
- 0001:0005CD30       unused_func_120
+ 0001:0005CD30       unkn_draw_intersect2_unused
  0001:0005CDF0       two4_line_intersection
- 0001:0005CF5C       unused_func_121
+ 0001:0005CF5C       find_vect_for_face_at_coords
  0001:0005CFF0       unused_func_122
- 0001:0005D0A0       unused_func_123
+ 0001:0005D0A0       collide_coords
  0001:0005D384       remove_col_list_item
  0001:0005D3B4       dynamic_add_collision_to_single_mapwho
  0001:0005D440       dynamic_insert_vect
@@ -501,23 +525,26 @@
  0001:0005D694       delete_vect
  0001:0005D850       get_my_texture_bits
  0001:0005DB4C       search_object_for_qface
+ 0001:0005DBE0       thin_wall_around_static
  0001:0005DC74       unused_func_125
  0001:0005DD7C       get_height_on_face
  0001:0005DF9C       get_height_on_face_quad
- 0001:0005E20C       set_thing_height_on_face64
- 0001:0005E4FC       set_thing_height_on_face
+ 0001:0005E20C       set_thing_height_on_face_tri64
+ 0001:0005E4FC       set_thing_height_on_face_tri
  0001:0005E544       set_thing_height_on_face_quad64
  0001:0005E7F0       set_thing_height_on_face_quad
  0001:0005E840       inside_the_quad
  0001:0005EAE0       inside_the_triangle
  0001:0005EC6C       find_and_set_connected_face
  0001:0005EEE8       unused_func_126
- 0001:0005EFF0       unused_func_127
- 0001:0005F0E0       unused_func_128
+ 0001:0005EFF0       thin_wall_at_line_rm
+ 0001:0005F0E0       thin_wall_around_object_rm
  0001:0005F6E4       del_thing_vectors_from_mapwho
  0001:0005F794       unused_func_129
  0001:0005F8B4       tank_los
+ 0001:0005FE50       fly_los
  0001:00060090       unused_func_130
+ 0001:00060130       in_box
  0001:0006016C       unused_func_131
  0001:000601FC       create_unkn_building_subtp27
  0001:000602A4       unused_func_132
@@ -533,10 +560,12 @@
  0001:000610F4       unused_func_133
  0001:000618A0       on_mapwho
  0001:00061924       unused_func_134
- 0001:00061E30       apply_unkn_vehicle50_damage
- 0001:00062044       init_arrays_1
+ 0001:00061E30       hurt_nearby_flying_vehicles
+ 0001:00062044       init_free_explode_faces
  0001:000620AC       unused_func_135
  0001:000620E0       unused_func_136
+ 0001:00062114       unkn1_explode_faces
+ 0001:0006276C       unkn2_explode_faces
  0001:00062A38       mapwho_unkn01
  0001:00062E10       do_shockwave_vehicle
  0001:00062E94       do_shockwave_building
@@ -565,7 +594,7 @@
  0001:00068C60       build_electricity_strand
  0001:00068D1C       build_electricity
  0001:00068E28       build_laser
- 0001:0006953C       build_razor_wire
+ 0001:0006953C       build_razor_wire_strand
  0001:000697B0       do_beam_electric
  0001:00069A34       build_laser_beam
  0001:0006A2E0       build_laser_beam_q
@@ -575,7 +604,7 @@
  0001:0006AF88       unused_func_142
  0001:0006B04C       unused_func_143
  0001:0006B080       unused_func_144
- 0001:0006B138       gproc3_unkn_null_func_3
+ 0001:0006B138       show_unkn3A_screen
  0001:0006B13C       build_continuos_slice_3d
  0001:0006B254       unused_func_145
  0001:0006B3D4       calc_angle_rate
@@ -585,7 +614,7 @@
  0001:0006B98C       make_peep_flee
  0001:0006B9E8       search_for_danger
  0001:0006BB78       longest_range_weapon
- 0001:0006BB9C       current_weapon_range
+ 0001:0006BB9C       _current_hand_weapon_range
  0001:0006BBC0       get_target_priority
  0001:0006BCF0       find_a_target
  0001:0006BF10       available_for_guard_duty
@@ -609,15 +638,19 @@
  0001:0006D9F8       people_intel
  0001:0006DE00       setup_host_sub6
  0001:0006DE5C       flic_func_147
- 0001:0006DEB0       flic_unkn02
+ 0001:0006DEB0       flic_frame
  0001:0006DF90       flic_creation_unkn01
  0001:0006E604       play_smacker
  0001:0006E870       flic_unkn03
  0001:0006EC54       flic_netscan_open_anim
  0001:0006EC94       init_weapon_anim
+ 0001:0006EDB8       xdo_next_frame
  0001:0006EF28       unused_func_148
+ 0001:0006F0C0       anim_show_FLI_SS2
+ 0001:0006F38C       anim_show_FLI_LC
+ 0001:0006F65C       anim_show_FLI_BRUN
  0001:0006F800       unused_func_149
- 0001:0006F828       thing_noop_unkn1
+ 0001:0006F828       merged_noop_unkn1
  0001:0006F82C       test_open
  0001:0006F830       unused_func_150
  0001:0006F878       draw_text
@@ -631,15 +664,20 @@
  0001:0006FC64       unused_func_153
  0001:0006FDB4       unkn_draw_transformed_point
  0001:0006FE0C       unused_func_154
+ 0001:0006FE80       func_6fe80
+ 0001:000705BC       draw_map_flat_rect
  0001:000708B0       unused_func_155
  0001:00070958       draw_3d_map_corn_square
  0001:00070BD8       unused_func_156
  0001:00070C50       draw_text_transformed_at_ground
- 0001:00070CDC       unused_func_157
- 0001:00070DFC       unused_func_158
+ 0001:00070CDC       draw_number_transformed_at_ground
+ 0001:00070D80       draw_text_transformed
+ 0001:00070DFC       draw_number_transformed
  0001:00070E90       draw_unkn1_bar
  0001:00070F94       draw_engine_unk3_last
+ 0001:000711F4       draw_map_flat_circle
  0001:00071448       unused_func_159
+ 0001:00071B90       pause_screen_handle
  0001:00073798       gproc3_unknsub2
  0001:00073B98       unused_func_160
  0001:00073D08       init_person_thing
@@ -652,13 +690,16 @@
  0001:000745B4       global_3d_store
  0001:00074718       search_for_station
  0001:0007486C       train_related_func_01
+ 0001:000749FC       func_749fc
  0001:00074AF8       unused_func_161
  0001:00074B58       unused_func_162
- 0001:00074C4C       clear_mission_status
+ 0001:00074C4C       clear_open_mission_status
  0001:00074CDC       init_level
  0001:00075508       unused_func_163
- 0001:0007564C       unused_func_164
+ 0001:0007554C       create_building_thing
+ 0001:0007564C       create_sim_person_owned_by
  0001:00075674       replace_thing_given_thing_idx
+ 0001:000756E4       unkn_create_random_person
  0001:00075828       create_item
  0001:000759DC       new_sim_person
  0001:00075C3C       init_lists
@@ -739,7 +780,7 @@
  0001:0007CDE4       init_vehicle_explode
  0001:0007CFC0       track_target
  0001:0007D100       init_mgun_laser
- 0001:0007D37C       shoot_at_target
+ 0001:0007D37C       mgun_shoot_at_target
  0001:0007D3A4       rotate_object
  0001:0007D424       aquire_target
  0001:0007D5C8       mounted_los
@@ -819,7 +860,7 @@
  0001:000836F8       ma_triangle_route_given
  0001:00083834       W?triangle_route_do_unkn3$n(llpnlpnl)l
  0001:00083FA4       W?triangle_route_do_unkn4$n(llpnlpnl)l
- 0001:000846FC       W?ma_triangle_route_3$n(llpnl)l
+ 0001:000846FC       W?ma_triangle_route_5$n(llpnl)l
  0001:00084838       distance_unkn_is_above_128
  0001:000848A4       triangles_update_flags_unkn_1
  0001:00084924       W?triangle_route_do_unkn5$n(llpnlpnl)l
@@ -857,7 +898,7 @@
  0001:00087EA8       unused_func_188
  0001:00087F98       make_triangle_solid
  0001:00087FC4       triangulation_unkn_func_002
- 0001:00088320       triangulation_unused_func_189
+ 0001:00088320       triangulation_clear_enter_into_solid
  0001:000884B0       game_exit_unused
  0001:000884C4       game_vsync_unused
  0001:000884D8       game_conditional_exit_usused
@@ -881,56 +922,56 @@
  0001:0008C578       W?KInt$f()v_1
  0001:0008C70C       find_the_tall_buildings
  0001:0008C7F0       convert_to_language
- 0001:0008C84C       show_unkn32_box
- 0001:0008D0D8       show_unkn12
+ 0001:0008C84C       show_citymap_box
+ 0001:0008D0D8       show_campaigns_list
  0001:0008D300       show_login_name
- 0001:0008D4E0       show_net_unkn23
+ 0001:0008D4E0       show_net_benefits_box
  0001:0008E2BC       purple_unkn3_data_to_screen
  0001:0008E32C       purple_unkn4_data_to_screen
  0001:0008E398       purple_unkn1_data_to_screen
- 0001:0008E3C0       show_net_unkn21
- 0001:0008E7EC       show_net_unkn22
+ 0001:0008E3C0       show_net_grpaint
+ 0001:0008E7EC       show_net_comms_box
  0001:0008EB50       do_net_protocol_select
- 0001:0008EDE0       show_net_unkn19
- 0001:0008FBD8       show_net_unkn25
- 0001:0008FED4       show_net_unkn24
- 0001:000901E0       show_net_unkn27
- 0001:000906E4       show_net_unkn26
+ 0001:0008EDE0       show_net_protocol_box
+ 0001:0008FBD8       show_net_faction_box
+ 0001:0008FED4       show_net_team_box
+ 0001:000901E0       show_net_groups_box
+ 0001:000906E4       show_net_users_box
  0001:00090D30       load_lost_wad_unused
  0001:00090D98       show_mission_stats
- 0001:000917B8       show_unkn31_box
- 0001:000924D0       show_unkn20
+ 0001:000917B8       show_mission_people_stats
+ 0001:000924D0       show_research_graph
  0001:000930DC       show_unkn21_box
- 0001:00093F30       show_unkn04
- 0001:00094844       show_unkn33_box
+ 0001:00093F30       show_audio_volume_box
+ 0001:00094844       show_audio_tracks_box
  0001:00094990       show_netgame_unkn1
- 0001:00094F08       show_menu_storage_unkn37_box
- 0001:00095910       show_unkn29_box
+ 0001:00094F08       show_menu_storage_slots_box
+ 0001:00095910       show_world_landmap_box
  0001:00096F80       display_weapon_info
  0001:00097654       show_weapon_name
  0001:00097718       show_weapon_list
  0001:00097C44       draw_fourpack_slots
  0001:00097D5C       show_weapon_slots
- 0001:00098278       show_agent_list
- 0001:00098B80       show_blokey
- 0001:00098F1C       show_unkn18_box
- 0001:00099AC8       show_unkn36_box
- 0001:00099E90       update_menus
+ 0001:00098278       show_cryo_agent_list
+ 0001:00098B80       show_cryo_blokey
+ 0001:00098F1C       show_cryo_cybmod_list_box
+ 0001:00099AC8       show_brief_netscan_box
+ 0001:00099E90       init_equip_screen_shapes
  0001:00099FEC       W?init_screen_boxes$n()v
  0001:0009BA5C       show_netgame_unkn_case1
- 0001:0009BBE4       show_unkn34_box
- 0001:0009C5D8       show_netgame_unkn_case3
+ 0001:0009BBE4       show_controls_joystick_box
+ 0001:0009C5D8       show_settings_controls_list
  0001:0009D460       show_main_screen
  0001:0009D4EC       show_pause_screen
- 0001:0009D584       show_type11_screen
+ 0001:0009D584       show_debrief_screen
  0001:0009D628       show_mission_screen
- 0001:0009D7B8       show_netgame_screen
- 0001:0009DE34       unused_func_303
+ 0001:0009D7B8       show_sysmenu_screen
+ 0001:0009DE34       show_worldmap_screen
  0001:0009DEB8       show_research_screen
  0001:0009E0B8       show_equipment_screen
  0001:0009ECF0       show_cryo_chamber_screen
  0001:0009F5E0       show_date_time
- 0001:0009FE28       unkn_research_func)006
+ 0001:0009FE28       show_purple_apps_selection_bar
  0001:000A0ED8       init_read_all_sprite_files
  0001:000A13D8       W?show_menu_screen$n()v
  0001:000A3440       W?my_set_text_window$n(usususus)v
@@ -950,7 +991,7 @@
  0001:000A51E8       unused_func_263
  0001:000A520C       is_a_scientist_mission
  0001:000A523C       open_new_mission
- 0001:000A52AC       tweak_for_compound_mission_m88_m100
+ 0001:000A52AC       compound_mission_immediate_start_next
  0001:000A53F0       tweak_for_compound_mission_m84
  0001:000A550C       delete_open_mission
  0001:000A5EC8       mission_over
@@ -1012,17 +1053,17 @@
  0001:000AC4C8       SCANNER_find_colour
  0001:000AC57C       SCANNER_outline
  0001:000AC68C       SCANNER_fill_in
- 0001:000AC9F8       SCANNER_draw_mark_point3_blink1
- 0001:000ACA48       SCANNER_draw_mark_point5_blink3
+ 0001:000AC9F8       SCANNER_draw_mark_point3_blink2
+ 0001:000ACA48       SCANNER_draw_mark_point7_blink4
  0001:000ACC30       SCANNER_draw_mark_point7
  0001:000ACE18       SCANNER_init_bbpoints
  0001:000ACE64       SCANNER_process_bbpoints
- 0001:000ACF8C       SCANNER_unused_func_031
+ 0001:000ACF8C       SCANNER_draw_unused_func_031
  0001:000AD188       SCANNER_find_position
  0001:000AD2F4       SCANNER_unkn_func_196
  0001:000ADF44       SCANNER_draw_new_transparent
  0001:000AFCE4       SCANNER_unused_func_197
- 0001:000AFD60       SCANNER_unkn_func_200
+ 0001:000AFD60       AppSpriteDrawDoubleOneColour
  0001:000AFEF8       SCANNER_unkn_func_201
  0001:000AFF98       SCANNER_unkn_func_202
  0001:000B00E8       SCANNER_unkn_func_203
@@ -1040,9 +1081,9 @@
  0001:000B1160       give_some_shrapnel
  0001:000B118C       give_some_phwoar
  0001:000B11D8       fillin_phwoar_type_info
- 0001:000B1B30       bang_new_new
- 0001:000B2638       bang_new_0
- 0001:000B264C       bang_new
+ 0001:000B1B30       new_bang
+ 0001:000B2638       bang_new5
+ 0001:000B264C       bang_new4
  0001:000B2660       block_screen_copy
  0001:000B26CC       button_text
  0001:000B2780       info_box_text
@@ -1066,13 +1107,13 @@
  0001:000B7A64       draw_hotspot_purple_list
  0001:000B7AFC       W?draw_purple_screen$n()v
  0001:000B8860       unused_func_200
- 0001:000B8914       unused_func_201
- 0001:000B8ACC       unused_func_202
+ 0001:000B8914       search_for_thing_for_debug
+ 0001:000B8ACC       select_thing_for_debug
  0001:000B8C0C       unused_func_203
  0001:000B8F48       person_command_to_text
- 0001:000BA010       unused_func_204
- 0001:000BA6E4       unused_func_205
- 0001:000BAC50       unused_func_022
+ 0001:000BA010       person_command_dbg_point_to_target
+ 0001:000BA6E4       person_commands_debug_hud
+ 0001:000BAC50       things_debug_hud
  0001:000BB3E0       unused_func_023
  0001:000BB474       find_next_ship_tnode
  0001:000BB534       process_ship
@@ -1127,8 +1168,8 @@
  0001:000C0ED4       unkn_path_func_001
  0001:000C1020       unused_func_216
  0001:000C1070       unused_func_217
- 0001:000C1160       load_mad_console
- 0001:000C18C0       __init_unkn1
+ 0001:000C1160       load_mad_pc
+ 0001:000C18C0       __init_bin_obj_sizes
  0001:000C191C       unused_func_218
  0001:000C1948       unused_func_219
  0001:000C1964       setup_mele
@@ -1211,8 +1252,11 @@
  0001:000CBCBC       load_outro_sprites
  0001:000CC004       string_width_med2_font
  0001:000CC058       unused_func_224
+ 0001:000CC0D4       func_cc0d4
+ 0001:000CC4E8       unused_sub_CC4E8
  0001:000CC900       init_outro
  0001:000CCD10       is_mission_active_in_city
+ 0001:000CCE8C       reinit_starting_credits
  0001:000CCEE8       my_net_session_callback
  0001:000CCF00       is_unkn_current_player
  0001:000CCF28       net_unkn_func_29
@@ -1225,7 +1269,7 @@
  0001:000CE7C8       font_height
  0001:000CE93C       update_flic_mods
  0001:000CEA50       init_next_blokey_flic
- 0001:000CEE8C       draw_body_mods
+ 0001:000CEE8C       draw_blokey_body_mods
  0001:000CF150       load_save_slot_names
  0001:000CF1E4       init_weapon_text
  0001:000CF3C4       load_netscan_data
@@ -1236,24 +1280,24 @@
  0001:000CFA64       remove_agent
  0001:000CFBD8       add_agent
  0001:000CFD88       update_mission_time
- 0001:000CFFB8       purple_mods_data_to_screen
+ 0001:000CFFB8       blokey_bkgnd_data_to_screen
  0001:000D0090       show_alert_box
  0001:000D01F8       find_closest_city
  0001:000D0270       reload_background
  0001:000D0380       user_read_value
  0001:000D051C       time_difference
  0001:000D0548       draw_weapon_slot
- 0001:000D0600       show_unkn04_func_02
- 0001:000D06F4       mouse_in_rect_adv
- 0001:000D08DC       mouse_in_rect
+ 0001:000D0600       show_audio_volume_box_func_02
+ 0001:000D06F4       mouse_move_over_rect_adv
+ 0001:000D08DC       mouse_move_over_rect
  0001:000D0994       free_slot
  0001:000D0AA4       LbDrawSlantBox
  0001:000D0B9C       init_variables
  0001:000D0D14       srm_reset_research
- 0001:000D0DE8       research_unkn_func_002
+ 0001:000D0DE8       research_allow_weapons_in_cryo
  0001:000D0E34       research_unkn_func_003
  0001:000D0E60       research_unkn_func_004
- 0001:000D0F58       research_unkn_func_005
+ 0001:000D0F58       research_daily_progress_for_type
  0001:000D1604       research_unkn_func_006
  0001:000D1ED4       load_mail_text
  0001:000D1F28       queue_up_new_mail
@@ -1267,16 +1311,16 @@
  0001:000D278C       blokey_static_flic_data_to_screen
  0001:000D299C       SCANNER_data_to_screen
  0001:000D29A4       show_title_box
- 0001:000D2A84       show_unkn38_box
+ 0001:000D2A84       show_world_city_info_box
  0001:000D2D2C       select_all_agents
  0001:000D2D3C       do_net_protocol_option
  0001:000D2E90       do_net_unkn40
  0001:000D2EA4       do_serial_speed_switch
  0001:000D2F18       change_panel_permutation
  0001:000D2FE4       change_trenchcoat_preference
- 0001:000D3038       do_unkn10_CALIBRATE
- 0001:000D3040       do_unkn10_SAVE
- 0001:000D3078       do_unkn10_CONTROLS
+ 0001:000D3038       do_controls_defaults
+ 0001:000D3040       do_controls_save
+ 0001:000D3078       do_controls_calibrate
  0001:000D30A4       alert_OK
  0001:000D30CC       do_net_SET2
  0001:000D3128       do_net_SET
@@ -1298,14 +1342,14 @@
  0001:000D3B5C       do_login_2
  0001:000D3E0C       main_do_map_editor
  0001:000D3E18       brief_do_netscan_enhance
- 0001:000D3FF8       do_unkn11_CANCEL
- 0001:000D4090       do_buy_equip
+ 0001:000D3FF8       do_cryo_offer_cancel
+ 0001:000D4090       do_equip_offer_buy
  0001:000D4FDC       sell_equipment
  0001:000D56D0       do_research_submit
  0001:000D5784       do_research_suspend
  0001:000D57B8       do_unkn12_WEAPONS_MODS
- 0001:000D5870       load_credits_and_sound
- 0001:000D5994       person_func_unknown_310
+ 0001:000D5870       setup_heaps
+ 0001:000D5994       update_danger_music
  0001:000D5AD0       fill_ail_sample_ids
  0001:000D5B10       verify_ail_sample_ids
  0001:000D5B60       create_sound_effect
@@ -1319,7 +1363,7 @@
  0001:000D6514       play_disk_sample
  0001:000D6548       play_dist_speech
  0001:000D6598       set_dist_volume
- 0001:000D6650       FIRE_init
+ 0001:000D6650       FIRE_init_or_samples_init
  0001:000D66A4       FIRE_get_flame
  0001:000D66E8       FIRE_give_flame
  0001:000D6738       FIRE_new
@@ -1338,7 +1382,7 @@
  0001:000DCEB0       W?dos_alloc$n(ul)ul
  0001:000DCF00       W?dos_free$n(us)v
  0001:000DCF40       BAT_draw_char
- 0001:000DCFF8       unused_func_231
+ 0001:000DCFF8       BAT_print
  0001:000DD038       unused_func_232
  0001:000DD098       unused_func_233
  0001:000DD0F8       unused_func_234
@@ -1346,12 +1390,12 @@
  0001:000DD210       breakout_play_sub1
  0001:000DD620       breakout_play_sub2
  0001:000DD878       BAT_unknsub_28
- 0001:000DD980       BAT_unknsub_29
- 0001:000DD9E0       BAT_unknsub_30
+ 0001:000DD980       BAT_reset_free_balls
+ 0001:000DD9E0       BAT_new_ball
  0001:000DDA40       BAT_unknsub_31
  0001:000DDA88       BAT_unknsub_32
  0001:000DDAB0       BAT_unknsub_33
- 0001:000DDAE0       breakout_sub_DDAE0
+ 0001:000DDAE0       BAT_bricks_load
  0001:000DDB64       BAT_unknsub_20
  0001:000DDCF8       BAT_unknsub_21
  0001:000DDF38       BAT_unknsub_22
@@ -1371,7 +1415,7 @@
  0001:000DFD60       W?heapmgr_complete_defrag$n(pn$HeapMgrHeader$$)v
  0001:000DFDB0       W?find_free_handle$n(pn$HeapMgrHeader$$)pn$HeapMgrHandle$$
  0001:000DFDE0       setup_heap_manager
- 0001:000E00A8       nullsub_10
+ 0001:000E00A8       reset_heaps
  0001:000E00AC       sound_unused_func_0320
  0001:000E00E0       W?process_sound_heap$n()v
  0001:000E018C       W?stop_sample_using_heap$n(ulsuc)v
@@ -1393,7 +1437,7 @@
  0001:000E0FD0       memset_
  0001:000E0FE8       mem_putc_
  0001:000E0FFB       sprintf_
- 0001:000E1030       joy_grip_init
+ 0001:000E1030       joy_driver_init
  0001:000E11A8       joy_grip_shutdown
  0001:000E11BA       GrShutdown_1
  0001:000E123C       joy_func_067
@@ -1420,7 +1464,7 @@
  0001:000E3648       joy_unused_func_059
  0001:000E368C       unused_off_E368C
  0001:000E36E4       joy_unused_func_057
- 0001:000E3A78       joy_grip_unknsub_08
+ 0001:000E3A78       JoySetInterrupt
  0001:000E3A90       joy_func_063
  0001:000E3AD0       joy_unused_func_055
  0001:000E3B48       joy_unused_func_056
@@ -1544,6 +1588,7 @@
  0001:000E9BA0       W?screen_place$n()l
  0001:000E9E58       W?screen_remove$n(ul)l
  0001:000EA01C       arctan
+ 0001:000EA128       lbArcTanFactors
  0001:000EA32A       time_
  0001:000EA359       strrchr_
  0001:000EA373       toupper_
@@ -1559,7 +1604,7 @@
  0001:000EAAB0       LbPaletteFade_
  0001:000EACA8       LbPaletteStopOpenFade_
  0001:000EACBC       LbPaletteFindColour_
- 0001:000EB088       unused_func_239
+ 0001:000EB088       LbPaletteDraw_
  0001:000EB170       set_smack_malloc_
  0001:000EB178       set_smack_free_
  0001:000EB180       play_smk_
@@ -1567,7 +1612,7 @@
  0001:000EB388       W?play_smk_via_buffer$n(pnall)l
  0001:000EB4EC       RADMALLOC
  0001:000EB508       RADFREE
- 0001:000EB518       W?copy_to_screen$n(pnucululul)v
+ 0001:000EB518       W?copy_to_screen_smk$n(pnucululul)v
  0001:000EB7C0       InitAudio_
  0001:000EBA90       W?prepare_SB16_volumes$n()v
  0001:000EBBC0       W?reset_SB16_volumes$n()v
@@ -1683,8 +1728,8 @@
  0001:000EEFE3       _exit_
  0001:000EF000       DangerMusicFadeTick
  0001:000EF150       DangerMusicFadeSwitch
- 0001:000EF290       SetSampleTempo
- 0001:000EF2E0       SetSampleTempoNormal
+ 0001:000EF290       SetMusicTempo
+ 0001:000EF2E0       SetMusicTempoNormal
  0001:000EF340       ReleaseLoopedSample
  0001:000EF3B0       SetSamplePitch_
  0001:000EF460       LbDrawTriangle_
@@ -1786,8 +1831,8 @@
  0001:000F4860       VFX1MouseIntB
  0001:000F48C8       vfx1_freeDOS
  0001:000F48F0       vfx1_allocDOS
- 0001:000F4958       vfx1_unkn_func_10
- 0001:000F496C       vfx1_unkn_func_11
+ 0001:000F4958       headset_stereo_on
+ 0001:000F496C       headset_stereo_off
  0001:000F4980       vfx1_unkn_func_12
  0001:000F49C0       CallIPX_
  0001:000F4A38       CallRealModeInterrupt_
@@ -1834,21 +1879,21 @@
  0001:000F7D10       W?run_exchange_function$n()l
  0001:000F7D20       W?run_fld2C_function$n()l
  0001:000F7D30       W?run_join_function$n()l
- 0001:000F7D40       netsvc6_service_init
- 0001:000F7E18       netsvc6_shutdown
- 0001:000F7E2C       netsvc6_create_session_
- 0001:000F7F50       netsvc6_join_session_
- 0001:000F81E4       netsvc6_session_list
- 0001:000F84A0       netsvc6_update
- 0001:000F8620       netsvc6_unkn_func_18
- 0001:000F871C       netsvc6_unkn_func_17
- 0001:000F8768       netsvc6_exchange_packets_
- 0001:000F8E38       netsvc6_unkn_func_16
- 0001:000F8F70       netsvc6_unused_unkn_func_12
- 0001:000F8FE0       netsvc6_unkn_func_15
- 0001:000F9210       netsvc6_unkn_func_13
- 0001:000F9288       netsvc6_unkn_func_14
- 0001:000F92BC       netsvc6_unkn_func_11
+ 0001:000F7D40       radica_service_init
+ 0001:000F7E18       radica_shutdown
+ 0001:000F7E2C       radica_create_session_
+ 0001:000F7F50       radica_join_session_
+ 0001:000F81E4       radica_session_list
+ 0001:000F84A0       radica_update
+ 0001:000F8620       radica_unkn_func_18
+ 0001:000F871C       radica_unkn_func_17
+ 0001:000F8768       radica_exchange_packets_
+ 0001:000F8E38       radica_unkn_func_16
+ 0001:000F8F70       radica_unused_unkn_func_12
+ 0001:000F8FE0       radica_unkn_func_15
+ 0001:000F9210       radica_unkn_func_13
+ 0001:000F9288       radica_unkn_func_14
+ 0001:000F92BC       radica_unkn_func_11
  0001:000F935C       __init_unkn2
  0001:000F93BE       LbCommInit_
  0001:000F95A0       LbCommSetBaud_
@@ -1926,21 +1971,21 @@
  0001:000FBAD0       LbDirectoryCurrent_
  0001:000FBB60       LbDirectoryExists_
  0001:000FBBA8       LbDirectoryRemove_
- 0001:000FBBD0       MSSLite_shutdown
- 0001:000FBBF0       MSSLite_init
+ 0001:000FBBD0       SMACKSOUNDMSSLITEDONE
+ 0001:000FBBF0       SMACKSOUNDMSSLITEINIT
  0001:000FBC20       SMACKSOUNDUSEMSS
  0001:000FBCE0       MSSLOWSOUNDVOLPAN
- 0001:000FBD50       MSSSMACKTIMERSETUP
- 0001:000FBD90       MSSSMACKTIMERDONE
+ 0001:000FBD50       MSSSMACKTIMERDONE
+ 0001:000FBD90       MSSSMACKTIMERSETUP
  0001:000FBE40       MSSSMACKTIMERREAD
- 0001:000FBEB0       MSS_func_unkn_01
+ 0001:000FBEB0       _mss_int
  0001:000FBEC0       MSSLOWSOUNDCLOSE
  0001:000FBF40       MSSLOWSOUNDPURGE
  0001:000FBF80       MSSLOWSOUNDOPEN
  0001:000FC140       doinit_
  0001:000FC1D0       MSSLOWSOUNDPLAYED
  0001:000FC210       MSSLOWSOUNDCHECK
- 0001:000FC300       MSS_func_unkn_02
+ 0001:000FC300       bothdone_
  0001:000FC340       SMACKWRAPCOPY
  0001:000FC3C0       SMACKWAIT
  0001:000FC4E0       SMACKSOUNDCHECK
@@ -1955,6 +2000,7 @@
  0001:000FCF30       SMACKTOSCREEN
  0001:000FD490       PutWidths_
  0001:000FD4D0       SMACKNEXTFRAME
+ 0001:000FD580       SMACKSUMMARY
  0001:000FD680       timeframe_
  0001:000FD7A0       SMACKDOFRAME
  0001:000FD880       doskip_
@@ -2335,14 +2381,14 @@
  0001:0010F150       DEFSMACKTIMERDONE
  0001:0010F160       DEFSMACKTIMERREAD
  0001:0010F1B0       _DLL_read
- 0001:0010F210       _MEM_use_malloc
- 0001:0010F220       _MEM_use_free
- 0001:0010F230       _MEM_alloc_lock
- 0001:0010F260       _MEM_free_lock
- 0001:0010F290       _MEM_alloc_DOS
- 0001:0010F2E0       _MEM_free_DOS
- 0001:0010F2F0       _VMM_lock_range
- 0001:0010F360       _VMM_unlock_range
+ 0001:0010F210       AIL_MEM_use_malloc
+ 0001:0010F220       AIL_MEM_use_free
+ 0001:0010F230       AIL_MEM_alloc_lock
+ 0001:0010F260       AIL_MEM_free_lock
+ 0001:0010F290       AIL_MEM_alloc_DOS
+ 0001:0010F2E0       AIL_MEM_free_DOS
+ 0001:0010F2F0       AIL_VMM_lock_range
+ 0001:0010F360       AIL_VMM_unlock_range
  0001:0010F3D0       _AIL_vmm_lock
  0001:0010F3F0       _AIL_vmm_unlock
  0001:0010F410       _DLL_size
@@ -2921,9 +2967,11 @@
  0001:00127D43       setup_vecs_
  0001:00127DAF       poly_line_
  0001:001281CC       prop_text
- 0001:00128380       draw_gpoly_
+ 0001:00128380       draw_trigpoly_
+ 0001:0012B820       gpoly_divtable
  0001:0012D830       LbSpriteDraw_1
  0001:00133828       LbSpriteDraw_2
+ 0001:0013496C       jpt_133947
  0001:00135190       DrawAlphaSpriteUsingScalingData_
  0001:00136A08       SetAlphaScalingData_
  0001:00136D20       LbSpriteDrawUsingScalingData_
@@ -3230,6 +3278,7 @@
  0003:00152E9E       waft_table
  0003:00152EE4       engn_xc
  0003:00152EE8       engn_zc
+ 0003:00152F00       next_floor_tile
  0003:00152F04       shadowtexture
  0003:00153054       unk01_load_files
  0003:0015315C       conf_file_cmnds
@@ -3246,7 +3295,7 @@
  0003:001531E8       prim_object_faces_count
  0003:001531EA       prim_object_faces4_count
  0003:001531EC       prim_objects_count
- 0003:001531EE       next_traffic
+ 0003:001531EE       next_traffic_node
  0003:001531F0       next_mission
  0003:001531F2       fifties_per_gameturn
  0003:001531F4       next_anim_tmap
@@ -3258,23 +3307,27 @@
  0003:00153202       next_full_light
  0003:00153204       next_face_texture
  0003:00153206       next_floor_texture
+ 0003:00153208       unkn_texture_map_ani_count
  0003:0015320A       next_object_point
  0003:0015320C       next_object_face
  0003:0015320E       next_object_face4
  0003:00153210       next_object
  0003:00153212       next_light_command
- 0003:0015321A       commands_count
+ 0003:0015321A       next_command
+ 0003:0015321C       next_objective
  0003:0015321E       next_used_objective
+ 0003:00153220       next_used_lvl_objective
  0003:00153222       next_col_vect
  0003:00153224       next_vects_list
  0003:00153226       next_walk_header
  0003:00153228       next_walk_item
+ 0003:0015322A       next_unkn_full_light
  0003:00153230       next_local_mat
  0003:00153232       next_special_face
  0003:00153234       next_special_face4
  0003:00153238       mouse_map_x
  0003:0015323C       mouse_map_z
- 0003:00153240       seed
+ 0003:00153240       lbSeed
  0003:00153244       net_players_num
  0003:00153248       session_name
  0003:00153268       fadedat_fname
@@ -3289,7 +3342,8 @@
  0003:00153294       sprojdat_fname
  0003:00153298       zprojdat_fname
  0003:0015329C       bprojdat_fname
- 0003:001532B0       fname
+ 0003:001532B0       icons00_tab_fname
+ 0003:001532B4       icons00_dat_fname
  0003:001532D0       data_path_base
  0003:001532D4       paDataMsprD_dat
  0003:001532D8       palette_fname_fmt
@@ -3312,6 +3366,7 @@
  0003:00153328       game_dirs
  0003:00153350       sfx_man_shot
  0003:00153358       sfx_woman_shot
+ 0003:0015335A       angle_direction_m1__DiY
  0003:0015335C       angle_direction
  0003:0015337C       unkn01_maskarr
  0003:00153398       follow_dist
@@ -3321,9 +3376,11 @@
  0003:00153774       master_glare
  0003:001537B4       gameobjctv_names
  0003:00153820       objective_textnames
- 0003:00153884       poo_textnames
+ 0003:00153884       poo_textnames_or_jskeys_m46
  0003:001538B2       jskeys
  0003:001538E2       kbkeys
+ 0003:00153914       door_anim_page
+ 0003:00153934       gate_combo
  0003:001539C4       mem_game
  0003:00153D5C       people_frames
  0003:0015401C       weapon_defs
@@ -3339,31 +3396,31 @@
  0003:001546F8       game_panel_hi
  0003:00154838       game_panel
  0003:0015483C       zoom_levels
- 0003:00154872       pointer_hotspot
+ 0003:00154872       pointer_hotspot_m2
+ 0003:00154874       pointer_hotspot
  0003:00154890       peep_type_stats
  0003:001549E4       static_radii
  0003:00154AAC       person_st_text
- 0003:00154BBC       control_keys_text
+ 0003:00154BBC       lbKeyNames
  0003:00154F0C       aConfirmCritica
  0003:00154F68       seed_ps
  0003:00154F74       dont_bother_with_explode_faces
  0003:00154F88       plasma_width
  0003:00154F90       zig_zag
- 0003:00155003       mod1_anim_no
- 0003:00155008       mod2_anim_no
- 0003:00155018       z
+ 0003:00155000       anim_slots
+ 0003:0015501C       last_map_for_lights_func_11
  0003:00155020       quiver
  0003:0015505C       unplace
  0003:001550D0       W?nav_rulesA2B$npn(ll)l
  0003:001550D4       W?MOD3$n[]xl
  0003:001550EC       selected_triangulation_no
  0003:001550F0       W?tag_current$nuc
- 0003:00155120       net_unkn_pos_01
- 0003:00155138       a19200
- 0003:00155140       unkn_opt_number_text
+ 0003:00155120       controls_hlight_gkey
+ 0003:00155138       net_baudrate_text
+ 0003:00155140       net_proto_param_text
  0003:00155148       a100
- 0003:00155150       rate
- 0003:00155154       weapon
+ 0003:00155150       unkn_rate
+ 0003:00155154       mo_weapon
  0003:00155158       month_days
  0003:00155164       selected_weapon
  0003:00155165       selected_mod
@@ -3371,28 +3428,43 @@
  0003:00155167       research_selected_mod
  0003:00155168       research_on_weapons
  0003:00155169       unkn_city_no
- 0003:0015516A       city_id
- 0003:0015516B       unkstruct04_id
+ 0003:0015516A       selected_city_id
+ 0003:0015516B       selected_netscan_objective
  0003:0015518C       misc_text
- 0003:001551A0       shape_coords
+ 0003:001551A0       agent_panel_shape_points_x
+ 0003:001551B2       agent_panel_shape_points_y
+ 0003:001551C4       agent_name_shape_points_x
+ 0003:001551CE       agent_name_shape_points_y
+ 0003:001551D8       save_slot
+ 0003:001551DC       mod_group_type_strid
+ 0003:001551FC       show_menu_screen__incrementing_nubers
  0003:0015521C       subst_table_lower_to_upper
  0003:001552A4       subst_table_unknown1
+ 0003:001552E3       text_colours_m1
  0003:001552E4       text_colours
  0003:00155300       turn_last
  0003:00155304       rand_c
  0003:00155308       scanner_blink
  0003:0015530C       scanner_keys
+ 0003:00155340       circle_line_sz7
  0003:001553C8       scroll_text
- 0003:001553CC       proj_origin_m2
+ 0003:001553CC       scanner_unkn3CC
  0003:001553D0       W?proj_origin$n$StartScreenPoint$$
+ 0003:001553D8       lbAsciiToInkey
  0003:00155458       weapon_names
  0003:001554D8       aUnusedEmptyArray1
  0003:001554F4       rand_d
- 0003:00155588       quick_load_console
+ 0003:00155588       quick_load_pc
  0003:0015566C       objcount_text
- 0003:00155708       coords_a
- 0003:0015572A       coords_b
- 0003:00155760       starting_cash_amounts
+ 0003:001556B4       bin_obj_sizes
+ 0003:00155708       equip_blokey_pos
+ 0003:0015571C       equip_blokey_height
+ 0003:00155724       equip_blokey_width
+ 0003:0015572A       equip_blokey_static_pos
+ 0003:0015573C       equip_blokey_static_height
+ 0003:00155740       equip_blokey_static_width
+ 0003:00155750       starting_cash_amounts
+ 0003:00155770       serial_speeds
  0003:001557AC       BAT_unkn1
  0003:001557E0       BAT_unkn2
  0003:00155878       BAT_levels
@@ -3413,6 +3485,7 @@
  0003:00158B35       _CDAble
  0003:00158B38       _next
  0003:00158B44       ___int23_exit
+ 0003:00158B4C       _lbSpacesPerTab
  0003:00158B50       ___nheapbeg
  0003:00158B5C       aGrip_gll
  0003:00158B68       aGrip
@@ -3444,16 +3517,32 @@
  0003:0015912F       __osmajor
  0003:00159130       __osminor
  0003:00159131       ___FPE_handler
+ 0003:00159138       unpm1_unkn04
+ 0003:001591B8       unpm1_unkn06
+ 0003:00159238       unpm1_unkn07
+ 0003:001592B8       unpm1_unkn09
+ 0003:001592BC       unpm1_unkn10
+ 0003:001592C2       unpm1_unkn03
+ 0003:001592C4       unpm1_unkn02
+ 0003:001592C6       unpm1_unkn05
+ 0003:001592C8       unpm1_unkn08
+ 0003:001592C9       unpm1_unkn01
  0003:001592CC       _fss
  0003:001592D0       _SmackMSSDigDriver
  0003:001592D4       _MSSLiteInit
+ 0003:001592D8       mss_i_count
+ 0003:001592DC       _sndinit
  0003:001592E0       _sounds
  0003:001592E4       _trackbuf
+ 0003:001592E8       _simspeed
+ 0003:001592EC       _forcerate
  0003:001592F0       _LowSoundOpenAddr
  0003:001592F4       _LowSoundOffAddr
  0003:001592F8       _LowSoundOnAddr
+ 0003:001592FC       _LowSoundVolPanAddr
  0003:00159300       MaxNumberOfSamples
  0003:00159304       _SoundAble
+ 0003:00159305       W?SixteenBit$nuc
  0003:00159306       _SoundActive
  0003:00159307       _AutoScanForSoundHardware
  0003:00159308       _StereoSound
@@ -3466,14 +3555,16 @@
  0003:0015931B       _DangerMusicVolumeChange
  0003:0015931C       W?sample_file$nl
  0003:00159320       W?sample_volume$nl
- 0003:00159324       W?active$nuc
+ 0003:00159324       W?ssnd_active$nuc
  0003:00159328       _AIL_locked
  0003:0015932C       W?cd_errors$n[]pna
  0003:00159378       ___iob
+ 0003:00159392       stdout
  0003:001593B9       stderr___flag
  0003:00159580       ___tmpfnext
  0003:00159581       __fmode
  0003:00159585       _force
+ 0003:0015958C       sample_queue_handle_stopped
  0003:00159590       ___NFiles
  0003:00159594       ___init_mode
  0003:001595E4       __iomode
@@ -3492,10 +3583,37 @@
  0003:00159854       smack_func_addr002
  0003:00159858       smack_func_addr003
  0003:0015985C       smack_func_addr004
- 0003:00159E48       _CurrentAwe32SoundfontPrefix_0
+ 0003:00159E48       _CurrentAwe32SoundfontPrefix
  0003:00159E54       W?adpcm_handle$nl
  0003:00159E58       W?adaption_table$n[]l
- 0003:0015AADC       aSample
+ 0003:00159E98       timer_callback
+ 0003:00159ED8       timer_status
+ 0003:00159F18       timer_cb_elapsed_times
+ 0003:00159F58       timer_cb_periods
+ 0003:00159F98       timer_trigger
+ 0003:00159FD8       timer_user
+ 0003:0015A018       AIL_bios_cb
+ 0003:0015A01C       AIL_bios_cb_seg
+ 0003:0015A01E       AIL_bios_cb_real
+ 0003:0015A022       AIL_PIT_divisor
+ 0003:0015A026       AIL_PIT_period
+ 0003:0015A02A       AIL_bkgnd_flag
+ 0003:0015A02E       AIL_lock_count
+ 0003:0015A032       AIL_local_DS
+ 0003:0015A034       AIL_ISR_IRQ
+ 0003:0015A038       ISR_selector
+ 0003:0015A03C       ISR_offset
+ 0003:0015A040       ISR_stack
+ 0003:0015AA40       old_ss
+ 0003:0015AA44       old_sp
+ 0003:0015AA48       AIL_entry
+ 0003:0015AA4C       AIL_use_locked
+ 0003:0015AA50       volume_pan_table
+ 0003:0015AAD0       SS_serve_entry
+ 0003:0015AAD8       AILSFILE__locked
+ 0003:0015AADC       GTL_prefix
+ 0003:0015AB5C       MDI_entry
+ 0003:0015AB60       MDI_locked
  0003:0015AB64       aTimb_0
  0003:0015AB70       _locked_AILXDIG
  0003:0015AB74       ___heap_enabled
@@ -4042,8 +4160,9 @@
  0003:0015D99A       aD_47
  0003:0015D99D       aSD_5
  0003:0015D9A3       aSD_6
- 0003:0015D9A9       text2
+ 0003:0015D9A9       unkn39_text
  0003:0015D9AA       net_unkn40_text
+ 0003:0015D9AB       unkn41_text
  0003:0015D9AC       aSD_7
  0003:0015D9B2       aD_48
  0003:0015D9B5       aSD_8
@@ -4290,7 +4409,7 @@
  0003:0015E812       aDataMech_dat
  0003:0015E820       aPathlengthDPat
  0003:0015E844       aSMap03d_mad
- 0003:0015E853       a1
+ 0003:0015E853       aEmpty
  0003:0015E854       aMy_big_map
  0003:0015E85F       aObjTextures
  0003:0015E868       aObjFace_text
@@ -4559,6 +4678,7 @@
  0003:0015FE47       aMt32mpu_mdi
  0003:0015FE53       aR
  0003:0015FE55       aG_2
+ 0003:0015FE57       fmt
  0003:0015FE59       aBf39MusicDrive
  0003:0015FE81       aBf40MusicSBank
  0003:0015FEA0       aW
@@ -4891,25 +5011,28 @@
  0003:00162034       aReturnFromTerm
  0003:00162058       aReturnFromUnex
  0003:0016207C       _IsTable
+ 0003:001621C6       ___dilyr
  0003:001621E1       aFmamjjasondaeapauuuecoe
  0003:0016227E       __end_TI
  0003:00162280       _fade_table
- 0003:00163280       outro_darken_color
- 0003:00164A80       unknoise_tmap
+ 0003:00164A80       _fade_table_p_x2800
  0003:00166280       _ghost_table
- 0003:00176B7E       netgame_agent_pos_x
- 0003:00176BBE       netgame_agent_pos_y
+ 0003:00176280       _colour_table_tail
+ 0003:00176B7E       netgame_agent_pos_x_m2
+ 0003:00176B80       netgame_agent_pos_x
+ 0003:00176BBE       netgame_agent_pos_z_m2
+ 0003:00176BC0       netgame_agent_pos_z
  0003:00176C00       playable_agents
- 0003:00176C04       cryo_agents__FourPacks
+ 0003:00176C04       net_agents__FourPacks
+ 0003:00176CB8       target_old_frameno
  0003:00176CD4       unkn1_pos_x
  0003:00176CD8       unkn1_pos_y
  0003:00176CDC       unkn1_spr
- 0003:00176CE0       x
- 0003:00176CE4       y
- 0003:00176CE8       swidth
- 0003:00176CF0       dwidth
- 0003:00176D50       yc
- 0003:00176D90       p_thing
+ 0003:00176CFC       tnext_special_face4
+ 0003:00176D08       tnext_floor_texture
+ 0003:00176D50       engn_yc
+ 0003:00176D58       engn_anglexz
+ 0003:00176D90       p_thing_on_face
  0003:00176E3C       save_mortal_salt
  0003:00176E40       save_hashtbl_01
  0003:00176F20       save_hashtbl_02
@@ -4920,17 +5043,21 @@
  0003:00177100       language_3str
  0003:00177104       packet_rec_fh
  0003:00177108       smack_malloc_used_tot
+ 0003:00177118       last_sel_agent_turn
  0003:0017712D       mission_result
  0003:00177130       game_speed
  0003:00177134       my_build_packet
  0003:00177138       mouser
+ 0003:0017713B       unkn_player_groups
+ 0003:00177484       unknmsg_str
  0003:00177740       navi2_unkn_counter
  0003:00177744       engine_mem_alloc_ptr
- 0003:00177748       smack_malloc_mem
- 0003:0017774C       unkn_mech_arr7
+ 0003:00177748       scratch_malloc_mem
+ 0003:0017774C       unkn_mech_stct7
  0003:00177754       cd_drive
  0003:00177788       unkn_mech_var10
  0003:0017778C       unkn_mech_var11
+ 0003:00177794       map_bnb
  0003:00177798       gamep_unknval_10
  0003:0017779C       gamep_unknval_11
  0003:001777A0       gamep_unknval_12
@@ -4938,62 +5065,97 @@
  0003:001777A8       nav_stats__QThisTurn
  0003:001777AC       gamep_unknval_15
  0003:001777B0       gamep_unknval_16
- 0003:001777C0       p_person
- 0003:001777C8       gamep_unknval_01
+ 0003:001777B8       shield_frm
+ 0003:001777C0       p_track_thing
+ 0003:001777C4       p_track2_thing
+ 0003:001777C8       gamep_scene_effect_type
  0003:001777CC       my_paths
  0003:0017EE8C       path_count
+ 0003:0017EE90       sprshadow_EE90
+ 0003:0017EEA8       sprshadow_EEA8
+ 0003:0017F100       sprshadow_F100
+ 0003:0017F118       sprshadow_F118
+ 0003:0017F370       sprshadow_F370
+ 0003:0017F388       sprshadow_F388
+ 0003:0017F5E0       sprshadow_F5E0
+ 0003:0017F5F8       sprshadow_F5F8
+ 0003:0017F850       sprshadow_F850
  0003:0017FA50       input_char
+ 0003:0017FA54       anim_scratch
  0003:0017FD78       joy
+ 0003:001807D2       ingame_m2
  0003:001807D4       ingame__GameMode
  0003:001807D6       ingame__DisplayMode
- 0003:001807DA       ingame__byte_1807DA
+ 0003:001807D8       ingame__fld_unk7D8
+ 0003:001807DA       ingame__fld_unk7DA
  0003:001807DB       ingame__CDTrack
  0003:001807DC       ingame__DangerTrack
  0003:001807DD       ingame__UseMultiMedia
- 0003:001807DE       ingame__byte_1807DE
- 0003:001807DF       ingame__byte_1807DF
+ 0003:001807DE       ingame__AutoResearch
+ 0003:001807DF       ingame__GameOver
  0003:001807E0       ingame__Scanner
  0003:00180C47       ingame__Credits
- 0003:00180C4B       ingame__dword_180C4B
- 0003:00180C4F       ingame__dword_180C4F
+ 0003:00180C4B       ingame__fld_unkC4B
+ 0003:00180C4F       ingame__fld_unkC4F
  0003:00180C51       ingame__MissionStatus
  0003:00180C53       ingame__Flags
- 0003:00180C57       ingame__dword_180C57
+ 0003:00180C57       ingame__fld_unkC57
+ 0003:00180C59       ingame__fld_unkC59
  0003:00180C5B       ingame__draw_unknprop_01
- 0003:00180C5D       ingame__word_180C5D
+ 0003:00180C5D       ingame__Rocket1
  0003:00180C7B       ingame__NextRocket
- 0003:00180C7D       ingame__dword_180C7D
+ 0003:00180C7D       ingame__TrainMode
  0003:00180C7F       ingame__MyGroup
  0003:00180C81       ingame__CurrentMission
  0003:00180C84       ingame__DetailLevel
  0003:00180C85       ingame__UserZoom
  0003:00180C87       ingame__cmdln_param_a
- 0003:00180C89       ingame__cmdln_param_w
- 0003:00180C8B       ingame__word_180C8B
- 0003:00180C91       ingame__dword_180C91
+ 0003:00180C89       ingame__LowerMemoryUse
+ 0003:00180C8B       ingame__fld_unkC8B
+ 0003:00180C91       ingame__fld_unkC91
  0003:00180C95       ingame__TrackX
  0003:00180C97       ingame__TrackZ
  0003:00180C99       ingame__TrackThing
- 0003:00180CA0       ingame__word_180CA0
+ 0003:00180C9B       ingame__fld_unkC98
+ 0003:00180CA0       ingame__fld_unkCA0
+ 0003:00180CA2       ingame__fld_unkCA2
  0003:00180CA3       ingame__PanelPermutation
  0003:00180CA4       ingame__TrenchcoatPreference
- 0003:00180CA5       ingame__byte_180CA5
- 0003:00180CA6       ingame__word_180CA6
- 0003:00180CA8       ingame__word_180CA8
+ 0003:00180CA5       ingame__fld_unkCA5
+ 0003:00180CA6       ingame__fld_unkCA6
+ 0003:00180CA8       ingame__fld_unkCA8
+ 0003:00180CAA       ingame__fld_unkCAA
  0003:00180CAB       ingame__PalType
  0003:00180CAC       ingame__FlameCount
  0003:00180CAE       ingame__LastTmap
  0003:00180CAF       ingame__SoundThing
- 0003:00180CB1       ingame__byte_180CB1
- 0003:00180CB2       ingame__byte_180CB2
+ 0003:00180CB1       ingame__fld_unkCB1
+ 0003:00180CB2       ingame__fld_unkCB2
+ 0003:00180CB3       ingame__VisibleBillboardThing
+ 0003:00180CB5       ingame__fld_unkCB5
+ 0003:00180CB7       ingame__fld_unkCB7
  0003:00180CB9       ingame__InNetGame_UNSURE
- 0003:00180CBF       ingame__Cheats
+ 0003:00180CBA       ingame__fld_unkCBA
+ 0003:00180CBF       ingame__UserFlags
  0003:00180CC1       ingame__CashAtStart
  0003:00180CC5       ingame__Expenditure
+ 0003:00180CC9       player_unknCC9
+ 0003:001810C9       player_unkn0C9
  0003:001810DA       brightness
+ 0003:001810E4       game_level_unique_id
+ 0003:001810E6       game_level_unkn1
+ 0003:0018110E       game_level_unkn2
+ 0003:00181136       colour_mix_lookup
+ 0003:00181142       colour_sel_grey
+ 0003:00181146       colour_sel_green
+ 0003:0018114A       colour_sel_blue
+ 0003:0018114E       colour_sel_red
+ 0003:00181152       colour_sel_purple
  0003:00181181       login_control__State
+ 0003:00181182       login_control__TechLevel
  0003:00181184       login_control__Money
  0003:00181188       login_control__City
+ 0003:001811A8       nsvc
  0003:001811F2       unkn_flags_08
  0003:001816A4       objective_text
  0003:0018194C       ex_faces
@@ -5012,31 +5174,32 @@
  0003:00197234       prim_object_faces
  0003:00197238       prim_object_faces4
  0003:0019723C       prim_objects
- 0003:00197242       unkn01_thing_list_head
- 0003:00197440       same_type_head
- 0003:00197484       traffic_nodes
+ 0003:00197240       same_type_head
+ 0003:00197484       game_traffic_nodes
  0003:00197488       mission_list
  0003:00199828       mission_status
- 0003:0019AAE8       level_def__PlayableGroups
+ 0003:0019AAE8       level_def
  0003:0019AB14       bul_starts
  0003:0019CA54       linear_vec_pal
- 0003:0019CB54       fade_data
+ 0003:0019CB54       scratch_buf1
  0003:0019CBDC       W?pop1_sprites$n[]pn$TbSprite$$
  0003:0019CBE0       W?pop1_sprites_end$n[]pn$TbSprite$$
  0003:0019CBE4       W?pop1_data$n[]ul
- 0003:0019CBE8       sprites_Icons0_0
- 0003:0019CBEC       sprites_Icons0_0_end
- 0003:0019CBF0       data
- 0003:0019CBF4       unk3_sprites
- 0003:0019CBF8       unk3_sprites_end
- 0003:0019CBFC       unk3_sprites_data
+ 0003:0019CBE8       fe_icons0_sprites
+ 0003:0019CBEC       fe_icons0_sprites_end
+ 0003:0019CBF0       fe_icons0_sprites_data
+ 0003:0019CBF4       fe_mouseptr_sprites
+ 0003:0019CBF8       fe_mouseptr_sprites_end
+ 0003:0019CBFC       fe_mouseptr_sprites_data
  0003:0019CC00       unk1_sprites
  0003:0019CC04       unk1_sprites_end
  0003:0019CC08       unk1_sprites_data
- 0003:0019CC1C       unk2_sprites
- 0003:0019CC20       unk2_sprites_end
- 0003:0019CC24       unk2_sprites_data
+ 0003:0019CC1C       fepanel_sprites
+ 0003:0019CC20       fepanel_sprites_end
+ 0003:0019CC24       fepanel_sprites_data
+ 0003:0019CC28       fepanel_sprites_data_end
  0003:0019CC2C       W?m_spr_data$n[]ul
+ 0003:0019CC30       W?m_spr_data_end$n[]ul
  0003:0019CC34       W?m_sprites$n[]pn$TbSprite$$
  0003:0019CC38       W?m_sprites_end$n[]pn$TbSprite$$
  0003:0019CC3C       frame
@@ -5045,70 +5208,77 @@
  0003:0019CC50       melement_ani_end
  0003:0019CC54       nstart_ani
  0003:0019CC58       nstart_ani_end
+ 0003:0019CC5C       colour_grey1
+ 0003:0019CC5D       colour_grey2
+ 0003:0019CC5E       colour_brown2
  0003:0019CC60       nsta_size
+ 0003:0019CC68       super_quick_light
  0003:0019EC68       tnext_screen_point
  0003:0019EC6A       tnext_draw_item
  0003:0019EC6C       tnext_sort_sprite
- 0003:0019EC6E       cmdln_param_d
+ 0003:0019EC6E       keyboard_mode_direct
  0003:0019EC71       game_perspective
  0003:0019EC72       unkn_flags_01
  0003:0019EC76       display_mode
- 0003:0019EC7E       thing_count
- 0003:0019EC80       things_used
+ 0003:0019EC7E       things_used
+ 0003:0019EC80       sthings_used
  0003:0019EC82       sthings_empty_head
  0003:0019EC84       sthings_used_head
  0003:0019EC86       things_empty_head
  0003:0019EC88       things_used_head
  0003:0019EC8C       link__MapColListEmptyHead
  0003:0019EC8E       link__MapColVectEmptyHead
- 0003:0019ECA4       war_flags
+ 0003:0019EC98       war_flags
  0003:0019F198       group_actions
  0003:0019F430       mission_open
  0003:0019F494       mission_state
  0003:0019F50C       pktrec_mode
- 0003:0019F50D       cmdln_pr_num
- 0003:0019F510       anim_tmaps
- 0003:0019F514       commands
- 0003:0019F518       used_objectives
- 0003:0019F51C       used_lvl_objectives
- 0003:0019F520       level_miscs
- 0003:0019F524       objectives
- 0003:0019F528       col_vects
- 0003:0019F52C       walk_headers
- 0003:0019F530       col_vects_list
- 0003:0019F534       walk_items
- 0003:0019F538       user_heap
- 0003:0019F53C       my_big_map
- 0003:0019F540       screen_point_pool
- 0003:0019F544       draw_list
- 0003:0019F548       sort_sprites
- 0003:0019F54C       sort_lines
- 0003:0019F550       col_columns
+ 0003:0019F50D       packet_rec_no
+ 0003:0019F510       game_anim_tmaps
+ 0003:0019F514       game_commands
+ 0003:0019F518       game_used_objectives
+ 0003:0019F51C       game_used_lvl_objectives
+ 0003:0019F520       game_level_miscs
+ 0003:0019F524       game_objectives
+ 0003:0019F528       game_col_vects
+ 0003:0019F52C       game_walk_headers
+ 0003:0019F530       game_col_vects_list
+ 0003:0019F534       game_walk_items
+ 0003:0019F538       game_user_heap
+ 0003:0019F53C       game_my_big_map
+ 0003:0019F540       game_screen_point_pool
+ 0003:0019F544       game_draw_list
+ 0003:0019F548       game_sort_sprites
+ 0003:0019F54C       game_sort_lines
+ 0003:0019F550       game_col_columns
  0003:0019F554       execute_commands
- 0003:0019F738       need_draw_unk3
+ 0003:0019F738       debug_hud_collision
  0003:0019F73A       next_col_column
  0003:0019F73C       textwalk_data
+ 0003:0019F9BC       unkn_full_lights
  0003:0019FBB0       local_mats
- 0003:001A09C0       floor_tiles
- 0003:001A09C4       light_commands
- 0003:001A09C8       normals
- 0003:001A09CC       quick_lights
- 0003:001A09D0       full_lights
- 0003:001A09D4       textures
- 0003:001A09D8       face_textures
+ 0003:001A09C0       game_floor_tiles
+ 0003:001A09C4       game_light_commands
+ 0003:001A09C8       game_normals
+ 0003:001A09CC       game_quick_lights
+ 0003:001A09D0       game_full_lights
+ 0003:001A09D4       game_textures
+ 0003:001A09D8       game_face_textures
  0003:001A09DC       things
  0003:001A09E0       sthings
- 0003:001A09E4       object_points
- 0003:001A09E8       object_faces
- 0003:001A09EC       object_faces4
- 0003:001A09F0       objects
- 0003:001A09F4       special_object_faces
- 0003:001A09F8       special_object_faces4
+ 0003:001A09E4       game_object_points
+ 0003:001A09E8       game_object_faces
+ 0003:001A09EC       game_object_faces4
+ 0003:001A09F0       game_objects
+ 0003:001A09F4       game_special_object_faces
+ 0003:001A09F8       game_special_object_faces4
  0003:001A09FC       next_screen_point
  0003:001A09FE       next_draw_item
  0003:001A0A00       next_sort_sprite
  0003:001A0A02       next_sort_line
+ 0003:001A0A04       buckets
  0003:001A5828       p_current_sort_sprite
+ 0003:001A582C       p_current_sort_line
  0003:001A5830       p_current_draw_item
  0003:001A5838       mouse_map_y
  0003:001A5840       W?pointer_sprites$n[]pn$TbSprite$$
@@ -5143,11 +5313,9 @@
  0003:001A71B1       W?exit_game$nuc
  0003:001A71B2       in_network_game
  0003:001A71B3       is_single_game
- 0003:001A71B4       cmdln_param_tf
+ 0003:001A71B4       cmdln_colour_tables
  0003:001A71B5       cmdln_param_bcg
  0003:001A71B8       colour_lookup
- 0003:001A71C3       unkn_changing_color_1
- 0003:001A71C4       unkn_changing_color_2
  0003:001A72BC       bangdetail__circle
  0003:001A72DC       bangdetail__sphere
  0003:001A730C       bangdetailmask
@@ -5159,10 +5327,10 @@
  0003:001A7328       sprite_over_16x16
  0003:001A732C       navi2_unkn_counter_max
  0003:001AA26C       unkn_changing_color_counter1
- 0003:001AA278       buf
- 0003:001AA288       unkn_buffer_04
- 0003:001AA28C       unkn_buffer_05
+ 0003:001AA274       vec_tmap_m1
+ 0003:001AA278       vec_tmap
  0003:001AA2F8       ingame__Tmaps
+ 0003:001AA334       was_locked
  0003:001AA3B8       unkn01_downcount
  0003:001AA3BC       unkn01_pos_x
  0003:001AA3C0       unkn01_pos_y
@@ -5171,9 +5339,11 @@
  0003:001AA5E8       minimum_explode_size
  0003:001AA5EC       minimum_explode_and
  0003:001AA5F0       minimum_explode_depth
- 0003:001AA688       palette
- 0003:001AA988       palette_data
+ 0003:001AA684       billboard_anim_no
+ 0003:001AA688       anim_palette
+ 0003:001AA988       anim_parse_tags
  0003:001AAA8C       animations
+ 0003:001AAB6C       active_anim
  0003:001AAB84       stored_l3d_next_object
  0003:001AAB88       stored_l3d_next_object_face
  0003:001AAB8C       stored_l3d_next_object_face4
@@ -5195,14 +5365,14 @@
  0003:001AABCC       things_init_times
  0003:001AABD2       unkn01_thing_idx
  0003:001AABE0       triangulation
- 0003:001AAE38       tri_module_init
+ 0003:001AAE38       triangulation_initied
  0003:001AAE48       W?Ex$n[]l
  0003:001AAFD8       W?Ey$n[]l
  0003:001AB168       ixE
- 0003:001AB16C       thin_wall_x
- 0003:001AB170       thin_wall_y
- 0003:001AB174       thin_wall_w
- 0003:001AB178       thin_wall_h
+ 0003:001AB16C       thin_wall_x1
+ 0003:001AB170       thin_wall_y1
+ 0003:001AB174       thin_wall_x2
+ 0003:001AB178       thin_wall_y2
  0003:001AB17C       tree_dad
  0003:001B2E7C       tree_val
  0003:001BAB7C       routeTags
@@ -5236,70 +5406,97 @@
  0003:001C4768       unkstruct03_first
  0003:001C476A       unkstruct03_last
  0003:001C4774       W?oinkey$:.0$:?KInt$f()vnuc
- 0003:001C4778       buffered_keypresses
- 0003:001C47B8       buffered_keypresses_end
- 0003:001C47BC       buffered_keypresses_pos
- 0003:001C47C0       W?OldInt$npf()v
+ 0003:001C4778       buffered_keys
+ 0003:001C47B8       buffered_keys_write_index
+ 0003:001C47BC       buffered_keys_read_index
+ 0003:001C47C0       W?OldInt1$npf()v
+ 0003:001C47D8       brief_state_city_selected
+ 0003:001C47DC       mail_num_active_cities
  0003:001C47EC       net_unkn1_text
+ 0003:001C4808       scientist_lost_reason
  0003:001C486C       textpos
- 0003:001C48BC       loop_3
+ 0003:001C48BC       landmap_8BC
+ 0003:001C48C0       landmap_8C0
+ 0003:001C48C4       landmap_8C4
+ 0003:001C48C8       landmap_8C8
  0003:001C48F8       x2
- 0003:001C48FC       y2
  0003:001C4920       x3
  0003:001C4973       research_completed
  0003:001C4974       cheat_research_weapon
+ 0003:001C4975       equip_agents_panel_draw_state
+ 0003:001C4976       equip_agent_name_draw_state
+ 0003:001C4977       cheat_research_cybmods
+ 0003:001C497B       research_curr_wep_daily_done
+ 0003:001C497C       research_curr_mod_daily_done
+ 0003:001C498E       mouse_sprite_anim_frame
+ 0003:001C498F       clear_left_button
+ 0003:001C4990       clear_right_button
+ 0003:001C4991       simulated_mouse_click
  0003:001C4992       replay_intro_timer
  0003:001C4998       net_unkn2_text
  0003:001C49AC       unkn2_names
- 0003:001C4A6C       unkn_gfx_option_2
- 0003:001C4A6D       unkn_option_3
- 0003:001C4A6E       unkn_option_4
+ 0003:001C4A2C       new_weapons_researched
+ 0003:001C4A30       new_mods_researched
+ 0003:001C4A34       scientists_lost
+ 0003:001C4A6C       game_gfx_advanced_lights
+ 0003:001C4A6D       game_billboard_movies
+ 0003:001C4A6E       game_gfx_deep_radar
  0003:001C4A74       hotspot_buffer
  0003:001C4A78       back_buffer
  0003:001C4A7D       change_screen
  0003:001C4A7E       restore_savegame
  0003:001C4A80       startscr_samplevol
- 0003:001C4A82       startscr_musicvol
+ 0003:001C4A82       startscr_midivol
  0003:001C4A84       startscr_cdvolume
  0003:001C4A88       flic_mods
  0003:001C4A90       old_flic_mods
+ 0003:001C4A97       mod_draw_states_m1
  0003:001C4A98       mod_draw_states
  0003:001C4A9C       new_current_drawing_mod
  0003:001C4A9D       current_drawing_mod
+ 0003:001C4A9E       mo_from_agent
+ 0003:001C4A9F       ctl_joystick_type
+ 0003:001C4AA0       display_box_content
  0003:001C4AA4       old_screentype
  0003:001C4AA5       screentype
  0003:001C4AA8       mission_briefing_text
  0003:001C4AAC       weapon_text
  0003:001C4AB0       weapon_text_index
- 0003:001C4B10       a3
+ 0003:001C4AF0       cybmod_text_index
+ 0003:001C4B10       netscan_text
  0003:001C4B14       memload
- 0003:001C4B18       text
+ 0003:001C4B18       mission_name
  0003:001C4B4C       options_title_text
  0003:001C4B60       map_editor
  0003:001C4B64       brief_netscan_cost_text
+ 0003:001C4B78       start_into_mission
  0003:001C4B79       map_from_mission
- 0003:001C4B7A       use_multimedia
+ 0003:001C4B7A       game_projector_speed
  0003:001C4B7B       enter_game
+ 0003:001C4B7C       game_system_screen
  0003:001C4B7D       redraw_screen_flag
  0003:001C4B7E       net_unkn_pos_02
  0003:001C4B80       reload_background_flag
- 0003:001C4B81       unkn_gfx_option_1
+ 0003:001C4B81       game_high_resolution
  0003:001C4B8C       equip_cost_text
  0003:001C4BA0       cryo_agents
  0003:001C4D25       selected_agent
+ 0003:001C4D28       cybmod_name_text
+ 0003:001C4D3A       research_m2
  0003:001C4D3C       research
  0003:001C5298       refresh_equip_list
+ 0003:001C52B4       landmap_2B4
  0003:001C52B8       num_cities
  0003:001C52BC       cities
- 0003:001C5744       unkn29_box_x
- 0003:001C5746       unkn29_box_y
- 0003:001C5A8C       unkn_stru_03
- 0003:001C5B54       unkn_stru_03_count
+ 0003:001C5A8C       netscan_objectives
+ 0003:001C5B54       netscan_objectives_count
  0003:001C5B58       network_players
+ 0003:001C5C30       net_player_colours
  0003:001C5C38       group_types
  0003:001C5C40       unkstruct04_arr
  0003:001C6D49       net_host_player_no
  0003:001C6D4C       login_name
+ 0003:001C6D5C       net_players
  0003:001C6DEC       background_type
  0003:001C6DF0       global_date
  0003:001C6DF8       research_curr_wep_date
@@ -5314,66 +5511,64 @@
  0003:001C6F44       open_brief
  0003:001C6F46       next_ref
  0003:001C6F4A       edit_flag
- 0003:001C6F4B       net_unkn_pos_01b
+ 0003:001C6F4B       controls_edited_gkey
  0003:001C6F4C       save_game_buffer
  0003:001C6F50       heading_box
  0003:001C6F94       loading_INITIATING_box
  0003:001C6FD8       unkn13_SYSTEM_button
- 0003:001C701C       unkn35_box
- 0003:001C7060       unkn39_box
- 0003:001C7078       unkn37_box
+ 0003:001C701C       system_screen_shared_header_box
+ 0003:001C7060       controls_keylist_box
+ 0003:001C7078       storage_slots_box
  0003:001C70BC       sysmnu_buttons
  0003:001C71D0       storage_LOAD_button
  0003:001C7200       storage_SAVE_button
  0003:001C7230       storage_NEW_MORTAL_button
- 0003:001C7260       unkn34_box
- 0003:001C7278       unkn04_boxes
- 0003:001C72C0       unkn33_box
- 0003:001C72D8       options_musictrk_buttons
- 0003:001C7362       options_tensiontrk_buttons
- 0003:001C73BE       options_mmedia_buttons
+ 0003:001C7260       controls_joystick_box
+ 0003:001C7278       audio_volume_boxes
+ 0003:001C72C0       audio_tracks_box
+ 0003:001C72D8       options_audio_buttons
  0003:001C741C       options_gfx_buttons
  0003:001C76FC       net_protocol_option_button
- 0003:001C772C       unkn32_box
- 0003:001C7744       unkn36_box
- 0003:001C7788       mission_text_box
+ 0003:001C772C       brief_graphical_box
+ 0003:001C7744       brief_netscan_box
+ 0003:001C7788       brief_mission_text_box
  0003:001C77CC       unkn1_ACCEPT_button
  0003:001C77FC       unkn1_CANCEL_button
  0003:001C782C       brief_NETSCAN_button
  0003:001C785C       brief_NETSCAN_COST_box
- 0003:001C7888       unkn30_box
- 0003:001C78A0       unkn31_box
- 0003:001C78B8       unkn29_box
- 0003:001C78D0       unkn38_box
- 0003:001C7914       unkn2_ACCEPT_button
- 0003:001C7944       unkn2_CANCEL_button
+ 0003:001C7888       debrief_mission_box
+ 0003:001C78A0       debrief_people_box
+ 0003:001C78B8       world_landmap_box
+ 0003:001C78D0       world_city_info_box
+ 0003:001C7914       world_info_ACCEPT_button
+ 0003:001C7944       world_info_CANCEL_button
  0003:001C7974       main_quit_button
  0003:001C79A4       main_login_button
- 0003:001C79D4       pause_continue_button
- 0003:001C7A04       pause_abort_button
+ 0003:001C79D4       login_continue_button
+ 0003:001C7A04       login_abort_button
  0003:001C7A34       main_map_editor_button
  0003:001C7A64       main_load_button
- 0003:001C7A94       pause_unkn11_box
- 0003:001C7AAC       pause_unkn12_box
- 0003:001C7AC4       slots_box
+ 0003:001C7A94       login_campaigns_box
+ 0003:001C7AAC       login_name_box
+ 0003:001C7AC4       equip_list_head_box
  0003:001C7B08       equip_name_box
  0003:001C7B4C       weapon_slots
  0003:001C7B64       equip_list_box
  0003:001C7BA8       equip_display_box
- 0003:001C7BEC       buy_equip_button
- 0003:001C7C1C       unkn11_CANCEL_button
+ 0003:001C7BEC       equip_offer_buy_button
+ 0003:001C7C1C       cryo_offer_cancel_button
  0003:001C7C4C       equip_cost_box
- 0003:001C7C77       unk11_buttons
- 0003:001C7D4C       all_agents_button
+ 0003:001C7C78       equip_agent_select_shapes
+ 0003:001C7D4C       equip_all_agents_button
  0003:001C7D7C       research_unkn21_box
  0003:001C7DC0       research_submit_button
  0003:001C7DF0       unkn12_WEAPONS_MODS_button
  0003:001C7E20       research_progress_button
- 0003:001C7E64       research_unkn20_box
+ 0003:001C7E64       research_graph_box
  0003:001C7E7C       research_list_buttons
- 0003:001C7ED8       agent_list_box
- 0003:001C7F1C       blokey_box
- 0003:001C7F34       mod_list_box
+ 0003:001C7ED8       cryo_agent_list_box
+ 0003:001C7F1C       cryo_blokey_box
+ 0003:001C7F34       cryo_cybmod_list_box
  0003:001C7F78       net_INITIATE_button
  0003:001C7FA8       net_groups_LOGON_button
  0003:001C7FD8       unkn8_EJECT_button
@@ -5381,30 +5576,34 @@
  0003:001C8038       net_unkn40_button
  0003:001C8068       net_SET2_button
  0003:001C8098       net_SET_button
- 0003:001C80C8       net_unkn27
- 0003:001C80E0       net_unkn26
- 0003:001C80F8       net_unkn25
- 0003:001C8110       net_unkn24
- 0003:001C8128       net_unkn23
- 0003:001C8140       net_unkn22
- 0003:001C8158       net_unkn21
- 0003:001C8170       net_unkn19_box
- 0003:001C8188       unkn10_CALIBRATE_button
- 0003:001C81B8       unkn10_SAVE_button
- 0003:001C81E8       unkn10_CONTROLS_button
+ 0003:001C80C8       net_groups_box
+ 0003:001C80E0       net_users_box
+ 0003:001C80F8       net_faction_box
+ 0003:001C8110       net_team_box
+ 0003:001C8128       net_benefits_box
+ 0003:001C8140       net_comms_box
+ 0003:001C8158       net_grpaint
+ 0003:001C8170       net_protocol_box
+ 0003:001C8188       controls_defaults_button
+ 0003:001C81B8       controls_save_button
+ 0003:001C81E8       controls_calibrate_button
  0003:001C8218       save_slot_names
+ 0003:001C82E0       save_active_desc
  0003:001C82FC       save_slot_base
  0003:001C8300       alert_text
  0003:001C83C8       text_buf_pos
  0003:001C83D0       cmdln_param_n
- 0003:001C83D4       bez_edit
- 0003:001C83DA       engine_mem_len
+ 0003:001C83D4       bezier_pts
+ 0003:001C83DA       mission_strings_len
+ 0003:001C83DE       unkn3de_len
  0003:001C8406       unkn2_pos_x
  0003:001C8408       unkn2_pos_y
  0003:001C840A       unkn2_pos_z
- 0003:001C8448       cmdln_param_current_map
+ 0003:001C8448       current_map
  0003:001C844A       current_level
  0003:001C8454       spare_map_buffer
+ 0003:001C8458       draw_objectv_x
+ 0003:001C845C       draw_objectv_y
  0003:001C846A       signal_count
  0003:001C853A       VNAV_nearnodes
  0003:001C8544       VNAV_nodedists
@@ -5412,19 +5611,35 @@
  0003:001C855E       VNAV_route__route
  0003:001C8658       veh_ma_heap
  0003:001CAB60       scanner_next_key_no
+ 0003:001CAB64       SCANNER_pal_bright
  0003:001CAF88       SCANNER_map
- 0003:001CB074       num
+ 0003:001CB064       SCANNER_dw064
+ 0003:001CB068       SCANNER_dw068
+ 0003:001CB06C       SCANNER_dw06C
+ 0003:001CB070       SCANNER_dw070
+ 0003:001CB074       SCANNER_dw074
+ 0003:001CB078       SCANNER_screenptr
+ 0003:001CB07C       SCANNER_dw07C
+ 0003:001CB080       SCANNER_dw080
+ 0003:001CB084       SCANNER_bt084
+ 0003:001CB085       SCANNER_bt085
+ 0003:001CB086       SCANNER_bri_con
+ 0003:001CB087       SCANNER_bt087
  0003:001CB088       SCANNER_data
+ 0003:001DB088       SCANNER_bright_limit
  0003:001DB188       SCANNER_width
  0003:001DB18C       SCANNER_people_colours
  0003:001DB19C       SCANNER_keep_arcs
- 0003:001DB1A8       SCANNER_arcpoint
+ 0003:001DB1A4       SCANNER_arcpoint
  0003:001DB2E4       SCANNER_colour
  0003:001DB2EC       SCANNER_bbpoint
  0003:001DBAE4       SCANNER_bbpadds
- 0003:001DBB6C       x1
+ 0003:001DC370       scanner_unkn370
  0003:001DC4DC       phwoar__child
- 0003:001DC538       y3
+ 0003:001DC584       purple_box_x1
+ 0003:001DC588       purple_box_y1
+ 0003:001DC5AC       purple_box_x2
+ 0003:001DC5B0       purple_box_y2
  0003:001DC740       alert_OK_button
  0003:001DC770       alert_box
  0003:001DC788       show_alert
@@ -5451,13 +5666,15 @@
  0003:001DC874       mech_unkn_tile_y2
  0003:001DC878       mech_unkn_tile_x3
  0003:001DC87C       mech_unkn_tile_y3
+ 0003:001DC880       mech_unkn_dw_1DC880
+ 0003:001DC884       mech_unkn_dw_1DC884
+ 0003:001DC888       mech_unkn_dw_1DC888
+ 0003:001DC88C       mech_unkn_dw_1DC88C
+ 0003:001DC890       mech_unkn_dw_1DC890
+ 0003:001DC894       mech_unkn_dw_1DC894
  0003:001DC8D0       g_nav_data
- 0003:001DC8E0       z1
  0003:001DD0E4       g_fat_data
- 0003:001DD0F4       g_fat_data__PathLength
- 0003:001DD0F8       g_fat_data__WayPoints__x8
- 0003:001DD0FC       g_fat_data__WayPoints__y8
- 0003:001DD920       outro_unkn01
+ 0003:001DD920       outro_credits_enabled
  0003:001DD924       people_credits_desc
  0003:001DDAB4       people_credits_groups
  0003:001DDB54       outro_text_s
@@ -5468,55 +5685,53 @@
  0003:001DDC42       alert_textpos
  0003:001DDEC5       research_unkn_var_01
  0003:001DDEC6       current_frame
- 0003:001DDEC8       a2
+ 0003:001DDEC8       sound_heap_size
+ 0003:001DDED4       sound_heap_memory
+ 0003:001DDED8       ail_sample_counts
  0003:001DE068       ail_sample_ids
+ 0003:001DE0B8       FIRE_flame
  0003:001E08C0       _lbMemoryAvailable
  0003:001E08D4       W?memory_blocks$n[]$mem_block$$
  0003:001E14D4       W?memory_arenas$n[]$mem_arena$$
- 0003:001E26E4       ptr
+ 0003:001E26D4       bat_unknvalA_min
+ 0003:001E26D8       bat_unknvalB_min
+ 0003:001E26DC       bat_unknvalA_max
+ 0003:001E26E0       bat_unknvalB_max
+ 0003:001E26E4       BAT_screen
+ 0003:001E26E8       BAT_data_1e26e8
+ 0003:001E26EC       BAT_game_won_timer
+ 0003:001E26F0       BAT_level_intro_timer
+ 0003:001E26F4       BAT_ball_lost_timer
+ 0003:001E26F8       BAT_game_over_timer
+ 0003:001E26FC       BAT_state
+ 0003:001E2700       BAT_levelno
+ 0003:001E2704       BAT_num_lives
+ 0003:001E2708       BAT_score
+ 0003:001E270C       BAT_bricks_remain
+ 0003:001E271B       BAT_bricks_m1
+ 0003:001E271C       BAT_bricks
+ 0003:001E2794       BAT_paddle_x
+ 0003:001E2798       BAT_data_1e2798
+ 0003:001E279C       BAT_lives_colour
+ 0003:001E27A0       BAT_balls_store
+ 0003:001E2CA0       BAT_free_balls
+ 0003:001E2CA4       BAT_balls_head
+ 0003:001E2CA8       BAT_ball_colour
+ 0003:001E2CBC       BAT_bonus_store
+ 0003:001E2E3C       BAT_free_bonuses
+ 0003:001E2E40       BAT_bonuses_head
  0003:001E2E44       hmhead
  0003:001E2E48       W?samples_in_bank$nl
  0003:001E2E4C       sample_table
  0003:001E2E50       W?setup$:.0$:?LbScreenIsModeAvailable$n($TbScreenMode$$)lnul
- 0003:001E2E54       lbDisplay__PhysicalScreen
- 0003:001E2E58       lbDisplay__WScreen
- 0003:001E2E5C       lbDisplay__GlassMap
- 0003:001E2E60       lbDisplay__FadeTable
- 0003:001E2E64       lbDisplay__GraphicsWindowPtr
- 0003:001E2E68       lbDisplay__MouseSprite
- 0003:001E2E6C       lbDisplay__PhysicalScreenWidth
- 0003:001E2E70       lbDisplay__PhysicalScreenHeight
- 0003:001E2E74       lbDisplay__GraphicsScreenWidth
- 0003:001E2E78       lbDisplay__GraphicsScreenHeight
- 0003:001E2E7C       lbDisplay__GraphicsWindowX
- 0003:001E2E80       lbDisplay__GraphicsWindowY
- 0003:001E2E84       lbDisplay__GraphicsWindowWidth
- 0003:001E2E88       lbDisplay__GraphicsWindowHeight
- 0003:001E2E8C       lbDisplay__MouseWindowX
- 0003:001E2E90       lbDisplay__MouseWindowY
- 0003:001E2E94       lbDisplay__MouseWindowWidth
- 0003:001E2E98       lbDisplay__MouseWindowHeight
- 0003:001E2E9C       lbDisplay__MouseX
- 0003:001E2EA0       lbDisplay__MouseY
- 0003:001E2EA4       lbDisplay__MMouseX
- 0003:001E2EA8       lbDisplay__MMouseY
- 0003:001E2EAC       lbDisplay__RMouseX
- 0003:001E2EB0       lbDisplay__RMouseY
- 0003:001E2EB4       lbDisplay__DrawFlags
- 0003:001E2EB6       lbDisplay__OldVideoMode
- 0003:001E2EB8       lbDisplay__ScreenMode
- 0003:001E2EBA       lbDisplay__VesaIsSetUp
- 0003:001E2EBB       lbDisplay__LeftButton
- 0003:001E2EBC       lbDisplay__RightButton
- 0003:001E2EBD       lbDisplay__MiddleButton
- 0003:001E2EBE       lbDisplay__MLeftButton
- 0003:001E2EBF       lbDisplay__MRightButton
- 0003:001E2EC0       lbDisplay__MMiddleButton
- 0003:001E2EC1       lbDisplay__RLeftButton
- 0003:001E2EC4       lbDisplay__FadeStep
- 0003:001E2EC5       lbDisplay__DrawColour
+ 0003:001E2E54       lbDisplay
  0003:001E2ECC       _lbSpriteReMapPtr
  0003:001E2ED0       __wint_thread_data
+ 0003:001E2F18       vfxunk1
+ 0003:001E2F20       InputHandler
+ 0003:001E2F35       joy_grip_initialized
+ 0003:001E2F37       joy_spbal_initialized
+ 0003:001E2F3D       lbICommSessionActive
  0003:001E2F40       W?NetworkServicePtr$n$TbNetworkService$$
  0003:001E2F70       _lbExtendedKeyPress
  0003:001E2F74       _lbKeyOn
@@ -5531,18 +5746,7 @@
  0003:001E3084       W?old_ry$:.0$:?MouseHandler256$f(iii)vnl
  0003:001E3088       W?lbMouseInstalled$nul
  0003:001E308C       W?mbuffer$n$mouse_buffer$$
- 0003:001E3090       mbuffer__Width
- 0003:001E3094       mbuffer__Height
- 0003:001E3098       mbuffer__Offset
- 0003:001E309C       mbuffer__Buffer
- 0003:001E409C       mbuffer__X
- 0003:001E40A0       mbuffer__Y
- 0003:001E40A4       mbuffer__XOffset
- 0003:001E40A8       mbuffer__YOffset
  0003:001E40AC       W?minfo$n$mouse_info$$
- 0003:001E40B4       minfo__XSpriteOffset
- 0003:001E40B8       minfo__YSpriteOffset
- 0003:001E40BC       minfo__Sprite
  0003:001E50BC       W?redraw_active_lock$nul
  0003:001E50C0       W?mouse_initialised$nul
  0003:001E50C4       W?mouse_mickey_x$nys
@@ -5550,32 +5754,58 @@
  0003:001E50C8       W?mouse_dx$nyl
  0003:001E50CC       W?mouse_dy$nyl
  0003:001E50D0       W?mouse_pos_change_saved$nul
+ 0003:001E50D4       W?fade_to_pal$n[]uc
+ 0003:001E53D4       W?fade_from_pal$n[]uc
+ 0003:001E56D4       W?fade_count$nl
  0003:001E56D8       W?fade_started$nuc
  0003:001E5A2C       _smack_draw_callback
+ 0003:001E5A30       _FullDIG_INIPath
+ 0003:001E5AC0       _FullMDI_INIPath
  0003:001E5B50       _SoundDataPath
+ 0003:001E5BE0       _SoundDriverPath
+ 0003:001E5C70       current_SB16_left_master_volume
+ 0003:001E5C72       current_SB16_right_master_volume
+ 0003:001E5C74       old_SB16_left_midi_volume
+ 0003:001E5C76       old_SB16_right_midi_volume
+ 0003:001E5C78       old_SB16_left_digi_volume
+ 0003:001E5C7A       old_SB16_right_digi_volume
+ 0003:001E5C7C       old_SB16_left_treble_volume
+ 0003:001E5C7E       old_SB16_right_treble_volume
+ 0003:001E5C80       old_SB16_left_bass_volume
+ 0003:001E5C82       old_SB16_right_bass_volume
  0003:001E5C84       sb16_mixer_set
  0003:001E5C88       W?CurrentCDTrack$nus
  0003:001E5C8C       W?TrackLength$nul
  0003:001E5C90       W?CDCountdown$nyul
  0003:001E5C94       W?CDTimerActive$nyuc
  0003:001E5C98       W?CDCount_handle$nl
- 0003:001E5CA4       W?OldInt$npf()v_0
+ 0003:001E5CA4       W?OldInt2$npf()v
  0003:001E5CAC       W?sound_bank_size_info$n$SoundBankSizes$$
  0003:001E5CF4       W?largest_dat_size$nl
  0003:001E5CF8       W?largest_tab_size$nl
  0003:001E5CFC       W?full_sound_data_path$n[]a
+ 0003:001E5DDC       W?music_bank_size_info$n$MusicBankSizes$$
+ 0003:001E5DFC       W?full_music_data_path$n[]a
  0003:001E5E8C       W?cur_flag$:.0$:?LbScreenSetDoubleBuffering$n(ul)ulnul
  0003:001E5E90       W?cur_flag$:.0$:?LbScreenSetWScreenInVideo$n(ul)ulnul
  0003:001E5E94       _lbScreenDirectAccessActive
+ 0003:001E5E98       lbScreenInitialised
  0003:001E5E9C       _lbVesaBytesPerLine
  0003:001E5E9E       _lbVesaHRes
  0003:001E5EA0       _lbVesaVRes
  0003:001E5EA4       _lbVesaData
  0003:001E5EA8       _lbVesaPage
+ 0003:001E5EAC       _DangerMusicFadeRelease
+ 0003:001E5EB0       lbTextJustifyWindow
+ 0003:001E5EC4       lbTextClipWindow
  0003:001E5ED8       lbFontPtr
+ 0003:001E5EDC       DangerMusicVoiceMessages
+ 0003:001E5EF8       cbptr_1E5EF8
  0003:001E5F00       GRIP_Thunked
  0003:001E5F18       _realModePacket
  0003:001E5F1A       _SpwError
+ 0003:001E5F28       out_regs
+ 0003:001E5F84       a3
  0003:001E605A       vfx1_selector
  0003:001E6060       vfx1_pdosmem
  0003:001E6064       vfx1_system_cfg
@@ -5590,7 +5820,8 @@
  0003:001E6300       W?start_time$:.0$:?ipx_update$n()vnul
  0003:001E6304       W?end_time$:.0$:?ipx_update$n()vnul
  0003:001E6308       _IPXHandler
- 0003:001E630C       _IPXPlayerHeader
+ 0003:001E630C       _IPXPlayer__Header
+ 0003:001E6339       _IPXPlayer__Data
  0003:001E641C       _loggon_header
  0003:001E6449       W?player_loggon$nuc
  0003:001E644C       W?last_pkt_size$nl
@@ -5599,9 +5830,9 @@
  0003:001E6950       W?ipx_got_player_send_packet_count$n[]ul
  0003:001E6970       W?datagram_backup$n[]$IPXDatagramBackup$$
  0003:001E7AA0       W?start_time$:.0$:?ipx_update_2$n()vnul
+ 0003:001E7AA4       W?end_time$:.0$:?ipx_update_2$n()vnul
  0003:001E7ABE       str1
- 0003:001E7AC7       W?end_time$:.0$:?ipx_update_2$n()vnul
- 0003:001E7D9C       _IPXHandler_0
+ 0003:001E7D9C       _RADICAHandler
  0003:001E8128       W?start_time$:.0$:?run_exchange_func$n()lnul
  0003:001E812C       W?end_time$:.0$:?run_exchange_func$n()lnul
  0003:001E813C       W?ModemResponseString$n[]a
@@ -5609,7 +5840,10 @@
  0003:001E81DC       W?g_count$nul
  0003:001E85E8       W?error_log_initialised$nul
  0003:001E85EC       W?error_log$n$TbLog$$
- 0003:001E86BC       _LowSoundVolPanAddr
+ 0003:001E86B0       _msstimer
+ 0003:001E86B4       _lasttimer
+ 0003:001E86BC       _MSSTimerPeriod
+ 0003:001E86C0       _MSSSpeed
  0003:001E86D0       _LowSoundPurgeAddr
  0003:001E86D4       _LowSoundCheckAddr
  0003:001E86D8       _LowSoundPlayedAddr
@@ -5627,6 +5861,9 @@
  0003:001E8B18       _SoundType
  0003:001E8B1C       _SoundDriver
  0003:001E8B20       _AILStartupAlreadyInitiated
+ 0003:001E8B24       _SampleRate
+ 0003:001E8B28       W?ive_got_an_sb16$nuc
+ 0003:001E8B34       _SoundInstallChoice
  0003:001E8C4C       W?music_allocated$nl
  0003:001E8C50       _UseCurrentAwe32Soundfont
  0003:001E8C51       _MusicInstalled
@@ -5634,38 +5871,50 @@
  0003:001E8C5A       _CurrentTempo
  0003:001E8C5C       _SongCurrentlyPlaying
  0003:001E8C5E       _NumberOfSongs
- 0003:001E8C60       _Music
- 0003:001E8C64       _EndMusic
- 0003:001E8C68       _MusicData
+ 0003:001E8C60       _BfMusic
+ 0003:001E8C64       _BfEndMusic
+ 0003:001E8C68       _BfMusicData
  0003:001E8C6C       _MusicDriver
  0003:001E8C70       _SongHandle
  0003:001E8C74       _DangerMusicFadeHandle
  0003:001E8C78       _Awe32SoundfontLoaded
  0003:001E8C79       _DisableLoadMusic
- 0003:001E8C7A       W?midi_device_type$nuc
+ 0003:001E8C7A       W?ive_got_an_awe32$nuc
  0003:001E8C7B       _DisableDangerMusic
  0003:001E8C7C       _DangerMusicVolume
  0003:001E8C7D       _DangerMusicFadeActive
  0003:001E8C7E       _DangerMusicAble
  0003:001E8C84       _MusicInstallChoice
+ 0003:001E8D9C       W?sound_timer$n[]$sound_timer_inf$$
+ 0003:001E8DB8       W?out$:.0$:?findfirstfile$n(pnapna)pnan[]a
  0003:001E8E48       _StreamedSoundAble
  0003:001E8E49       _CDSpeed
  0003:001E8E4C       W?sample_handle$npn$_SAMPLE$$
+ 0003:001E8E50       W?sample_directory$n[]a
  0003:001E8F50       W?sample_sign$nul
  0003:001E8F54       W?sample_format$nul
  0003:001E8F58       W?sample_rate$nus
  0003:001E8F5C       W?loop_count$nl
+ 0003:001E8F60       W?ssnd_buffer$n[]pnuc
+ 0003:001E8F68       W?temp_buffer$npnuc
+ 0003:001E8F6C       W?adpcm_source_buffer$npnuc
  0003:001E8F70       W?adpcm_file_open$nl
+ 0003:001E8F74       W?adpcm_source_size$nl
+ 0003:001E8F78       W?adpcm_dest_size$nl
  0003:001E8F7C       W?stream_flags$nl
  0003:001E8F80       W?block_count$nl
  0003:001E8F84       W?position_offset$nl
  0003:001E8F88       W?pan_position$nl
  0003:001E8F8C       W?pan_rate$nl
  0003:001E8F90       W?pan_target$nl
- 0003:001E8FA0       _file
+ 0003:001E8F94       W?mixer_buffer$npns
+ 0003:001E8F98       W?mixed_file_open$nuc
+ 0003:001E8F9C       W?session_active$nuc
+ 0003:001E8FA0       _AIL_debugfile
  0003:001E8FA4       _AIL_debug
  0003:001E8FA8       _AIL_sys_debug
  0003:001E8FB4       _AIL_indent
+ 0003:001E8FC4       ailstart_loctime
  0003:001E90EC       W?current_da_track$nus
  0003:001E9104       W?track_start_sector$n[]ul
  0003:001E9290       W?track_lengths$n[]ul
@@ -5705,6 +5954,7 @@
  0003:001EA47D       ___fheap_clean
  0003:001EA480       _errno
  0003:001EA484       __doserrno
+ 0003:001ED344       a5
  0003:001ED5AC       ____Argc
  0003:001ED5B0       ____Argv
  0003:001ED5B4       splitprm_var1
@@ -5713,20 +5963,67 @@
  0003:001ED5E4       _lasttimerread
  0003:001ED5E8       _SmackTimerDoneAddr
  0003:001ED5F0       W?sbkHandle$nl
- 0003:001ED5F4       W?buffer$npfuc
- 0003:001ED5FC       W?preset$npfuc
- 0003:001ED604       W?data$npf$__38rogeSF_DATA$$
+ 0003:001ED5F4       W?awe_buffer$npfuc
+ 0003:001ED5F8       awe_buffer_sel
+ 0003:001ED5FC       W?awe_preset$npfuc
+ 0003:001ED600       awe_preset_sel
+ 0003:001ED604       W?awe_data$npf$__38rogeSF_DATA$$
+ 0003:001ED608       awe_data_sel
  0003:001ED624       W?no_samples$nl
  0003:001ED628       W?samples_per_block$nl
  0003:001ED62C       W?samples_processed$nl
  0003:001ED630       W?coeffs$n[]$ADPCMCoef$$
+ 0003:001ED6AC       AIL_driver_m1
+ 0003:001ED6B0       AIL_driver
+ 0003:001ED6F0       AIL_error
+ 0003:001ED7F0       AIL_last_IO_attempt
+ 0003:001ED808       AIL_flags
+ 0003:001ED80C       AIL_preference__DIG_SERVICE_RATE
+ 0003:001ED810       AIL_preference__DIG_HARDWARE_SAMPLE_RATE
+ 0003:001ED814       AIL_preference__DIG_DMA_RESERVE
+ 0003:001ED818       AIL_preference__DIG_LATENCY
+ 0003:001ED81C       AIL_preference__DIG_MIXER_CHANNELS
+ 0003:001ED820       AIL_preference__5
+ 0003:001ED824       AIL_preference__DIG_RESAMPLING_TOLERANCE
+ 0003:001ED828       AIL_preference__DIG_USE_STEREO
+ 0003:001ED82C       AIL_preference__DIG_USE_16_BITS
+ 0003:001ED830       AIL_preference__DIG_ALLOW_16_BIT_DMA
+ 0003:001ED834       AIL_preference__DIG_SS_LOCK
+ 0003:001ED838       AIL_preference__MDI_SERVICE_RATE
+ 0003:001ED83C       AIL_preference__MDI_SEQUENCES
+ 0003:001ED840       AIL_preference__MDI_DEFAULT_VOLUME
+ 0003:001ED844       AIL_preference__MDI_QUANT_ADVANCE
+ 0003:001ED848       AIL_preference__MDI_ALLOW_LOOP_BRANCHING
+ 0003:001ED84C       AIL_preference__MDI_DEFAULT_BEND_RANGE
+ 0003:001ED850       AIL_preference__AIL_SCAN_FOR_HARDWARE
+ 0003:001ED854       AIL_preference__AIL_ALLOW_VDM_EXECUTION
  0003:001ED870       loctm_var1
  0003:001ED894       asciitm_var1
+ 0003:001ED8C4       dig
+ 0003:001ED8CC       SS_serve_flags
+ 0003:001ED8E0       MDI_ptr
+ 0003:001ED8E4       MDI_event
+ 0003:001ED8E8       MDI_status
+ 0003:001ED8EC       MDI_len
+ 0003:001ED8F0       MDI_type
+ 0003:001ED8F4       MDI_channel
+ 0003:001ED8F8       MDI_S
+ 0003:001ED8FC       MDI_i
+ 0003:001ED900       MDI_j
+ 0003:001ED904       MDI_n
+ 0003:001ED908       MDI_q
+ 0003:001ED90C       MDI_t
+ 0003:001ED910       MDI_sequence_done
  0003:001EDB2C       W?EAL_pr$n$REGS$$
  0003:001EDB48       W?EAL_rmr$n$realmode_registers$$
  0003:001EDB7A       W?EAL_realmode_segment$nus
  0004:001F0000       tabwidth
  0004:001F0004       font
+ 0004:001F0350       alpha_scale_up
+ 0004:001F0354       alpha_xsteps_array
+ 0004:001F0754       alpha_ysteps_array
  0004:001F0B54       scale_up
+ 0004:001F0B58       xsteps_array
+ 0004:001F1358       ysteps_array
 
 Program entry point at 0001:000D581C
