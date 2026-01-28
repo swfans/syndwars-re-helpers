@@ -17,8 +17,8 @@
  0001:00010CA0       unkn_truce_groups
  0001:00010F10       fill_netgame_agent_pos
  0001:00010F94       place_multiplayer_agent_groups
- 0001:000110EC       do_weapon_quantities_proper1
- 0001:00011428       do_weapon_quantities1
+ 0001:000110EC       player_agent_set_weapon_quantities_proper
+ 0001:00011428       player_agent_set_weapon_quantities_max
  0001:00011560       place_single_player
  0001:000116A4       simulated_level
  0001:00011860       update_group_actions
@@ -193,11 +193,11 @@
  0001:000354AC       load_pop_sprites_lo
  0001:00035540       load_pop_sprites_hi
  0001:000355CC       load_multicolor_sprites
- 0001:00035644       smack_mfree
- 0001:00035648       unused_func_097
+ 0001:00035644       opti_smack_mfree
+ 0001:00035648       smack_malloc_setup
  0001:0003565C       W?setup_host$n()v
  0001:0003595C       W?host_reset$n()v
- 0001:000359C0       smack_malloc
+ 0001:000359C0       opti_smack_malloc
  0001:000359E0       smack_malloc_free_all
  0001:000359F0       LbIffSave_
  0001:00036200       W?get_highest_file_no$n(pnaucpna)ul
@@ -212,7 +212,7 @@
  0001:00038CE8       process_send_person
  0001:00038DC8       check_panel_button
  0001:0003A260       process_panel_state
- 0001:0003AA04       process_mouse_imputs
+ 0001:0003AA04       process_mouse_inputs
  0001:0003B5A4       game_graphics_inputs
  0001:0003BAE4       init_game_controls
  0001:0003BBD8       font_word_length
@@ -226,8 +226,8 @@
  0001:0003D700       read_palette_file
  0001:0003D72C       draw_game
  0001:0003D820       init_game
- 0001:0003D904       func_3d904
- 0001:0003D9D8       game_process_sub08
+ 0001:0003D904       scene_post_effect_rain_init
+ 0001:0003D9D8       water_droplets_on_floor
  0001:0003DB94       scene_post_effect_prepare
  0001:0003DC00       copy_from_screen_ani
  0001:0003DC68       joy_input
@@ -263,8 +263,11 @@
  0001:00041A70       free_texturemaps
  0001:00041A80       veh_add
  0001:00041EC0       find_face_texture
+ 0001:00041F44       find_floor_texture
  0001:00041FDC       unused_func_018
  0001:00042060       unused_func_019
+ 0001:000420F8       obj_face4_create_normal
+ 0001:000421AC       obj_face3_create_normal
  0001:0004230C       calc_object_height
  0001:00042380       update_texture_from_anim_tmap
  0001:00042404       setup_screen_mode
@@ -385,8 +388,8 @@
  0001:000502F8       person_drop_item
  0001:000505B0       person_init_drop
  0001:00050634       person_init_drop_special
- 0001:000506F0       unused_func_110
- 0001:00050834       unused_func_111
+ 0001:000506F0       unused_person_select_uzi
+ 0001:00050834       unused_person_wait_for_select_uzi
  0001:0005084C       person_save_victim
  0001:00050898       person_goto_person_nav
  0001:00050CD4       person_persuade_person
@@ -401,7 +404,7 @@
  0001:00051C04       limit_mood
  0001:00051CA4       process_stamina
  0001:00051D5C       check_persons_target
- 0001:00051E5C       unused_func_113
+ 0001:00051E5C       unused_person_check_target_in_range
  0001:00051EC8       check_persons_target2
  0001:00051FA4       get_soul
  0001:00052020       process_soul
@@ -446,7 +449,7 @@
  0001:00056B88       process_intelligent_door
  0001:00056D20       process_burning_static
  0001:00056D5C       process_static
- 0001:00056DD8       unused_inlined_func_114
+ 0001:00056DD8       unkn_full_update_lights
  0001:00056E34       build_same_type_headers
  0001:00056FAC       process_shield
  0001:000570D0       process_time_travel
@@ -497,7 +500,7 @@
  0001:0005AF44       is_it_a_crap_weapon
  0001:0005AF6C       make_peeps_scatter
  0001:0005B2FC       kill_my_players
- 0001:0005B370       unused_func_339
+ 0001:0005B370       unused_vehicle_set_flag01000000
  0001:0005B3B0       unused_func_338
  0001:0005B410       unused_func_340
  0001:0005B440       unused_func_115
@@ -548,6 +551,7 @@
  0001:0006016C       unused_func_131
  0001:000601FC       create_unkn_building_subtp27
  0001:000602A4       unused_func_132
+ 0001:0006031C       copy_prim_obj_to_game_object
  0001:000609C4       alt_at_point
  0001:00060AC4       move_camera
  0001:00060BC4       track_player
@@ -775,7 +779,7 @@
  0001:0007C358       unused_func_171
  0001:0007C3B8       unused_func_172
  0001:0007C430       process_tank_turret
- 0001:0007C5C0       unused_func_173
+ 0001:0007C5C0       unused_vehicle_rotate
  0001:0007C624       process_vehicle
  0001:0007CDE4       init_vehicle_explode
  0001:0007CFC0       track_target
@@ -907,12 +911,12 @@
  0001:00088E88       create_crater
  0001:00088F14       unused_func_191
  0001:00088FF0       is_that_a_sea_texture
- 0001:0008907C       unkstruct03_do_iteration
+ 0001:0008907C       process_map_crater
  0001:00089CEC       unused_func_024
  0001:00089D90       unused_func_025
  0001:00089E94       unused_func_192
  0001:00089F90       unused_func_026
- 0001:0008A1EC       unkstruct03_process
+ 0001:0008A1EC       process_map_craters
  0001:0008A220       sea_texture
  0001:0008A2BC       quick_crater
  0001:0008C4C0       reset_buffered_keys
@@ -944,7 +948,7 @@
  0001:000930DC       show_unkn21_box
  0001:00093F30       show_audio_volume_box
  0001:00094844       show_audio_tracks_box
- 0001:00094990       show_netgame_unkn1
+ 0001:00094990       show_options_visual_main_box
  0001:00094F08       show_menu_storage_slots_box
  0001:00095910       show_world_landmap_box
  0001:00096F80       display_weapon_info
@@ -1146,7 +1150,7 @@
  0001:000BEBC0       mech_unkn_func_20
  0001:000BED94       unused_func_214
  0001:000BEE30       init_mech_explode
- 0001:000BEF90       process_unkn35
+ 0001:000BEF90       process_unkn35_crashing
  0001:000BF050       count_fnavs
  0001:000BF14C       W?navi_onscreen_debug$n(l)v
  0001:000BF1FC       init_my_paths
@@ -1254,19 +1258,20 @@
  0001:000CC058       unused_func_224
  0001:000CC0D4       func_cc0d4
  0001:000CC4E8       unused_sub_CC4E8
+ 0001:000CC59C       func_cc59c
  0001:000CC900       init_outro
  0001:000CCD10       is_mission_active_in_city
  0001:000CCE8C       reinit_starting_credits
  0001:000CCEE8       my_net_session_callback
- 0001:000CCF00       is_unkn_current_player
- 0001:000CCF28       net_unkn_func_29
+ 0001:000CCF00       net_local_player_hosts_the_game
+ 0001:000CCF28       net_grpaint_draw_op
  0001:000CD028       unused_func_225
  0001:000CD0AC       net_unkn_func_30
  0001:000CD2EC       net_unkn_func_31
  0001:000CD528       net_unkn_func_32
  0001:000CD7EC       net_unkn_func_33
  0001:000CE5A8       check_buy_sell_button
- 0001:000CE7C8       font_height
+ 0001:000CE7C8       my_char_height
  0001:000CE93C       update_flic_mods
  0001:000CEA50       init_next_blokey_flic
  0001:000CEE8C       draw_blokey_body_mods
@@ -1452,7 +1457,7 @@
  0001:000E1DCE       GrInitialize_8
  0001:000E1F66       GrInitialize_9
  0001:000E216C       joy_func_066
- 0001:000E226C       joy_func_065
+ 0001:000E226C       joy_update_inputs
  0001:000E279F       GrRefresh_1
  0001:000E283B       GrGetClassMap_2
  0001:000E285A       GrGetValue_1
@@ -2970,6 +2975,7 @@
  0001:00128380       draw_trigpoly_
  0001:0012B820       gpoly_divtable
  0001:0012D830       LbSpriteDraw_1
+ 0001:00132428       jpt_12D9D7
  0001:00133828       LbSpriteDraw_2
  0001:0013496C       jpt_133947
  0001:00135190       DrawAlphaSpriteUsingScalingData_
@@ -3256,7 +3262,7 @@
  0001:0013CF60       _SmackRemapTables
  0002:00000000       ser_start_
  0002:00000002       com_port
- 0002:00000004       func_body
+ 0002:00000004       ser_start_body
  0002:0000007D       sdebugColors
  0003:00150100       poly_screen
  0003:00150104       _vec_screen
@@ -3370,7 +3376,7 @@
  0003:0015335C       angle_direction
  0003:0015337C       unkn01_maskarr
  0003:00153398       follow_dist
- 0003:001533A8       W?unk02_load_files$n__$TbLoadFiles$$
+ 0003:001533A8       missionspr_load_files
  0003:0015363C       aSyn2PrototypeEngine
  0003:00153654       car_glare
  0003:00153774       master_glare
@@ -5016,6 +5022,8 @@
  0003:0016227E       __end_TI
  0003:00162280       _fade_table
  0003:00164A80       _fade_table_p_x2800
+ 0003:00165280       _fade_table_p_x3000
+ 0003:00165A80       _fade_table_p_x3800
  0003:00166280       _ghost_table
  0003:00176280       _colour_table_tail
  0003:00176B7E       netgame_agent_pos_x_m2
@@ -5032,7 +5040,7 @@
  0003:00176D08       tnext_floor_texture
  0003:00176D50       engn_yc
  0003:00176D58       engn_anglexz
- 0003:00176D90       p_thing_on_face
+ 0003:00176D90       thing_on_face
  0003:00176E3C       save_mortal_salt
  0003:00176E40       save_hashtbl_01
  0003:00176F20       save_hashtbl_02
@@ -5043,12 +5051,15 @@
  0003:00177100       language_3str
  0003:00177104       packet_rec_fh
  0003:00177108       smack_malloc_used_tot
+ 0003:0017710C       engn_x_vel
+ 0003:00177110       engn_y_vel
  0003:00177118       last_sel_agent_turn
  0003:0017712D       mission_result
  0003:00177130       game_speed
  0003:00177134       my_build_packet
  0003:00177138       mouser
- 0003:0017713B       unkn_player_groups
+ 0003:0017713B       unkn_player_groups_m1_GroupActive
+ 0003:0017713C       unkn_player_groups
  0003:00177484       unknmsg_str
  0003:00177740       navi2_unkn_counter
  0003:00177744       engine_mem_alloc_ptr
@@ -5096,7 +5107,7 @@
  0003:001807E0       ingame__Scanner
  0003:00180C47       ingame__Credits
  0003:00180C4B       ingame__fld_unkC4B
- 0003:00180C4F       ingame__fld_unkC4F
+ 0003:00180C4F       ingame__MissionEndFade
  0003:00180C51       ingame__MissionStatus
  0003:00180C53       ingame__Flags
  0003:00180C57       ingame__fld_unkC57
@@ -5139,9 +5150,11 @@
  0003:00180CBF       ingame__UserFlags
  0003:00180CC1       ingame__CashAtStart
  0003:00180CC5       ingame__Expenditure
- 0003:00180CC9       player_unknCC9
- 0003:001810C9       player_unkn0C9
- 0003:001810DA       brightness
+ 0003:00180CC9       player_message_text
+ 0003:001810C9       player_message_timer
+ 0003:001810D1       tmaps_extra_buf
+ 0003:001810D5       tmaps_extra_len
+ 0003:001810DA       user_sel_brightness
  0003:001810E4       game_level_unique_id
  0003:001810E6       game_level_unkn1
  0003:0018110E       game_level_unkn2
@@ -5156,7 +5169,7 @@
  0003:00181184       login_control__Money
  0003:00181188       login_control__City
  0003:001811A8       nsvc
- 0003:001811F2       unkn_flags_08
+ 0003:001811F2       net_game_play_flags
  0003:001816A4       objective_text
  0003:0018194C       ex_faces
  0003:0018D14C       shrapnel
@@ -5185,15 +5198,15 @@
  0003:0019CBDC       W?pop1_sprites$n[]pn$TbSprite$$
  0003:0019CBE0       W?pop1_sprites_end$n[]pn$TbSprite$$
  0003:0019CBE4       W?pop1_data$n[]ul
- 0003:0019CBE8       fe_icons0_sprites
- 0003:0019CBEC       fe_icons0_sprites_end
- 0003:0019CBF0       fe_icons0_sprites_data
+ 0003:0019CBE8       fe_icons_sprites
+ 0003:0019CBEC       fe_icons_sprites_end
+ 0003:0019CBF0       fe_icons_sprites_data
  0003:0019CBF4       fe_mouseptr_sprites
  0003:0019CBF8       fe_mouseptr_sprites_end
  0003:0019CBFC       fe_mouseptr_sprites_data
- 0003:0019CC00       unk1_sprites
- 0003:0019CC04       unk1_sprites_end
- 0003:0019CC08       unk1_sprites_data
+ 0003:0019CC00       wepicons_sprites
+ 0003:0019CC04       wepicons_sprites_end
+ 0003:0019CC08       wepicons_sprites_data
  0003:0019CC1C       fepanel_sprites
  0003:0019CC20       fepanel_sprites_end
  0003:0019CC24       fepanel_sprites_data
@@ -5217,6 +5230,7 @@
  0003:0019EC6A       tnext_draw_item
  0003:0019EC6C       tnext_sort_sprite
  0003:0019EC6E       keyboard_mode_direct
+ 0003:0019EC6F       engine_render_lights
  0003:0019EC71       game_perspective
  0003:0019EC72       unkn_flags_01
  0003:0019EC76       display_mode
@@ -5232,6 +5246,11 @@
  0003:0019F198       group_actions
  0003:0019F430       mission_open
  0003:0019F494       mission_state
+ 0003:0019F4F8       nuclear_overexposure
+ 0003:0019F4FC       engn_nuclear_shade_timer
+ 0003:0019F500       engn_nuclear_shade_x
+ 0003:0019F504       engn_nuclear_shade_y
+ 0003:0019F508       engn_nuclear_shade_z
  0003:0019F50C       pktrec_mode
  0003:0019F50D       packet_rec_no
  0003:0019F510       game_anim_tmaps
@@ -5319,23 +5338,29 @@
  0003:001A72BC       bangdetail__circle
  0003:001A72DC       bangdetail__sphere
  0003:001A730C       bangdetailmask
- 0003:001A7310       palette_brightness
+ 0003:001A7310       momentary_brightness
  0003:001A7318       prev_tick_time
  0003:001A731C       prev_gameturn
  0003:001A7320       curr_tick_time
  0003:001A7324       active_flags_general_unkn01
  0003:001A7328       sprite_over_16x16
  0003:001A732C       navi2_unkn_counter_max
+ 0003:001AA214       shpackets
  0003:001AA26C       unkn_changing_color_counter1
+ 0003:001AA270       colour_lookup_lock
  0003:001AA274       vec_tmap_m1
  0003:001AA278       vec_tmap
- 0003:001AA2F8       ingame__Tmaps
+ 0003:001AA2F8       tmaps_alloc_start
+ 0003:001AA320       old_next_object
+ 0003:001AA322       old_next_object_face
+ 0003:001AA326       old_next_object_point
+ 0003:001AA328       old_next_normal
+ 0003:001AA32A       old_next_face_texture
  0003:001AA334       was_locked
  0003:001AA3B8       unkn01_downcount
  0003:001AA3BC       unkn01_pos_x
  0003:001AA3C0       unkn01_pos_y
  0003:001AA3C4       redo_scanner
- 0003:001AA3C5       y1
  0003:001AA5E8       minimum_explode_size
  0003:001AA5EC       minimum_explode_and
  0003:001AA5F0       minimum_explode_depth
@@ -5402,9 +5427,10 @@
  0003:001C3AD8       fringe_y2
  0003:001C3ADC       fringe_map
  0003:001C42FC       crater_unkn_texture_flags
- 0003:001C4304       unkstruct03_arr
- 0003:001C4768       unkstruct03_first
- 0003:001C476A       unkstruct03_last
+ 0003:001C4304       map_craters
+ 0003:001C4704       map_cratunkn2
+ 0003:001C4768       map_crater_first
+ 0003:001C476A       map_crater_last
  0003:001C4774       W?oinkey$:.0$:?KInt$f()vnuc
  0003:001C4778       buffered_keys
  0003:001C47B8       buffered_keys_write_index
@@ -5433,6 +5459,7 @@
  0003:001C4990       clear_right_button
  0003:001C4991       simulated_mouse_click
  0003:001C4992       replay_intro_timer
+ 0003:001C4995       net_autostart_done
  0003:001C4998       net_unkn2_text
  0003:001C49AC       unkn2_names
  0003:001C4A2C       new_weapons_researched
@@ -5443,6 +5470,7 @@
  0003:001C4A6E       game_gfx_deep_radar
  0003:001C4A74       hotspot_buffer
  0003:001C4A78       back_buffer
+ 0003:001C4A7C       net_service_started
  0003:001C4A7D       change_screen
  0003:001C4A7E       restore_savegame
  0003:001C4A80       startscr_samplevol
@@ -5611,7 +5639,7 @@
  0003:001C855E       VNAV_route__route
  0003:001C8658       veh_ma_heap
  0003:001CAB60       scanner_next_key_no
- 0003:001CAB64       SCANNER_pal_bright
+ 0003:001CAB64       low_trans_grey_pal_bright
  0003:001CAF88       SCANNER_map
  0003:001CB064       SCANNER_dw064
  0003:001CB068       SCANNER_dw068
@@ -5626,7 +5654,7 @@
  0003:001CB086       SCANNER_bri_con
  0003:001CB087       SCANNER_bt087
  0003:001CB088       SCANNER_data
- 0003:001DB088       SCANNER_bright_limit
+ 0003:001DB088       low_trans_grey_bright_limit
  0003:001DB188       SCANNER_width
  0003:001DB18C       SCANNER_people_colours
  0003:001DB19C       SCANNER_keep_arcs
@@ -5682,6 +5710,7 @@
  0003:001DDB5C       outro_unkn02
  0003:001DDB60       outro_unkn03
  0003:001DDB64       people_groups_count
+ 0003:001DDBF0       sessionlist_last_update
  0003:001DDC42       alert_textpos
  0003:001DDEC5       research_unkn_var_01
  0003:001DDEC6       current_frame
@@ -5838,6 +5867,7 @@
  0003:001E813C       W?ModemResponseString$n[]a
  0003:001E818C       W?ModemRequestString$n[]a
  0003:001E81DC       W?g_count$nul
+ 0003:001E81E0       netunkst_1E81E0
  0003:001E85E8       W?error_log_initialised$nul
  0003:001E85EC       W?error_log$n$TbLog$$
  0003:001E86B0       _msstimer

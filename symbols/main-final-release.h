@@ -230,7 +230,9 @@ struct ComHandlerInfo
 #pragma pack(push, 1)
 struct __attribute__((packed)) __attribute__((aligned(1))) TbSerialDev
 {
-  char field_0[2198];
+  char field_0[2];
+  __int16 field_2;
+  char field_4[2194];
   char inbuf[2048];
   __int16 field_1096;
   __int16 field_1098;
@@ -508,15 +510,16 @@ struct TngUVehicle
   unsigned __int16 destz;
 };
 
-/* 90 */
-struct TngUEffect
+/* 264 */
+#pragma pack(push, 1)
+struct __attribute__((aligned(2))) TngUEffect
 {
   unsigned __int16 MaxSpeed;
   __int16 ReqdSpeed;
   unsigned __int8 Group;
   unsigned __int8 EffectiveGroup;
   __int16 Object;
-  __int16 WeaponTurn;
+  __int16 MatrixIndex;
   unsigned __int8 NumbObjects;
   unsigned __int8 Angle;
   unsigned __int16 PassengerHead;
@@ -529,9 +532,10 @@ struct TngUEffect
   __int16 GotoY;
   __int16 GotoZ;
   __int16 VehicleAcceleration;
-  __int16 MatrixIndex;
+  __int16 MatrixIndexBAD;
   __int16 LeisurePlace;
 };
+#pragma pack(pop)
 
 /* 73 */
 union Mod
@@ -881,7 +885,8 @@ struct NetworkServiceInfo
   struct TbSerialDev *Id;
   __int16 GameId;
   __int16 Type;
-  int Flags;
+  __int16 Flags;
+  __int16 Param;
 };
 #pragma pack(pop)
 
@@ -1030,7 +1035,7 @@ struct SimpleThing
   __int16 State;
   int Flag;
   __int16 LinkSame;
-  __int16 Object;
+  __int16 Object_Range;
   __int16 Radius;
   __int16 ThingOffset;
   int X;
@@ -1041,7 +1046,7 @@ struct SimpleThing
   __int16 Timer1;
   __int16 StartTimer1;
   SimpleThingUnion U;
-  __int16 field_38;
+  __int16 Owner2;
   __int16 UniqueID;
 };
 #pragma pack(pop)
@@ -1090,7 +1095,7 @@ struct ScreenTextBox
   struct ScreenInfoBox *Infos[2];
   __int16 TextTopLine;
   __int16 TextFadePos;
-  __int16 Flags;
+  unsigned __int16 Flags;
   unsigned __int8 Colour1;
   unsigned __int8 BGColour;
   char LineHeight;
@@ -2067,7 +2072,8 @@ struct AnimTmap
   unsigned __int16 Flags;
   char field_22;
   char field_23;
-  char field_24[17];
+  __int16 field_24;
+  char field_26[15];
   char field_35;
 };
 #pragma pack(pop)
@@ -2808,13 +2814,15 @@ enum DisplayMode : __int16
 };
 
 /* 170 */
-struct UnknStruct03
+#pragma pack(push, 1)
+struct MapCreater
 {
-  __int16 anonymous_0;
-  __int16 anonymous_1;
-  __int16 anonymous_2;
-  __int16 iterations;
+  __int16 MapX;
+  __int16 MapY;
+  __int16 Depth;
+  __int16 Iterations;
 };
+#pragma pack(pop)
 
 /* 172 */
 #pragma pack(push, 1)
@@ -3627,12 +3635,21 @@ struct NetPlayer2
 };
 #pragma pack(pop)
 
+/* 258 */
+#pragma pack(push, 1)
+struct TbIPXOnePlayer
+{
+  char field_0[10];
+  char name[16];
+  __int16 field_1A;
+};
+#pragma pack(pop)
+
 /* 227 */
 #pragma pack(push, 1)
 struct TbIPXPlayerData
 {
-  char field_2D[26];
-  __int16 field_47[99];
+  struct TbIPXOnePlayer players[8];
   char num_players;
   char field_10E;
 };
@@ -4015,29 +4032,68 @@ struct Smack
   int extra;
   int NewPalette;
   char Palette[772];
-  int PalType;
+  int CurrFrameNum;
   int FrameNum;
   int FrameSize;
   int SndSize;
+  int LastRectxQ;
+  int OpenFlags;
   int LastRectx;
   int LastRecty;
-  int LastRectw;
-  int LastRecth;
-  int OpenFlags;
-  int LeftOfs;
-  int TopOfs;
-  int LargestFrameSize;
-  int Highest1SecRate;
+  int field_390;
+  int FHandle;
+  int IOBufferSize;
+  void *UnkBuf39C;
+  void *Highest1SecRate;
   int Highest1SecFrame;
   int ReadError;
-  int addr32;
-  char field_3B0[84];
+  void *IOBuffer;
+  void *field_3B0;
+  int field_3B4;
+  __int32 *field_3B8;
+  unsigned __int8 *TrackTable;
+  char field_3C0[32];
+  int field_3E0;
+  int field_3E4;
+  int field_3E8;
+  char field_3EC[16];
+  int field_3FC;
+  int MS100PerFrame;
   struct SmackSndTrk *Unkn404PerTrack[7];
-  char field_420[60];
-  int field_45C;
-  char field_460[24];
-  char field_478[50];
-  __int16 field_4AA;
+  int field_420;
+  char field_424[8];
+  int field_42C;
+  int field_430;
+  int field_434;
+  int field_438;
+  int field_43C;
+  int field_440;
+  int field_444;
+  int UnkReadTime1;
+  int LastReadTime;
+  int UnkReadTime2;
+  int TotalBackReadTime;
+  int field_458;
+  int AllocdMemAmount;
+  int FrameStartTime;
+  int DecompStartTime;
+  int BlitStartTime;
+  int StartTime;
+  int TotalOpenTime;
+  int FirstReadTime;
+  int TotalFrames;
+  int SkippedFrames;
+  int TotalBlitTime;
+  int TotalDecompTime;
+  int SlowestFrameTime;
+  int Slowest2FrameTime;
+  int SlowestFrameNum;
+  int Slowest2FrameNum;
+  int AverageFrameSize;
+  int HighestMemAmount;
+  int SimSpeed;
+  int Highest1SecRate_2;
+  int field_4A8;
 };
 #pragma pack(pop)
 
@@ -4045,7 +4101,11 @@ struct Smack
 #pragma pack(push, 1)
 struct SmackSndTrk
 {
-  int field_0[5];
+  int field_0;
+  int field_4;
+  int field_8;
+  int field_C;
+  int field_10;
   int field_14;
   int field_18[7];
   struct SmackSndTrk *next;
@@ -4056,9 +4116,10 @@ struct SmackSndTrk
   int field_48;
   int field_4C;
   int field_50;
-  void *field_54;
-  int field_58;
-  int field_5C[3];
+  void *field_54[2];
+  int field_5C;
+  int field_60;
+  int field_64;
   int field_68;
   int field_6C;
 };
@@ -4131,10 +4192,10 @@ struct UnkFLight
 #pragma pack(push, 1)
 struct __attribute__((packed)) __attribute__((aligned(1))) UnkPlayerGroup
 {
-  char GroupActive;
   unsigned __int8 AgentWeapons[4];
   __int16 AgentOwners[4];
   __int16 AgentMoods[4];
+  char GroupActive;
 };
 #pragma pack(pop)
 
@@ -4213,6 +4274,129 @@ struct BillboardNBreakout
   unsigned __int8 field_1;
   unsigned __int8 field_2;
   unsigned __int8 field_3;
+};
+#pragma pack(pop)
+
+/* 259 */
+#pragma pack(push, 1)
+struct MapCreatUnkn2
+{
+  __int16 field_0;
+  __int16 field_2;
+  __int16 field_4;
+  __int16 field_6;
+  char field_8;
+  char field_9;
+};
+#pragma pack(pop)
+
+/* 260 */
+#pragma pack(push, 1)
+struct __attribute__((packed)) __attribute__((aligned(1))) TbUnknCommSt
+{
+  char field_0;
+  char field_1;
+  int field_2;
+  int field_6;
+  char field_A[127];
+  int field_89;
+  int field_8D;
+  char field_91[127];
+  int field_110;
+  char field_114[131];
+  int field_197;
+  int WriteCb;
+  int ReadCb;
+  int ExchangeCb;
+  int field_1A7;
+  int field_1AB;
+  char field_1AF[256];
+  int field_2AF;
+  int field_2B3;
+  int field_2B7;
+  char field_2BB[256];
+  char field_3BB;
+  char field_3BC;
+  char field_3BD;
+  char field_3BE;
+  char field_3BF;
+  char field_3C0;
+  char field_3C1;
+  char field_3C2;
+  char field_3C3[32];
+  char field_3E3[32];
+};
+#pragma pack(pop)
+
+/* 261 */
+enum __bitmask ThingFlags
+{
+  TngF_Unkn0001 = 0x1,
+  TngF_Destroyed = 0x2,
+  TngF_Unkn0004 = 0x4,
+  TngF_Unkn0008 = 0x8,
+  TngF_Unkn0010 = 0x10,
+  TngF_Unkn0020 = 0x20,
+  TngF_Unkn0040 = 0x40,
+  TngF_Unkn0080 = 0x80,
+  TngF_PersSupShld = 0x100,             ///< MASK
+  TngF_VehUnkn0100 = 0x100,
+  TngF_StationrSht = 0x200,
+  TngF_WepCharging = 0x400,
+  TngF_Unkn0800 = 0x800,
+  TngF_Unkn1000 = 0x1000,
+  TngF_PlayerAgent = 0x2000,
+  TngF_Unkn4000 = 0x4000,
+  TngF_Unkn8000 = 0x8000,
+  TngF_WepRecoil = 0x10000,
+  TngF_Unkn00020000 = 0x20000,
+  TngF_Unkn00040000 = 0x40000,
+  TngF_Persuaded = 0x80000,
+  TngF_Unkn00100000 = 0x100000,
+  TngF_Unkn00200000 = 0x200000,
+  TngF_Unkn00400000 = 0x400000,
+  TngF_Unkn00800000 = 0x800000,
+  TngF_Unkn01000000 = 0x1000000,
+  TngF_Unkn02000000 = 0x2000000,
+  TngF_Unkn04000000 = 0x4000000,
+  TngF_Unkn08000000 = 0x8000000,
+  TngF_InVehicle = 0x10000000,
+  TngF_Unkn20000000 = 0x20000000,
+  TngF_Unkn40000000 = 0x40000000,
+};
+
+/* 262 */
+#pragma pack(push, 1)
+struct __attribute__((packed)) __attribute__((aligned(1))) ShortPacket
+{
+  __int16 Action;
+  __int16 Data;
+  __int16 X;
+  __int16 Y;
+  __int16 Z;
+  char BCheck;
+};
+#pragma pack(pop)
+
+/* 263 */
+#pragma pack(push, 1)
+struct rectangle
+{
+  char x1;
+  char y1;
+  char x2;
+  char y2;
+};
+#pragma pack(pop)
+
+/* 265 */
+#pragma pack(push, 1)
+struct TbInputHandler
+{
+  __int16 InterruptNo;
+  __int16 field_2;
+  char field_4[128];
+  struct DevInput Input;
 };
 #pragma pack(pop)
 
